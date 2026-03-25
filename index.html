@@ -14,7 +14,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
             background-color: #FFFFFF;
-            color: #111111;
+            color: #1A1A1A;
             line-height: 1.4;
         }
 
@@ -24,43 +24,43 @@
             padding: 0 20px;
         }
 
-        /* Шапка */
+        /* Шапка с логотипом */
         .header {
-            padding: 32px 0 20px 0;
-            border-bottom: 1px solid #E5E5E5;
-            margin-bottom: 48px;
+            padding: 40px 0 20px 0;
+            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 60px;
         }
 
         .logo {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1;
+            letter-spacing: -0.3px;
         }
         .logo .zaraz {
-            color: #111;
+            color: #000;
         }
         .logo .media {
-            color: #111;
+            color: #000;
             font-weight: 700;
         }
 
         /* Герой секция */
         .hero {
-            margin-bottom: 64px;
+            margin-bottom: 80px;
         }
-        .hero h2 {
-            font-size: 48px;
+        .hero h1 {
+            font-size: 52px;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
             margin-bottom: 24px;
-            color: #111;
+            color: #000;
+            line-height: 1.2;
         }
         .hero p {
             font-size: 18px;
-            color: #444;
+            color: #4A4A4A;
             line-height: 1.5;
-            max-width: 580px;
+            max-width: 620px;
             margin-bottom: 32px;
         }
         .hero-buttons {
@@ -68,11 +68,11 @@
             gap: 16px;
         }
         .btn-primary {
-            background: #111;
-            color: white;
+            background: #F5D742;
+            color: #000;
             padding: 12px 28px;
             border-radius: 40px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
             font-size: 16px;
             display: inline-block;
@@ -81,31 +81,32 @@
             cursor: pointer;
         }
         .btn-primary:hover {
-            background: #333;
+            background: #E6C935;
+            transform: translateY(-1px);
         }
         .btn-secondary {
             background: transparent;
-            border: 1px solid #CCCCCC;
+            border: 1px solid #E0E0E0;
             padding: 12px 28px;
             border-radius: 40px;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            color: #111;
+            color: #000;
             display: inline-block;
             transition: 0.2s;
         }
         .btn-secondary:hover {
-            border-color: #111;
-            background: #f5f5f5;
+            border-color: #F5D742;
+            background: #FFFDF5;
         }
 
-        /* Статистика */
+        /* Блок статистики — серый фон */
         .stats {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            background: #F8F8F8;
-            border-radius: 24px;
+            background: #F8F9FA;
+            border-radius: 28px;
             padding: 48px 40px;
             margin-bottom: 80px;
             gap: 24px;
@@ -117,54 +118,71 @@
         .stat-number {
             font-size: 44px;
             font-weight: 700;
-            color: #111;
+            color: #F5D742;
             letter-spacing: -1px;
             margin-bottom: 8px;
         }
         .stat-label {
             font-size: 15px;
-            color: #666;
-            font-weight: 400;
+            color: #5A5A5A;
+            font-weight: 500;
         }
 
         /* Секция "Что мы делаем" */
         .section {
             margin-bottom: 80px;
         }
-        .section h3 {
-            font-size: 32px;
+        .section-header {
+            margin-bottom: 48px;
+        }
+        .section-header h2 {
+            font-size: 36px;
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 16px;
-            color: #111;
+            color: #000;
         }
-        .section-sub {
+        .section-header p {
             font-size: 18px;
-            color: #555;
+            color: #5A5A5A;
             max-width: 650px;
-            margin-bottom: 48px;
             line-height: 1.4;
         }
-        .features-list {
+
+        /* Карточки с иконками — серый фон */
+        .cards-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 48px;
+            gap: 30px;
             justify-content: space-between;
         }
-        .feature-item {
+        .card {
             flex: 1;
-            min-width: 220px;
+            background: #F8F9FA;
+            border-radius: 24px;
+            padding: 32px 28px;
+            transition: 0.2s;
+            min-width: 250px;
         }
-        .feature-item h4 {
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .card-icon {
+            font-size: 44px;
+            margin-bottom: 24px;
+            display: block;
+        }
+        .card h3 {
             font-size: 22px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
-            color: #111;
+            color: #000;
         }
-        .feature-item p {
-            color: #555;
+        .card p {
+            color: #5A5A5A;
             line-height: 1.5;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         /* Секция "Где размещаем" */
@@ -175,104 +193,141 @@
             flex-wrap: wrap;
             margin-bottom: 32px;
         }
-        .platforms-header h3 {
-            font-size: 32px;
+        .platforms-header h2 {
+            font-size: 36px;
             font-weight: 700;
             letter-spacing: -0.5px;
-            color: #111;
+            color: #000;
         }
         .link-all {
-            color: #111;
+            color: #000;
             text-decoration: none;
             font-weight: 500;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 2px solid #F5D742;
             padding-bottom: 2px;
+            font-size: 15px;
         }
         .link-all:hover {
-            border-bottom-color: #111;
-        }
-        .platforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 32px;
-            margin-top: 16px;
-            margin-bottom: 80px;
-        }
-        .platform-card {
-            border-top: 2px solid #111;
-            padding-top: 16px;
-        }
-        .platform-card h5 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #111;
-        }
-        .platform-card p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.4;
+            border-bottom-color: #000;
         }
 
-        /* Секция "Почему это работает" */
-        .reasons-grid {
+        /* Сетка площадок */
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin: 32px 0 80px;
+        }
+        .platform-card {
+            background: #F8F9FA;
+            border-radius: 20px;
+            padding: 28px 24px;
+            transition: 0.2s;
+        }
+        .platform-card:hover {
+            transform: translateY(-3px);
+            background: #FFFDF5;
+        }
+        .platform-card .platform-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .platform-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .platform-card p {
+            color: #5A5A5A;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        /* Секция "Почему это работает" — блоки с иконками */
+        .benefits-header {
+            margin-bottom: 48px;
+        }
+        .benefits-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: #000;
+        }
+        .benefits-header p {
+            font-size: 18px;
+            color: #5A5A5A;
+            max-width: 650px;
+        }
+
+        .benefits-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 48px;
+            gap: 30px;
             margin: 40px 0 80px;
             justify-content: space-between;
         }
-        .reason {
+        .benefit-card {
             flex: 1;
-            min-width: 200px;
+            background: #F8F9FA;
+            border-radius: 24px;
+            padding: 32px 28px;
+            min-width: 220px;
+            transition: 0.2s;
         }
-        .reason h4 {
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            background: #FFFDF5;
+        }
+        .benefit-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .benefit-card h3 {
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
-            color: #111;
+            color: #000;
         }
-        .reason p {
-            color: #555;
+        .benefit-card p {
+            color: #5A5A5A;
+            line-height: 1.45;
             font-size: 15px;
-            line-height: 1.5;
         }
 
         /* Футер */
         .footer {
-            border-top: 1px solid #EEEEEE;
+            border-top: 1px solid #F0F0F0;
             padding: 32px 0 48px;
-            margin-top: 40px;
+            margin-top: 20px;
             font-size: 14px;
             color: #888;
             text-align: center;
         }
 
-        hr {
-            margin: 40px 0;
-            border: none;
-            border-top: 1px solid #f0f0f0;
-        }
-
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 36px;
+            .hero h1 {
+                font-size: 38px;
             }
             .stats {
                 flex-direction: column;
                 text-align: center;
                 gap: 32px;
             }
-            .features-list {
+            .cards-grid {
                 flex-direction: column;
-                gap: 32px;
             }
-            .reasons-grid {
+            .benefits-grid {
                 flex-direction: column;
-                gap: 32px;
             }
             .platforms-grid {
-                gap: 24px;
+                gap: 20px;
+            }
+            .section-header h2 {
+                font-size: 30px;
             }
         }
     </style>
@@ -282,13 +337,13 @@
         <!-- Шапка с логотипом -->
         <div class="header">
             <div class="logo">
-                ЗАРАЗ МЕДИА
+                <span class="zaraz">ЗАРАЗ</span> <span class="media">МЕДИА</span>
             </div>
         </div>
 
-        <!-- Герой блок: заголовок, описание, кнопки -->
+        <!-- Герой блок -->
         <div class="hero">
-            <h2>Реклама в городском<br>контексте Минска</h2>
+            <h1>Реклама в городском<br>контексте Минска</h1>
             <p>ЗАРАЗ МЕДИА размещает бренды в популярных городских сообществах и у блогеров так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок.</p>
             <div class="hero-buttons">
                 <a href="#" class="btn-primary">Обсудить проект</a>
@@ -296,7 +351,7 @@
             </div>
         </div>
 
-        <!-- Блок статистики -->
+        <!-- Блок статистики с жёлтыми цифрами -->
         <div class="stats">
             <div class="stat-item">
                 <div class="stat-number">6+ лет</div>
@@ -316,70 +371,83 @@
             </div>
         </div>
 
-        <!-- Что мы делаем -->
+        <!-- Что мы делаем — блоки с иконками -->
         <div class="section">
-            <h3>Что мы делаем</h3>
-            <div class="section-sub">Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</div>
-            <div class="features-list">
-                <div class="feature-item">
-                    <h4>Нативные интеграции</h4>
+            <div class="section-header">
+                <h2>Что мы делаем</h2>
+                <p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-icon">📱✨</span>
+                    <h3>Нативные интеграции</h3>
                     <p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p>
                 </div>
-                <div class="feature-item">
-                    <h4>Работа с блогерами Минска</h4>
+                <div class="card">
+                    <span class="card-icon">🎙️🌟</span>
+                    <h3>Работа с блогерами Минска</h3>
                     <p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p>
                 </div>
-                <div class="feature-item">
-                    <h4>Городские сообщества</h4>
+                <div class="card">
+                    <span class="card-icon">🏙️📰</span>
+                    <h3>Городские сообщества</h3>
                     <p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Где размещаем -->
+        <!-- Где размещаем — блоки с иконками -->
         <div class="platforms-header">
-            <h3>Где размещаем</h3>
+            <h2>Где размещаем</h2>
             <a href="#" class="link-all">Смотреть все площадки →</a>
         </div>
         <div class="platforms-grid">
             <div class="platform-card">
-                <h5>Паблики о Минске</h5>
+                <span class="platform-icon">📌</span>
+                <h4>Паблики о Минске</h4>
                 <p>Крупные городские сообщества и районные паблики</p>
             </div>
             <div class="platform-card">
-                <h5>Городские блогеры</h5>
+                <span class="platform-icon">📸</span>
+                <h4>Городские блогеры</h4>
                 <p>Популярные инстаграм- и телеграм-авторы Минска</p>
             </div>
             <div class="platform-card">
-                <h5>Telegram-каналы</h5>
+                <span class="platform-icon">💬</span>
+                <h4>Telegram-каналы</h4>
                 <p>Новости, афиши, лайфстайл и тематические каналы</p>
             </div>
             <div class="platform-card">
-                <h5>Нишевые сообщества</h5>
+                <span class="platform-icon">🍜</span>
+                <h4>Нишевые сообщества</h4>
                 <p>Еда, спорт, бизнес, бытовые и другие сферы</p>
             </div>
         </div>
 
-        <!-- Почему это работает -->
-        <div class="section">
-            <h3>Почему это работает</h3>
-            <div class="reasons-grid">
-                <div class="reason">
-                    <h4>Реклама, которую замечают</h4>
-                    <p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p>
-                </div>
-                <div class="reason">
-                    <h4>Доверие аудитории</h4>
-                    <p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p>
-                </div>
-                <div class="reason">
-                    <h4>Точный городской контекст</h4>
-                    <p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p>
-                </div>
-                <div class="reason">
-                    <h4>Реальный результат</h4>
-                    <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
-                </div>
+        <!-- Почему это работает — блоки с иконками -->
+        <div class="benefits-header">
+            <h2>Почему это работает</h2>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">👁️</span>
+                <h3>Реклама, которую замечают</h3>
+                <p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🤝</span>
+                <h3>Доверие аудитории</h3>
+                <p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🎯</span>
+                <h3>Точный городской контекст</h3>
+                <p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">📈</span>
+                <h3>Реальный результат</h3>
+                <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
             </div>
         </div>
 
