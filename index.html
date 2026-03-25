@@ -24,24 +24,46 @@
             padding: 0 20px;
         }
 
-        /* Шапка с логотипом */
+        /* Шапка с логотипом и навигацией */
         .header {
-            padding: 40px 0 20px 0;
+            padding: 24px 0 20px 0;
             border-bottom: 1px solid #F0F0F0;
             margin-bottom: 60px;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        .logo .zaraz {
-            color: #000;
+
+        /* Логотип в виде изображения */
+        .logo-img {
+            height: 48px;
+            width: auto;
+            display: block;
         }
-        .logo .media {
-            color: #000;
-            font-weight: 700;
+
+        /* Навигация */
+        .nav {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #2C2C2C;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover {
+            color: #F5D742;
+            border-bottom-color: #F5D742;
         }
 
         /* Герой секция */
@@ -66,6 +88,7 @@
         .hero-buttons {
             display: flex;
             gap: 16px;
+            flex-wrap: wrap;
         }
         .btn-primary {
             background: #F5D742;
@@ -256,11 +279,6 @@
             margin-bottom: 16px;
             color: #000;
         }
-        .benefits-header p {
-            font-size: 18px;
-            color: #5A5A5A;
-            max-width: 650px;
-        }
 
         .benefits-grid {
             display: flex;
@@ -329,15 +347,32 @@
             .section-header h2 {
                 font-size: 30px;
             }
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav {
+                gap: 20px;
+            }
+            .logo-img {
+                height: 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Шапка с логотипом -->
+        <!-- Шапка с логотипом-изображением и навигацией -->
         <div class="header">
-            <div class="logo">
-                <span class="zaraz">ЗАРАЗ</span> <span class="media">МЕДИА</span>
+            <div class="header-inner">
+                <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
+                <div class="nav">
+                    <a href="#" class="nav-link">Наши услуги</a>
+                    <a href="#" class="nav-link">Наши проекты</a>
+                    <a href="#" class="nav-link">Кейсы</a>
+                    <a href="#" class="nav-link">О нас</a>
+                    <a href="#" class="nav-link">Контакты</a>
+                </div>
             </div>
         </div>
 
