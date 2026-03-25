@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ЗАРАЗ МЕДИА — реклама в городском контексте Минска</title>
+    <!-- Google Fonts: современный гротеск + акцентный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            color: #111;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header / навигация */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid #eaeef2;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1A2A3A 0%, #2C3E4E 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            background: none;
+            color: #111;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e2f3c;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: #0077b6;
+        }
+        .btn-outline {
+            border: 1.5px solid #1e2f3c;
+            padding: 8px 20px;
+            border-radius: 40px;
+            background: transparent;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background: #1e2f3c;
+            color: white;
+            border-color: #1e2f3c;
+        }
+
+        /* hero секция */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 0 40px 0;
+            gap: 40px;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+        .hero-badge {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #0077b6;
+            margin-bottom: 16px;
+        }
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: #0b1c2a;
+        }
+        .hero-desc {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #2c3e4e;
+            margin-bottom: 32px;
+            max-width: 550px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #0b1c2a;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background: #2c3e4e;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #b9c8d8;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #1e2f3c;
+            transition: 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: #0b1c2a;
+            background: #f5f9fe;
+        }
+
+        /* статистика */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: #f3f7fb;
+            border-radius: 40px;
+            padding: 40px 32px;
+            margin: 40px 0 60px;
+            gap: 24px;
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0b1c2a;
+            letter-spacing: -0.01em;
+        }
+        .stat-label {
+            font-size: 16px;
+            color: #4a627a;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* секции общие */
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            color: #0b1c2a;
+        }
+        .section-sub {
+            font-size: 18px;
+            color: #4a627a;
+            max-width: 680px;
+            margin-bottom: 48px;
+        }
+
+        /* что мы делаем — карточки */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 40px 0 60px;
+        }
+        .card {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 32px 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f6;
+            transition: all 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 32px rgba(0,0,0,0.05);
+        }
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+        .card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: #3a546d;
+            line-height: 1.5;
+        }
+
+        /* площадки */
+        .platforms-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .link-arrow {
+            text-decoration: none;
+            font-weight: 600;
+            color: #0077b6;
+            border-bottom: 1px solid rgba(0,119,182,0.3);
+        }
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 32px 0 60px;
+        }
+        .platform-card {
+            background: #fafcff;
+            border-radius: 28px;
+            padding: 24px 20px;
+            border: 1px solid #e6edf4;
+            transition: 0.2s;
+        }
+        .platform-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .platform-card p {
+            color: #4a627a;
+            font-size: 0.95rem;
+        }
+
+        /* почему это работает — преимущества */
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 40px 0 70px;
+        }
+        .benefit {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 28px 24px;
+            border: 1px solid #eef2f8;
+        }
+        .benefit h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .benefit p {
+            color: #3f5a74;
+            line-height: 1.45;
+        }
+
+        /* контактный блок / cta */
+        .cta-section {
+            background: #0b1c2a;
+            border-radius: 48px;
+            padding: 64px 48px;
+            color: white;
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+        .cta-section h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 18px;
+            opacity: 0.85;
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+        .btn-light {
+            background: white;
+            color: #0b1c2a;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .btn-light:hover {
+            background: #eef2ff;
+            transform: scale(1.02);
+        }
+
+        footer {
+            border-top: 1px solid #e2e9f0;
+            padding: 40px 0 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            font-size: 14px;
+            color: #4f6f8f;
+        }
+        .footer-links {
+            display: flex;
+            gap: 28px;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: #3f5e7c;
+        }
+        .footer-links a:hover {
+            color: #0b1c2a;
+        }
+
+        @media (max-width: 800px) {
+            .hero-content h1 {
+                font-size: 42px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cta-section {
+                padding: 40px 24px;
+            }
+        }
+        @media (max-width: 550px) {
+            .container {
+                padding: 0 20px;
+            }
+            .stats {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- навигация -->
+        <div class="navbar">
+            <div class="logo">ЗАРАЗ<span> МЕДИА</span></div>
+            <div class="nav-links">
+                <a href="#">О нас</a>
+                <a href="#">Площадки</a>
+                <a href="#">Кейсы</a>
+                <a href="#" class="btn-outline">Связаться</a>
+            </div>
+        </div>
+
+        <!-- hero блок: точно как в макете "Реклама в городском контексте Минска" -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">✦ городской контекст</div>
+                <h1>Реклама в городском<br> контексте Минска</h1>
+                <p class="hero-desc">ЗАРАЗ МЕДИА размещает бренды в популярных городских сообществах и у блогеров так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn-primary">Обсудить проект</a>
+                    <a href="#" class="btn-secondary">Посмотреть возможности →</a>
+                </div>
+            </div>
+            <!-- декоративный элемент / абстракция -->
+            <div style="flex:0.8; min-width:200px; text-align:center;">
+                <svg width="200" height="180" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="80" r="45" fill="#EFF6FF" stroke="#C2DAF0" stroke-width="1.5"/>
+                    <path d="M70 110 L130 110 M100 80 L100 140 M85 95 L115 95" stroke="#2C5A7A" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="45" y="130" width="110" height="30" rx="8" fill="#F9FAFE" stroke="#BDD4E8" stroke-width="1.2"/>
+                    <text x="60" y="152" font-family="Inter" font-size="12" fill="#1E3B4F">минск • районы • лента</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- статистика 6+ лет, 150+ сообществ и тд -->
+        <div class="stats">
+            <div class="stat-item"><div class="stat-number">6+ лет</div><div class="stat-label">на рынке Минска</div></div>
+            <div class="stat-item"><div class="stat-number">150+</div><div class="stat-label">городских сообществ и блогеров</div></div>
+            <div class="stat-item"><div class="stat-number">250+</div><div class="stat-label">успешных кампаний</div></div>
+            <div class="stat-item"><div class="stat-number">>1 млн</div><div class="stat-label">человек ежемесячный охват</div></div>
+        </div>
+
+        <!-- Что мы делаем -->
+        <div>
+            <h2 class="section-title">Что мы делаем</h2>
+            <p class="section-sub">Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📱✨</div>
+                <h3>Нативные интеграции</h3>
+                <p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎙️🌟</div>
+                <h3>Работа с блогерами Минска</h3>
+                <p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏙️📰</div>
+                <h3>Городские сообщества</h3>
+                <p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p>
+            </div>
+        </div>
+
+        <!-- Где размещаем -->
+        <div class="platforms-header">
+            <h2 class="section-title" style="margin-bottom:0;">Где размещаем</h2>
+            <a href="#" class="link-arrow">Смотреть все площадки →</a>
+        </div>
+        <div class="platform-grid">
+            <div class="platform-card"><h4>📌 Паблики о Минске</h4><p>Крупные городские сообщества и районные паблики</p></div>
+            <div class="platform-card"><h4>📸 Городские блогеры</h4><p>Популярные инстаграм- и телеграм-авторы Минска</p></div>
+            <div class="platform-card"><h4>💬 Telegram-каналы</h4><p>Новости, афиши, лайфстайл и тематические каналы</p></div>
+            <div class="platform-card"><h4>🍜 Нишевые сообщества</h4><p>Еда, спорт, бизнес, бытовые и другие сферы</p></div>
+        </div>
+
+        <!-- Почему это работает (акцент на 4 преимущества) -->
+        <div>
+            <h2 class="section-title">Почему это работает</h2>
+            <p class="section-sub">Интеграции, которые приносят результат без ощущения навязчивой рекламы.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit">
+                <h3>👁️ Реклама, которую замечают</h3>
+                <p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p>
+            </div>
+            <div class="benefit">
+                <h3>🤝 Доверие аудитории</h3>
+                <p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p>
+            </div>
+            <div class="benefit">
+                <h3>🎯 Точный городской контекст</h3>
+                <p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p>
+            </div>
+            <div class="benefit">
+                <h3>📈 Реальный результат</h3>
+                <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
+            </div>
+        </div>
+
+        <!-- CTA блок соответствующий стилистике и посылу -->
+        <div class="cta-section">
+            <h2>Готовы усилить присутствие в Минске?</h2>
+            <p>Обсудим интеграцию, которая будет выглядеть органично и принесёт измеримый эффект.</p>
+            <a href="#" class="btn-light">Обсудить проект →</a>
+        </div>
+
+        <!-- футер с ссылками -->
+        <footer>
+            <div>© ЗАРАЗ МЕДИА — реклама в городском контексте Минска</div>
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">Telegram</a>
+                <a href="#">Политика</a>
+                <a href="#">Контакты</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- небольшая интерактивность: кнопки демо, но для чистоты кода без излишеств -->
+</body>
+</html>
