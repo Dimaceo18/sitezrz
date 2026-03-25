@@ -11,6 +11,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
             background-color: #FFFFFF;
@@ -29,6 +33,10 @@
             padding: 24px 0 20px 0;
             border-bottom: 1px solid #F0F0F0;
             margin-bottom: 60px;
+            background-color: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-inner {
@@ -66,6 +74,7 @@
             transition: color 0.2s;
             padding: 4px 0;
             border-bottom: 2px solid transparent;
+            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -91,7 +100,7 @@
             transform: translateY(-1px);
         }
 
-        /* Герой — с фото справа */
+        /* Герой */
         .hero {
             display: flex;
             justify-content: space-between;
@@ -99,6 +108,7 @@
             gap: 48px;
             margin-bottom: 80px;
             flex-wrap: wrap;
+            scroll-margin-top: 100px;
         }
 
         .hero-content {
@@ -186,6 +196,7 @@
             padding: 48px 40px;
             margin-bottom: 80px;
             gap: 0;
+            scroll-margin-top: 100px;
         }
 
         .stat-item {
@@ -223,6 +234,7 @@
         /* Секции */
         .section {
             margin-bottom: 80px;
+            scroll-margin-top: 100px;
         }
 
         .section-header {
@@ -423,6 +435,7 @@
             background: #F5F5F5;
             margin-top: 40px;
             padding: 60px 0 50px;
+            scroll-margin-top: 100px;
         }
 
         .footer-content {
@@ -519,6 +532,7 @@
             .header {
                 margin-bottom: 40px;
                 padding: 16px 0;
+                position: relative;
             }
             .header-inner {
                 flex-direction: column;
@@ -529,43 +543,42 @@
                 height: 38px;
             }
             
-            /* Навигация в две строки */
+            /* Скрываем черную кнопку "Обсудить проект" в мобильной версии */
+            .nav-btn-dark {
+                display: none;
+            }
+            
+            /* Навигация в две строки с увеличенными кнопками на 10% */
             .nav-wrapper {
-                flex-direction: column;
                 width: 100%;
-                gap: 20px;
             }
             .nav {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 16px;
-                max-width: 280px;
+                gap: 18px;
+                max-width: 320px;
                 margin: 0 auto;
             }
-            /* Первая строка: 3 кнопки */
-            .nav-link:nth-child(1),
-            .nav-link:nth-child(2),
-            .nav-link:nth-child(3) {
-                order: 1;
-            }
-            /* Вторая строка: 2 кнопки */
-            .nav-link:nth-child(4),
-            .nav-link:nth-child(5) {
-                order: 2;
-            }
             .nav-link {
-                font-size: 14px;
-            }
-            .nav-btn-dark {
-                padding: 8px 20px;
-                font-size: 13px;
+                font-size: 15.4px;
+                padding: 4.4px 0;
             }
             
-            /* Герой */
+            /* Герой — фото переносим перед текстом */
             .hero {
-                margin-bottom: 50px;
-                gap: 32px;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .hero-image {
+                order: -1;
+                margin-bottom: 16px;
+            }
+            .hero-image img {
+                max-width: 280px;
+            }
+            .hero-content {
+                order: 2;
             }
             .hero-content h1 {
                 font-size: 32px;
@@ -574,9 +587,6 @@
             .hero-content p {
                 font-size: 16px;
                 margin-bottom: 24px;
-            }
-            .hero-image img {
-                max-width: 280px;
             }
             .hero-buttons {
                 flex-direction: column;
@@ -715,10 +725,11 @@
                 font-size: 24px;
             }
             .nav {
-                max-width: 260px;
+                max-width: 280px;
+                gap: 16px;
             }
             .nav-link {
-                font-size: 13px;
+                font-size: 14.3px;
             }
         }
     </style>
@@ -731,19 +742,22 @@
                 <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
                 <div class="nav-wrapper">
                     <div class="nav">
-                        <a href="#" class="nav-link">Наши услуги</a>
-                        <a href="#" class="nav-link">Наши проекты</a>
-                        <a href="#" class="nav-link">Кейсы</a>
-                        <a href="#" class="nav-link">О нас</a>
-                        <a href="#" class="nav-link">Контакты</a>
+                        <a href="#services" class="nav-link">Наши услуги</a>
+                        <a href="#projects" class="nav-link">Наши проекты</a>
+                        <a href="#cases" class="nav-link">Кейсы</a>
+                        <a href="#about" class="nav-link">О нас</a>
+                        <a href="#contacts" class="nav-link">Контакты</a>
                     </div>
                     <a href="#" class="nav-btn-dark">Обсудить проект</a>
                 </div>
             </div>
         </div>
 
-        <!-- Герой с фото справа -->
-        <div class="hero">
+        <!-- Герой с фото -->
+        <div class="hero" id="home">
+            <div class="hero-image">
+                <img src="photo1.jpg" alt="Городской контекст Минска">
+            </div>
             <div class="hero-content">
                 <h1>Реклама в городском<br>контексте Минска</h1>
                 <p>ЗАРАЗ МЕДИА размещает бренды в популярных городских сообществах и у блогеров так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок.</p>
@@ -752,13 +766,10 @@
                     <a href="#" class="btn-secondary">Посмотреть возможности →</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="photo1.jpg" alt="Городской контекст Минска">
-            </div>
         </div>
 
         <!-- Статистика -->
-        <div class="stats">
+        <div class="stats" id="about">
             <div class="stat-item">
                 <div class="stat-number">6+ лет</div>
                 <div class="stat-label">на рынке Минска</div>
@@ -777,8 +788,8 @@
             </div>
         </div>
 
-        <!-- Что мы делаем -->
-        <div class="section">
+        <!-- Что мы делаем — НАШИ УСЛУГИ -->
+        <div class="section" id="services">
             <div class="section-header">
                 <h2>Что мы делаем</h2>
                 <p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p>
@@ -802,8 +813,8 @@
             </div>
         </div>
 
-        <!-- Где размещаем -->
-        <div class="platforms-header">
+        <!-- Где размещаем — НАШИ ПРОЕКТЫ -->
+        <div class="platforms-header" id="projects">
             <h2>Где размещаем</h2>
             <a href="#" class="link-all">Смотреть все площадки →</a>
         </div>
@@ -830,8 +841,8 @@
             </div>
         </div>
 
-        <!-- Почему это работает -->
-        <div class="benefits-header">
+        <!-- Почему это работает — КЕЙСЫ -->
+        <div class="benefits-header" id="cases">
             <h2>Почему это работает</h2>
         </div>
         <div class="benefits-grid">
@@ -858,8 +869,8 @@
         </div>
     </div>
 
-    <!-- ПОДВАЛ -->
-    <div class="footer-large">
+    <!-- ПОДВАЛ — КОНТАКТЫ -->
+    <div class="footer-large" id="contacts">
         <div class="footer-content">
             <div class="footer-info">
                 <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
