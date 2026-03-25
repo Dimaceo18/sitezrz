@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ЗАРАЗ МЕДИА — реклама в городском контексте Минска</title>
-    <!-- Google Fonts: современный гротеск + акцентный шрифт -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,8 +14,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fefefe;
-            color: #111;
+            background-color: #0A0F15;
+            color: #E8EDF2;
             line-height: 1.4;
             scroll-behavior: smooth;
         }
@@ -35,22 +34,18 @@
             padding: 24px 0;
             flex-wrap: wrap;
             gap: 20px;
-            border-bottom: 1px solid #eaeef2;
+            border-bottom: 1px solid #1F2A32;
         }
 
         .logo {
             font-size: 28px;
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1A2A3A 0%, #2C3E4E 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #FFFFFF;
         }
         .logo span {
-            background: none;
-            color: #111;
-            font-weight: 700;
+            color: #2FBFB0;
+            font-weight: 800;
         }
         .nav-links {
             display: flex;
@@ -60,25 +55,26 @@
         .nav-links a {
             text-decoration: none;
             font-weight: 500;
-            color: #1e2f3c;
+            color: #B0C4DE;
             transition: color 0.2s;
             font-size: 1rem;
         }
         .nav-links a:hover {
-            color: #0077b6;
+            color: #2FBFB0;
         }
         .btn-outline {
-            border: 1.5px solid #1e2f3c;
+            border: 1.5px solid #2FBFB0;
             padding: 8px 20px;
             border-radius: 40px;
             background: transparent;
             font-weight: 600;
+            color: #2FBFB0;
             transition: all 0.2s;
         }
         .btn-outline:hover {
-            background: #1e2f3c;
-            color: white;
-            border-color: #1e2f3c;
+            background: #2FBFB0;
+            color: #0A0F15;
+            border-color: #2FBFB0;
         }
 
         /* hero секция */
@@ -99,7 +95,7 @@
             font-size: 14px;
             letter-spacing: 2px;
             font-weight: 600;
-            color: #0077b6;
+            color: #2FBFB0;
             margin-bottom: 16px;
         }
         .hero-content h1 {
@@ -108,12 +104,12 @@
             line-height: 1.2;
             letter-spacing: -0.02em;
             margin-bottom: 24px;
-            color: #0b1c2a;
+            color: #FFFFFF;
         }
         .hero-desc {
             font-size: 18px;
             line-height: 1.4;
-            color: #2c3e4e;
+            color: #B0C4DE;
             margin-bottom: 32px;
             max-width: 550px;
         }
@@ -123,8 +119,8 @@
             flex-wrap: wrap;
         }
         .btn-primary {
-            background: #0b1c2a;
-            color: white;
+            background: #2FBFB0;
+            color: #0A0F15;
             padding: 12px 28px;
             border-radius: 40px;
             font-weight: 600;
@@ -134,22 +130,22 @@
             display: inline-block;
         }
         .btn-primary:hover {
-            background: #2c3e4e;
+            background: #26A69A;
             transform: translateY(-2px);
         }
         .btn-secondary {
             background: transparent;
-            border: 1px solid #b9c8d8;
+            border: 1px solid #2FBFB0;
             padding: 12px 28px;
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
-            color: #1e2f3c;
+            color: #2FBFB0;
             transition: 0.2s;
         }
         .btn-secondary:hover {
-            border-color: #0b1c2a;
-            background: #f5f9fe;
+            background: rgba(47, 191, 176, 0.1);
+            border-color: #2FBFB0;
         }
 
         /* статистика */
@@ -157,11 +153,12 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            background: #f3f7fb;
+            background: #11181F;
             border-radius: 40px;
             padding: 40px 32px;
             margin: 40px 0 60px;
             gap: 24px;
+            border: 1px solid #1F2A32;
         }
         .stat-item {
             flex: 1;
@@ -170,12 +167,12 @@
         .stat-number {
             font-size: 42px;
             font-weight: 800;
-            color: #0b1c2a;
+            color: #2FBFB0;
             letter-spacing: -0.01em;
         }
         .stat-label {
             font-size: 16px;
-            color: #4a627a;
+            color: #8AA0B5;
             font-weight: 500;
             margin-top: 8px;
         }
@@ -186,11 +183,11 @@
             font-weight: 700;
             letter-spacing: -0.01em;
             margin-bottom: 16px;
-            color: #0b1c2a;
+            color: #FFFFFF;
         }
         .section-sub {
             font-size: 18px;
-            color: #4a627a;
+            color: #8AA0B5;
             max-width: 680px;
             margin-bottom: 48px;
         }
@@ -204,16 +201,16 @@
         }
         .card {
             flex: 1;
-            background: #ffffff;
+            background: #11181F;
             border-radius: 32px;
             padding: 32px 28px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
-            border: 1px solid #eef2f6;
+            border: 1px solid #1F2A32;
             transition: all 0.25s;
         }
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 32px rgba(0,0,0,0.05);
+            border-color: #2FBFB0;
+            box-shadow: 0 20px 32px rgba(47, 191, 176, 0.1);
         }
         .card-icon {
             font-size: 40px;
@@ -223,9 +220,10 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
+            color: #FFFFFF;
         }
         .card p {
-            color: #3a546d;
+            color: #8AA0B5;
             line-height: 1.5;
         }
 
@@ -240,8 +238,11 @@
         .link-arrow {
             text-decoration: none;
             font-weight: 600;
-            color: #0077b6;
-            border-bottom: 1px solid rgba(0,119,182,0.3);
+            color: #2FBFB0;
+            border-bottom: 1px solid rgba(47, 191, 176, 0.3);
+        }
+        .link-arrow:hover {
+            color: #26A69A;
         }
         .platform-grid {
             display: grid;
@@ -250,19 +251,23 @@
             margin: 32px 0 60px;
         }
         .platform-card {
-            background: #fafcff;
+            background: #11181F;
             border-radius: 28px;
             padding: 24px 20px;
-            border: 1px solid #e6edf4;
+            border: 1px solid #1F2A32;
             transition: 0.2s;
+        }
+        .platform-card:hover {
+            border-color: #2FBFB0;
         }
         .platform-card h4 {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
+            color: #FFFFFF;
         }
         .platform-card p {
-            color: #4a627a;
+            color: #8AA0B5;
             font-size: 0.95rem;
         }
 
@@ -275,27 +280,32 @@
         }
         .benefit {
             flex: 1;
-            background: #ffffff;
+            background: #11181F;
             border-radius: 28px;
             padding: 28px 24px;
-            border: 1px solid #eef2f8;
+            border: 1px solid #1F2A32;
+            transition: 0.2s;
+        }
+        .benefit:hover {
+            border-color: #2FBFB0;
         }
         .benefit h3 {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 16px;
+            color: #2FBFB0;
         }
         .benefit p {
-            color: #3f5a74;
+            color: #8AA0B5;
             line-height: 1.45;
         }
 
         /* контактный блок / cta */
         .cta-section {
-            background: #0b1c2a;
+            background: linear-gradient(135deg, #0F1A22 0%, #11181F 100%);
+            border: 1px solid #2FBFB0;
             border-radius: 48px;
             padding: 64px 48px;
-            color: white;
             text-align: center;
             margin: 40px 0 60px;
         }
@@ -303,16 +313,17 @@
             font-size: 38px;
             font-weight: 700;
             margin-bottom: 20px;
+            color: #FFFFFF;
         }
         .cta-section p {
             font-size: 18px;
-            opacity: 0.85;
+            color: #8AA0B5;
             max-width: 560px;
             margin: 0 auto 32px;
         }
         .btn-light {
-            background: white;
-            color: #0b1c2a;
+            background: #2FBFB0;
+            color: #0A0F15;
             padding: 14px 36px;
             border-radius: 40px;
             font-weight: 700;
@@ -321,12 +332,12 @@
             transition: 0.2s;
         }
         .btn-light:hover {
-            background: #eef2ff;
+            background: #26A69A;
             transform: scale(1.02);
         }
 
         footer {
-            border-top: 1px solid #e2e9f0;
+            border-top: 1px solid #1F2A32;
             padding: 40px 0 32px;
             display: flex;
             flex-wrap: wrap;
@@ -334,7 +345,7 @@
             align-items: center;
             gap: 24px;
             font-size: 14px;
-            color: #4f6f8f;
+            color: #6F8A9F;
         }
         .footer-links {
             display: flex;
@@ -342,10 +353,11 @@
         }
         .footer-links a {
             text-decoration: none;
-            color: #3f5e7c;
+            color: #6F8A9F;
+            transition: color 0.2s;
         }
         .footer-links a:hover {
-            color: #0b1c2a;
+            color: #2FBFB0;
         }
 
         @media (max-width: 800px) {
@@ -387,7 +399,7 @@
             </div>
         </div>
 
-        <!-- hero блок: точно как в макете "Реклама в городском контексте Минска" -->
+        <!-- hero блок -->
         <div class="hero">
             <div class="hero-content">
                 <div class="hero-badge">✦ городской контекст</div>
@@ -398,18 +410,17 @@
                     <a href="#" class="btn-secondary">Посмотреть возможности →</a>
                 </div>
             </div>
-            <!-- декоративный элемент / абстракция -->
             <div style="flex:0.8; min-width:200px; text-align:center;">
                 <svg width="200" height="180" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="80" r="45" fill="#EFF6FF" stroke="#C2DAF0" stroke-width="1.5"/>
-                    <path d="M70 110 L130 110 M100 80 L100 140 M85 95 L115 95" stroke="#2C5A7A" stroke-width="2" stroke-linecap="round"/>
-                    <rect x="45" y="130" width="110" height="30" rx="8" fill="#F9FAFE" stroke="#BDD4E8" stroke-width="1.2"/>
-                    <text x="60" y="152" font-family="Inter" font-size="12" fill="#1E3B4F">минск • районы • лента</text>
+                    <circle cx="100" cy="80" r="45" fill="#11181F" stroke="#2FBFB0" stroke-width="1.5"/>
+                    <path d="M70 110 L130 110 M100 80 L100 140 M85 95 L115 95" stroke="#2FBFB0" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="45" y="130" width="110" height="30" rx="8" fill="#11181F" stroke="#2FBFB0" stroke-width="1.2"/>
+                    <text x="60" y="152" font-family="Inter" font-size="12" fill="#2FBFB0">минск • районы • лента</text>
                 </svg>
             </div>
         </div>
 
-        <!-- статистика 6+ лет, 150+ сообществ и тд -->
+        <!-- статистика -->
         <div class="stats">
             <div class="stat-item"><div class="stat-number">6+ лет</div><div class="stat-label">на рынке Минска</div></div>
             <div class="stat-item"><div class="stat-number">150+</div><div class="stat-label">городских сообществ и блогеров</div></div>
@@ -452,7 +463,7 @@
             <div class="platform-card"><h4>🍜 Нишевые сообщества</h4><p>Еда, спорт, бизнес, бытовые и другие сферы</p></div>
         </div>
 
-        <!-- Почему это работает (акцент на 4 преимущества) -->
+        <!-- Почему это работает -->
         <div>
             <h2 class="section-title">Почему это работает</h2>
             <p class="section-sub">Интеграции, которые приносят результат без ощущения навязчивой рекламы.</p>
@@ -476,14 +487,14 @@
             </div>
         </div>
 
-        <!-- CTA блок соответствующий стилистике и посылу -->
+        <!-- CTA блок -->
         <div class="cta-section">
             <h2>Готовы усилить присутствие в Минске?</h2>
             <p>Обсудим интеграцию, которая будет выглядеть органично и принесёт измеримый эффект.</p>
             <a href="#" class="btn-light">Обсудить проект →</a>
         </div>
 
-        <!-- футер с ссылками -->
+        <!-- футер -->
         <footer>
             <div>© ЗАРАЗ МЕДИА — реклама в городском контексте Минска</div>
             <div class="footer-links">
@@ -494,7 +505,5 @@
             </div>
         </footer>
     </div>
-
-    <!-- небольшая интерактивность: кнопки демо, но для чистоты кода без излишеств -->
 </body>
 </html>
