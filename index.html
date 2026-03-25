@@ -285,11 +285,14 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
-        .card-icon {
-            font-size: 44px;
+        .card-icon-img {
+            width: 64px;
+            height: 64px;
             margin-bottom: 24px;
             display: block;
-            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            object-fit: contain;
         }
 
         .card h3 {
@@ -330,10 +333,12 @@
             border-bottom: 2px solid #F5D742;
             padding-bottom: 2px;
             font-size: 15px;
+            transition: all 0.2s;
         }
 
         .link-all:hover {
             border-bottom-color: #000;
+            color: #F5D742;
         }
 
         .platforms-grid {
@@ -584,6 +589,10 @@
                 width: 42px;
                 height: 42px;
             }
+            .card-icon-img {
+                width: 56px;
+                height: 56px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -705,8 +714,10 @@
             .card {
                 padding: 28px 20px;
             }
-            .card-icon {
-                font-size: 40px;
+            .card-icon-img {
+                width: 52px;
+                height: 52px;
+                margin-bottom: 20px;
             }
             .card h3 {
                 font-size: 20px;
@@ -825,6 +836,10 @@
                 width: 36px;
                 height: 36px;
             }
+            .card-icon-img {
+                width: 48px;
+                height: 48px;
+            }
         }
     </style>
 </head>
@@ -887,7 +902,7 @@
             </div>
         </div>
 
-        <!-- Что мы делаем — НАШИ УСЛУГИ -->
+        <!-- Что мы делаем — НАШИ УСЛУГИ с иконками -->
         <div class="section" id="services">
             <div class="section-header">
                 <h2>Что мы делаем</h2>
@@ -895,17 +910,17 @@
             </div>
             <div class="cards-grid">
                 <div class="card">
-                    <span class="card-icon">📱✨</span>
+                    <img src="integration.png" alt="Нативные интеграции" class="card-icon-img">
                     <h3>Нативные интеграции</h3>
                     <p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p>
                 </div>
                 <div class="card">
-                    <span class="card-icon">🎙️🌟</span>
+                    <img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img">
                     <h3>Работа с блогерами Минска</h3>
                     <p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p>
                 </div>
                 <div class="card">
-                    <span class="card-icon">🏙️📰</span>
+                    <img src="public.png" alt="Городские сообщества" class="card-icon-img">
                     <h3>Городские сообщества</h3>
                     <p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p>
                 </div>
@@ -915,7 +930,7 @@
         <!-- Где размещаем — НАШИ ПРОЕКТЫ -->
         <div class="platforms-header" id="projects">
             <h2>Где размещаем</h2>
-            <a href="#" class="link-all">Смотреть все площадки →</a>
+            <a href="places.html" class="link-all">Смотреть все площадки →</a>
         </div>
         <div class="platforms-grid">
             <div class="platform-card">
@@ -946,22 +961,22 @@
         </div>
         <div class="benefits-grid">
             <div class="benefit-card">
-                <img src="icon 1.png" alt="Иконка" class="benefit-icon-img">
+                <img src="icon1.png" alt="Иконка" class="benefit-icon-img">
                 <h3>Реклама, которую замечают</h3>
                 <p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p>
             </div>
             <div class="benefit-card">
-                <img src="icon 2.png" alt="Иконка" class="benefit-icon-img">
+                <img src="icon2.png" alt="Иконка" class="benefit-icon-img">
                 <h3>Доверие аудитории</h3>
                 <p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p>
             </div>
             <div class="benefit-card">
-                <img src="icon 3.png" alt="Иконка" class="benefit-icon-img">
+                <img src="icon3.png" alt="Иконка" class="benefit-icon-img">
                 <h3>Точный городской контекст</h3>
                 <p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p>
             </div>
             <div class="benefit-card">
-                <img src="icon 4.png" alt="Иконка" class="benefit-icon-img">
+                <img src="icon4.png" alt="Иконка" class="benefit-icon-img">
                 <h3>Реальный результат</h3>
                 <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
             </div>
