@@ -130,51 +130,6 @@
             margin: 0 auto;
         }
 
-        /* Статистика */
-        .stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background: #F8F9FA;
-            border-radius: 28px;
-            padding: 48px 40px;
-            margin-bottom: 80px;
-            gap: 0;
-            scroll-margin-top: 100px;
-        }
-
-        .stat-item {
-            text-align: center;
-            flex: 1;
-            position: relative;
-        }
-
-        .stat-item:not(:last-child)::after {
-            content: "|";
-            position: absolute;
-            right: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #D0D0D0;
-            font-size: 28px;
-            font-weight: 300;
-            opacity: 0.6;
-        }
-
-        .stat-number {
-            font-size: 44px;
-            font-weight: 700;
-            color: #F5D742;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 15px;
-            color: #5A5A5A;
-            font-weight: 500;
-        }
-
         /* Карточки тарифов */
         .tariffs-grid {
             display: flex;
@@ -244,7 +199,6 @@
         .platforms-list {
             list-style: none;
             margin: 20px 0;
-            flex: 1;
         }
 
         .platforms-list li {
@@ -803,37 +757,6 @@
                 font-size: 32px;
             }
             
-            /* СТАТИСТИКА — В ОДНУ СТРОКУ */
-            .stats {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: space-around;
-                padding: 24px 16px;
-                gap: 8px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            .stat-item {
-                flex: 0 0 auto;
-                min-width: 85px;
-                text-align: center;
-            }
-            .stat-item:not(:last-child)::after {
-                display: none;
-            }
-            .stat-number {
-                font-size: 22px;
-                white-space: nowrap;
-            }
-            .stat-label {
-                font-size: 10px;
-                white-space: normal;
-                word-break: break-word;
-                max-width: 85px;
-                line-height: 1.2;
-            }
-            
             .tariffs-grid {
                 flex-direction: column;
             }
@@ -895,16 +818,6 @@
             .conditions-header h2 {
                 font-size: 24px;
             }
-            .stat-number {
-                font-size: 18px;
-            }
-            .stat-label {
-                font-size: 9px;
-                max-width: 70px;
-            }
-            .stat-item {
-                min-width: 70px;
-            }
         }
     </style>
 </head>
@@ -924,7 +837,7 @@
                         <a href="index.html#services" class="nav-link">Наши услуги</a>
                         <a href="index.html#projects" class="nav-link">Наши проекты</a>
                         <a href="index.html#cases" class="nav-link">Кейсы</a>
-                        <a href="#about" class="nav-link">О нас</a>
+                        <a href="index.html#about" class="nav-link">О нас</a>
                         <a href="index.html#contacts" class="nav-link">Контакты</a>
                     </div>
                     <a href="#" class="nav-btn-dark">Обсудить проект</a>
@@ -937,26 +850,6 @@
             <div class="prices-header">
                 <h1>💰 НАШИ ЦЕНЫ</h1>
                 <p>Можем предложить вам несколько вариантов размещений, от одиночных постов до полного комплекса.</p>
-            </div>
-
-            <!-- Статистика — якорь О нас -->
-            <div class="stats" id="about">
-                <div class="stat-item">
-                    <div class="stat-number">6+ лет</div>
-                    <div class="stat-label">на рынке Минска</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">городских сообществ и блогеров</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">250+</div>
-                    <div class="stat-label">успешных кампаний</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">>1 млн</div>
-                    <div class="stat-label">человек ежемесячный охват рекламных размещений</div>
-                </div>
             </div>
 
             <!-- Пакеты МИНИ, СТАНДАРТ, ПРЕМИУМ -->
@@ -1147,14 +1040,13 @@
                 </div>
             </div>
 
-            <!-- Блогеры (новый порядок: chtopochem, kudaminsk, zatestil) -->
+            <!-- Блогеры -->
             <div class="bloggers-section">
                 <div class="bloggers-header">
                     <h2>🎬 Наши блогеры</h2>
                     <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
                 </div>
                 <div class="bloggers-grid">
-                    <!-- 1. chtopochem_minsk -->
                     <div class="blogger-card">
                         <div class="blogger-icon">🎥</div>
                         <h3>chtopochem_minsk</h3>
@@ -1168,7 +1060,6 @@
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
 
-                    <!-- 2. kudaminsk -->
                     <div class="blogger-card">
                         <div class="blogger-icon">🎥</div>
                         <h3>kudaminsk</h3>
@@ -1182,7 +1073,6 @@
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
 
-                    <!-- 3. zatestil -->
                     <div class="blogger-card">
                         <div class="blogger-icon">🎥</div>
                         <h3>zatestil</h3>
