@@ -130,6 +130,51 @@
             margin: 0 auto;
         }
 
+        /* Статистика */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 48px 40px;
+            margin-bottom: 80px;
+            gap: 0;
+            scroll-margin-top: 100px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: "|";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #D0D0D0;
+            font-size: 28px;
+            font-weight: 300;
+            opacity: 0.6;
+        }
+
+        .stat-number {
+            font-size: 44px;
+            font-weight: 700;
+            color: #F5D742;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: #5A5A5A;
+            font-weight: 500;
+        }
+
         /* Карточки тарифов */
         .tariffs-grid {
             display: flex;
@@ -623,6 +668,7 @@
             background: #F5F5F5;
             margin-top: 40px;
             padding: 60px 0 50px;
+            scroll-margin-top: 100px;
         }
 
         .footer-content {
@@ -714,7 +760,34 @@
             transform: translateY(-3px);
         }
 
-        /* Мобильная версия */
+        /* ============================================ */
+        /* МОБИЛЬНАЯ ВЕРСИЯ */
+        /* ============================================ */
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-button {
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 16px;
@@ -749,6 +822,38 @@
             .prices-header h1 {
                 font-size: 32px;
             }
+            
+            /* СТАТИСТИКА — В ОДНУ СТРОКУ */
+            .stats {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                padding: 24px 16px;
+                gap: 8px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .stat-item {
+                flex: 0 0 auto;
+                min-width: 85px;
+                text-align: center;
+            }
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+            .stat-number {
+                font-size: 22px;
+                white-space: nowrap;
+            }
+            .stat-label {
+                font-size: 10px;
+                white-space: normal;
+                word-break: break-word;
+                max-width: 85px;
+                line-height: 1.2;
+            }
+            
             .tariffs-grid {
                 flex-direction: column;
             }
@@ -786,11 +891,11 @@
                 justify-content: center;
             }
             .scroll-top {
-                bottom: 20px;
-                right: 20px;
-                width: 44px;
-                height: 44px;
-                font-size: 20px;
+                bottom: 16px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
             }
         }
 
@@ -809,6 +914,16 @@
             }
             .conditions-header h2 {
                 font-size: 24px;
+            }
+            .stat-number {
+                font-size: 18px;
+            }
+            .stat-label {
+                font-size: 9px;
+                max-width: 70px;
+            }
+            .stat-item {
+                min-width: 70px;
             }
         }
     </style>
@@ -829,7 +944,7 @@
                         <a href="index.html#services" class="nav-link">Наши услуги</a>
                         <a href="index.html#projects" class="nav-link">Наши проекты</a>
                         <a href="index.html#cases" class="nav-link">Кейсы</a>
-                        <a href="index.html#about" class="nav-link">О нас</a>
+                        <a href="#about" class="nav-link">О нас</a>
                         <a href="index.html#contacts" class="nav-link">Контакты</a>
                     </div>
                     <a href="#" class="nav-btn-dark">Обсудить проект</a>
@@ -844,7 +959,27 @@
                 <p>Можем предложить вам несколько вариантов размещений, от одиночных постов до полного комплекса.</p>
             </div>
 
-            <!-- Тарифы (оставлены без изменений для краткости, но полный код есть в предыдущих версиях) -->
+            <!-- Статистика — якорь О нас -->
+            <div class="stats" id="about">
+                <div class="stat-item">
+                    <div class="stat-number">6+ лет</div>
+                    <div class="stat-label">на рынке Минска</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">городских сообществ и блогеров</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">успешных кампаний</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">>1 млн</div>
+                    <div class="stat-label">человек ежемесячный охват рекламных размещений</div>
+                </div>
+            </div>
+
+            <!-- Тарифы -->
             <div class="tariffs-grid">
                 <!-- Пакет МИНИ -->
                 <div class="tariff-card">
@@ -964,7 +1099,6 @@
                     <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
                 </div>
                 <div class="bloggers-grid">
-                    <!-- Блогер 1 -->
                     <div class="blogger-card">
                         <div class="blogger-icon">🎥</div>
                         <h3>zatestil</h3>
@@ -978,7 +1112,6 @@
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
 
-                    <!-- Блогер 2 -->
                     <div class="blogger-card">
                         <div class="blogger-icon">🎥</div>
                         <h3>chtopochem_minsk</h3>
@@ -992,7 +1125,6 @@
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
 
-                    <!-- Блогер 3 -->
                     <div class="blogger-card">
                         <div class="blogger-icon">🎥</div>
                         <h3>kudaminsk</h3>
@@ -1104,7 +1236,6 @@
     </div>
 
     <script>
-        // Кнопка "Наверх"
         const scrollTopBtn = document.getElementById('scrollTopBtn');
         
         window.addEventListener('scroll', function() {
