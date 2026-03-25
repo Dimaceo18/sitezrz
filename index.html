@@ -39,8 +39,9 @@
             gap: 20px;
         }
 
+        /* Логотип — уменьшен в 4 раза (было 177px, стало 44px) */
         .logo-img {
-            height: 177px;
+            height: 44px;
             width: auto;
             display: block;
         }
@@ -395,17 +396,71 @@
             text-align: center;
         }
 
-        /* Футер */
-        .footer {
-            border-top: 1px solid #F0F0F0;
-            padding: 32px 0 48px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #888;
-            text-align: center;
+        /* ПОДВАЛ — большой, светло-серый */
+        .footer-large {
+            background: #F5F5F5;
+            margin-top: 40px;
+            padding: 60px 0 50px;
         }
 
-        /* МОБИЛЬНАЯ ВЕРСИЯ */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .footer-info {
+            flex: 2;
+        }
+
+        .footer-info p {
+            color: #3A3A3A;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .footer-info .company-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: #2C2C2C;
+            margin-bottom: 16px;
+        }
+
+        .footer-info .details {
+            color: #4A4A4A;
+        }
+
+        .footer-button {
+            flex: 1;
+            text-align: right;
+        }
+
+        .btn-footer-yellow {
+            background: #F5D742;
+            color: #000;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-footer-yellow:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        /* Мобильная версия */
         @media (max-width: 900px) {
             .header-inner {
                 flex-direction: column;
@@ -433,6 +488,13 @@
             .hero-buttons {
                 justify-content: center;
             }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-button {
+                text-align: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -443,7 +505,7 @@
                 margin-bottom: 40px;
             }
             .logo-img {
-                height: 110px;
+                height: 38px;
             }
             .hero h1 {
                 font-size: 32px;
@@ -499,11 +561,14 @@
             .section {
                 margin-bottom: 60px;
             }
+            .footer-large {
+                padding: 40px 0 35px;
+            }
         }
 
         @media (max-width: 480px) {
             .logo-img {
-                height: 90px;
+                height: 32px;
             }
             .hero h1 {
                 font-size: 28px;
@@ -521,6 +586,13 @@
             .platforms-header h2,
             .benefits-header h2 {
                 font-size: 24px;
+            }
+            .footer-info p {
+                font-size: 13px;
+            }
+            .btn-footer-yellow {
+                padding: 12px 28px;
+                font-size: 14px;
             }
         }
     </style>
@@ -653,10 +725,21 @@
                 <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
             </div>
         </div>
+    </div>
 
-        <!-- Футер -->
-        <div class="footer">
-            <p>© ЗАРАЗ МЕДИА — реклама в городском контексте Минска</p>
+    <!-- ПОДВАЛ — большой, светло-серый -->
+    <div class="footer-large">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 12px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+            </div>
+            <div class="footer-button">
+                <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
+            </div>
         </div>
     </div>
 </body>
