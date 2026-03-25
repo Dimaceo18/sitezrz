@@ -47,6 +47,12 @@
             gap: 20px;
         }
 
+        .logo-link {
+            display: inline-block;
+            cursor: pointer;
+            line-height: 0;
+        }
+
         .logo-img {
             height: 44px;
             width: auto;
@@ -521,6 +527,9 @@
             }
             .footer-button {
                 text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
         }
 
@@ -697,9 +706,16 @@
             .footer-info .company-name {
                 font-size: 16px;
             }
+            .footer-button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+            }
             .btn-footer-yellow {
                 padding: 12px 28px;
                 font-size: 14px;
+                display: inline-block;
             }
         }
 
@@ -731,6 +747,11 @@
             .nav-link {
                 font-size: 14.3px;
             }
+            .footer-button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -739,7 +760,9 @@
         <!-- Шапка -->
         <div class="header">
             <div class="header-inner">
-                <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
+                <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
+                    <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
+                </a>
                 <div class="nav-wrapper">
                     <div class="nav">
                         <a href="#services" class="nav-link">Наши услуги</a>
@@ -884,5 +907,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Дополнительная обработка для логотипа (на случай, если onclick не сработает)
+        document.querySelector('.logo-link')?.addEventListener('click', function(e) {
+            window.location.reload();
+        });
+    </script>
 </body>
 </html>
