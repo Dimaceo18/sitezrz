@@ -147,6 +147,8 @@
             padding: 32px 28px;
             transition: all 0.3s ease;
             border: 1px solid #E8ECF0;
+            display: flex;
+            flex-direction: column;
         }
 
         .tariff-card:hover {
@@ -191,11 +193,13 @@
             padding: 8px 12px;
             border-radius: 20px;
             display: inline-block;
+            align-self: flex-start;
         }
 
         .platforms-list {
             list-style: none;
             margin: 20px 0;
+            flex: 1;
         }
 
         .platforms-list li {
@@ -227,15 +231,61 @@
             font-size: 16px;
         }
 
-        .badge {
+        /* Блок со stories — тёмно-серый, в столбик */
+        .stories-block {
+            background: #2C2C2C;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .stories-title {
+            color: #CCCCCC;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .stories-list {
+            list-style: none;
+        }
+
+        .stories-list li {
+            color: #AAAAAA;
+            font-size: 13px;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stories-list .stories-bullet {
+            color: #F5D742;
+            font-size: 12px;
+        }
+
+        /* Кнопка заказа */
+        .order-btn {
             background: #F5D742;
             color: #000;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+            padding: 14px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
             display: inline-block;
-            margin-top: 16px;
+            text-align: center;
+            transition: all 0.2s;
+            margin-top: 24px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .order-btn:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
         }
 
         /* Блок с отдельными размещениями */
@@ -533,7 +583,15 @@
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minskhot/" target="_blank">instagram.com/minskhot/</a></li>
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minsksmile/" target="_blank">instagram.com/minsksmile/</a></li>
                     </ul>
-                    <div class="badge">➕ stories в minsk_news, afishaminsk, tvoyminsk</div>
+                    <div class="stories-block">
+                        <div class="stories-title">📸 Дополнительно stories:</div>
+                        <ul class="stories-list">
+                            <li><span class="stories-bullet">•</span> minsk_news</li>
+                            <li><span class="stories-bullet">•</span> afishaminsk</li>
+                            <li><span class="stories-bullet">•</span> tvoyminsk</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="order-btn">Заказать размещения →</a>
                 </div>
 
                 <!-- Пакет СТАНДАРТ -->
@@ -555,7 +613,18 @@
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minskhot/" target="_blank">instagram.com/minskhot/</a></li>
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minsksmile/" target="_blank">instagram.com/minsksmile/</a></li>
                     </ul>
-                    <div class="badge">➕ stories в minsk_news, afishaminsk, minskchp, tvoyminsk, vestiminska, xxminsk</div>
+                    <div class="stories-block">
+                        <div class="stories-title">📸 Дополнительно stories:</div>
+                        <ul class="stories-list">
+                            <li><span class="stories-bullet">•</span> minsk_news</li>
+                            <li><span class="stories-bullet">•</span> afishaminsk</li>
+                            <li><span class="stories-bullet">•</span> minskchp</li>
+                            <li><span class="stories-bullet">•</span> tvoyminsk</li>
+                            <li><span class="stories-bullet">•</span> vestiminska</li>
+                            <li><span class="stories-bullet">•</span> xxminsk</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="order-btn">Заказать размещения →</a>
                 </div>
 
                 <!-- Пакет ПРЕМИУМ -->
@@ -564,7 +633,7 @@
                     <h2>Пакет «ПРЕМИУМ»</h2>
                     <div class="tariff-price">905 ₽ <span>/ пакет</span></div>
                     <div class="tariff-stats">📊 более 1 700 000 подписчиков</div>
-                    <p style="font-weight: 600; margin: 16px 0 8px;">📷 Instagram:</p>
+                    <p style="font-weight: 600; margin: 16px 0 8px; color: #000;">📷 Instagram:</p>
                     <ul class="platforms-list">
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minsk_news/" target="_blank">instagram.com/minsk_news/</a></li>
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minskchp/" target="_blank">instagram.com/minskchp/</a></li>
@@ -578,7 +647,7 @@
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minskhot/" target="_blank">instagram.com/minskhot/</a></li>
                         <li><span class="bullet">•</span> <a href="https://www.instagram.com/minsksmile/" target="_blank">instagram.com/minsksmile/</a></li>
                     </ul>
-                    <p style="font-weight: 600; margin: 16px 0 8px;">📘 Вконтакте:</p>
+                    <p style="font-weight: 600; margin: 16px 0 8px; color: #000;">📘 Вконтакте:</p>
                     <ul class="platforms-list">
                         <li><span class="bullet">•</span> <a href="https://vk.com/etominsk" target="_blank">vk.com/etominsk</a></li>
                         <li><span class="bullet">•</span> <a href="https://vk.com/belaruschp" target="_blank">vk.com/belaruschp</a></li>
@@ -590,12 +659,23 @@
                         <li><span class="bullet">•</span> <a href="https://vk.com/minsksmile" target="_blank">vk.com/minsksmile</a></li>
                         <li><span class="bullet">•</span> <a href="https://vk.com/minskrepost" target="_blank">vk.com/minskrepost</a></li>
                     </ul>
-                    <p style="font-weight: 600; margin: 16px 0 8px;">💬 Телеграм:</p>
+                    <p style="font-weight: 600; margin: 16px 0 8px; color: #000;">💬 Телеграм:</p>
                     <ul class="platforms-list">
                         <li><span class="bullet">•</span> <a href="https://t.me/vestiminska" target="_blank">t.me/vestiminska</a> <span style="color:#6B6B6B;">(47 000 чел.)</span></li>
                         <li><span class="bullet">•</span> <a href="https://t.me/minskchpdtp" target="_blank">t.me/minskchpdtp</a> <span style="color:#6B6B6B;">(16 000 чел.)</span></li>
                     </ul>
-                    <div class="badge">➕ stories в 6 Instagram-каналов + все публикации во всех площадках</div>
+                    <div class="stories-block">
+                        <div class="stories-title">📸 Дополнительно stories:</div>
+                        <ul class="stories-list">
+                            <li><span class="stories-bullet">•</span> minsk_news</li>
+                            <li><span class="stories-bullet">•</span> afishaminsk</li>
+                            <li><span class="stories-bullet">•</span> minskchp</li>
+                            <li><span class="stories-bullet">•</span> tvoyminsk</li>
+                            <li><span class="stories-bullet">•</span> vestiminska</li>
+                            <li><span class="stories-bullet">•</span> xxminsk</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="order-btn">Заказать размещения →</a>
                 </div>
             </div>
 
