@@ -501,6 +501,45 @@
             transform: translateY(-2px);
         }
 
+        /* КНОПКА НАВЕРХ */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #F5D742;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: #E6C935;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top:active {
+            transform: translateY(0);
+        }
+
         /* ============================================ */
         /* МОБИЛЬНАЯ ВЕРСИЯ */
         /* ============================================ */
@@ -530,6 +569,13 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+            }
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
             }
         }
 
@@ -717,6 +763,13 @@
                 font-size: 14px;
                 display: inline-block;
             }
+            .scroll-top {
+                bottom: 16px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -752,10 +805,20 @@
                 display: flex;
                 justify-content: center;
             }
+            .scroll-top {
+                bottom: 12px;
+                right: 12px;
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Кнопка наверх -->
+    <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
+
     <div class="container">
         <!-- Шапка -->
         <div class="header">
@@ -909,7 +972,27 @@
     </div>
 
     <script>
-        // Дополнительная обработка для логотипа (на случай, если onclick не сработает)
+        // Кнопка "Наверх"
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        // Показываем кнопку при прокрутке более 300px
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Плавная прокрутка наверх при клике
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Дополнительная обработка для логотипа
         document.querySelector('.logo-link')?.addEventListener('click', function(e) {
             window.location.reload();
         });
