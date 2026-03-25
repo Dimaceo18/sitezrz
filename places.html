@@ -112,7 +112,7 @@
 
         .prices-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
         }
 
         .prices-header h1 {
@@ -130,6 +130,35 @@
             margin: 0 auto;
         }
 
+        /* Якорные кнопки */
+        .anchor-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 40px 0 60px;
+            flex-wrap: wrap;
+        }
+
+        .anchor-btn {
+            background: #F5D742;
+            color: #000;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .anchor-btn:hover {
+            background: #E6C935;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
         /* Карточки тарифов */
         .tariffs-grid {
             display: flex;
@@ -137,6 +166,7 @@
             gap: 30px;
             justify-content: center;
             margin-bottom: 60px;
+            scroll-margin-top: 100px;
         }
 
         .tariff-card {
@@ -447,6 +477,7 @@
         /* Блогеры */
         .bloggers-section {
             margin: 60px 0 40px;
+            scroll-margin-top: 100px;
         }
 
         .bloggers-header {
@@ -606,7 +637,6 @@
             background: #F5F5F5;
             margin-top: 40px;
             padding: 60px 0 50px;
-            scroll-margin-top: 100px;
         }
 
         .footer-content {
@@ -720,6 +750,10 @@
                 height: 44px;
                 font-size: 20px;
             }
+            .anchor-btn {
+                padding: 14px 32px;
+                font-size: 18px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -755,6 +789,15 @@
             
             .prices-header h1 {
                 font-size: 32px;
+            }
+            
+            .anchor-buttons {
+                gap: 16px;
+                margin: 30px 0 40px;
+            }
+            .anchor-btn {
+                padding: 12px 24px;
+                font-size: 16px;
             }
             
             .tariffs-grid {
@@ -818,6 +861,10 @@
             .conditions-header h2 {
                 font-size: 24px;
             }
+            .anchor-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -852,8 +899,14 @@
                 <p>Можем предложить вам несколько вариантов размещений, от одиночных постов до полного комплекса.</p>
             </div>
 
+            <!-- Якорные кнопки -->
+            <div class="anchor-buttons">
+                <a href="#tariffs" class="anchor-btn">🏙️ ГОРОДСКИЕ СООБЩЕСТВА</a>
+                <a href="#bloggers" class="anchor-btn">🎬 БЛОГЕРЫ</a>
+            </div>
+
             <!-- Пакеты МИНИ, СТАНДАРТ, ПРЕМИУМ -->
-            <div class="tariffs-grid">
+            <div class="tariffs-grid" id="tariffs">
                 <!-- Пакет МИНИ -->
                 <div class="tariff-card">
                     <span class="tariff-icon">🔻</span>
@@ -1041,7 +1094,7 @@
             </div>
 
             <!-- Блогеры -->
-            <div class="bloggers-section">
+            <div class="bloggers-section" id="bloggers">
                 <div class="bloggers-header">
                     <h2>🎬 Наши блогеры</h2>
                     <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
