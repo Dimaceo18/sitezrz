@@ -333,6 +333,163 @@
             transform: translateY(-2px);
         }
 
+        /* Блок с отдельными размещениями */
+        .single-placement {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 32px 28px;
+            margin: 60px 0;
+        }
+
+        .single-placement h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .placement-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .placement-item:last-child {
+            border-bottom: none;
+        }
+
+        .placement-channel {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .placement-channel a {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .placement-channel a:hover {
+            color: #F5D742;
+        }
+
+        .placement-stats {
+            color: #6B6B6B;
+            font-size: 14px;
+        }
+
+        .placement-price {
+            font-weight: 700;
+            color: #F5D742;
+            font-size: 18px;
+        }
+
+        /* Блок с условиями размещения */
+        .conditions-block {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 40px 36px;
+            margin: 60px 0 40px;
+            border: 1px solid #E8ECF0;
+        }
+
+        .conditions-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .conditions-header .bell-icon {
+            font-size: 32px;
+        }
+
+        .conditions-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+        }
+
+        .conditions-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .condition-item {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #E8ECF0;
+        }
+
+        .condition-item:last-child {
+            border-bottom: none;
+        }
+
+        .condition-icon {
+            font-size: 28px;
+            min-width: 48px;
+        }
+
+        .condition-content {
+            flex: 1;
+        }
+
+        .condition-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5D742;
+            margin-bottom: 12px;
+        }
+
+        .condition-content p {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .important-block {
+            background: #FFF8E7;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-top: 28px;
+            border-left: 4px solid #F5D742;
+        }
+
+        .important-block .important-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .important-block .important-header .warning-icon {
+            font-size: 24px;
+        }
+
+        .important-block .important-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5D742;
+            margin: 0;
+        }
+
+        .important-block p {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
+        }
+
         /* Блогеры */
         .bloggers-section {
             margin: 60px 0 40px;
@@ -454,22 +611,6 @@
             text-decoration: underline;
         }
 
-        .blogger-tiktok {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 13px;
-            color: #6B6B6B;
-        }
-
-        .blogger-tiktok a {
-            color: #F5D742;
-            text-decoration: none;
-        }
-
-        .blogger-tiktok a:hover {
-            text-decoration: underline;
-        }
-
         .blogger-order-btn {
             background: #F5D742;
             color: #000;
@@ -488,163 +629,6 @@
         .blogger-order-btn:hover {
             background: #E6C935;
             transform: translateY(-2px);
-        }
-
-        /* Блок с условиями размещения */
-        .conditions-block {
-            background: #F8F9FA;
-            border-radius: 28px;
-            padding: 40px 36px;
-            margin: 60px 0 40px;
-            border: 1px solid #E8ECF0;
-        }
-
-        .conditions-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-
-        .conditions-header .bell-icon {
-            font-size: 32px;
-        }
-
-        .conditions-header h2 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #000;
-            margin: 0;
-        }
-
-        .conditions-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .condition-item {
-            display: flex;
-            gap: 20px;
-            padding: 16px 0;
-            border-bottom: 1px solid #E8ECF0;
-        }
-
-        .condition-item:last-child {
-            border-bottom: none;
-        }
-
-        .condition-icon {
-            font-size: 28px;
-            min-width: 48px;
-        }
-
-        .condition-content {
-            flex: 1;
-        }
-
-        .condition-content h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #F5D742;
-            margin-bottom: 12px;
-        }
-
-        .condition-content p {
-            font-size: 15px;
-            color: #4A4A4A;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .important-block {
-            background: #FFF8E7;
-            border-radius: 20px;
-            padding: 24px 28px;
-            margin-top: 28px;
-            border-left: 4px solid #F5D742;
-        }
-
-        .important-block .important-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .important-block .important-header .warning-icon {
-            font-size: 24px;
-        }
-
-        .important-block .important-header h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #F5D742;
-            margin: 0;
-        }
-
-        .important-block p {
-            font-size: 15px;
-            color: #4A4A4A;
-            line-height: 1.6;
-        }
-
-        /* Блок с отдельными размещениями */
-        .single-placement {
-            background: #F8F9FA;
-            border-radius: 28px;
-            padding: 32px 28px;
-            margin-top: 40px;
-        }
-
-        .single-placement h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #000;
-        }
-
-        .placement-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid #E0E0E0;
-        }
-
-        .placement-item:last-child {
-            border-bottom: none;
-        }
-
-        .placement-channel {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .placement-channel a {
-            color: #1A1A1A;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-        }
-
-        .placement-channel a:hover {
-            color: #F5D742;
-        }
-
-        .placement-stats {
-            color: #6B6B6B;
-            font-size: 14px;
-        }
-
-        .placement-price {
-            font-weight: 700;
-            color: #F5D742;
-            font-size: 18px;
         }
 
         /* Кнопка назад */
@@ -765,10 +749,6 @@
         /* ============================================ */
 
         @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -979,7 +959,7 @@
                 </div>
             </div>
 
-            <!-- Тарифы -->
+            <!-- Пакеты МИНИ, СТАНДАРТ, ПРЕМИУМ -->
             <div class="tariffs-grid">
                 <!-- Пакет МИНИ -->
                 <div class="tariff-card">
@@ -1092,51 +1072,32 @@
                 </div>
             </div>
 
-            <!-- Блогеры -->
-            <div class="bloggers-section">
-                <div class="bloggers-header">
-                    <h2>🎬 Наши блогеры</h2>
-                    <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
+            <!-- Одиночные размещения -->
+            <div class="single-placement">
+                <h3>🔻 Разовые размещения</h3>
+                <div class="placement-item">
+                    <div class="placement-channel">
+                        <span>📸</span>
+                        <a href="https://www.instagram.com/minsk_news/" target="_blank">instagram.com/minsk_news/</a>
+                        <span class="placement-stats">478 000 чел.</span>
+                    </div>
+                    <div class="placement-price">Пост + stories — 550 руб.</div>
                 </div>
-                <div class="bloggers-grid">
-                    <div class="blogger-card">
-                        <div class="blogger-icon">🎥</div>
-                        <h3>zatestil</h3>
-                        <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
-                        <div class="blogger-stats">📊 188 000 подписчиков</div>
-                        <div class="blogger-price">от 1 400 ₽ <span>бел. рублей</span></div>
-                        <div class="blogger-package">
-                            <p>📹 Reels + серия сторис</p>
-                            <p>🎬 Дублирование ролика в TikTok: <a href="https://www.tiktok.com/@zatestil" target="_blank">@zatestil</a> <span style="color:#6B6B6B;">(67 000 подписчиков)</span></p>
-                        </div>
-                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
+                <div class="placement-item">
+                    <div class="placement-channel">
+                        <span>💬</span>
+                        <a href="https://t.me/vestiminska" target="_blank">t.me/vestiminska</a>
+                        <span class="placement-stats">47 000 чел.</span>
                     </div>
-
-                    <div class="blogger-card">
-                        <div class="blogger-icon">🎥</div>
-                        <h3>chtopochem_minsk</h3>
-                        <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
-                        <div class="blogger-stats">📊 215 000 подписчиков</div>
-                        <div class="blogger-price">от 1 600 ₽ <span>бел. рублей</span></div>
-                        <div class="blogger-package">
-                            <p>📹 Reels + серия сторис</p>
-                            <p>🎬 Дублирование ролика в TikTok: <a href="https://www.tiktok.com/@chtopochemminsk" target="_blank">@chtopochemminsk</a> <span style="color:#6B6B6B;">(87 000 подписчиков)</span></p>
-                        </div>
-                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
+                    <div class="placement-price">Одиночное размещение — 400 руб.</div>
+                </div>
+                <div class="placement-item">
+                    <div class="placement-channel">
+                        <span>💬</span>
+                        <a href="https://t.me/minskchpdtp" target="_blank">t.me/minskchpdtp</a>
+                        <span class="placement-stats">16 000 чел.</span>
                     </div>
-
-                    <div class="blogger-card">
-                        <div class="blogger-icon">🎥</div>
-                        <h3>kudaminsk</h3>
-                        <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
-                        <div class="blogger-stats">📊 143 000 подписчиков</div>
-                        <div class="blogger-price">от 1 400 ₽ <span>бел. рублей</span></div>
-                        <div class="blogger-package">
-                            <p>📹 Reels + серия сторис</p>
-                            <p>🎬 Дублирование ролика в TikTok: <a href="https://www.tiktok.com/@kudaminsk" target="_blank">@kudaminsk</a> <span style="color:#6B6B6B;">(30 000 подписчиков)</span></p>
-                        </div>
-                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
-                    </div>
+                    <div class="placement-price">По договоренности</div>
                 </div>
             </div>
 
@@ -1186,32 +1147,54 @@
                 </div>
             </div>
 
-            <!-- Одиночные размещения -->
-            <div class="single-placement">
-                <h3>🔻 Разовые размещения</h3>
-                <div class="placement-item">
-                    <div class="placement-channel">
-                        <span>📸</span>
-                        <a href="https://www.instagram.com/minsk_news/" target="_blank">instagram.com/minsk_news/</a>
-                        <span class="placement-stats">478 000 чел.</span>
-                    </div>
-                    <div class="placement-price">Пост + stories — 550 руб.</div>
+            <!-- Блогеры (новый порядок: chtopochem, kudaminsk, zatestil) -->
+            <div class="bloggers-section">
+                <div class="bloggers-header">
+                    <h2>🎬 Наши блогеры</h2>
+                    <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
                 </div>
-                <div class="placement-item">
-                    <div class="placement-channel">
-                        <span>💬</span>
-                        <a href="https://t.me/vestiminska" target="_blank">t.me/vestiminska</a>
-                        <span class="placement-stats">47 000 чел.</span>
+                <div class="bloggers-grid">
+                    <!-- 1. chtopochem_minsk -->
+                    <div class="blogger-card">
+                        <div class="blogger-icon">🎥</div>
+                        <h3>chtopochem_minsk</h3>
+                        <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
+                        <div class="blogger-stats">📊 215 000 подписчиков</div>
+                        <div class="blogger-price">от 1 600 ₽ <span>бел. рублей</span></div>
+                        <div class="blogger-package">
+                            <p>📹 Reels + серия сторис</p>
+                            <p>🎬 Дублирование ролика в TikTok: <a href="https://www.tiktok.com/@chtopochemminsk" target="_blank">@chtopochemminsk</a> <span style="color:#6B6B6B;">(87 000 подписчиков)</span></p>
+                        </div>
+                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
-                    <div class="placement-price">Одиночное размещение — 400 руб.</div>
-                </div>
-                <div class="placement-item">
-                    <div class="placement-channel">
-                        <span>💬</span>
-                        <a href="https://t.me/minskchpdtp" target="_blank">t.me/minskchpdtp</a>
-                        <span class="placement-stats">16 000 чел.</span>
+
+                    <!-- 2. kudaminsk -->
+                    <div class="blogger-card">
+                        <div class="blogger-icon">🎥</div>
+                        <h3>kudaminsk</h3>
+                        <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
+                        <div class="blogger-stats">📊 143 000 подписчиков</div>
+                        <div class="blogger-price">от 1 400 ₽ <span>бел. рублей</span></div>
+                        <div class="blogger-package">
+                            <p>📹 Reels + серия сторис</p>
+                            <p>🎬 Дублирование ролика в TikTok: <a href="https://www.tiktok.com/@kudaminsk" target="_blank">@kudaminsk</a> <span style="color:#6B6B6B;">(30 000 подписчиков)</span></p>
+                        </div>
+                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
-                    <div class="placement-price">По договоренности</div>
+
+                    <!-- 3. zatestil -->
+                    <div class="blogger-card">
+                        <div class="blogger-icon">🎥</div>
+                        <h3>zatestil</h3>
+                        <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
+                        <div class="blogger-stats">📊 188 000 подписчиков</div>
+                        <div class="blogger-price">от 1 400 ₽ <span>бел. рублей</span></div>
+                        <div class="blogger-package">
+                            <p>📹 Reels + серия сторис</p>
+                            <p>🎬 Дублирование ролика в TikTok: <a href="https://www.tiktok.com/@zatestil" target="_blank">@zatestil</a> <span style="color:#6B6B6B;">(67 000 подписчиков)</span></p>
+                        </div>
+                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
+                    </div>
                 </div>
             </div>
 
