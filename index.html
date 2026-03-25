@@ -500,8 +500,6 @@
             font-size: 16px;
             display: inline-block;
             transition: 0.2s;
-            border: none;
-            cursor: pointer;
         }
 
         .btn-footer-yellow:hover {
@@ -541,11 +539,6 @@
         .scroll-top:hover {
             background-color: #E6C935;
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .scroll-top:active {
-            transform: translateY(0);
         }
 
         /* ============================================ */
@@ -619,7 +612,7 @@
                 display: none;
             }
             
-            /* Навигация в две строки с увеличенными кнопками на 10% */
+            /* Навигация в две строки */
             .nav-wrapper {
                 width: 100%;
             }
@@ -636,7 +629,7 @@
                 padding: 4.4px 0;
             }
             
-            /* Герой — фото переносим перед текстом */
+            /* Герой */
             .hero {
                 flex-direction: column;
                 gap: 24px;
@@ -670,21 +663,35 @@
                 padding: 12px 20px;
             }
             
-            /* Статистика */
+            /* СТАТИСТИКА — В ОДНУ СТРОКУ на мобильных */
             .stats {
-                flex-direction: column;
-                padding: 32px 24px;
-                gap: 28px;
-                margin-bottom: 50px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                padding: 24px 16px;
+                gap: 8px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .stat-item {
+                flex: 0 0 auto;
+                min-width: 85px;
+                text-align: center;
             }
             .stat-item:not(:last-child)::after {
                 display: none;
             }
             .stat-number {
-                font-size: 38px;
+                font-size: 22px;
+                white-space: nowrap;
             }
             .stat-label {
-                font-size: 14px;
+                font-size: 10px;
+                white-space: normal;
+                word-break: break-word;
+                max-width: 85px;
+                line-height: 1.2;
             }
             
             /* Заголовки */
@@ -806,7 +813,14 @@
                 max-width: 240px;
             }
             .stat-number {
-                font-size: 32px;
+                font-size: 18px;
+            }
+            .stat-label {
+                font-size: 9px;
+                max-width: 70px;
+            }
+            .stat-item {
+                min-width: 70px;
             }
             .section-header h2,
             .platforms-header h2,
@@ -882,7 +896,7 @@
             </div>
         </div>
 
-        <!-- Статистика -->
+        <!-- Статистика — якорь О нас -->
         <div class="stats" id="about">
             <div class="stat-item">
                 <div class="stat-number">6+ лет</div>
@@ -902,7 +916,7 @@
             </div>
         </div>
 
-        <!-- Что мы делаем — НАШИ УСЛУГИ с иконками -->
+        <!-- Что мы делаем — НАШИ УСЛУГИ -->
         <div class="section" id="services">
             <div class="section-header">
                 <h2>Что мы делаем</h2>
@@ -955,7 +969,7 @@
             </div>
         </div>
 
-        <!-- Почему это работает — КЕЙСЫ с иконками -->
+        <!-- Почему это работает — КЕЙСЫ -->
         <div class="benefits-header" id="cases">
             <h2>Почему это работает</h2>
         </div>
@@ -1000,10 +1014,8 @@
     </div>
 
     <script>
-        // Кнопка "Наверх"
         const scrollTopBtn = document.getElementById('scrollTopBtn');
         
-        // Показываем кнопку при прокрутке более 300px
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
                 scrollTopBtn.classList.add('show');
@@ -1012,7 +1024,6 @@
             }
         });
         
-        // Плавная прокрутка наверх при клике
         scrollTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
@@ -1020,7 +1031,6 @@
             });
         });
         
-        // Дополнительная обработка для логотипа
         document.querySelector('.logo-link')?.addEventListener('click', function(e) {
             window.location.reload();
         });
