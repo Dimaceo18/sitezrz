@@ -39,14 +39,20 @@
             gap: 20px;
         }
 
-        /* Логотип в виде изображения */
+        /* Логотип в виде изображения — увеличен в 4 раза */
         .logo-img {
-            height: 48px;
+            height: 192px;
             width: auto;
             display: block;
         }
 
-        /* Навигация */
+        /* Навигация + кнопка */
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
         .nav {
             display: flex;
             gap: 32px;
@@ -64,6 +70,21 @@
         .nav-link:hover {
             color: #F5D742;
             border-bottom-color: #F5D742;
+        }
+        .nav-btn-dark {
+            background: #1A1A1A;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .nav-btn-dark:hover {
+            background: #333;
+            transform: translateY(-1px);
         }
 
         /* Герой секция */
@@ -123,20 +144,33 @@
             background: #FFFDF5;
         }
 
-        /* Блок статистики — серый фон */
+        /* Блок статистики — серый фон, разделители */
         .stats {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             background: #F8F9FA;
             border-radius: 28px;
             padding: 48px 40px;
             margin-bottom: 80px;
-            gap: 24px;
+            gap: 0;
         }
         .stat-item {
             text-align: center;
             flex: 1;
+            position: relative;
+        }
+        /* разделитель между блоками */
+        .stat-item:not(:last-child)::after {
+            content: "|";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #D0D0D0;
+            font-size: 28px;
+            font-weight: 300;
+            opacity: 0.6;
         }
         .stat-number {
             font-size: 44px;
@@ -172,7 +206,7 @@
             line-height: 1.4;
         }
 
-        /* Карточки с иконками — серый фон */
+        /* Карточки с иконками — иконки по центру */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -186,6 +220,7 @@
             padding: 32px 28px;
             transition: 0.2s;
             min-width: 250px;
+            text-align: center;
         }
         .card:hover {
             transform: translateY(-4px);
@@ -195,17 +230,20 @@
             font-size: 44px;
             margin-bottom: 24px;
             display: block;
+            text-align: center;
         }
         .card h3 {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #000;
+            text-align: center;
         }
         .card p {
             color: #5A5A5A;
             line-height: 1.5;
             font-size: 15px;
+            text-align: center;
         }
 
         /* Секция "Где размещаем" */
@@ -234,7 +272,7 @@
             border-bottom-color: #000;
         }
 
-        /* Сетка площадок */
+        /* Сетка площадок — иконки по центру */
         .platforms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -246,6 +284,7 @@
             border-radius: 20px;
             padding: 28px 24px;
             transition: 0.2s;
+            text-align: center;
         }
         .platform-card:hover {
             transform: translateY(-3px);
@@ -255,20 +294,23 @@
             font-size: 32px;
             margin-bottom: 16px;
             display: block;
+            text-align: center;
         }
         .platform-card h4 {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
             color: #000;
+            text-align: center;
         }
         .platform-card p {
             color: #5A5A5A;
             font-size: 14px;
             line-height: 1.45;
+            text-align: center;
         }
 
-        /* Секция "Почему это работает" — блоки с иконками */
+        /* Секция "Почему это работает" — иконки по центру */
         .benefits-header {
             margin-bottom: 48px;
         }
@@ -294,6 +336,7 @@
             padding: 32px 28px;
             min-width: 220px;
             transition: 0.2s;
+            text-align: center;
         }
         .benefit-card:hover {
             transform: translateY(-4px);
@@ -303,17 +346,20 @@
             font-size: 40px;
             margin-bottom: 20px;
             display: block;
+            text-align: center;
         }
         .benefit-card h3 {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #000;
+            text-align: center;
         }
         .benefit-card p {
             color: #5A5A5A;
             line-height: 1.45;
             font-size: 15px;
+            text-align: center;
         }
 
         /* Футер */
@@ -333,7 +379,10 @@
             .stats {
                 flex-direction: column;
                 text-align: center;
-                gap: 32px;
+                gap: 24px;
+            }
+            .stat-item:not(:last-child)::after {
+                display: none;
             }
             .cards-grid {
                 flex-direction: column;
@@ -351,27 +400,34 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+            .nav-wrapper {
+                width: 100%;
+                justify-content: space-between;
+            }
             .nav {
                 gap: 20px;
             }
             .logo-img {
-                height: 40px;
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Шапка с логотипом-изображением и навигацией -->
+        <!-- Шапка с логотипом-изображением, навигацией и кнопкой -->
         <div class="header">
             <div class="header-inner">
                 <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
-                <div class="nav">
-                    <a href="#" class="nav-link">Наши услуги</a>
-                    <a href="#" class="nav-link">Наши проекты</a>
-                    <a href="#" class="nav-link">Кейсы</a>
-                    <a href="#" class="nav-link">О нас</a>
-                    <a href="#" class="nav-link">Контакты</a>
+                <div class="nav-wrapper">
+                    <div class="nav">
+                        <a href="#" class="nav-link">Наши услуги</a>
+                        <a href="#" class="nav-link">Наши проекты</a>
+                        <a href="#" class="nav-link">Кейсы</a>
+                        <a href="#" class="nav-link">О нас</a>
+                        <a href="#" class="nav-link">Контакты</a>
+                    </div>
+                    <a href="#" class="nav-btn-dark">Обсудить проект</a>
                 </div>
             </div>
         </div>
@@ -386,7 +442,7 @@
             </div>
         </div>
 
-        <!-- Блок статистики с жёлтыми цифрами -->
+        <!-- Блок статистики с жёлтыми цифрами и разделителями -->
         <div class="stats">
             <div class="stat-item">
                 <div class="stat-number">6+ лет</div>
@@ -406,7 +462,7 @@
             </div>
         </div>
 
-        <!-- Что мы делаем — блоки с иконками -->
+        <!-- Что мы делаем — блоки с иконками по центру -->
         <div class="section">
             <div class="section-header">
                 <h2>Что мы делаем</h2>
@@ -431,7 +487,7 @@
             </div>
         </div>
 
-        <!-- Где размещаем — блоки с иконками -->
+        <!-- Где размещаем — блоки с иконками по центру -->
         <div class="platforms-header">
             <h2>Где размещаем</h2>
             <a href="#" class="link-all">Смотреть все площадки →</a>
@@ -459,7 +515,7 @@
             </div>
         </div>
 
-        <!-- Почему это работает — блоки с иконками -->
+        <!-- Почему это работает — блоки с иконками по центру -->
         <div class="benefits-header">
             <h2>Почему это работает</h2>
         </div>
