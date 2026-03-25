@@ -231,18 +231,18 @@
             font-size: 16px;
         }
 
-        /* Блок со stories — тёмно-серый, в столбик */
+        /* Блок со stories — светло-серый */
         .stories-block {
-            background: #2C2C2C;
+            background: #EFEFEF;
             border-radius: 16px;
             padding: 16px 20px;
             margin: 20px 0;
         }
 
         .stories-title {
-            color: #CCCCCC;
+            color: #5A5A5A;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 12px;
             letter-spacing: 0.5px;
         }
@@ -252,7 +252,7 @@
         }
 
         .stories-list li {
-            color: #AAAAAA;
+            color: #4A4A4A;
             font-size: 13px;
             padding: 6px 0;
             display: flex;
@@ -286,6 +286,117 @@
         .order-btn:hover {
             background: #E6C935;
             transform: translateY(-2px);
+        }
+
+        /* Блок с условиями размещения */
+        .conditions-block {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 40px 36px;
+            margin: 60px 0 40px;
+            border: 1px solid #E8ECF0;
+        }
+
+        .conditions-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .conditions-header .bell-icon {
+            font-size: 32px;
+        }
+
+        .conditions-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+        }
+
+        .conditions-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .condition-item {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #E8ECF0;
+        }
+
+        .condition-item:last-child {
+            border-bottom: none;
+        }
+
+        .condition-icon {
+            font-size: 28px;
+            min-width: 48px;
+        }
+
+        .condition-content {
+            flex: 1;
+        }
+
+        .condition-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5D742;
+            margin-bottom: 12px;
+        }
+
+        .condition-content p {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .condition-content .note {
+            background: #FFF8E7;
+            padding: 12px 16px;
+            border-radius: 16px;
+            margin-top: 12px;
+            border-left: 3px solid #F5D742;
+        }
+
+        .condition-content .note strong {
+            color: #F5D742;
+        }
+
+        .important-block {
+            background: #FFF8E7;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-top: 28px;
+            border-left: 4px solid #F5D742;
+        }
+
+        .important-block .important-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .important-block .important-header .warning-icon {
+            font-size: 24px;
+        }
+
+        .important-block .important-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5D742;
+            margin: 0;
+        }
+
+        .important-block p {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
         }
 
         /* Блок с отдельными размещениями */
@@ -503,6 +614,16 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+            .conditions-block {
+                padding: 28px 20px;
+            }
+            .condition-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .condition-icon {
+                min-width: auto;
+            }
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -531,6 +652,9 @@
             }
             .tariff-price {
                 font-size: 28px;
+            }
+            .conditions-header h2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -676,6 +800,52 @@
                         </ul>
                     </div>
                     <a href="#" class="order-btn">Заказать размещения →</a>
+                </div>
+            </div>
+
+            <!-- Блок с условиями размещения -->
+            <div class="conditions-block">
+                <div class="conditions-header">
+                    <span class="bell-icon">🔔</span>
+                    <h2>УСЛОВИЯ РАЗМЕЩЕНИЯ</h2>
+                </div>
+                <div class="conditions-grid">
+                    <div class="condition-item">
+                        <div class="condition-icon">📱</div>
+                        <div class="condition-content">
+                            <h3>Instagram и Вконтакте</h3>
+                            <p>Пост 1 час на первом месте в ленте, далее пост перекрывается другими новостями.</p>
+                        </div>
+                    </div>
+                    <div class="condition-item">
+                        <div class="condition-icon">💬</div>
+                        <div class="condition-content">
+                            <h3>Telegram</h3>
+                            <p>Пост на 30 минут на первом месте, далее пост перекрывается другими новостями.</p>
+                        </div>
+                    </div>
+                    <div class="condition-item">
+                        <div class="condition-icon">📅</div>
+                        <div class="condition-content">
+                            <h3>Сроки размещения</h3>
+                            <p>Рекламные посты размещаются на 7 дней в ленте, затем они удаляются.</p>
+                            <p>При заказе комплекса <strong>ПРЕМИУМ</strong> — посты размещаются на <strong>30 дней</strong> в ленте, затем удаление.</p>
+                        </div>
+                    </div>
+                    <div class="condition-item">
+                        <div class="condition-icon">💎</div>
+                        <div class="condition-content">
+                            <h3>Постоянное размещение</h3>
+                            <p>Оставить посты можно навсегда, без их удаления. Данная услуга платная: <strong>+ 50 рублей</strong> к стоимости размещений.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="important-block">
+                    <div class="important-header">
+                        <span class="warning-icon">⚠️</span>
+                        <h3>ВАЖНЫЙ МОМЕНТ</h3>
+                    </div>
+                    <p>Все рекламные посты мы размещаем в <strong>новостной стилистике от третьего лица</strong>, как обычная новость. Фотографии для публикаций мы используем живые и тематические, рекламные баннеры — мы не размещаем.</p>
                 </div>
             </div>
 
