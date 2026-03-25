@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ЗАРАЗ МЕДИА — реклама в городском контексте Минска</title>
     <style>
         * {
@@ -39,7 +39,7 @@
             gap: 20px;
         }
 
-        /* Логотип в виде изображения — уменьшен на 8% (было 192px, стало 177px) */
+        /* Логотип */
         .logo-img {
             height: 177px;
             width: auto;
@@ -81,6 +81,7 @@
             font-size: 14px;
             transition: 0.2s;
             display: inline-block;
+            white-space: nowrap;
         }
         .nav-btn-dark:hover {
             background: #333;
@@ -144,7 +145,7 @@
             background: #FFFDF5;
         }
 
-        /* Блок статистики — серый фон, разделители */
+        /* Блок статистики */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -160,7 +161,6 @@
             flex: 1;
             position: relative;
         }
-        /* разделитель между блоками */
         .stat-item:not(:last-child)::after {
             content: "|";
             position: absolute;
@@ -185,7 +185,7 @@
             font-weight: 500;
         }
 
-        /* Секция "Что мы делаем" */
+        /* Секции */
         .section {
             margin-bottom: 80px;
         }
@@ -206,7 +206,7 @@
             line-height: 1.4;
         }
 
-        /* Карточки с иконками — иконки по центру */
+        /* Карточки */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -246,7 +246,7 @@
             text-align: center;
         }
 
-        /* Секция "Где размещаем" */
+        /* Площадки */
         .platforms-header {
             display: flex;
             justify-content: space-between;
@@ -272,7 +272,6 @@
             border-bottom-color: #000;
         }
 
-        /* Сетка площадок — иконки по центру */
         .platforms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -310,7 +309,7 @@
             text-align: center;
         }
 
-        /* Секция "Почему это работает" — иконки по центру */
+        /* Преимущества */
         .benefits-header {
             margin-bottom: 48px;
         }
@@ -372,43 +371,208 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 38px;
+        /* ============================================ */
+        /* МОБИЛЬНАЯ ВЕРСИЯ — полная адаптация */
+        /* ============================================ */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 24px;
             }
+        }
+
+        @media (max-width: 900px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .nav-wrapper {
+                flex-direction: column;
+                width: 100%;
+                gap: 20px;
+            }
+            .nav {
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .nav-link {
+                font-size: 15px;
+            }
+            .hero h1 {
+                font-size: 36px;
+                text-align: center;
+            }
+            .hero p {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .header {
+                margin-bottom: 40px;
+                padding: 16px 0;
+            }
+            
+            .logo-img {
+                height: 110px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+                letter-spacing: -0.5px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary {
+                text-align: center;
+                padding: 12px 20px;
+            }
+            
+            /* Статистика — вертикальная */
             .stats {
                 flex-direction: column;
-                text-align: center;
-                gap: 24px;
+                padding: 32px 24px;
+                gap: 28px;
+                border-radius: 24px;
             }
             .stat-item:not(:last-child)::after {
                 display: none;
             }
-            .cards-grid {
-                flex-direction: column;
+            .stat-number {
+                font-size: 38px;
             }
+            .stat-label {
+                font-size: 14px;
+            }
+            
+            /* Заголовки секций */
+            .section-header h2,
+            .platforms-header h2,
+            .benefits-header h2 {
+                font-size: 28px;
+                text-align: center;
+            }
+            .section-header p {
+                font-size: 16px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .platforms-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            /* Карточки */
+            .cards-grid,
             .benefits-grid {
                 flex-direction: column;
+                gap: 20px;
             }
+            .card,
+            .benefit-card,
+            .platform-card {
+                padding: 24px 20px;
+            }
+            .card h3,
+            .benefit-card h3,
+            .platform-card h4 {
+                font-size: 20px;
+            }
+            .card p,
+            .benefit-card p {
+                font-size: 14px;
+            }
+            
             .platforms-grid {
-                gap: 20px;
+                gap: 16px;
+                margin: 24px 0 60px;
             }
-            .section-header h2 {
-                font-size: 30px;
+            
+            .section {
+                margin-bottom: 60px;
             }
-            .header-inner {
-                flex-direction: column;
-                align-items: flex-start;
+            
+            .section-header {
+                margin-bottom: 32px;
             }
-            .nav-wrapper {
-                width: 100%;
-                justify-content: space-between;
+            
+            .footer {
+                padding: 24px 0 32px;
+                font-size: 12px;
             }
-            .nav {
-                gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
             }
+            
             .logo-img {
-                height: 110px;
+                height: 90px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .nav {
+                gap: 16px;
+            }
+            
+            .nav-link {
+                font-size: 14px;
+            }
+            
+            .nav-btn-dark {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+            
+            .stats {
+                padding: 24px 16px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
+            }
+            
+            .section-header h2,
+            .platforms-header h2,
+            .benefits-header h2 {
+                font-size: 24px;
+            }
+            
+            .card-icon,
+            .benefit-icon {
+                font-size: 36px;
+            }
+            
+            .platform-card .platform-icon {
+                font-size: 28px;
             }
         }
     </style>
@@ -442,7 +606,7 @@
             </div>
         </div>
 
-        <!-- Блок статистики с жёлтыми цифрами и разделителями -->
+        <!-- Блок статистики -->
         <div class="stats">
             <div class="stat-item">
                 <div class="stat-number">6+ лет</div>
@@ -462,7 +626,7 @@
             </div>
         </div>
 
-        <!-- Что мы делаем — блоки с иконками по центру -->
+        <!-- Что мы делаем -->
         <div class="section">
             <div class="section-header">
                 <h2>Что мы делаем</h2>
@@ -487,7 +651,7 @@
             </div>
         </div>
 
-        <!-- Где размещаем — блоки с иконками по центру -->
+        <!-- Где размещаем -->
         <div class="platforms-header">
             <h2>Где размещаем</h2>
             <a href="#" class="link-all">Смотреть все площадки →</a>
@@ -515,7 +679,7 @@
             </div>
         </div>
 
-        <!-- Почему это работает — блоки с иконками по центру -->
+        <!-- Почему это работает -->
         <div class="benefits-header">
             <h2>Почему это работает</h2>
         </div>
