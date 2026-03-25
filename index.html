@@ -361,11 +361,14 @@
             background: #FFFDF5;
         }
 
-        .platform-card .platform-icon {
-            font-size: 32px;
+        .platform-card .platform-icon-img {
+            width: 80px;
+            height: 80px;
             margin-bottom: 16px;
             display: block;
-            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            object-fit: contain;
         }
 
         .platform-card h4 {
@@ -586,6 +589,10 @@
                 width: 56px;
                 height: 56px;
             }
+            .platform-card .platform-icon-img {
+                width: 70px;
+                height: 70px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -744,8 +751,9 @@
             .platform-card {
                 padding: 24px 20px;
             }
-            .platform-card .platform-icon {
-                font-size: 28px;
+            .platform-card .platform-icon-img {
+                width: 60px;
+                height: 60px;
             }
             .platform-card h4 {
                 font-size: 18px;
@@ -854,6 +862,10 @@
                 width: 48px;
                 height: 48px;
             }
+            .platform-card .platform-icon-img {
+                width: 50px;
+                height: 50px;
+            }
         }
     </style>
 </head>
@@ -948,22 +960,22 @@
         </div>
         <div class="platforms-grid">
             <div class="platform-card">
-                <span class="platform-icon">📌</span>
+                <img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img">
                 <h4>Паблики о Минске</h4>
                 <p>Крупные городские сообщества и районные паблики</p>
             </div>
             <div class="platform-card">
-                <span class="platform-icon">📸</span>
+                <img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img">
                 <h4>Городские блогеры</h4>
                 <p>Популярные инстаграм- и телеграм-авторы Минска</p>
             </div>
             <div class="platform-card">
-                <span class="platform-icon">💬</span>
+                <img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img">
                 <h4>Telegram-каналы</h4>
                 <p>Новости, афиши, лайфстайл и тематические каналы</p>
             </div>
             <div class="platform-card">
-                <span class="platform-icon">🍜</span>
+                <img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img">
                 <h4>Нишевые сообщества</h4>
                 <p>Еда, спорт, бизнес, бытовые и другие сферы</p>
             </div>
