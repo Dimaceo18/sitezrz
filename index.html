@@ -867,6 +867,47 @@
                 height: 50px;
             }
         }
+        /* Индивидуальные размеры для иконок в разделе "Где размещаем" */
+.platform-card .platform-icon-img[src="mepublics.png"] {
+    width: 200px;
+    height: 200px;
+}
+
+.platform-card .platform-icon-img[src="ourbloggers.png"] {
+    width: 100px;
+    height: 100px;
+}
+
+.platform-card .platform-icon-img[src="ourtg.png"] {
+    width: 100px;
+    height: 100px;
+}
+
+.platform-card .platform-icon-img[src="ourpubs.png"] {
+    width: 100px;
+    height: 100px;
+}
+
+/* Для мобильных устройств - уменьшаем пропорционально */
+@media (max-width: 768px) {
+    .platform-card .platform-icon-img[src="mepublics.png"],
+    .platform-card .platform-icon-img[src="ourbloggers.png"],
+    .platform-card .platform-icon-img[src="ourtg.png"],
+    .platform-card .platform-icon-img[src="ourpubs.png"] {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .platform-card .platform-icon-img[src="mepublics.png"],
+    .platform-card .platform-icon-img[src="ourbloggers.png"],
+    .platform-card .platform-icon-img[src="ourtg.png"],
+    .platform-card .platform-icon-img[src="ourpubs.png"] {
+        width: 60px;
+        height: 60px;
+    }
+}
     </style>
 </head>
 <body>
