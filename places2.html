@@ -333,6 +333,108 @@
             transform: translateY(-2px);
         }
 
+        /* Разовые размещения - две карточки */
+        .single-placement {
+            margin: 40px 0;
+        }
+
+        .single-placement h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #000;
+            text-align: center;
+        }
+
+        .placement-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .placement-card {
+            flex: 1;
+            min-width: 280px;
+            background: #F8F9FA;
+            border-radius: 24px;
+            padding: 28px 24px;
+            text-align: center;
+            border: 1px solid #E8ECF0;
+            transition: all 0.3s ease;
+        }
+
+        .placement-card:hover {
+            transform: translateY(-4px);
+            border-color: #F5D742;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .placement-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .placement-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .placement-account {
+            display: inline-block;
+            background: #FFFFFF;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #F5D742;
+            text-decoration: none;
+            margin: 12px 0;
+            border: 1px solid #E8ECF0;
+            transition: 0.2s;
+        }
+
+        .placement-account:hover {
+            border-color: #F5D742;
+            color: #E6C935;
+        }
+
+        .placement-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #F5D742;
+            margin: 16px 0 8px;
+        }
+
+        .placement-stats {
+            font-size: 14px;
+            color: #6B6B6B;
+            margin-top: 8px;
+        }
+
+        .placement-order-btn {
+            background: #F5D742;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .placement-order-btn:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
         /* Блогеры */
         .bloggers-section {
             margin: 60px 0 40px;
@@ -512,6 +614,9 @@
             }
             .tariff-card {
                 min-width: 100%;
+            }
+            .placement-cards {
+                flex-direction: column;
             }
             .footer-content {
                 flex-direction: column;
@@ -709,12 +814,31 @@
                 </div>
             </div>
 
-            <!-- Одиночные размещения -->
-            <div class="single-placement" style="background: #F8F9FA; border-radius: 24px; padding: 24px; margin: 40px 0;">
-                <h3 style="font-size: 22px; margin-bottom: 20px;">🔻 Разовые размещения</h3>
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-                    <div><strong>📸 minsk_news</strong> (478 000 чел.)<br>Пост + stories — <span style="color:#F5D742; font-weight:700;">550 руб.</span></div>
-                    <div><strong>💬 vestiminska</strong> (47 000 чел.)<br>Одиночное размещение — <span style="color:#F5D742; font-weight:700;">400 руб.</span></div>
+            <!-- Разовые размещения - две отдельные карточки -->
+            <div class="single-placement">
+                <h3>🔻 Разовые размещения</h3>
+                <div class="placement-cards">
+                    <!-- Instagram -->
+                    <div class="placement-card">
+                        <span class="placement-icon">📸</span>
+                        <h4>Instagram</h4>
+                        <a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account">@minsk_news</a>
+                        <div class="placement-price">550 ₽</div>
+                        <div class="placement-stats">👥 478 000 подписчиков</div>
+                        <div class="placement-stats" style="font-size: 12px; color: #888;">Пост + stories</div>
+                        <a href="#" class="placement-order-btn">Заказать размещение →</a>
+                    </div>
+                    
+                    <!-- Telegram -->
+                    <div class="placement-card">
+                        <span class="placement-icon">💬</span>
+                        <h4>Telegram</h4>
+                        <a href="https://t.me/vestiminska" target="_blank" class="placement-account">@vestiminska</a>
+                        <div class="placement-price">400 ₽</div>
+                        <div class="placement-stats">👥 47 000 подписчиков</div>
+                        <div class="placement-stats" style="font-size: 12px; color: #888;">Одиночное размещение</div>
+                        <a href="#" class="placement-order-btn">Заказать размещение →</a>
+                    </div>
                 </div>
             </div>
 
