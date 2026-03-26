@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -126,89 +126,94 @@
             margin: 0 auto;
         }
 
-        /* Сетка кейсов */
+        /* Сетка кейсов - 4 в ряд на десктопе */
         .cases-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
             margin-bottom: 80px;
         }
 
         .case-card {
-            flex: 1;
-            min-width: 320px;
             background: #F8F9FA;
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
             transition: all 0.3s ease;
             border: 1px solid #E8ECF0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: 0 20px 32px rgba(0, 0, 0, 0.08);
             border-color: #F5D742;
         }
 
         .case-image {
             width: 100%;
-            height: 220px;
+            height: 160px;
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 64px;
+            font-size: 56px;
         }
 
         .case-content {
-            padding: 28px 24px;
+            padding: 20px 20px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-category {
             display: inline-block;
             background: #F5D742;
             color: #000;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            align-self: flex-start;
         }
 
         .case-card h3 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #000;
+            line-height: 1.3;
         }
 
         .case-description {
-            font-size: 15px;
+            font-size: 13px;
             color: #5A5A5A;
-            line-height: 1.5;
-            margin-bottom: 20px;
+            line-height: 1.45;
+            margin-bottom: 16px;
         }
 
         .case-results {
             background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px;
-            margin: 20px 0;
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin: 12px 0;
         }
 
         .case-results h4 {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: #F5D742;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .result-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 6px 0;
             border-bottom: 1px solid #F0F0F0;
         }
 
@@ -217,29 +222,30 @@
         }
 
         .result-label {
-            font-size: 13px;
+            font-size: 12px;
             color: #6B6B6B;
         }
 
         .result-value {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             color: #000;
         }
 
         .result-value.highlight {
             color: #F5D742;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .case-link {
             display: inline-block;
-            margin-top: 16px;
+            margin-top: 12px;
             color: #F5D742;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: 0.2s;
+            align-self: flex-start;
         }
 
         .case-link:hover {
@@ -348,7 +354,7 @@
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -400,6 +406,15 @@
             visibility: visible;
         }
 
+        /* Планшеты - 2 кейса в ряд */
+        @media (max-width: 1100px) {
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Мобильные - 1 кейс */
         @media (max-width: 768px) {
             .container {
                 padding: 0 16px;
@@ -419,7 +434,8 @@
                 font-size: 36px;
             }
             .cases-grid {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             .stats-grid {
                 flex-direction: column;
@@ -428,6 +444,37 @@
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+            }
+            .case-image {
+                height: 140px;
+                font-size: 48px;
+            }
+            .case-content {
+                padding: 18px;
+            }
+            .case-card h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 32px;
+            }
+            .stats-success {
+                padding: 32px 24px;
+            }
+            .stats-success h2 {
+                font-size: 28px;
+            }
+            .stat-success-number {
+                font-size: 40px;
+            }
+            .cta-block {
+                padding: 32px 24px;
+            }
+            .cta-block h2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -461,7 +508,7 @@
             <p>Реальные примеры успешных интеграций и рекламных кампаний в городских сообществах Минска</p>
         </div>
 
-        <!-- Сетка кейсов -->
+        <!-- Сетка кейсов - 4 в ряд на десктопе -->
         <div class="cases-grid">
             <!-- Кейс 1: Ресторан -->
             <div class="case-card">
@@ -469,7 +516,7 @@
                 <div class="case-content">
                     <span class="case-category">Ресторанный бизнес</span>
                     <h3>Ресторан «Минская кухня»</h3>
-                    <p class="case-description">Задача: привлечь новых гостей в ресторан белорусской кухни. Использовали нативные интеграции в городских пабликах и у блогеров.</p>
+                    <p class="case-description">Привлечение новых гостей в ресторан белорусской кухни через нативные интеграции.</p>
                     <div class="case-results">
                         <h4>📈 Результаты</h4>
                         <div class="result-item">
@@ -485,7 +532,7 @@
                             <span class="result-value">+25%</span>
                         </div>
                     </div>
-                    <a href="#" class="case-link">Подробнее о кейсе →</a>
+                    <a href="#" class="case-link">Подробнее →</a>
                 </div>
             </div>
 
@@ -495,7 +542,7 @@
                 <div class="case-content">
                     <span class="case-category">Фитнес и спорт</span>
                     <h3>Фитнес клуб «SportLife»</h3>
-                    <p class="case-description">Задача: набор новых клиентов на абонементы. Разместили серию постов в районных пабликах и у фитнес-блогеров.</p>
+                    <p class="case-description">Набор новых клиентов на абонементы через районные паблики и фитнес-блогеров.</p>
                     <div class="case-results">
                         <h4>📈 Результаты</h4>
                         <div class="result-item">
@@ -507,11 +554,11 @@
                             <span class="result-value">+420%</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Продажи абонементов</span>
+                            <span class="result-label">Продажи</span>
                             <span class="result-value">+180%</span>
                         </div>
                     </div>
-                    <a href="#" class="case-link">Подробнее о кейсе →</a>
+                    <a href="#" class="case-link">Подробнее →</a>
                 </div>
             </div>
 
@@ -521,7 +568,7 @@
                 <div class="case-content">
                     <span class="case-category">E-commerce</span>
                     <h3>Магазин белорусской косметики</h3>
-                    <p class="case-description">Задача: увеличение узнаваемости бренда и продаж. Использовали интеграции у городских блогеров и в тематических Telegram-каналах.</p>
+                    <p class="case-description">Увеличение узнаваемости бренда и продаж через блогеров и Telegram-каналы.</p>
                     <div class="case-results">
                         <h4>📈 Результаты</h4>
                         <div class="result-item">
@@ -529,7 +576,7 @@
                             <span class="result-value highlight">312 000+</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Переходы на сайт</span>
+                            <span class="result-label">Переходы</span>
                             <span class="result-value">+520%</span>
                         </div>
                         <div class="result-item">
@@ -537,7 +584,7 @@
                             <span class="result-value">+210%</span>
                         </div>
                     </div>
-                    <a href="#" class="case-link">Подробнее о кейсе →</a>
+                    <a href="#" class="case-link">Подробнее →</a>
                 </div>
             </div>
 
@@ -547,7 +594,7 @@
                 <div class="case-content">
                     <span class="case-category">Образование</span>
                     <h3>Образовательный центр «SmartUp»</h3>
-                    <p class="case-description">Задача: набор на курсы программирования и английского языка. Разместили серию постов в районных пабликах и у родителей-блогеров.</p>
+                    <p class="case-description">Набор на курсы программирования через районные паблики и родителей-блогеров.</p>
                     <div class="case-results">
                         <h4>📈 Результаты</h4>
                         <div class="result-item">
@@ -555,15 +602,15 @@
                             <span class="result-value highlight">156 000+</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Заявки на обучение</span>
+                            <span class="result-label">Заявки</span>
                             <span class="result-value">+280%</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">Заполняемость групп</span>
+                            <span class="result-label">Заполняемость</span>
                             <span class="result-value">95%</span>
                         </div>
                     </div>
-                    <a href="#" class="case-link">Подробнее о кейсе →</a>
+                    <a href="#" class="case-link">Подробнее →</a>
                 </div>
             </div>
         </div>
