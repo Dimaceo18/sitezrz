@@ -333,15 +333,15 @@
             transform: translateY(-2px);
         }
 
-        /* Разовые размещения - две карточки */
+        /* Разовые размещения - уменьшенные карточки в 2 раза */
         .single-placement {
             margin: 40px 0;
         }
 
         .single-placement h3 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: #000;
             text-align: center;
         }
@@ -349,50 +349,51 @@
         .placement-cards {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
             justify-content: center;
         }
 
         .placement-card {
             flex: 1;
-            min-width: 280px;
+            min-width: 240px;
+            max-width: 280px;
             background: #F8F9FA;
-            border-radius: 24px;
-            padding: 28px 24px;
+            border-radius: 20px;
+            padding: 16px 20px;
             text-align: center;
             border: 1px solid #E8ECF0;
             transition: all 0.3s ease;
         }
 
         .placement-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: #F5D742;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
         }
 
         .placement-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
+            font-size: 32px;
+            margin-bottom: 8px;
             display: block;
         }
 
         .placement-card h4 {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             color: #000;
         }
 
         .placement-account {
             display: inline-block;
             background: #FFFFFF;
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
             color: #F5D742;
             text-decoration: none;
-            margin: 12px 0;
+            margin: 8px 0;
             border: 1px solid #E8ECF0;
             transition: 0.2s;
         }
@@ -403,28 +404,28 @@
         }
 
         .placement-price {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 800;
             color: #F5D742;
-            margin: 16px 0 8px;
+            margin: 8px 0 4px;
         }
 
         .placement-stats {
-            font-size: 14px;
+            font-size: 11px;
             color: #6B6B6B;
-            margin-top: 8px;
+            margin-top: 4px;
         }
 
         .placement-order-btn {
             background: #F5D742;
             color: #000;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 40px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 12px;
             width: 100%;
             text-align: center;
             transition: 0.2s;
@@ -617,6 +618,12 @@
             }
             .placement-cards {
                 flex-direction: column;
+                align-items: center;
+            }
+            .placement-card {
+                max-width: 100%;
+                min-width: auto;
+                width: 100%;
             }
             .footer-content {
                 flex-direction: column;
@@ -663,7 +670,7 @@
                 <div class="tariff-card">
                     <span class="tariff-icon">🔻</span>
                     <h2>Пакет «МИНИ»</h2>
-                    <div class="tariff-price">685 ₽ <span>/ пакет</span></div>
+                    <div class="tariff-price">685 BYN <span>/ пакет</span></div>
                     <div class="tariff-stats">📊 более 860 000 подписчиков</div>
                     
                     <div class="accordion">
@@ -698,7 +705,7 @@
                 <div class="tariff-card">
                     <span class="tariff-icon">🔻</span>
                     <h2>Пакет «СТАНДАРТ»</h2>
-                    <div class="tariff-price">745 ₽ <span>/ пакет</span></div>
+                    <div class="tariff-price">745 BYN <span>/ пакет</span></div>
                     <div class="tariff-stats">📊 более 1 300 000 подписчиков</div>
                     
                     <div class="accordion">
@@ -741,7 +748,7 @@
                     <div class="premium-badge">🔥 ХИТ</div>
                     <span class="tariff-icon">⭐</span>
                     <h2>Пакет «ПРЕМИУМ»</h2>
-                    <div class="tariff-price">905 ₽ <span class="old-price">1 500 ₽</span> <span>/ пакет</span></div>
+                    <div class="tariff-price">905 BYN <span class="old-price">1 500 BYN</span> <span>/ пакет</span></div>
                     <div class="tariff-stats">📊 более 1 700 000 подписчиков</div>
                     
                     <div class="accordion">
@@ -814,7 +821,7 @@
                 </div>
             </div>
 
-            <!-- Разовые размещения - две отдельные карточки -->
+            <!-- Разовые размещения - уменьшенные карточки -->
             <div class="single-placement">
                 <h3>🔻 Разовые размещения</h3>
                 <div class="placement-cards">
@@ -823,9 +830,9 @@
                         <span class="placement-icon">📸</span>
                         <h4>Instagram</h4>
                         <a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account">@minsk_news</a>
-                        <div class="placement-price">550 ₽</div>
+                        <div class="placement-price">550 BYN</div>
                         <div class="placement-stats">👥 478 000 подписчиков</div>
-                        <div class="placement-stats" style="font-size: 12px; color: #888;">Пост + stories</div>
+                        <div class="placement-stats" style="font-size: 10px; color: #888;">Пост + stories</div>
                         <a href="#" class="placement-order-btn">Заказать размещение →</a>
                     </div>
                     
@@ -834,9 +841,9 @@
                         <span class="placement-icon">💬</span>
                         <h4>Telegram</h4>
                         <a href="https://t.me/vestiminska" target="_blank" class="placement-account">@vestiminska</a>
-                        <div class="placement-price">400 ₽</div>
+                        <div class="placement-price">400 BYN</div>
                         <div class="placement-stats">👥 47 000 подписчиков</div>
-                        <div class="placement-stats" style="font-size: 12px; color: #888;">Одиночное размещение</div>
+                        <div class="placement-stats" style="font-size: 10px; color: #888;">Одиночное размещение</div>
                         <a href="#" class="placement-order-btn">Заказать размещение →</a>
                     </div>
                 </div>
@@ -854,7 +861,7 @@
                         <h3>chtopochem_minsk</h3>
                         <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
                         <div class="blogger-stats">215 000 подписчиков</div>
-                        <div class="blogger-price">от 1 600 ₽</div>
+                        <div class="blogger-price">от 1 600 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (87K)</div>
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
@@ -863,7 +870,7 @@
                         <h3>kudaminsk</h3>
                         <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
                         <div class="blogger-stats">143 000 подписчиков</div>
-                        <div class="blogger-price">от 1 400 ₽</div>
+                        <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (30K)</div>
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
@@ -872,7 +879,7 @@
                         <h3>zatestil</h3>
                         <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
                         <div class="blogger-stats">188 000 подписчиков</div>
-                        <div class="blogger-price">от 1 400 ₽</div>
+                        <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (67K)</div>
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
