@@ -237,6 +237,50 @@
             font-weight: 500;
         }
 
+        /* О компании — новый блок */
+        .about-company {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 48px 48px;
+            margin-bottom: 80px;
+            border: 1px solid #E8ECF0;
+        }
+
+        .about-company h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .about-company p {
+            font-size: 18px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .about-company .mission {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-top: 24px;
+            border-left: 4px solid #F5D742;
+        }
+
+        .about-company .mission strong {
+            color: #F5D742;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .about-company .mission p {
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+
         /* Секции */
         .section {
             margin-bottom: 80px;
@@ -593,6 +637,15 @@
                 width: 70px;
                 height: 70px;
             }
+            .about-company {
+                padding: 32px 28px;
+            }
+            .about-company h2 {
+                font-size: 28px;
+            }
+            .about-company p {
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -699,6 +752,15 @@
                 word-break: break-word;
                 max-width: 85px;
                 line-height: 1.2;
+            }
+            
+            /* О компании на мобильных */
+            .about-company {
+                margin-bottom: 50px;
+                padding: 28px 20px;
+            }
+            .about-company .mission {
+                padding: 20px;
             }
             
             /* Заголовки */
@@ -829,6 +891,12 @@
             }
             .stat-item {
                 min-width: 70px;
+            }
+            .about-company h2 {
+                font-size: 24px;
+            }
+            .about-company p {
+                font-size: 14px;
             }
             .section-header h2,
             .platforms-header h2,
@@ -969,6 +1037,17 @@
             </div>
         </div>
 
+        <!-- О компании — новый блок -->
+        <div class="about-company">
+            <h2>О компании</h2>
+            <p><strong>ЗАРАЗ МЕДИА</strong> — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</p>
+            <p>Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2019 года и провела более 250 успешных кампаний.</p>
+            <div class="mission">
+                <strong>🎯 Миссия</strong>
+                <p>Помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
+            </div>
+        </div>
+
         <!-- Что мы делаем — НАШИ УСЛУГИ -->
         <div class="section" id="services">
             <div class="section-header">
@@ -1084,9 +1163,4 @@
             });
         });
         
-        document.querySelector('.logo-link')?.addEventListener('click', function(e) {
-            window.location.reload();
-        });
-    </script>
-</body>
-</html>
+        document.querySelector('.logo-link')?.addEventListener('
