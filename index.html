@@ -106,56 +106,57 @@
             transform: translateY(-1px);
         }
 
-        /* Герой */
+        /* Герой — новый блок с описанием компании */
         .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 48px;
             margin-bottom: 80px;
-            flex-wrap: wrap;
             scroll-margin-top: 100px;
         }
 
-        .hero-content {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .hero-content h1 {
-            font-size: 52px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 24px;
             color: #000;
             line-height: 1.2;
         }
 
-        .hero-content p {
+        .hero-description {
             font-size: 18px;
             color: #4A4A4A;
             line-height: 1.5;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+            max-width: 800px;
         }
 
-        .hero-image {
-            flex: 1;
-            min-width: 280px;
-            text-align: center;
+        .hero-mission {
+            background: #F8F9FA;
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin-top: 32px;
+            border-left: 4px solid #F5D742;
+            max-width: 700px;
         }
 
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 24px;
-            object-fit: cover;
+        .hero-mission p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2C2C2C;
+            line-height: 1.5;
+        }
+
+        .hero-mission .quote-icon {
+            font-size: 32px;
+            color: #F5D742;
+            margin-right: 12px;
+            vertical-align: middle;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+            margin-top: 32px;
         }
 
         .btn-primary {
@@ -235,50 +236,6 @@
             font-size: 15px;
             color: #5A5A5A;
             font-weight: 500;
-        }
-
-        /* О компании — новый блок */
-        .about-company {
-            background: #F8F9FA;
-            border-radius: 28px;
-            padding: 48px 48px;
-            margin-bottom: 80px;
-            border: 1px solid #E8ECF0;
-        }
-
-        .about-company h2 {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-            color: #000;
-        }
-
-        .about-company p {
-            font-size: 18px;
-            color: #4A4A4A;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .about-company .mission {
-            background: #FFFFFF;
-            border-radius: 20px;
-            padding: 24px 28px;
-            margin-top: 24px;
-            border-left: 4px solid #F5D742;
-        }
-
-        .about-company .mission strong {
-            color: #F5D742;
-            font-size: 18px;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .about-company .mission p {
-            margin-bottom: 0;
-            font-size: 16px;
         }
 
         /* Секции */
@@ -593,20 +550,14 @@
         /* ============================================ */
 
         @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
+            .hero h1 {
+                font-size: 36px;
             }
-            .hero-content h1 {
-                text-align: center;
+            .hero-description {
+                font-size: 16px;
             }
-            .hero-content p {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-buttons {
-                justify-content: center;
+            .hero-mission p {
+                font-size: 16px;
             }
             .footer-content {
                 flex-direction: column;
@@ -636,15 +587,6 @@
             .platform-card .platform-icon-img {
                 width: 70px;
                 height: 70px;
-            }
-            .about-company {
-                padding: 32px 28px;
-            }
-            .about-company h2 {
-                font-size: 28px;
-            }
-            .about-company p {
-                font-size: 16px;
             }
         }
 
@@ -691,31 +633,29 @@
             
             /* Герой */
             .hero {
-                flex-direction: column;
-                gap: 24px;
+                margin-bottom: 50px;
             }
-            .hero-image {
-                order: -1;
-                margin-bottom: 16px;
+            .hero h1 {
+                font-size: 28px;
+                text-align: center;
             }
-            .hero-image img {
-                max-width: 280px;
+            .hero-description {
+                font-size: 15px;
+                text-align: center;
             }
-            .hero-content {
-                order: 2;
+            .hero-mission {
+                padding: 20px;
+                margin-top: 24px;
             }
-            .hero-content h1 {
-                font-size: 32px;
-                letter-spacing: -0.5px;
-            }
-            .hero-content p {
-                font-size: 16px;
-                margin-bottom: 24px;
+            .hero-mission p {
+                font-size: 14px;
+                text-align: center;
             }
             .hero-buttons {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 12px;
+                margin-top: 24px;
             }
             .hero-buttons .btn-primary,
             .hero-buttons .btn-secondary {
@@ -733,6 +673,7 @@
                 gap: 8px;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
+                margin-bottom: 50px;
             }
             .stat-item {
                 flex: 0 0 auto;
@@ -752,15 +693,6 @@
                 word-break: break-word;
                 max-width: 85px;
                 line-height: 1.2;
-            }
-            
-            /* О компании на мобильных */
-            .about-company {
-                margin-bottom: 50px;
-                padding: 28px 20px;
-            }
-            .about-company .mission {
-                padding: 20px;
             }
             
             /* Заголовки */
@@ -876,11 +808,14 @@
             .logo-img {
                 height: 32px;
             }
-            .hero-content h1 {
-                font-size: 28px;
+            .hero h1 {
+                font-size: 24px;
             }
-            .hero-image img {
-                max-width: 240px;
+            .hero-description {
+                font-size: 14px;
+            }
+            .hero-mission p {
+                font-size: 13px;
             }
             .stat-number {
                 font-size: 18px;
@@ -891,12 +826,6 @@
             }
             .stat-item {
                 min-width: 70px;
-            }
-            .about-company h2 {
-                font-size: 24px;
-            }
-            .about-company p {
-                font-size: 14px;
             }
             .section-header h2,
             .platforms-header h2,
@@ -1002,18 +931,18 @@
             </div>
         </div>
 
-        <!-- Герой с фото -->
+        <!-- Герой — новый блок с описанием компании -->
         <div class="hero" id="home">
-            <div class="hero-image">
-                <img src="photo1.jpg" alt="Городской контекст Минска">
+            <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</h1>
+            <div class="hero-description">
+                Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2019 года и провела более 250 успешных кампаний.
             </div>
-            <div class="hero-content">
-                <h1>Реклама в городском<br>контексте Минска</h1>
-                <p>ЗАРАЗ МЕДИА размещает бренды в популярных городских сообществах и у блогеров так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Обсудить проект</a>
-                    <a href="#" class="btn-secondary">Посмотреть возможности →</a>
-                </div>
+            <div class="hero-mission">
+                <p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Обсудить проект</a>
+                <a href="#" class="btn-secondary">Посмотреть возможности →</a>
             </div>
         </div>
 
@@ -1034,17 +963,6 @@
             <div class="stat-item">
                 <div class="stat-number">>1 млн</div>
                 <div class="stat-label">человек ежемесячный охват рекламных размещений</div>
-            </div>
-        </div>
-
-        <!-- О компании — новый блок -->
-        <div class="about-company">
-            <h2>О компании</h2>
-            <p><strong>ЗАРАЗ МЕДИА</strong> — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</p>
-            <p>Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2019 года и провела более 250 успешных кампаний.</p>
-            <div class="mission">
-                <strong>🎯 Миссия</strong>
-                <p>Помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
             </div>
         </div>
 
@@ -1163,4 +1081,9 @@
             });
         });
         
-        document.querySelector('.logo-link')?.addEventListener('
+        document.querySelector('.logo-link')?.addEventListener('click', function(e) {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
