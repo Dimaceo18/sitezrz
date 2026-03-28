@@ -1264,7 +1264,7 @@
                 </div>
             </div>
             <div class="footer-button">
-                <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
+                <a href="#" class="btn-footer-yellow" onclick="openSlideup(); return false;">Связаться с нами →</a>
             </div>
         </div>
     </div>
@@ -1481,6 +1481,196 @@
         e.preventDefault();
         alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
         closeModal();
+        this.reset();
+    });
+</script>
+    <!-- Стили для выезжающего окна -->
+<style>
+    .slideup-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2000;
+        display: none;
+        justify-content: center;
+        align-items: flex-end;
+        pointer-events: none;
+    }
+    .slideup-overlay.show {
+        display: flex;
+    }
+    .slideup-window {
+        background: #FFFFFF;
+        border-radius: 32px 32px 0 0;
+        max-width: 500px;
+        width: 100%;
+        padding: 32px 28px;
+        position: relative;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+        pointer-events: auto;
+        border-top: 3px solid #F5D742;
+    }
+    .slideup-overlay.show .slideup-window {
+        transform: translateY(0);
+    }
+    .slideup-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-size: 28px;
+        cursor: pointer;
+        color: #999;
+        transition: color 0.2s;
+        line-height: 1;
+    }
+    .slideup-close:hover {
+        color: #F5D742;
+    }
+    .slideup-window h3 {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #000;
+        padding-right: 30px;
+    }
+    .discount-badge {
+        background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 40px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 16px;
+    }
+    .slideup-window p {
+        color: #6B6B6B;
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .offer-text {
+        background: #F8F9FA;
+        border-radius: 20px;
+        padding: 16px;
+        margin: 16px 0;
+        text-align: center;
+        border-left: 4px solid #F5D742;
+    }
+    .offer-text strong {
+        color: #F5D742;
+        font-size: 18px;
+    }
+    .slideup-form input,
+    .slideup-form textarea {
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 14px;
+        border: 1px solid #E0E0E0;
+        border-radius: 40px;
+        font-size: 15px;
+        font-family: inherit;
+        transition: border-color 0.2s;
+        background: #F8F9FA;
+    }
+    .slideup-form input:focus,
+    .slideup-form textarea:focus {
+        outline: none;
+        border-color: #F5D742;
+        background: #FFFFFF;
+    }
+    .slideup-form textarea {
+        border-radius: 24px;
+        resize: vertical;
+    }
+    .slideup-submit {
+        background: #F5D742;
+        color: #000;
+        padding: 14px 28px;
+        border-radius: 40px;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.2s;
+    }
+    .slideup-submit:hover {
+        background: #E6C935;
+        transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+        .slideup-window {
+            padding: 24px 20px;
+        }
+        .slideup-window h3 {
+            font-size: 22px;
+        }
+        .offer-text strong {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<!-- Выезжающее окно -->
+<div class="slideup-overlay" id="slideupOverlay">
+    <div class="slideup-window">
+        <span class="slideup-close" id="slideupClose">&times;</span>
+        
+        <div class="discount-badge">🎁 АКЦИЯ</div>
+        <h3>Привет! 👋</h3>
+        
+        <div class="offer-text">
+            💛 Если нажать сюда — получите <strong>скидку 10%</strong> на первые размещения!
+        </div>
+        
+        <p>Оставьте заявку, и мы ответим в течение часа</p>
+        
+        <form class="slideup-form" id="slideupForm">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="tel" placeholder="Телефон" required>
+            <input type="email" placeholder="Email">
+            <textarea rows="3" placeholder="Сообщение (необязательно)"></textarea>
+            <button type="submit" class="slideup-submit">Получить скидку 10% →</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Открытие выезжающего окна
+    function openSlideup() {
+        document.getElementById('slideupOverlay').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeSlideup() {
+        document.getElementById('slideupOverlay').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    
+    // Закрытие по крестику
+    document.getElementById('slideupClose').addEventListener('click', closeSlideup);
+    
+    // Закрытие по клику на фон
+    document.getElementById('slideupOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeSlideup();
+    });
+    
+    // Закрытие по Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('slideupOverlay').classList.contains('show')) {
+            closeSlideup();
+        }
+    });
+    
+    // Отправка формы (пока демо)
+    document.getElementById('slideupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('🎉 Спасибо! Скидка 10% активирована! Наш менеджер свяжется с вами в ближайшее время.');
+        closeSlideup();
         this.reset();
     });
 </script>
