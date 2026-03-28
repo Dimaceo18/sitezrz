@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>F.A.Q. — ЗАРАЗ МЕДИА</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .header {
+            padding: 24px 0 20px 0;
+            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 60px;
+            background-color: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-link {
+            display: inline-block;
+            cursor: pointer;
+            line-height: 0;
+        }
+
+        .logo-img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #2C2C2C;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: #F5D742;
+            border-bottom-color: #F5D742;
+        }
+
+        .nav-btn-dark {
+            background: #1A1A1A;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .nav-btn-dark:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Заголовок страницы */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #5A5A5A;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Аккордеон FAQ */
+        .faq-section {
+            margin-bottom: 80px;
+        }
+
+        .faq-category {
+            margin-bottom: 40px;
+        }
+
+        .faq-category h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #F5D742;
+            display: inline-block;
+        }
+
+        .accordion-item {
+            background: #F8F9FA;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid #E8ECF0;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: #F5D742;
+        }
+
+        .accordion-header {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #2C2C2C;
+            transition: 0.2s;
+            background: #F8F9FA;
+        }
+
+        .accordion-header:hover {
+            color: #F5D742;
+        }
+
+        .accordion-header .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            color: #F5D742;
+        }
+
+        .accordion-item.active .accordion-header .arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding: 0 24px;
+            background: #FFFFFF;
+            border-top: 1px solid #E8ECF0;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 20px 24px;
+        }
+
+        .accordion-content p {
+            font-size: 15px;
+            color: #5A5A5A;
+            line-height: 1.6;
+        }
+
+        .accordion-content ul {
+            margin: 12px 0 0 20px;
+            color: #5A5A5A;
+        }
+
+        .accordion-content li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* Кнопка связи */
+        .contact-block {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 48px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .contact-block h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .contact-block p {
+            font-size: 16px;
+            color: #5A5A5A;
+            margin-bottom: 24px;
+        }
+
+        .contact-btn {
+            background: #F5D742;
+            color: #000;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        /* Кнопка назад */
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            color: #F5D742;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+            color: #E6C935;
+        }
+
+        /* ПОДВАЛ */
+        .footer-large {
+            background: #F5F5F5;
+            margin-top: 40px;
+            padding: 50px 0 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .footer-info {
+            flex: 2;
+        }
+
+        .footer-info p {
+            color: #3A3A3A;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .footer-info .company-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: flex-start;
+            margin-left: 5%;
+        }
+
+        .footer-links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links-column h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 6px;
+        }
+
+        .footer-links-column a {
+            color: #5A5A5A;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links-column a:hover {
+            color: #F5D742;
+        }
+
+        .footer-button {
+            flex: 1;
+            text-align: right;
+            min-width: 180px;
+            white-space: nowrap;
+        }
+
+        .btn-footer-yellow {
+            background: #F5D742;
+            color: #000;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-footer-yellow:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        /* Кнопка наверх */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background-color: #F5D742;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: #E6C935;
+            transform: translateY(-3px);
+        }
+
+        /* Мобильная версия */
+        @media (max-width: 900px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                justify-content: center;
+                margin-left: 0;
+            }
+            .footer-button {
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav {
+                justify-content: center;
+                gap: 16px;
+            }
+            .nav-btn-dark {
+                display: none;
+            }
+            .page-header h1 {
+                font-size: 36px;
+            }
+            .faq-category h2 {
+                font-size: 24px;
+            }
+            .accordion-header {
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+            .accordion-content p {
+                font-size: 14px;
+            }
+            .contact-block {
+                padding: 32px 24px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            .footer-links-column {
+                align-items: center;
+            }
+            .footer-button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .btn-footer-yellow {
+                padding: 8px 20px;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            .accordion-header {
+                padding: 14px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка наверх -->
+    <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
+
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <div class="header-inner">
+                <a href="index.html" class="logo-link">
+                    <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
+                </a>
+                <div class="nav-wrapper">
+                    <div class="nav">
+                        <a href="index.html#services" class="nav-link">Наши услуги</a>
+                        <a href="index.html#projects" class="nav-link">Наши проекты</a>
+                        <a href="cases.html" class="nav-link">Кейсы</a>
+                        <a href="about.html" class="nav-link">О нас</a>
+                        <a href="index.html#contacts" class="nav-link">Контакты</a>
+                    </div>
+                    <a href="#" class="nav-btn-dark">Обсудить проект</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <div class="page-header">
+            <h1>❓ Часто задаваемые вопросы</h1>
+            <p>Ответы на самые популярные вопросы о наших услугах, размещении рекламы и сотрудничестве</p>
+        </div>
+
+        <!-- FAQ секция -->
+        <div class="faq-section">
+            <!-- Категория: Общие вопросы -->
+            <div class="faq-category">
+                <h2>📌 Общие вопросы</h2>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Какие форматы рекламы вы предлагаете?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Мы работаем с несколькими форматами:</p>
+                        <ul>
+                            <li><strong>Нативные интеграции</strong> — рекламные посты в стилистике обычных публикаций</li>
+                            <li><strong>Stories</strong> — короткие вертикальные форматы в Instagram</li>
+                            <li><strong>Reels</strong> — короткие видео в Instagram</li>
+                            <li><strong>Посты в Telegram</strong> — размещение в тематических каналах</li>
+                            <li><strong>Комплексные пакеты</strong> — сочетание нескольких площадок и форматов</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Сколько стоят ваши услуги?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Стоимость зависит от выбранного формата и пакета:</p>
+                        <ul>
+                            <li><strong>Пакет «МИНИ»</strong> — 685 BYN (7 площадок + stories)</li>
+                            <li><strong>Пакет «СТАНДАРТ»</strong> — 745 BYN (11 площадок + stories)</li>
+                            <li><strong>Пакет «ПРЕМИУМ»</strong> — 905 BYN (Instagram + VK + Telegram + stories)</li>
+                            <li><strong>Разовые размещения</strong> — от 400 BYN</li>
+                        </ul>
+                        <p>Актуальные цены всегда можно посмотреть на странице <a href="places.html" style="color:#F5D742;">«Цены и площадки»</a>.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Как долго пост держится в ленте?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Instagram и Вконтакте:</strong> пост находится на первом месте в ленте 1 час, затем перекрывается другими новостями. При этом пост остаётся в ленте и доступен для просмотра.</p>
+                        <p><strong>Telegram:</strong> пост на первом месте 30 минут, затем перекрывается другими публикациями.</p>
+                        <p><strong>Срок хранения:</strong> стандартные посты удаляются через 7 дней. При заказе пакета «ПРЕМИУМ» — 30 дней. Можно оставить пост навсегда (+50 BYN).</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Как вы отчитываетесь о результатах?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>После завершения кампании мы предоставляем подробный отчёт, который включает:</p>
+                        <ul>
+                            <li>📊 Скриншоты публикаций со ссылками</li>
+                            <li>📈 Статистику охватов и просмотров</li>
+                            <li>💬 Количество комментариев и реакций</li>
+                            <li>📎 Дополнительные метрики по запросу</li>
+                        </ul>
+                        <p>По желанию клиента можем предоставлять промежуточные отчёты в процессе размещения.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Категория: Размещение и площадки -->
+            <div class="faq-category">
+                <h2>📱 Размещение и площадки</h2>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>На каких площадках вы размещаете рекламу?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Мы работаем с тремя основными типами площадок:</p>
+                        <ul>
+                            <li><strong>Паблики о Минске</strong> — крупные городские сообщества и районные паблики</li>
+                            <li><strong>Городские блогеры</strong> — популярные Instagram- и Telegram-авторы Минска</li>
+                            <li><strong>Telegram-каналы</strong> — новости, афиши, лайфстайл и тематические каналы</li>
+                            <li><strong>Нишевые сообщества</strong> — еда, спорт, бизнес, бытовые и другие сферы</li>
+                        </ul>
+                        <p>Полный список площадок доступен на странице <a href="places.html" style="color:#F5D742;">«Цены и площадки»</a>.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Можно ли выбрать конкретные площадки для размещения?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Да, мы предлагаем как готовые пакеты, так и индивидуальный подбор площадок под ваши задачи. Вы можете выбрать конкретные паблики, блогеров или Telegram-каналы, которые лучше всего подходят для вашей целевой аудитории.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Какой формат поста лучше работает?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>По нашей статистике, лучше всего работают:</p>
+                        <ul>
+                            <li><strong>Нативные посты</strong> — оформленные в стилистике обычных публикаций (доверие выше на 40%)</li>
+                            <li><strong>Reels</strong> — короткие динамичные видео (охват выше на 60%)</li>
+                            <li><strong>Stories с опросами</strong> — вовлекают аудиторию в диалог</li>
+                        </ul>
+                        <p>Мы всегда адаптируем формат под конкретную площадку и аудиторию.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Категория: Сотрудничество -->
+            <div class="faq-category">
+                <h2>🤝 Сотрудничество</h2>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Как начать сотрудничество?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Начать очень просто:</p>
+                        <ul>
+                            <li><strong>1.</strong> Свяжитесь с нами любым удобным способом (телефон, email, форма на сайте)</li>
+                            <li><strong>2.</strong> Расскажите о вашем бизнесе, целях и бюджете</li>
+                            <li><strong>3.</strong> Мы предложим оптимальную стратегию и подберём площадки</li>
+                            <li><strong>4.</strong> Согласовываем тексты, визуалы и даты размещения</li>
+                            <li><strong>5.</strong> Запускаем кампанию и предоставляем отчёт</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Можно ли заказать только написание текста без размещения?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Да, мы предлагаем услуги копирайтинга и создания контента. Наши авторы напишут тексты в стилистике выбранных площадок, которые вы сможете разместить самостоятельно. Стоимость обсуждается индивидуально в зависимости от объёма и сложности.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Как оплатить услуги?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Мы работаем с юридическими и физическими лицами. Доступны следующие способы оплаты:</p>
+                        <ul>
+                            <li>💳 Безналичный расчёт (для юрлиц с выставлением счёта)</li>
+                            <li>📱 ЕРИП (для физических лиц)</li>
+                            <li>💸 Оплата на карту</li>
+                        </ul>
+                        <p>Предоплата 100% для разовых размещений. Для постоянных клиентов возможны индивидуальные условия.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок связи -->
+        <div class="contact-block">
+            <h2>💬 Остались вопросы?</h2>
+            <p>Не нашли ответ на свой вопрос? Свяжитесь с нами — мы с радостью поможем!</p>
+            <a href="#" class="contact-btn">Связаться с нами →</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <div class="footer-large">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h4>Информация</h4>
+                    <a href="faq.html" style="color: #F5D742;">F.A.Q.</a>
+                    <a href="blog.html">Блог</a>
+                    <a href="team.html">Наша команда</a>
+                    <a href="mediakit.html">Медиа-кит</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Соцсети</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">VK</a>
+                </div>
+            </div>
+            <div class="footer-button">
+                <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Кнопка наверх
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Аккордеон для FAQ
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                // Закрываем все остальные
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Переключаем текущий
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
