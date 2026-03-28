@@ -100,31 +100,45 @@
             white-space: nowrap;
         }
 
-        /* Якорные кнопки */
-        .anchor-buttons {
+        /* Переключатель - активная кнопка жёлтая */
+        .switch-container {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin: 30px 0 50px;
-            flex-wrap: wrap;
+            margin: 40px 0 50px;
         }
 
-        .anchor-btn {
-            background: #F5D742;
-            color: #000;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 18px;
+        .switch-buttons {
+            display: inline-flex;
+            background: #F0F0F0;
+            border-radius: 60px;
+            padding: 5px;
+            gap: 5px;
+        }
+
+        .switch-btn {
+            padding: 14px 48px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 16px;
             text-decoration: none;
+            background: transparent;
+            color: #5A5A5A;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
             transition: all 0.3s ease;
-            display: inline-block;
             text-align: center;
         }
 
-        .anchor-btn:hover {
-            background: #E6C935;
-            transform: translateY(-2px);
+        .switch-btn.active {
+            background: #F5D742;
+            color: #000;
+            box-shadow: 0 2px 8px rgba(245, 215, 66, 0.3);
+        }
+
+        .switch-btn:hover:not(.active) {
+            background: #E4E4E4;
+            color: #2C2C2C;
         }
 
         /* Тарифы */
@@ -214,7 +228,7 @@
             display: inline-block;
         }
 
-        /* Аккордеон (выпадающий список) */
+        /* Аккордеон */
         .accordion {
             margin: 16px 0;
         }
@@ -333,107 +347,86 @@
             transform: translateY(-2px);
         }
 
-        /* Разовые размещения - уменьшенные карточки в 2 раза */
+        /* Одиночные размещения - таблица */
         .single-placement {
-            margin: 40px 0;
+            margin: 40px 0 60px;
         }
 
         .single-placement h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #000;
-            text-align: center;
-        }
-
-        .placement-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .placement-card {
-            flex: 1;
-            min-width: 240px;
-            max-width: 280px;
-            background: #F8F9FA;
-            border-radius: 20px;
-            padding: 16px 20px;
-            text-align: center;
-            border: 1px solid #E8ECF0;
-            transition: all 0.3s ease;
-        }
-
-        .placement-card:hover {
-            transform: translateY(-3px);
-            border-color: #F5D742;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-        }
-
-        .placement-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .placement-card h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: #000;
-        }
-
-        .placement-account {
-            display: inline-block;
-            background: #FFFFFF;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 500;
-            color: #F5D742;
-            text-decoration: none;
-            margin: 8px 0;
-            border: 1px solid #E8ECF0;
-            transition: 0.2s;
-        }
-
-        .placement-account:hover {
-            border-color: #F5D742;
-            color: #E6C935;
-        }
-
-        .placement-price {
             font-size: 24px;
-            font-weight: 800;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #000;
+            text-align: center;
+        }
+
+        .placement-table {
+            background: #F8F9FA;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #E8ECF0;
+        }
+
+        .placement-table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            align-items: center;
+            padding: 18px 24px;
+            border-bottom: 1px solid #E8ECF0;
+            transition: background 0.2s;
+        }
+
+        .placement-table-row:last-child {
+            border-bottom: none;
+        }
+
+        .placement-table-header {
+            background: #EFEFEF;
+            font-weight: 700;
+            color: #2C2C2C;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .placement-account-link {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .placement-account-link:hover {
             color: #F5D742;
-            margin: 8px 0 4px;
         }
 
-        .placement-stats {
-            font-size: 11px;
+        .placement-subscribers {
             color: #6B6B6B;
-            margin-top: 4px;
+            font-size: 14px;
         }
 
-        .placement-order-btn {
+        .placement-price-table {
+            font-weight: 700;
+            color: #F5D742;
+            font-size: 18px;
+        }
+
+        .cart-btn {
             background: #F5D742;
             color: #000;
+            border: none;
             padding: 8px 16px;
-            border-radius: 40px;
+            border-radius: 30px;
+            font-size: 14px;
             font-weight: 600;
-            font-size: 12px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 12px;
-            width: 100%;
-            text-align: center;
-            transition: 0.2s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
         }
 
-        .placement-order-btn:hover {
+        .cart-btn:hover {
             background: #E6C935;
-            transform: translateY(-2px);
+            transform: scale(1.02);
         }
 
         /* Блогеры */
@@ -469,6 +462,7 @@
             padding: 28px 24px;
             text-align: center;
             border: 1px solid #E8ECF0;
+            transition: all 0.3s ease;
         }
 
         .blogger-card:hover {
@@ -476,9 +470,14 @@
             border-color: #F5D742;
         }
 
-        .blogger-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
+        .blogger-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #F5D742;
         }
 
         .blogger-card h3 {
@@ -527,6 +526,12 @@
             display: inline-block;
             width: 100%;
             margin-top: 12px;
+            transition: 0.2s;
+        }
+
+        .blogger-order-btn:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
         }
 
         .back-link {
@@ -540,7 +545,8 @@
         /* Подвал */
         .footer-large {
             background: #F5F5F5;
-            padding: 40px 0;
+            margin-top: 40px;
+            padding: 50px 0 40px;
         }
 
         .footer-content {
@@ -550,14 +556,66 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             gap: 30px;
+        }
+
+        .footer-info {
+            flex: 2;
         }
 
         .footer-info p {
             color: #3A3A3A;
             font-size: 14px;
+            line-height: 1.6;
             margin-bottom: 6px;
+        }
+
+        .footer-info .company-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: flex-start;
+            margin-left: 5%;
+        }
+
+        .footer-links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links-column h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 6px;
+        }
+
+        .footer-links-column a {
+            color: #5A5A5A;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links-column a:hover {
+            color: #F5D742;
+        }
+
+        .footer-button {
+            flex: 1;
+            text-align: right;
+            min-width: 180px;
+            white-space: nowrap;
         }
 
         .btn-footer-yellow {
@@ -567,7 +625,15 @@
             border-radius: 40px;
             font-weight: 700;
             text-decoration: none;
+            font-size: 14px;
             display: inline-block;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-footer-yellow:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
         }
 
         .scroll-top {
@@ -587,11 +653,55 @@
             transition: 0.3s;
             font-size: 20px;
             font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .scroll-top.show {
             opacity: 1;
             visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: #E6C935;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 900px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                justify-content: center;
+                margin-left: 0;
+            }
+            .footer-button {
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                white-space: normal;
+            }
+            .blogger-avatar {
+                width: 120px;
+                height: 120px;
+            }
+            .placement-table-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                text-align: center;
+            }
+            .placement-table-header {
+                display: none;
+            }
+            .cart-btn {
+                justify-content: center;
+            }
+            .switch-btn {
+                padding: 10px 28px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -609,25 +719,32 @@
             .nav-btn-dark {
                 display: none;
             }
-            .anchor-btn {
-                padding: 10px 24px;
-                font-size: 14px;
+            .switch-btn {
+                padding: 8px 20px;
+                font-size: 13px;
             }
             .tariff-card {
                 min-width: 100%;
             }
-            .placement-cards {
+            .bloggers-grid {
                 flex-direction: column;
+            }
+            .blogger-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
                 align-items: center;
             }
-            .placement-card {
-                max-width: 100%;
-                min-width: auto;
-                width: 100%;
+            .footer-links-column {
+                align-items: center;
             }
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
+            .footer-button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
         }
     </style>
@@ -645,8 +762,8 @@
                     <div class="nav">
                         <a href="index.html#services" class="nav-link">Наши услуги</a>
                         <a href="index.html#projects" class="nav-link">Наши проекты</a>
-                        <a href="index.html#cases" class="nav-link">Кейсы</a>
-                        <a href="index.html#about" class="nav-link">О нас</a>
+                        <a href="cases.html" class="nav-link">Кейсы</a>
+                        <a href="about.html" class="nav-link">О нас</a>
                         <a href="index.html#contacts" class="nav-link">Контакты</a>
                     </div>
                     <a href="#" class="nav-btn-dark">Обсудить проект</a>
@@ -660,9 +777,12 @@
                 <p style="text-align: center; color: #5A5A5A;">Выберите подходящий вариант размещения</p>
             </div>
 
-            <div class="anchor-buttons">
-                <a href="#tariffs" class="anchor-btn">🏙️ ГОРОДСКИЕ СООБЩЕСТВА</a>
-                <a href="#bloggers" class="anchor-btn">🎬 БЛОГЕРЫ</a>
+            <!-- Переключатель - активная кнопка жёлтая -->
+            <div class="switch-container">
+                <div class="switch-buttons">
+                    <button class="switch-btn active" id="btnCommunities">🏙️ Сообщества</button>
+                    <button class="switch-btn" id="btnBloggers">🎬 Блогеры</button>
+                </div>
             </div>
 
             <!-- Тарифы -->
@@ -821,30 +941,33 @@
                 </div>
             </div>
 
-            <!-- Разовые размещения - уменьшенные карточки -->
+            <!-- Одиночные размещения - таблица -->
             <div class="single-placement">
-                <h3>🔻 Разовые размещения</h3>
-                <div class="placement-cards">
-                    <!-- Instagram -->
-                    <div class="placement-card">
-                        <span class="placement-icon">📸</span>
-                        <h4>Instagram</h4>
-                        <a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account">@minsk_news</a>
-                        <div class="placement-price">550 BYN</div>
-                        <div class="placement-stats">👥 478 000 подписчиков</div>
-                        <div class="placement-stats" style="font-size: 10px; color: #888;">Пост + stories</div>
-                        <a href="#" class="placement-order-btn">Заказать размещение →</a>
+                <h3>🔻 Одиночные размещения</h3>
+                <div class="placement-table">
+                    <div class="placement-table-row placement-table-header">
+                        <div>Аккаунт</div>
+                        <div>Подписчики</div>
+                        <div>Стоимость</div>
+                        <div></div>
                     </div>
-                    
-                    <!-- Telegram -->
-                    <div class="placement-card">
-                        <span class="placement-icon">💬</span>
-                        <h4>Telegram</h4>
-                        <a href="https://t.me/vestiminska" target="_blank" class="placement-account">@vestiminska</a>
-                        <div class="placement-price">400 BYN</div>
-                        <div class="placement-stats">👥 47 000 подписчиков</div>
-                        <div class="placement-stats" style="font-size: 10px; color: #888;">Одиночное размещение</div>
-                        <a href="#" class="placement-order-btn">Заказать размещение →</a>
+                    <div class="placement-table-row">
+                        <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">@minsk_news</a></div>
+                        <div class="placement-subscribers">478 000</div>
+                        <div class="placement-price-table">550 BYN</div>
+                        <div><button class="cart-btn" onclick="alert('Добавлено в корзину')">🛒 Заказать</button></div>
+                    </div>
+                    <div class="placement-table-row">
+                        <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">@vestiminska</a></div>
+                        <div class="placement-subscribers">47 000</div>
+                        <div class="placement-price-table">400 BYN</div>
+                        <div><button class="cart-btn" onclick="alert('Добавлено в корзину')">🛒 Заказать</button></div>
+                    </div>
+                    <div class="placement-table-row">
+                        <div><a href="https://t.me/minskchpdtp" target="_blank" class="placement-account-link">@minskchpdtp</a></div>
+                        <div class="placement-subscribers">16 000</div>
+                        <div class="placement-price-table">по запросу</div>
+                        <div><button class="cart-btn" onclick="alert('Свяжитесь с нами для уточнения цены')">📞 Уточнить</button></div>
                     </div>
                 </div>
             </div>
@@ -857,7 +980,7 @@
                 </div>
                 <div class="bloggers-grid">
                     <div class="blogger-card">
-                        <div class="blogger-icon">🎥</div>
+                        <img src="chpch.jpg" alt="chtopochem_minsk" class="blogger-avatar">
                         <h3>chtopochem_minsk</h3>
                         <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
                         <div class="blogger-stats">215 000 подписчиков</div>
@@ -866,7 +989,7 @@
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
                     <div class="blogger-card">
-                        <div class="blogger-icon">🎥</div>
+                        <img src="km.jpg" alt="kudaminsk" class="blogger-avatar">
                         <h3>kudaminsk</h3>
                         <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
                         <div class="blogger-stats">143 000 подписчиков</div>
@@ -875,7 +998,7 @@
                         <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
                     </div>
                     <div class="blogger-card">
-                        <div class="blogger-icon">🎥</div>
+                        <img src="ztstl.jpg" alt="zatestil" class="blogger-avatar">
                         <h3>zatestil</h3>
                         <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
                         <div class="blogger-stats">188 000 подписчиков</div>
@@ -890,12 +1013,30 @@
         </div>
     </div>
 
+    <!-- Подвал -->
     <div class="footer-large">
         <div class="footer-content">
             <div class="footer-info">
-                <p><strong>Коммуникативное агентство "Зараз Медиа"</strong></p>
-                <p>ООО Храмцов Медиа • УНП 192554055</p>
-                <p>ул. Октябрьская 19Б, офис 211 • +375291405067</p>
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h4>Информация</h4>
+                    <a href="faq.html">F.A.Q.</a>
+                    <a href="blog.html">Блог</a>
+                    <a href="team.html">Наша команда</a>
+                    <a href="mediakit.html">Медиа-кит</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Соцсети</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">VK</a>
+                </div>
             </div>
             <div class="footer-button">
                 <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
@@ -916,6 +1057,24 @@
         });
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Переключатель
+        const btnCommunities = document.getElementById('btnCommunities');
+        const btnBloggers = document.getElementById('btnBloggers');
+        const tariffsSection = document.getElementById('tariffs');
+        const bloggersSection = document.getElementById('bloggers');
+
+        btnCommunities.addEventListener('click', () => {
+            btnCommunities.classList.add('active');
+            btnBloggers.classList.remove('active');
+            tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        btnBloggers.addEventListener('click', () => {
+            btnBloggers.classList.add('active');
+            btnCommunities.classList.remove('active');
+            bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     </script>
 </body>
