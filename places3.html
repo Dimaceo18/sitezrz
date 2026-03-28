@@ -100,26 +100,23 @@
             white-space: nowrap;
         }
 
-        /* Переключатель как на iPhone - ИСПРАВЛЕННЫЙ */
+        /* Переключатель - активная кнопка жёлтая */
         .switch-container {
             display: flex;
             justify-content: center;
             margin: 40px 0 50px;
         }
 
-        .switch-toggle {
+        .switch-buttons {
             display: inline-flex;
-            background: #E8E8E8;
+            background: #F0F0F0;
             border-radius: 60px;
             padding: 5px;
-            position: relative;
-            cursor: pointer;
-            min-width: 360px;
+            gap: 5px;
         }
 
-        .switch-option {
-            flex: 1;
-            padding: 14px 24px;
+        .switch-btn {
+            padding: 14px 48px;
             border-radius: 60px;
             font-weight: 600;
             font-size: 16px;
@@ -129,35 +126,19 @@
             cursor: pointer;
             border: none;
             font-family: inherit;
-            position: relative;
-            z-index: 2;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             text-align: center;
         }
 
-        .switch-option.active {
+        .switch-btn.active {
+            background: #F5D742;
             color: #000;
-            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(245, 215, 66, 0.3);
         }
 
-        .switch-slider {
-            position: absolute;
-            top: 5px;
-            bottom: 5px;
-            width: calc(50% - 5px);
-            background: #FFFFFF;
-            border-radius: 60px;
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-            z-index: 1;
-        }
-
-        .switch-slider.left {
-            transform: translateX(0);
-        }
-
-        .switch-slider.right {
-            transform: translateX(100%);
+        .switch-btn:hover:not(.active) {
+            background: #E4E4E4;
+            color: #2C2C2C;
         }
 
         /* Тарифы */
@@ -397,10 +378,6 @@
 
         .placement-table-row:last-child {
             border-bottom: none;
-        }
-
-        .placement-table-row:hover {
-            background: #FFFFFF;
         }
 
         .placement-table-header {
@@ -721,11 +698,8 @@
             .cart-btn {
                 justify-content: center;
             }
-            .switch-toggle {
-                min-width: 300px;
-            }
-            .switch-option {
-                padding: 10px 16px;
+            .switch-btn {
+                padding: 10px 28px;
                 font-size: 14px;
             }
         }
@@ -745,12 +719,9 @@
             .nav-btn-dark {
                 display: none;
             }
-            .switch-option {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-            .switch-toggle {
-                min-width: 260px;
+            .switch-btn {
+                padding: 8px 20px;
+                font-size: 13px;
             }
             .tariff-card {
                 min-width: 100%;
@@ -806,18 +777,16 @@
                 <p style="text-align: center; color: #5A5A5A;">Выберите подходящий вариант размещения</p>
             </div>
 
-            <!-- Переключатель как на iPhone - ИСПРАВЛЕННЫЙ -->
+            <!-- Переключатель - активная кнопка жёлтая -->
             <div class="switch-container">
-                <div class="switch-toggle" id="switchToggle">
-                    <div class="switch-slider left" id="switchSlider"></div>
-                    <button class="switch-option active" data-target="tariffs">🏙️ Городские сообщества</button>
-                    <button class="switch-option" data-target="bloggers">🎬 Блогеры</button>
+                <div class="switch-buttons">
+                    <button class="switch-btn active" id="btnCommunities">🏙️ Сообщества</button>
+                    <button class="switch-btn" id="btnBloggers">🎬 Блогеры</button>
                 </div>
             </div>
 
             <!-- Тарифы -->
             <div class="tariffs-grid" id="tariffs">
-                <!-- содержимое тарифов (оставляем без изменений) -->
                 <div class="tariff-card">
                     <span class="tariff-icon">🔻</span>
                     <h2>Пакет «МИНИ»</h2>
@@ -1090,44 +1059,23 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Переключатель как на iPhone - ИСПРАВЛЕННЫЙ
-        const switchSlider = document.getElementById('switchSlider');
-        const options = document.querySelectorAll('.switch-option');
+        // Переключатель
+        const btnCommunities = document.getElementById('btnCommunities');
+        const btnBloggers = document.getElementById('btnBloggers');
         const tariffsSection = document.getElementById('tariffs');
         const bloggersSection = document.getElementById('bloggers');
 
-        function setActiveOption(targetId) {
-            options.forEach(opt => {
-                const isActive = opt.getAttribute('data-target') === targetId;
-                if (isActive) {
-                    opt.classList.add('active');
-                    if (targetId === 'bloggers') {
-                        switchSlider.classList.remove('left');
-                        switchSlider.classList.add('right');
-                    } else {
-                        switchSlider.classList.remove('right');
-                        switchSlider.classList.add('left');
-                    }
-                } else {
-                    opt.classList.remove('active');
-                }
-            });
-        }
-
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                const target = option.getAttribute('data-target');
-                setActiveOption(target);
-                if (target === 'bloggers') {
-                    bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        btnCommunities.addEventListener('click', () => {
+            btnCommunities.classList.add('active');
+            btnBloggers.classList.remove('active');
+            tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
-        // Устанавливаем начальное положение слайдера
-        setActiveOption('tariffs');
+        btnBloggers.addEventListener('click', () => {
+            btnBloggers.classList.add('active');
+            btnCommunities.classList.remove('active');
+            bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     </script>
 </body>
 </html>
