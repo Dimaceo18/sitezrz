@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Блог — ЗАРАЗ МЕДИА</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .header {
+            padding: 24px 0 20px 0;
+            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 60px;
+            background-color: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-link {
+            display: inline-block;
+            cursor: pointer;
+            line-height: 0;
+        }
+
+        .logo-img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #2C2C2C;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: #F5D742;
+            border-bottom-color: #F5D742;
+        }
+
+        .nav-btn-dark {
+            background: #1A1A1A;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .nav-btn-dark:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Заголовок страницы */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #5A5A5A;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Сетка блога */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .blog-card {
+            background: #F8F9FA;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #E8ECF0;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 32px rgba(0, 0, 0, 0.08);
+            border-color: #F5D742;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+        }
+
+        .blog-content {
+            padding: 24px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #6B6B6B;
+        }
+
+        .blog-category {
+            background: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #F5D742;
+        }
+
+        .blog-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #000;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            font-size: 14px;
+            color: #5A5A5A;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #F5D742;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .blog-link:hover {
+            gap: 12px;
+            color: #E6C935;
+        }
+
+        /* Подписка на рассылку */
+        .subscribe-section {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 48px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .subscribe-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .subscribe-section p {
+            font-size: 16px;
+            color: #5A5A5A;
+            margin-bottom: 24px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscribe-form input {
+            flex: 2;
+            min-width: 250px;
+            padding: 14px 20px;
+            border: 1px solid #E0E0E0;
+            border-radius: 40px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .subscribe-form input:focus {
+            border-color: #F5D742;
+        }
+
+        .subscribe-btn {
+            background: #F5D742;
+            color: #000;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .subscribe-btn:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        /* Кнопка назад */
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
+            color: #F5D742;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+            color: #E6C935;
+        }
+
+        /* ПОДВАЛ */
+        .footer-large {
+            background: #F5F5F5;
+            margin-top: 40px;
+            padding: 50px 0 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .footer-info {
+            flex: 2;
+        }
+
+        .footer-info p {
+            color: #3A3A3A;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .footer-info .company-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: flex-start;
+            margin-left: 5%;
+        }
+
+        .footer-links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links-column h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 6px;
+        }
+
+        .footer-links-column a {
+            color: #5A5A5A;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links-column a:hover {
+            color: #F5D742;
+        }
+
+        .footer-button {
+            flex: 1;
+            text-align: right;
+            min-width: 180px;
+            white-space: nowrap;
+        }
+
+        .btn-footer-yellow {
+            background: #F5D742;
+            color: #000;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-footer-yellow:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        /* Кнопка наверх */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background-color: #F5D742;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: #E6C935;
+            transform: translateY(-3px);
+        }
+
+        /* Мобильная версия */
+        @media (max-width: 900px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                justify-content: center;
+                margin-left: 0;
+            }
+            .footer-button {
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav {
+                justify-content: center;
+                gap: 16px;
+            }
+            .nav-btn-dark {
+                display: none;
+            }
+            .page-header h1 {
+                font-size: 36px;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .subscribe-section {
+                padding: 32px 24px;
+            }
+            .subscribe-section h2 {
+                font-size: 28px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            .footer-links-column {
+                align-items: center;
+            }
+            .footer-button {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .btn-footer-yellow {
+                padding: 8px 20px;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            .subscribe-form input {
+                min-width: 100%;
+            }
+            .subscribe-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка наверх -->
+    <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
+
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <div class="header-inner">
+                <a href="index.html" class="logo-link">
+                    <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
+                </a>
+                <div class="nav-wrapper">
+                    <div class="nav">
+                        <a href="index.html#services" class="nav-link">Наши услуги</a>
+                        <a href="index.html#projects" class="nav-link">Наши проекты</a>
+                        <a href="cases.html" class="nav-link">Кейсы</a>
+                        <a href="about.html" class="nav-link">О нас</a>
+                        <a href="index.html#contacts" class="nav-link">Контакты</a>
+                    </div>
+                    <a href="#" class="nav-btn-dark">Обсудить проект</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Заголовок страницы -->
+        <div class="page-header">
+            <h1>📝 Блог</h1>
+            <p>Полезные статьи о маркетинге, SMM, трендах в рекламе и жизни городских медиа Минска</p>
+        </div>
+
+        <!-- Сетка блога -->
+        <div class="blog-grid">
+            <!-- Статья 1 -->
+            <div class="blog-card">
+                <div class="blog-image">📱</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>25 марта 2026</span>
+                        <span class="blog-category">SMM</span>
+                    </div>
+                    <h3>Нативная реклама: почему она работает лучше баннеров</h3>
+                    <div class="blog-excerpt">
+                        Рассказываем, как встроить рекламу в ленту так, чтобы её читали, а не пролистывали. Секреты эффективных интеграций в городских пабликах.
+                    </div>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </div>
+            </div>
+
+            <!-- Статья 2 -->
+            <div class="blog-card">
+                <div class="blog-image">📊</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>18 марта 2026</span>
+                        <span class="blog-category">Аналитика</span>
+                    </div>
+                    <h3>Как оценить эффективность рекламы в соцсетях</h3>
+                    <div class="blog-excerpt">
+                        Охват, ER, CTR, конверсия — разбираем ключевые метрики и рассказываем, на что действительно стоит смотреть при анализе кампаний.
+                    </div>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </div>
+            </div>
+
+            <!-- Статья 3 -->
+            <div class="blog-card">
+                <div class="blog-image">🎯</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>10 марта 2026</span>
+                        <span class="blog-category">Блогеры</span>
+                    </div>
+                    <h3>Как выбрать блогера для рекламы: 5 главных критериев</h3>
+                    <div class="blog-excerpt">
+                        Количество подписчиков — не главное. Рассказываем, на что обращать внимание при выборе инфлюенсера для успешной интеграции.
+                    </div>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </div>
+            </div>
+
+            <!-- Статья 4 -->
+            <div class="blog-card">
+                <div class="blog-image">🏙️</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>3 марта 2026</span>
+                        <span class="blog-category">Минск</span>
+                    </div>
+                    <h3>Городские сообщества: как они формируют повестку Минска</h3>
+                    <div class="blog-excerpt">
+                        История развития городских пабликов, их влияние на жителей и почему брендам важно быть в этой среде.
+                    </div>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </div>
+            </div>
+
+            <!-- Статья 5 -->
+            <div class="blog-card">
+                <div class="blog-image">💡</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>25 февраля 2026</span>
+                        <span class="blog-category">Советы</span>
+                    </div>
+                    <h3>Как написать пост, который захочется дочитать</h3>
+                    <div class="blog-excerpt">
+                        5 правил создания текстов для соцсетей, которые работают. Примеры из наших успешных кампаний.
+                    </div>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </div>
+            </div>
+
+            <!-- Статья 6 -->
+            <div class="blog-card">
+                <div class="blog-image">📈</div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>18 февраля 2026</span>
+                        <span class="blog-category">Тренды</span>
+                    </div>
+                    <h3>Тренды SMM 2026: что будет работать в этом году</h3>
+                    <div class="blog-excerpt">
+                        Короткие видео, нативная реклама, Telegram-каналы — обзор главных трендов и прогнозы на ближайшие месяцы.
+                    </div>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подписка на рассылку -->
+        <div class="subscribe-section">
+            <h2>📧 Будьте в курсе</h2>
+            <p>Подпишитесь на нашу рассылку, чтобы первыми получать новые статьи и полезные материалы</p>
+            <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Спасибо за подписку!');">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit" class="subscribe-btn">Подписаться →</button>
+            </form>
+        </div>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <div class="footer-large">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h4>Информация</h4>
+                    <a href="faq.html">F.A.Q.</a>
+                    <a href="blog.html" style="color: #F5D742;">Блог</a>
+                    <a href="team.html">Наша команда</a>
+                    <a href="mediakit.html">Медиа-кит</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Соцсети</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">VK</a>
+                </div>
+            </div>
+            <div class="footer-button">
+                <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
