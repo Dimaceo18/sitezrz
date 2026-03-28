@@ -28,15 +28,13 @@
             padding: 0 20px;
         }
 
-        /* Шапка */
+        /* Шапка — убран sticky, теперь обычный блок */
         .header {
             padding: 24px 0 20px 0;
             border-bottom: 1px solid #F0F0F0;
             margin-bottom: 60px;
             background-color: #FFFFFF;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            /* Удалён sticky и z-index */
         }
 
         .header-inner {
@@ -99,6 +97,8 @@
             transition: 0.2s;
             display: inline-block;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .nav-btn-dark:hover {
@@ -191,6 +191,8 @@
             font-size: 16px;
             display: inline-block;
             transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary:hover {
@@ -208,6 +210,7 @@
             color: #000;
             display: inline-block;
             transition: 0.2s;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -368,7 +371,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
-            margin: 32px 0 40px;
+            margin: 32px 0 80px;
         }
 
         .platform-card {
@@ -407,31 +410,6 @@
             font-size: 14px;
             line-height: 1.45;
             text-align: center;
-        }
-
-        /* Выделенная кнопка "Смотреть все площадки" */
-        .platforms-button-wrapper {
-            text-align: center;
-            margin: 20px 0 60px;
-        }
-
-        .btn-view-all {
-            display: inline-block;
-            background: #F5D742;
-            color: #000;
-            padding: 16px 48px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 18px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-view-all:hover {
-            background: #E6C935;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         /* Преимущества */
@@ -587,11 +565,149 @@
             display: inline-block;
             transition: 0.2s;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-footer-yellow:hover {
             background: #E6C935;
             transform: translateY(-2px);
+        }
+
+        /* МОДАЛЬНОЕ ОКНО */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 32px;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px 32px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #E0E0E0;
+            border-radius: 16px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F5D742;
+            box-shadow: 0 0 0 3px rgba(245,215,66,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #F5D742;
+            color: #000;
+            padding: 14px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #E6C935;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #E8F5E9;
+            color: #2E7D32;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #FFEBEE;
+            color: #C62828;
+            display: block;
         }
 
         /* КНОПКА НАВЕРХ */
@@ -757,10 +873,6 @@
                 width: 70px;
                 height: 70px;
             }
-            .btn-view-all {
-                padding: 14px 36px;
-                font-size: 16px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -906,7 +1018,7 @@
             }
             .platforms-grid {
                 gap: 16px;
-                margin: 24px 0 30px;
+                margin: 24px 0 50px;
             }
             .platform-card {
                 padding: 24px 20px;
@@ -917,13 +1029,6 @@
             }
             .platform-card h4 {
                 font-size: 18px;
-            }
-            .platforms-button-wrapper {
-                margin: 10px 0 40px;
-            }
-            .btn-view-all {
-                padding: 12px 28px;
-                font-size: 15px;
             }
             .benefits-grid {
                 flex-direction: column;
@@ -1018,10 +1123,6 @@
             .nav-link {
                 font-size: 14.3px;
             }
-            .btn-view-all {
-                padding: 10px 24px;
-                font-size: 14px;
-            }
             .footer-button {
                 width: 100%;
                 display: flex;
@@ -1092,8 +1193,30 @@
     <!-- Кнопка наверх -->
     <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
 
+    <!-- Модальное окно с формой -->
+    <div class="modal" id="callbackModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3>Обсудить проект</h3>
+            <p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
+            <form id="callbackForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Расскажите о вашем проекте"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </div>
+
     <div class="container">
-        <!-- Шапка -->
+        <!-- Шапка — больше не фиксированная -->
         <div class="header">
             <div class="header-inner">
                 <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
@@ -1107,7 +1230,7 @@
                         <a href="about.html" class="nav-link">О нас</a>
                         <a href="#contacts" class="nav-link">Контакты</a>
                     </div>
-                    <a href="#" class="nav-btn-dark">Обсудить проект</a>
+                    <button class="nav-btn-dark" id="openModalBtn">Обсудить проект</button>
                 </div>
             </div>
         </div>
@@ -1126,8 +1249,8 @@
                     <p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Обсудить проект</a>
-                    <a href="#" class="btn-secondary">Посмотреть возможности →</a>
+                    <button class="btn-primary open-modal-btn">Обсудить проект</button>
+                    <button class="btn-secondary">Посмотреть возможности →</button>
                 </div>
             </div>
         </div>
@@ -1205,11 +1328,6 @@
             </div>
         </div>
 
-        <!-- Выделенная кнопка "Смотреть все площадки" -->
-        <div class="platforms-button-wrapper">
-            <a href="places.html" class="btn-view-all">Смотреть все площадки →</a>
-        </div>
-
         <!-- Почему это работает — КЕЙСЫ -->
         <div class="benefits-header" id="cases">
             <h2>Почему это работает</h2>
@@ -1264,7 +1382,7 @@
                 </div>
             </div>
             <div class="footer-button">
-                <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
+                <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
             </div>
         </div>
     </div>
@@ -1328,6 +1446,79 @@
 
         acceptBtn.addEventListener('click', acceptCookies);
         declineBtn.addEventListener('click', declineCookies);
+
+        // Модальное окно и отправка формы в Telegram
+        const modal = document.getElementById('callbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn, #openModalBtn');
+        const callbackForm = document.getElementById('callbackForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+
+        // Открыть модальное окно
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.classList.add('show');
+            });
+        });
+
+        // Закрыть модальное окно
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('show');
+            callbackForm.reset();
+            formMessage.style.display = 'none';
+        });
+
+        // Закрыть при клике вне окна
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                callbackForm.reset();
+                formMessage.style.display = 'none';
+            }
+        });
+
+        // Отправка формы (имитация, так как PHP скрипт не используется, но структура сохранена)
+        callbackForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(callbackForm);
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляем...';
+            formMessage.style.display = 'none';
+            
+            try {
+                const response = await fetch('send_to_telegram.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+                    formMessage.style.display = 'block';
+                    callbackForm.reset();
+                    setTimeout(() => {
+                        modal.classList.remove('show');
+                        formMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
+                    formMessage.style.display = 'block';
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '❌ Ошибка соединения. Проверьте интернет и попробуйте снова.';
+                formMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Отправить заявку';
+            }
+        });
     </script>
 </body>
 </html>
