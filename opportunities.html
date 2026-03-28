@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Наши возможности — ЗАРАЗ МЕДИА</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .header {
+            padding: 24px 0 20px 0;
+            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 40px;
+            background-color: #FFFFFF;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-link {
+            display: inline-block;
+            cursor: pointer;
+            line-height: 0;
+        }
+
+        .logo-img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #2C2C2C;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: #F5D742;
+            border-bottom-color: #F5D742;
+        }
+
+        .nav-btn-dark {
+            background: #1A1A1A;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: inline-block;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-btn-dark:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Герой страницы */
+        .page-hero {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            border-radius: 32px;
+            padding: 60px 48px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .page-hero .highlight {
+            color: #F5D742;
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            color: #5A5A5A;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Результаты секция */
+        .results-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #5A5A5A;
+            font-size: 18px;
+            margin-bottom: 48px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .result-card {
+            background: #F8F9FA;
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: #F5D742;
+            margin-bottom: 12px;
+        }
+
+        .result-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 8px;
+        }
+
+        .result-desc {
+            font-size: 14px;
+            color: #6B6B6B;
+        }
+
+        /* Портфолио */
+        .portfolio-section {
+            margin-bottom: 80px;
+            background: #F8F9FA;
+            padding: 60px 0;
+            border-radius: 32px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #E6C935, #F5D742);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .portfolio-content {
+            padding: 24px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .portfolio-stats {
+            display: flex;
+            gap: 20px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .portfolio-stats span {
+            color: #F5D742;
+            font-weight: 700;
+        }
+
+        .portfolio-content p {
+            color: #5A5A5A;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* Процесс работы */
+        .process-section {
+            margin-bottom: 80px;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: calc(100% - 60px);
+            background: linear-gradient(to bottom, #F5D742, #E6C935);
+            top: 30px;
+        }
+
+        .process-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .process-step:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-content {
+            width: 45%;
+            background: #F8F9FA;
+            padding: 24px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #F5D742;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 24px;
+            color: #000;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .step-content p {
+            color: #5A5A5A;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        /* CTA секция */
+        .cta-section {
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 60px 0 40px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #2C2C2C;
+            max-width: 600px;
+            margin: 0 auto 32px auto;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: #1A1A1A;
+            color: #F5D742;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            color: #F5D742;
+        }
+
+        /* Подвал */
+        .footer-large {
+            background: #F5F5F5;
+            margin-top: 40px;
+            padding: 50px 0 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .footer-info {
+            flex: 2;
+        }
+
+        .footer-info p {
+            color: #3A3A3A;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .footer-info .company-name {
+            font-weight: 700;
+            font-size: 17px;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: flex-start;
+            margin-left: 5%;
+        }
+
+        .footer-links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links-column h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 6px;
+        }
+
+        .footer-links-column a {
+            color: #5A5A5A;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links-column a:hover {
+            color: #F5D742;
+        }
+
+        .footer-button {
+            flex: 1;
+            text-align: right;
+            min-width: 180px;
+        }
+
+        .btn-footer-yellow {
+            background: #F5D742;
+            color: #000;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-footer-yellow:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background-color: #F5D742;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: 40px 24px; }
+            .page-hero h1 { font-size: 32px; }
+            .section-title { font-size: 28px; }
+            .process-timeline::before { left: 20px; }
+            .process-step, .process-step:nth-child(odd), .process-step:nth-child(even) { flex-direction: column; margin-left: 40px; }
+            .step-content { width: 100%; margin-bottom: 20px; }
+            .step-number { left: -25px; transform: none; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+            .cta-section h2 { font-size: 24px; }
+            .cta-section p { font-size: 15px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; margin-left: 0; }
+            .footer-button { text-align: center; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-top" id="scrollTopBtn">↑</div>
+
+    <div class="container">
+        <!-- Шапка -->
+        <div class="header">
+            <div class="header-inner">
+                <a href="index.html" class="logo-link">
+                    <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
+                </a>
+                <div class="nav-wrapper">
+                    <div class="nav">
+                        <a href="index.html#services" class="nav-link">Наши услуги</a>
+                        <a href="index.html#projects" class="nav-link">Наши проекты</a>
+                        <a href="cases.html" class="nav-link">Кейсы</a>
+                        <a href="about.html" class="nav-link">О нас</a>
+                        <a href="index.html#contacts" class="nav-link">Контакты</a>
+                    </div>
+                    <button class="nav-btn-dark open-modal-btn">Обсудить проект</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Герой -->
+        <div class="page-hero">
+            <h1>Ваш бренд может <span class="highlight">больше</span></h1>
+            <p>Мы помогли сотням компаний зазвучать по-новому. Посмотрите, что мы умеем — и представьте, что можем сделать для вас.</p>
+        </div>
+
+        <!-- Цифры результатов -->
+        <div class="results-section">
+            <h2 class="section-title">Крутые результаты</h2>
+            <p class="section-subtitle">Цифры, которые говорят сами за себя</p>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">1 500+</div>
+                    <div class="result-label">Успешных кампаний</div>
+                    <div class="result-desc">Более 1500 реализованных проектов за 12 лет</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">400 000+</div>
+                    <div class="result-label">Охват аудитории</div>
+                    <div class="result-desc">Уникальных посетителей в месяц</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">97%</div>
+                    <div class="result-label">Довольных клиентов</div>
+                    <div class="result-desc">Возвращаются к нам снова и снова</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">3.5x</div>
+                    <div class="result-label">Средний ROI</div>
+                    <div class="result-desc">Окупаемость инвестиций в рекламу</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Портфолио работ -->
+        <div class="portfolio-section">
+            <div class="container">
+                <h2 class="section-title">Наши работы</h2>
+                <p class="section-subtitle">Реальные кейсы, реальные результаты</p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🏪</div>
+                        <div class="portfolio-content">
+                            <h3>Сеть кофеен Coffee Point</h3>
+                            <div class="portfolio-stats">
+                                <span>📈 +215%</span> узнаваемость
+                                <span>👥 85K</span> охват
+                            </div>
+                            <p>Интеграции в 12 городских пабликах и у топ-5 блогеров Минска. За месяц — рост посещаемости на 40%.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">💼</div>
+                        <div class="portfolio-content">
+                            <h3>Юридическая компания "Право+"</h3>
+                            <div class="portfolio-stats">
+                                <span>📞 +156%</span> заявок
+                                <span>⭐ 4.9</span> рейтинг
+                            </div>
+                            <p>Нативная реклама в бизнес-пабликах и Telegram-каналах. Получили 340 целевых заявок за 2 недели.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🎨</div>
+                        <div class="portfolio-content">
+                            <h3>Студия дизайна интерьеров</h3>
+                            <div class="portfolio-stats">
+                                <span>🏠 +78%</span> новых проектов
+                                <span>📱 45K</span> вовлечений
+                            </div>
+                            <p>Кампания с микро-блогерами и районными сообществами. Высокий уровень доверия и рекомендаций.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">🍔</div>
+                        <div class="portfolio-content">
+                            <h3>Ресторанная сеть "Вкус Минска"</h3>
+                            <div class="portfolio-stats">
+                                <span>🍽️ +312%</span> бронирований
+                                <span>📸 1.2K</span> упоминаний
+                            </div>
+                            <p>Коллаборация с фуд-блогерами и нативные интеграции. За месяц — полная загрузка в выходные.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Процесс работы -->
+        <div class="process-section">
+            <h2 class="section-title">Как мы работаем</h2>
+            <p class="section-subtitle">Прозрачный процесс — от идеи до результата</p>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>📞 Обсуждение и бриф</h3>
+                        <p>Знакомимся с вашим бизнесом, целями и задачами. Анализируем целевую аудиторию и конкурентов. Формируем понимание, какой результат для вас — успех.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>🎯 Постановка целей и стратегии</h3>
+                        <p>Определяем KPI, выбираем ключевые метрики. Разрабатываем индивидуальную стратегию продвижения под ваш бюджет и задачи.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>🔍 Подбор площадок и блогеров</h3>
+                        <p>Анализируем более 200+ городских пабликов, Telegram-каналов и блогеров. Выбираем тех, кто идеально подходит под ваш бренд и аудиторию.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>✍️ Разработка текстов и креативов</h3>
+                        <p>Наши копирайтеры и дизайнеры создают нативные материалы, которые органично впишутся в ленту и вызовут доверие.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>📢 Размещение и контроль</h3>
+                        <p>Запускаем кампанию, согласовываем каждый пост, следим за соблюдением сроков и качества. Оперативно вносим корректировки.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>📊 Сбор статистики и отчетность</h3>
+                        <p>Предоставляем детальный отчет с аналитикой: охваты, вовлеченность, переходы, конверсии. Показываем реальный результат и ROI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA секция -->
+        <div class="cta-section">
+            <h2>🚀 Готовы чтобы о вас узнало 500.000 человек?</h2>
+            <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
+            <button class="cta-button open-modal-btn">Начать обсуждение своей рекламы →</button>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <div class="footer-large">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h4>Информация</h4>
+                    <a href="faq.html">F.A.Q.</a>
+                    <a href="blog.html">Блог</a>
+                    <a href="team.html">Наша команда</a>
+                    <a href="mediakit.html">Медиа-кит</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Соцсети</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">VK</a>
+                </div>
+            </div>
+            <div class="footer-button">
+                <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="callbackModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; border-radius: 32px; max-width: 500px; width: 90%; padding: 40px 32px; position: relative;">
+            <span class="modal-close" id="modalClose" style="position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #999;">&times;</span>
+            <h3 style="font-size: 28px; margin-bottom: 8px; color: #000;">Обсудить проект</h3>
+            <p style="color: #666; margin-bottom: 24px; font-size: 14px;">Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
+            <form id="callbackForm">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 14px 16px; border: 1px solid #E0E0E0; border-radius: 16px; font-size: 15px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="tel" name="phone" placeholder="Ваш телефон" required style="width: 100%; padding: 14px 16px; border: 1px solid #E0E0E0; border-radius: 16px; font-size: 15px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <textarea name="message" placeholder="Расскажите о вашем проекте" style="width: 100%; padding: 14px 16px; border: 1px solid #E0E0E0; border-radius: 16px; font-size: 15px; resize: vertical; min-height: 100px;"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" style="width: 100%; background: #F5D742; color: #000; padding: 14px; border: none; border-radius: 40px; font-weight: 700; font-size: 16px; cursor: pointer;">Отправить заявку</button>
+                <div class="form-message" id="formMessage" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center; }
+        .modal.show { display: flex; }
+        .form-message { margin-top: 16px; padding: 12px; border-radius: 12px; text-align: center; font-size: 14px; display: none; }
+        .form-message.success { background: #E8F5E9; color: #2E7D32; display: block; }
+        .form-message.error { background: #FFEBEE; color: #C62828; display: block; }
+        .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    </style>
+
+    <script>
+        // Кнопка наверх
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', function() {
+            scrollTopBtn.classList.toggle('show', window.scrollY > 300);
+        });
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Модальное окно
+        const modal = document.getElementById('callbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+        const callbackForm = document.getElementById('callbackForm');
+        const formMessage = document.getElementById('formMessage');
+
+        function showModal() { modal.classList.add('show'); }
+        function hideModal() { 
+            modal.classList.remove('show');
+            if (callbackForm) callbackForm.reset();
+            if (formMessage) formMessage.style.display = 'none';
+        }
+
+        openModalBtns.forEach(btn => btn.addEventListener('click', showModal));
+        modalClose?.addEventListener('click', hideModal);
+        modal?.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+
+        // Отправка формы
+        if (callbackForm) {
+            callbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = callbackForm.querySelector('.submit-btn');
+                const formData = new FormData(callbackForm);
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправляем...';
+                formMessage.style.display = 'none';
+                
+                try {
+                    const response = await fetch('send_to_telegram.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+                        formMessage.style.display = 'block';
+                        callbackForm.reset();
+                        setTimeout(() => hideModal(), 3000);
+                    } else {
+                        throw new Error(result.error || 'Ошибка');
+                    }
+                } catch (error) {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
+                    formMessage.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
