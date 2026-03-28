@@ -100,7 +100,7 @@
             white-space: nowrap;
         }
 
-        /* Переключатель как на iPhone */
+        /* Переключатель как на iPhone - ИСПРАВЛЕННЫЙ */
         .switch-container {
             display: flex;
             justify-content: center;
@@ -110,15 +110,17 @@
         .switch-toggle {
             display: inline-flex;
             background: #E8E8E8;
-            border-radius: 50px;
-            padding: 4px;
+            border-radius: 60px;
+            padding: 5px;
             position: relative;
             cursor: pointer;
+            min-width: 360px;
         }
 
         .switch-option {
-            padding: 12px 40px;
-            border-radius: 50px;
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 60px;
             font-weight: 600;
             font-size: 16px;
             text-decoration: none;
@@ -130,22 +132,28 @@
             position: relative;
             z-index: 2;
             transition: color 0.3s ease;
+            text-align: center;
         }
 
         .switch-option.active {
             color: #000;
+            font-weight: 700;
         }
 
         .switch-slider {
             position: absolute;
-            top: 4px;
-            bottom: 4px;
-            width: calc(50% - 4px);
+            top: 5px;
+            bottom: 5px;
+            width: calc(50% - 5px);
             background: #FFFFFF;
-            border-radius: 50px;
-            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 60px;
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
             z-index: 1;
+        }
+
+        .switch-slider.left {
+            transform: translateX(0);
         }
 
         .switch-slider.right {
@@ -713,6 +721,13 @@
             .cart-btn {
                 justify-content: center;
             }
+            .switch-toggle {
+                min-width: 300px;
+            }
+            .switch-option {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -731,8 +746,11 @@
                 display: none;
             }
             .switch-option {
-                padding: 10px 24px;
-                font-size: 14px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            .switch-toggle {
+                min-width: 260px;
             }
             .tariff-card {
                 min-width: 100%;
@@ -788,10 +806,10 @@
                 <p style="text-align: center; color: #5A5A5A;">Выберите подходящий вариант размещения</p>
             </div>
 
-            <!-- Переключатель как на iPhone -->
+            <!-- Переключатель как на iPhone - ИСПРАВЛЕННЫЙ -->
             <div class="switch-container">
                 <div class="switch-toggle" id="switchToggle">
-                    <div class="switch-slider" id="switchSlider"></div>
+                    <div class="switch-slider left" id="switchSlider"></div>
                     <button class="switch-option active" data-target="tariffs">🏙️ Городские сообщества</button>
                     <button class="switch-option" data-target="bloggers">🎬 Блогеры</button>
                 </div>
@@ -799,6 +817,7 @@
 
             <!-- Тарифы -->
             <div class="tariffs-grid" id="tariffs">
+                <!-- содержимое тарифов (оставляем без изменений) -->
                 <div class="tariff-card">
                     <span class="tariff-icon">🔻</span>
                     <h2>Пакет «МИНИ»</h2>
@@ -1071,8 +1090,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Переключатель как на iPhone
-        const switchToggle = document.getElementById('switchToggle');
+        // Переключатель как на iPhone - ИСПРАВЛЕННЫЙ
         const switchSlider = document.getElementById('switchSlider');
         const options = document.querySelectorAll('.switch-option');
         const tariffsSection = document.getElementById('tariffs');
@@ -1080,12 +1098,15 @@
 
         function setActiveOption(targetId) {
             options.forEach(opt => {
-                if (opt.getAttribute('data-target') === targetId) {
+                const isActive = opt.getAttribute('data-target') === targetId;
+                if (isActive) {
                     opt.classList.add('active');
                     if (targetId === 'bloggers') {
+                        switchSlider.classList.remove('left');
                         switchSlider.classList.add('right');
                     } else {
                         switchSlider.classList.remove('right');
+                        switchSlider.classList.add('left');
                     }
                 } else {
                     opt.classList.remove('active');
@@ -1104,6 +1125,9 @@
                 }
             });
         });
+
+        // Устанавливаем начальное положение слайдера
+        setActiveOption('tariffs');
     </script>
 </body>
 </html>
