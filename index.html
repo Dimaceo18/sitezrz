@@ -34,7 +34,6 @@
             border-bottom: 1px solid #F0F0F0;
             margin-bottom: 60px;
             background-color: #FFFFFF;
-            /* position: sticky; и top: 0; удалены */
         }
 
         .header-inner {
@@ -97,6 +96,8 @@
             transition: 0.2s;
             display: inline-block;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .nav-btn-dark:hover {
@@ -189,6 +190,8 @@
             font-size: 16px;
             display: inline-block;
             transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary:hover {
@@ -206,6 +209,7 @@
             color: #000;
             display: inline-block;
             transition: 0.2s;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -493,10 +497,59 @@
             text-align: center;
         }
 
+        /* Желтая CTA-секция перед подвалом */
+        .cta-section {
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 40px 0 60px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #2C2C2C;
+            max-width: 600px;
+            margin: 0 auto 32px auto;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: #1A1A1A;
+            color: #F5D742;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            color: #F5D742;
+        }
+
         /* ПОДВАЛ */
         .footer-large {
             background: #F5F5F5;
-            margin-top: 40px;
+            margin-top: 0;
             padding: 50px 0 40px;
             scroll-margin-top: 100px;
         }
@@ -585,6 +638,8 @@
             display: inline-block;
             transition: 0.2s;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-footer-yellow:hover {
@@ -702,7 +757,7 @@
             color: #F5D742;
         }
 
-        /* Мобильная версия подвала */
+        /* Мобильная версия */
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column;
@@ -719,6 +774,20 @@
             }
             .hero-buttons {
                 justify-content: center;
+            }
+            .cta-section {
+                padding: 40px 24px;
+                margin: 30px 0 50px;
+            }
+            .cta-section h2 {
+                font-size: 28px;
+            }
+            .cta-section p {
+                font-size: 16px;
+            }
+            .cta-button {
+                padding: 14px 36px;
+                font-size: 16px;
             }
             .footer-content {
                 flex-direction: column;
@@ -939,6 +1008,21 @@
             .benefit-card h3 {
                 font-size: 18px;
             }
+            .cta-section {
+                padding: 32px 20px;
+                margin: 30px 0 40px;
+            }
+            .cta-section h2 {
+                font-size: 24px;
+            }
+            .cta-section p {
+                font-size: 15px;
+                margin-bottom: 24px;
+            }
+            .cta-button {
+                padding: 12px 32px;
+                font-size: 15px;
+            }
             .footer-large {
                 padding: 35px 0 30px;
             }
@@ -1020,6 +1104,16 @@
                 padding: 10px 24px;
                 font-size: 14px;
             }
+            .cta-section h2 {
+                font-size: 20px;
+            }
+            .cta-section p {
+                font-size: 13px;
+            }
+            .cta-button {
+                padding: 10px 28px;
+                font-size: 14px;
+            }
             .footer-button {
                 width: 100%;
                 display: flex;
@@ -1091,7 +1185,7 @@
     <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
 
     <div class="container">
-        <!-- Шапка - больше не фиксированная -->
+        <!-- Шапка -->
         <div class="header">
             <div class="header-inner">
                 <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
@@ -1105,7 +1199,7 @@
                         <a href="about.html" class="nav-link">О нас</a>
                         <a href="#contacts" class="nav-link">Контакты</a>
                     </div>
-                    <a href="#" class="nav-btn-dark" onclick="openModal(); return false;">Обсудить проект</a>
+                    <button class="nav-btn-dark" id="openModalBtn">Обсудить проект</button>
                 </div>
             </div>
         </div>
@@ -1124,8 +1218,8 @@
                     <p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Обсудить проект</a>
-                    <a href="#" class="btn-secondary">Посмотреть возможности →</a>
+                    <button class="btn-primary open-modal-btn">Обсудить проект</button>
+                    <button class="btn-secondary">Посмотреть возможности →</button>
                 </div>
             </div>
         </div>
@@ -1234,6 +1328,13 @@
                 <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
             </div>
         </div>
+
+        <!-- ЖЕЛТАЯ CTA-СЕКЦИЯ ПЕРЕД ПОДВАЛОМ -->
+        <div class="cta-section">
+            <h2>🚀 Готовы вывести бренд в топ?</h2>
+            <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
+            <button class="cta-button open-modal-btn">Начать обсуждение своей рекламы →</button>
+        </div>
     </div>
 
     <!-- ПОДВАЛ — КОНТАКТЫ с дополнительными страницами -->
@@ -1262,7 +1363,7 @@
                 </div>
             </div>
             <div class="footer-button">
-                <a href="#" class="btn-footer-yellow" onclick="openSlideup(); return false;">Связаться с нами →</a>
+                <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
             </div>
         </div>
     </div>
@@ -1277,6 +1378,28 @@
                 <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Принять</button>
                 <button class="cookie-btn cookie-btn-decline" id="declineCookies">Отклонить</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно с формой -->
+    <div class="modal" id="callbackModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; border-radius: 32px; max-width: 500px; width: 90%; padding: 40px 32px; position: relative;">
+            <span class="modal-close" id="modalClose" style="position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #999;">&times;</span>
+            <h3 style="font-size: 28px; margin-bottom: 8px; color: #000;">Обсудить проект</h3>
+            <p style="color: #666; margin-bottom: 24px; font-size: 14px;">Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
+            <form id="callbackForm">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 14px 16px; border: 1px solid #E0E0E0; border-radius: 16px; font-size: 15px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="tel" name="phone" placeholder="Ваш телефон" required style="width: 100%; padding: 14px 16px; border: 1px solid #E0E0E0; border-radius: 16px; font-size: 15px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <textarea name="message" placeholder="Расскажите о вашем проекте" style="width: 100%; padding: 14px 16px; border: 1px solid #E0E0E0; border-radius: 16px; font-size: 15px; resize: vertical; min-height: 100px;"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn" style="width: 100%; background: #F5D742; color: #000; padding: 14px; border: none; border-radius: 40px; font-weight: 700; font-size: 16px; cursor: pointer;">Отправить заявку</button>
+                <div class="form-message" id="formMessage" style="display: none;"></div>
+            </form>
         </div>
     </div>
 
@@ -1326,486 +1449,76 @@
 
         acceptBtn.addEventListener('click', acceptCookies);
         declineBtn.addEventListener('click', declineCookies);
+
+        // Модальное окно
+        const modal = document.getElementById('callbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+        const callbackForm = document.getElementById('callbackForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+
+        function showModal() {
+            modal.style.display = 'flex';
+        }
+
+        function hideModal() {
+            modal.style.display = 'none';
+            if (callbackForm) callbackForm.reset();
+            if (formMessage) formMessage.style.display = 'none';
+        }
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', showModal);
+        });
+
+        if (modalClose) modalClose.addEventListener('click', hideModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+
+        if (callbackForm) {
+            callbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(callbackForm);
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправляем...';
+                formMessage.style.display = 'none';
+                
+                try {
+                    const response = await fetch('send_to_telegram.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+                        formMessage.style.display = 'block';
+                        callbackForm.reset();
+                        setTimeout(() => {
+                            hideModal();
+                        }, 3000);
+                    } else {
+                        formMessage.className = 'form-message error';
+                        formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
+                        formMessage.style.display = 'block';
+                    }
+                } catch (error) {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '❌ Ошибка соединения. Проверьте интернет и попробуйте снова.';
+                    formMessage.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                }
+            });
+        }
     </script>
-    <!-- Модальное окно -->
-<style>
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .modal-overlay.show {
-        display: flex;
-        opacity: 1;
-    }
-    .modal-window {
-        background: #FFFFFF;
-        border-radius: 32px;
-        max-width: 500px;
-        width: 90%;
-        padding: 32px;
-        position: relative;
-        transform: scale(0.95);
-        transition: transform 0.3s ease;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    }
-    .modal-overlay.show .modal-window {
-        transform: scale(1);
-    }
-    .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 24px;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.2s;
-        line-height: 1;
-    }
-    .modal-close:hover {
-        color: #F5D742;
-    }
-    .modal-window h3 {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-    }
-    .modal-window p {
-        color: #6B6B6B;
-        margin-bottom: 24px;
-        font-size: 14px;
-    }
-    .modal-form input,
-    .modal-form textarea {
-        width: 100%;
-        padding: 14px 16px;
-        margin-bottom: 16px;
-        border: 1px solid #E0E0E0;
-        border-radius: 40px;
-        font-size: 15px;
-        font-family: inherit;
-        transition: border-color 0.2s;
-    }
-    .modal-form input:focus,
-    .modal-form textarea:focus {
-        outline: none;
-        border-color: #F5D742;
-    }
-    .modal-form textarea {
-        border-radius: 24px;
-        resize: vertical;
-    }
-    .modal-submit {
-        background: #F5D742;
-        color: #000;
-        padding: 14px 28px;
-        border-radius: 40px;
-        font-weight: 700;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.2s;
-    }
-    .modal-submit:hover {
-        background: #E6C935;
-        transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-        .modal-window {
-            padding: 24px;
-        }
-        .modal-window h3 {
-            font-size: 24px;
-        }
-    }
-</style>
-
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-window">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <h3>📩 Связаться с нами</h3>
-        <p>Оставьте заявку, и мы ответим в течение часа</p>
-        <form class="modal-form" id="modalForm">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email">
-            <textarea rows="3" placeholder="Сообщение (необязательно)"></textarea>
-            <button type="submit" class="modal-submit">Отправить →</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Открытие модального окна
-    function openModal() {
-        document.getElementById('modalOverlay').classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        document.getElementById('modalOverlay').classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    // Закрытие по крестику
-    document.getElementById('modalClose').addEventListener('click', closeModal);
-    
-    // Закрытие по клику на фон
-    document.getElementById('modalOverlay').addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-    });
-    
-    // Закрытие по Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('modalOverlay').classList.contains('show')) {
-            closeModal();
-        }
-    });
-    
-    // Отправка формы
-    document.getElementById('modalForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-        closeModal();
-        this.reset();
-    });
-</script>
-    <!-- Стили для выезжающего окна -->
-<style>
-    .slideup-overlay {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 2000;
-        display: none;
-        justify-content: center;
-        align-items: flex-end;
-        pointer-events: none;
-    }
-    .slideup-overlay.show {
-        display: flex;
-    }
-    .slideup-window {
-        background: #FFFFFF;
-        border-radius: 32px 32px 0 0;
-        max-width: 500px;
-        width: 100%;
-        padding: 32px 28px;
-        position: relative;
-        transform: translateY(100%);
-        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
-        pointer-events: auto;
-        border-top: 3px solid #F5D742;
-    }
-    .slideup-overlay.show .slideup-window {
-        transform: translateY(0);
-    }
-    .slideup-close {
-        position: absolute;
-        top: 20px;
-        right: 24px;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.2s;
-        line-height: 1;
-    }
-    .slideup-close:hover {
-        color: #F5D742;
-    }
-    .slideup-window h3 {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-        padding-right: 30px;
-    }
-    .discount-badge {
-        background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-        display: inline-block;
-        padding: 6px 16px;
-        border-radius: 40px;
-        font-size: 14px;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 16px;
-    }
-    .slideup-window p {
-        color: #6B6B6B;
-        margin-bottom: 20px;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-    .offer-text {
-        background: #F8F9FA;
-        border-radius: 20px;
-        padding: 16px;
-        margin: 16px 0;
-        text-align: center;
-        border-left: 4px solid #F5D742;
-    }
-    .offer-text strong {
-        color: #F5D742;
-        font-size: 18px;
-    }
-    .slideup-form input,
-    .slideup-form textarea {
-        width: 100%;
-        padding: 14px 16px;
-        margin-bottom: 14px;
-        border: 1px solid #E0E0E0;
-        border-radius: 40px;
-        font-size: 15px;
-        font-family: inherit;
-        transition: border-color 0.2s;
-        background: #F8F9FA;
-    }
-    .slideup-form input:focus,
-    .slideup-form textarea:focus {
-        outline: none;
-        border-color: #F5D742;
-        background: #FFFFFF;
-    }
-    .slideup-form textarea {
-        border-radius: 24px;
-        resize: vertical;
-    }
-    .slideup-submit {
-        background: #F5D742;
-        color: #000;
-        padding: 14px 28px;
-        border-radius: 40px;
-        font-weight: 700;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.2s;
-    }
-    .slideup-submit:hover {
-        background: #E6C935;
-        transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-        .slideup-window {
-            padding: 24px 20px;
-        }
-        .slideup-window h3 {
-            font-size: 22px;
-        }
-        .offer-text strong {
-            font-size: 16px;
-        }
-    }
-</style>
-
-<!-- Выезжающее окно -->
-<div class="slideup-overlay" id="slideupOverlay">
-    <div class="slideup-window">
-        <span class="slideup-close" id="slideupClose">&times;</span>
-        
-        <div class="discount-badge">🎁 АКЦИЯ</div>
-        <h3>Привет! 👋</h3>
-        
-        <div class="offer-text">
-            💛 Если нажать сюда — получите <strong>скидку 10%</strong> на первые размещения!
-        </div>
-        
-        <p>Оставьте заявку, и мы ответим в течение часа</p>
-        
-        <form class="slideup-form" id="slideupForm">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email">
-            <textarea rows="3" placeholder="Сообщение (необязательно)"></textarea>
-            <button type="submit" class="slideup-submit">Получить скидку 10% →</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Открытие выезжающего окна
-    function openSlideup() {
-        document.getElementById('slideupOverlay').classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeSlideup() {
-        document.getElementById('slideupOverlay').classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    // Закрытие по крестику
-    document.getElementById('slideupClose').addEventListener('click', closeSlideup);
-    
-    // Закрытие по клику на фон
-    document.getElementById('slideupOverlay').addEventListener('click', function(e) {
-        if (e.target === this) closeSlideup();
-    });
-    
-    // Закрытие по Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('slideupOverlay').classList.contains('show')) {
-            closeSlideup();
-        }
-    });
-    
-    // Отправка формы (пока демо)
-    document.getElementById('slideupForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('🎉 Спасибо! Скидка 10% активирована! Наш менеджер свяжется с вами в ближайшее время.');
-        closeSlideup();
-        this.reset();
-    });
-</script>
-    <!-- Стили для всплывающего уведомления -->
-<style>
-    .popup-notification {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #FFFFFF;
-        border-radius: 20px;
-        padding: 20px 24px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        z-index: 2000;
-        max-width: 360px;
-        width: calc(100% - 40px);
-        transform: translateX(120%);
-        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        border-left: 4px solid #F5D742;
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.98);
-    }
-    .popup-notification.show {
-        transform: translateX(0);
-    }
-    .popup-close {
-        position: absolute;
-        top: 12px;
-        right: 16px;
-        font-size: 20px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.2s;
-        line-height: 1;
-    }
-    .popup-close:hover {
-        color: #F5D742;
-    }
-    .popup-icon {
-        font-size: 32px;
-        margin-bottom: 12px;
-    }
-    .popup-notification h4 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-    }
-    .popup-notification p {
-        font-size: 14px;
-        color: #5A5A5A;
-        margin-bottom: 12px;
-        line-height: 1.4;
-    }
-    .promo-code {
-        background: #F5D742;
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 40px;
-        font-weight: 700;
-        font-size: 16px;
-        letter-spacing: 1px;
-        color: #000;
-        margin: 8px 0 4px;
-        font-family: monospace;
-    }
-    .popup-btn {
-        background: #F5D742;
-        color: #000;
-        padding: 8px 20px;
-        border-radius: 40px;
-        font-weight: 600;
-        font-size: 13px;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 8px;
-        transition: 0.2s;
-        border: none;
-        cursor: pointer;
-    }
-    .popup-btn:hover {
-        background: #E6C935;
-        transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-        .popup-notification {
-            bottom: 20px;
-            right: 20px;
-            left: 20px;
-            max-width: none;
-            width: auto;
-        }
-    }
-</style>
-
-<!-- Всплывающее уведомление -->
-<div class="popup-notification" id="popupNotification">
-    <span class="popup-close" id="popupClose">&times;</span>
-    <div class="popup-icon">🎁</div>
-    <h4>Вам доступна скидка 10%!</h4>
-    <p>При первом размещении рекламы используйте промокод:</p>
-    <div class="promo-code">МИНСК</div>
-    <p style="font-size: 12px; margin-top: 8px;">*Скидка действует на любые пакеты и разовые размещения</p>
-    <button class="popup-btn" onclick="openSlideup(); closePopup();">Заказать со скидкой →</button>
-</div>
-
-<script>
-    // Показываем уведомление при загрузке страницы
-    setTimeout(function() {
-        // Проверяем, не закрывали ли уже уведомление в этой сессии
-        if (!sessionStorage.getItem('popupClosed')) {
-            document.getElementById('popupNotification').classList.add('show');
-        }
-    }, 1000); // появляется через 1 секунду после загрузки
-    
-    function closePopup() {
-        document.getElementById('popupNotification').classList.remove('show');
-        sessionStorage.setItem('popupClosed', 'true');
-    }
-    
-    // Закрытие по крестику
-    document.getElementById('popupClose').addEventListener('click', closePopup);
-    
-    // Закрытие по клику вне окна (опционально)
-    document.addEventListener('click', function(e) {
-        const popup = document.getElementById('popupNotification');
-        if (popup.classList.contains('show') && !popup.contains(e.target) && e.target !== popup) {
-            closePopup();
-        }
-    });
-    
-    // Функция для открытия выезжающего окна (если нужно)
-    function openSlideup() {
-        // Здесь код открытия формы заказа, если есть
-        alert('🎉 Скидка 10% по промокоду МИНСК активирована! Наш менеджер свяжется с вами.');
-        closePopup();
-    }
-</script>
 </body>
 </html>
