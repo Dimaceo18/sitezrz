@@ -128,7 +128,7 @@
             margin: 0 auto;
         }
 
-        /* Блогеры - выбираемые карточки с усиленным выделением */
+        /* Блогеры - выбираемые карточки */
         .bloggers-section {
             margin-bottom: 60px;
         }
@@ -171,7 +171,6 @@
             border-color: #F5D742;
         }
 
-        /* УСИЛЕННОЕ ВЫДЕЛЕНИЕ активной карточки */
         .blogger-card.active {
             border: 3px solid #F5D742;
             background: linear-gradient(135deg, #FFFFFF 0%, #FFF9E6 100%);
@@ -364,6 +363,109 @@
         .extra-price.special {
             font-size: 14px;
             color: #F5D742;
+        }
+
+        /* Выпадающий прайс-лист */
+        .price-list-section {
+            margin: 60px 0;
+        }
+
+        .price-list-header {
+            background: #F5D742;
+            border-radius: 60px;
+            padding: 16px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-list-header:hover {
+            background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        .price-list-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+        }
+
+        .price-list-header .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .price-list-header.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .price-list-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #FFFFFF;
+            border-radius: 24px;
+            margin-top: 16px;
+            border: 1px solid #E8ECF0;
+        }
+
+        .price-list-content.open {
+            max-height: 2000px;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .price-table th {
+            background: #F8F9FA;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 700;
+            color: #2C2C2C;
+            border-bottom: 2px solid #E8ECF0;
+        }
+
+        .price-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #F0F0F0;
+            color: #4A4A4A;
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-table .service-name-col {
+            font-weight: 600;
+            color: #2C2C2C;
+        }
+
+        .price-table .price-col {
+            font-weight: 700;
+            color: #F5D742;
+            white-space: nowrap;
+        }
+
+        .price-table .price-col.special {
+            font-size: 13px;
+            color: #F5D742;
+        }
+
+        @media (max-width: 768px) {
+            .price-table th,
+            .price-table td {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+            .price-list-header h3 {
+                font-size: 18px;
+            }
         }
 
         /* CTA секция */
@@ -773,7 +875,7 @@
             <p>Выберите блогера для интеграции — цены изменятся автоматически</p>
         </div>
 
-        <!-- Блогеры - выбираемые карточки с усиленным выделением -->
+        <!-- Блогеры - выбираемые карточки -->
         <div class="bloggers-section">
             <div class="bloggers-header">
                 <h2>Наши блогеры</h2>
@@ -817,6 +919,88 @@
             <h3>➕ Дополнительные услуги</h3>
             <div class="extra-grid" id="extraGrid">
                 <!-- Цены будут загружены динамически через JavaScript -->
+            </div>
+        </div>
+
+        <!-- ВЫПАДАЮЩИЙ ПРАЙС-ЛИСТ -->
+        <div class="price-list-section">
+            <div class="price-list-header" id="priceListHeader">
+                <h3>📋 Полный прайс-лист услуг блогеров</h3>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="price-list-content" id="priceListContent">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Услуга</th>
+                            <th>chtopochem_minsk<br><span style="font-size: 11px; font-weight: normal;">215K подписчиков</span></th>
+                            <th>kudaminsk<br><span style="font-size: 11px; font-weight: normal;">143K подписчиков</span></th>
+                            <th>zatestil<br><span style="font-size: 11px; font-weight: normal;">188K подписчиков</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="service-name-col">Обзорно-рекламный ролик</td>
+                            <td class="price-col">1 600 BYN</td>
+                            <td class="price-col">1 300 BYN</td>
+                            <td class="price-col">1 300 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Обзорно-рекламная серия сторис</td>
+                            <td class="price-col">1 000 BYN</td>
+                            <td class="price-col">900 BYN</td>
+                            <td class="price-col">900 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Интерактивные игры / опросы с людьми в городе</td>
+                            <td class="price-col">2 000 BYN</td>
+                            <td class="price-col">1 000 BYN</td>
+                            <td class="price-col">1 000 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Рекламная раздача людям вашего товара</td>
+                            <td class="price-col">1 800 BYN</td>
+                            <td class="price-col">1 200 BYN</td>
+                            <td class="price-col">1 200 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Совместный розыгрыш (подписка на ваш аккаунт)</td>
+                            <td class="price-col">2 500 BYN</td>
+                            <td class="price-col">1 500 BYN</td>
+                            <td class="price-col">1 500 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Розыгрыш вашего товара / услуги</td>
+                            <td class="price-col">1 500 BYN</td>
+                            <td class="price-col">1 100 BYN</td>
+                            <td class="price-col">1 100 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Розыгрыш в сторис</td>
+                            <td class="price-col">1 000 BYN</td>
+                            <td class="price-col">500 BYN</td>
+                            <td class="price-col">500 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Спецпроект</td>
+                            <td class="price-col">5 000 BYN</td>
+                            <td class="price-col">2 000 BYN</td>
+                            <td class="price-col">2 000 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Амбасадор бренда</td>
+                            <td class="price-col">4 000 BYN</td>
+                            <td class="price-col">2 000 BYN</td>
+                            <td class="price-col">2 000 BYN</td>
+                        </tr>
+                        <tr>
+                            <td class="service-name-col">Интеграция бренда / товара в авторские маршруты</td>
+                            <td class="price-col special">по запросу</td>
+                            <td class="price-col">1 000 BYN</td>
+                            <td class="price-col">1 000 BYN</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -886,7 +1070,7 @@
     </div>
 
     <script>
-        // Данные для блогеров (остаются без изменений)
+        // Данные для блогеров
         const bloggerPrices = {
             chtopochem: {
                 services: [
@@ -989,6 +1173,15 @@
                 setActiveBlogger(bloggerId);
                 renderServices(bloggerId);
             });
+        });
+
+        // Выпадающий прайс-лист
+        const priceListHeader = document.getElementById('priceListHeader');
+        const priceListContent = document.getElementById('priceListContent');
+
+        priceListHeader.addEventListener('click', () => {
+            priceListHeader.classList.toggle('open');
+            priceListContent.classList.toggle('open');
         });
 
         // Инициализация
