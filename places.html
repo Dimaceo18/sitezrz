@@ -98,25 +98,35 @@
             transition: 0.2s;
             display: inline-block;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
-        /* Переключатель - активная кнопка жёлтая */
+        .nav-btn-dark:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Переключатель */
         .switch-container {
             display: flex;
             justify-content: center;
             margin: 40px 0 50px;
         }
 
-        .switch-buttons {
+        .switch-toggle {
             display: inline-flex;
             background: #F0F0F0;
             border-radius: 60px;
             padding: 5px;
-            gap: 5px;
+            position: relative;
+            cursor: pointer;
+            min-width: 320px;
         }
 
-        .switch-btn {
-            padding: 14px 48px;
+        .switch-option {
+            flex: 1;
+            padding: 14px 24px;
             border-radius: 60px;
             font-weight: 600;
             font-size: 16px;
@@ -126,19 +136,35 @@
             cursor: pointer;
             border: none;
             font-family: inherit;
-            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
             text-align: center;
         }
 
-        .switch-btn.active {
-            background: #F5D742;
+        .switch-option.active {
             color: #000;
-            box-shadow: 0 2px 8px rgba(245, 215, 66, 0.3);
+            font-weight: 700;
         }
 
-        .switch-btn:hover:not(.active) {
-            background: #E4E4E4;
-            color: #2C2C2C;
+        .switch-slider {
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            width: calc(50% - 5px);
+            background: #F5D742;
+            border-radius: 60px;
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 2px 12px rgba(245, 215, 66, 0.3);
+            z-index: 1;
+        }
+
+        .switch-slider.left {
+            transform: translateX(0);
+        }
+
+        .switch-slider.right {
+            transform: translateX(100%);
         }
 
         /* Тарифы */
@@ -527,10 +553,33 @@
             width: 100%;
             margin-top: 12px;
             transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
         .blogger-order-btn:hover {
             background: #E6C935;
+            transform: translateY(-2px);
+        }
+
+        .blogger-services-btn {
+            background: transparent;
+            color: #F5D742;
+            border: 1px solid #F5D742;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            margin-top: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .blogger-services-btn:hover {
+            background: #F5D74210;
             transform: translateY(-2px);
         }
 
@@ -542,11 +591,12 @@
             font-weight: 600;
         }
 
-        /* Подвал */
+        /* ПОДВАЛ — ОБНОВЛЕННЫЙ */
         .footer-large {
             background: #F5F5F5;
             margin-top: 40px;
             padding: 50px 0 40px;
+            scroll-margin-top: 100px;
         }
 
         .footer-content {
@@ -576,6 +626,28 @@
             font-size: 17px;
             color: #2C2C2C;
             margin-bottom: 12px;
+        }
+
+        .footer-info .details {
+            color: #4A4A4A;
+        }
+
+        .footer-policy-links {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-policy-links a {
+            color: #8A8A8A;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-policy-links a:hover {
+            color: #F5D742;
         }
 
         .footer-links {
@@ -629,6 +701,8 @@
             display: inline-block;
             transition: 0.2s;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-footer-yellow:hover {
@@ -667,6 +741,136 @@
             transform: translateY(-3px);
         }
 
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 32px;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px 32px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #E0E0E0;
+            border-radius: 16px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F5D742;
+            box-shadow: 0 0 0 3px rgba(245,215,66,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #F5D742;
+            color: #000;
+            padding: 14px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #E6C935;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #E8F5E9;
+            color: #2E7D32;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #FFEBEE;
+            color: #C62828;
+            display: block;
+        }
+
         @media (max-width: 900px) {
             .footer-content {
                 flex-direction: column;
@@ -675,6 +879,12 @@
             .footer-links {
                 justify-content: center;
                 margin-left: 0;
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .footer-links-column {
+                align-items: center;
             }
             .footer-button {
                 text-align: center;
@@ -682,6 +892,9 @@
                 display: flex;
                 justify-content: center;
                 white-space: normal;
+            }
+            .footer-policy-links {
+                justify-content: center;
             }
             .blogger-avatar {
                 width: 120px;
@@ -698,8 +911,11 @@
             .cart-btn {
                 justify-content: center;
             }
-            .switch-btn {
-                padding: 10px 28px;
+            .switch-toggle {
+                min-width: 280px;
+            }
+            .switch-option {
+                padding: 10px 16px;
                 font-size: 14px;
             }
         }
@@ -719,9 +935,12 @@
             .nav-btn-dark {
                 display: none;
             }
-            .switch-btn {
-                padding: 8px 20px;
-                font-size: 13px;
+            .switch-toggle {
+                min-width: 240px;
+            }
+            .switch-option {
+                padding: 8px 12px;
+                font-size: 12px;
             }
             .tariff-card {
                 min-width: 100%;
@@ -732,19 +951,6 @@
             .blogger-avatar {
                 width: 100px;
                 height: 100px;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-            }
-            .footer-links-column {
-                align-items: center;
-            }
-            .footer-button {
-                width: 100%;
-                display: flex;
-                justify-content: center;
             }
         }
     </style>
@@ -766,7 +972,7 @@
                         <a href="about.html" class="nav-link">О нас</a>
                         <a href="index.html#contacts" class="nav-link">Контакты</a>
                     </div>
-                    <a href="#" class="nav-btn-dark">Обсудить проект</a>
+                    <button class="nav-btn-dark open-modal-btn">Обсудить проект</button>
                 </div>
             </div>
         </div>
@@ -777,11 +983,12 @@
                 <p style="text-align: center; color: #5A5A5A;">Выберите подходящий вариант размещения</p>
             </div>
 
-            <!-- Переключатель - активная кнопка жёлтая -->
+            <!-- Переключатель -->
             <div class="switch-container">
-                <div class="switch-buttons">
-                    <button class="switch-btn active" id="btnCommunities">🏙️ Сообщества</button>
-                    <button class="switch-btn" id="btnBloggers">🎬 Блогеры</button>
+                <div class="switch-toggle" id="switchToggle">
+                    <div class="switch-slider left" id="switchSlider"></div>
+                    <button class="switch-option active" data-target="tariffs">🏙️ Сообщества</button>
+                    <button class="switch-option" data-target="bloggers">🎬 Блогеры</button>
                 </div>
             </div>
 
@@ -819,7 +1026,7 @@
                             <li>tvoyminsk</li>
                         </ul>
                     </div>
-                    <a href="#" class="order-btn">Заказать размещения →</a>
+                    <button class="order-btn open-modal-btn">Заказать размещения →</button>
                 </div>
 
                 <div class="tariff-card">
@@ -861,7 +1068,7 @@
                             <li>xxminsk</li>
                         </ul>
                     </div>
-                    <a href="#" class="order-btn">Заказать размещения →</a>
+                    <button class="order-btn open-modal-btn">Заказать размещения →</button>
                 </div>
 
                 <div class="tariff-card premium">
@@ -937,11 +1144,11 @@
                             <li>xxminsk</li>
                         </ul>
                     </div>
-                    <a href="#" class="order-btn">Заказать размещения →</a>
+                    <button class="order-btn open-modal-btn">Заказать размещения →</button>
                 </div>
             </div>
 
-            <!-- Одиночные размещения - таблица -->
+            <!-- Одиночные размещения -->
             <div class="single-placement">
                 <h3>🔻 Одиночные размещения</h3>
                 <div class="placement-table">
@@ -955,19 +1162,19 @@
                         <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">@minsk_news</a></div>
                         <div class="placement-subscribers">478 000</div>
                         <div class="placement-price-table">550 BYN</div>
-                        <div><button class="cart-btn" onclick="alert('Добавлено в корзину')">🛒 Заказать</button></div>
+                        <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
                     </div>
                     <div class="placement-table-row">
                         <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">@vestiminska</a></div>
                         <div class="placement-subscribers">47 000</div>
                         <div class="placement-price-table">400 BYN</div>
-                        <div><button class="cart-btn" onclick="alert('Добавлено в корзину')">🛒 Заказать</button></div>
+                        <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
                     </div>
                     <div class="placement-table-row">
                         <div><a href="https://t.me/minskchpdtp" target="_blank" class="placement-account-link">@minskchpdtp</a></div>
                         <div class="placement-subscribers">16 000</div>
                         <div class="placement-price-table">по запросу</div>
-                        <div><button class="cart-btn" onclick="alert('Свяжитесь с нами для уточнения цены')">📞 Уточнить</button></div>
+                        <div><button class="cart-btn open-modal-btn">📞 Уточнить</button></div>
                     </div>
                 </div>
             </div>
@@ -986,7 +1193,8 @@
                         <div class="blogger-stats">215 000 подписчиков</div>
                         <div class="blogger-price">от 1 600 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (87K)</div>
-                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
+                        <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
+                        <button class="blogger-services-btn open-modal-btn">Посмотреть все услуги →</button>
                     </div>
                     <div class="blogger-card">
                         <img src="km.jpg" alt="kudaminsk" class="blogger-avatar">
@@ -995,7 +1203,8 @@
                         <div class="blogger-stats">143 000 подписчиков</div>
                         <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (30K)</div>
-                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
+                        <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
+                        <button class="blogger-services-btn open-modal-btn">Посмотреть все услуги →</button>
                     </div>
                     <div class="blogger-card">
                         <img src="ztstl.jpg" alt="zatestil" class="blogger-avatar">
@@ -1004,7 +1213,8 @@
                         <div class="blogger-stats">188 000 подписчиков</div>
                         <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (67K)</div>
-                        <a href="#" class="blogger-order-btn">Заказать интеграцию →</a>
+                        <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
+                        <button class="blogger-services-btn open-modal-btn">Посмотреть все услуги →</button>
                     </div>
                 </div>
             </div>
@@ -1013,8 +1223,8 @@
         </div>
     </div>
 
-    <!-- Подвал -->
-    <div class="footer-large">
+    <!-- ПОДВАЛ — ОБНОВЛЕННЫЙ -->
+    <div class="footer-large" id="contacts">
         <div class="footer-content">
             <div class="footer-info">
                 <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
@@ -1022,25 +1232,49 @@
                 <p class="details">УНП 192554055</p>
                 <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
                 <p class="details">Телефон: +375291405067</p>
+                <div class="footer-policy-links">
+                    <a href="privacy-policy.html">Политика обработки персональных данных</a>
+                    <a href="cookie-policy.html">Политика обработки файлов cookie</a>
+                </div>
             </div>
             <div class="footer-links">
                 <div class="footer-links-column">
                     <h4>Информация</h4>
                     <a href="faq.html">F.A.Q.</a>
                     <a href="blog.html">Блог</a>
-                    <a href="team.html">Наша команда</a>
                     <a href="mediakit.html">Медиа-кит</a>
                 </div>
                 <div class="footer-links-column">
-                    <h4>Соцсети</h4>
-                    <a href="#">Instagram</a>
-                    <a href="#">Telegram</a>
-                    <a href="#">VK</a>
+                    <h4>О нас</h4>
+                    <a href="vacancies.html">Вакансии</a>
+                    <a href="team.html">Наша команда</a>
                 </div>
             </div>
             <div class="footer-button">
-                <a href="#" class="btn-footer-yellow">Связаться с нами →</a>
+                <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="callbackModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3>📩 Обсудить проект</h3>
+            <p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
+            <form id="callbackForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Расскажите о вашем проекте"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
         </div>
     </div>
 
@@ -1060,22 +1294,97 @@
         });
 
         // Переключатель
-        const btnCommunities = document.getElementById('btnCommunities');
-        const btnBloggers = document.getElementById('btnBloggers');
+        const switchSlider = document.getElementById('switchSlider');
+        const options = document.querySelectorAll('.switch-option');
         const tariffsSection = document.getElementById('tariffs');
         const bloggersSection = document.getElementById('bloggers');
 
-        btnCommunities.addEventListener('click', () => {
-            btnCommunities.classList.add('active');
-            btnBloggers.classList.remove('active');
-            tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function setActiveOption(targetId) {
+            options.forEach(opt => {
+                const isActive = opt.getAttribute('data-target') === targetId;
+                if (isActive) {
+                    opt.classList.add('active');
+                    if (targetId === 'bloggers') {
+                        switchSlider.classList.remove('left');
+                        switchSlider.classList.add('right');
+                    } else {
+                        switchSlider.classList.remove('right');
+                        switchSlider.classList.add('left');
+                    }
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+        }
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const target = option.getAttribute('data-target');
+                setActiveOption(target);
+                if (target === 'bloggers') {
+                    bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
 
-        btnBloggers.addEventListener('click', () => {
-            btnBloggers.classList.add('active');
-            btnCommunities.classList.remove('active');
-            bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
+        setActiveOption('tariffs');
+
+        // Модальное окно
+        const modal = document.getElementById('callbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+        const callbackForm = document.getElementById('callbackForm');
+        const formMessage = document.getElementById('formMessage');
+
+        function showModal() { modal.classList.add('show'); }
+        function hideModal() { 
+            modal.classList.remove('show');
+            if (callbackForm) callbackForm.reset();
+            if (formMessage) formMessage.style.display = 'none';
+        }
+
+        openModalBtns.forEach(btn => btn.addEventListener('click', showModal));
+        modalClose?.addEventListener('click', hideModal);
+        modal?.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+
+        if (callbackForm) {
+            callbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = callbackForm.querySelector('.submit-btn');
+                const formData = new FormData(callbackForm);
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправляем...';
+                formMessage.style.display = 'none';
+                
+                try {
+                    const response = await fetch('send_to_telegram.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+                        formMessage.style.display = 'block';
+                        callbackForm.reset();
+                        setTimeout(() => hideModal(), 3000);
+                    } else {
+                        throw new Error(result.error || 'Ошибка');
+                    }
+                } catch (error) {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
+                    formMessage.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                }
+            });
+        }
     </script>
 </body>
 </html>
