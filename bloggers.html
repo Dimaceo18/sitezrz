@@ -365,13 +365,13 @@
             color: #F5D742;
         }
 
-        /* Выпадающий прайс-лист */
+        /* Выпадающий прайс-лист - тёмно-серая кнопка */
         .price-list-section {
             margin: 60px 0;
         }
 
         .price-list-header {
-            background: #F5D742;
+            background: #4A4A4A;
             border-radius: 60px;
             padding: 16px 28px;
             display: flex;
@@ -383,19 +383,20 @@
         }
 
         .price-list-header:hover {
-            background: #E6C935;
+            background: #5A5A5A;
             transform: translateY(-2px);
         }
 
         .price-list-header h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
-            color: #000;
+            color: #FFFFFF;
             margin: 0;
         }
 
         .price-list-header .arrow {
             font-size: 20px;
+            color: #FFFFFF;
             transition: transform 0.3s ease;
         }
 
@@ -417,14 +418,22 @@
             max-height: 2000px;
         }
 
+        /* Таблица с горизонтальным скроллом для мобильных */
+        .price-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+        }
+
         .price-table {
             width: 100%;
+            min-width: 700px;
             border-collapse: collapse;
         }
 
         .price-table th {
             background: #F8F9FA;
-            padding: 16px 20px;
+            padding: 16px 16px;
             text-align: left;
             font-weight: 700;
             color: #2C2C2C;
@@ -432,7 +441,7 @@
         }
 
         .price-table td {
-            padding: 14px 20px;
+            padding: 14px 16px;
             border-bottom: 1px solid #F0F0F0;
             color: #4A4A4A;
         }
@@ -444,6 +453,7 @@
         .price-table .service-name-col {
             font-weight: 600;
             color: #2C2C2C;
+            min-width: 200px;
         }
 
         .price-table .price-col {
@@ -457,14 +467,17 @@
             color: #F5D742;
         }
 
+        .price-table th span {
+            display: block;
+            font-weight: normal;
+        }
+
         @media (max-width: 768px) {
-            .price-table th,
-            .price-table td {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
             .price-list-header h3 {
-                font-size: 18px;
+                font-size: 15px;
+            }
+            .price-list-header {
+                padding: 14px 20px;
             }
         }
 
@@ -922,85 +935,87 @@
             </div>
         </div>
 
-        <!-- ВЫПАДАЮЩИЙ ПРАЙС-ЛИСТ -->
+        <!-- ВЫПАДАЮЩИЙ ПРАЙС-ЛИСТ (тёмно-серая кнопка) -->
         <div class="price-list-section">
             <div class="price-list-header" id="priceListHeader">
-                <h3>📋 Полный прайс-лист услуг блогеров</h3>
+                <h3>📋 Полный прайс-лист услуг блогеров (удобная таблица)</h3>
                 <span class="arrow">▼</span>
             </div>
             <div class="price-list-content" id="priceListContent">
-                <table class="price-table">
-                    <thead>
-                        <tr>
-                            <th>Услуга</th>
-                            <th>chtopochem_minsk<br><span style="font-size: 11px; font-weight: normal;">215K подписчиков</span></th>
-                            <th>kudaminsk<br><span style="font-size: 11px; font-weight: normal;">143K подписчиков</span></th>
-                            <th>zatestil<br><span style="font-size: 11px; font-weight: normal;">188K подписчиков</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="service-name-col">Обзорно-рекламный ролик</td>
-                            <td class="price-col">1 600 BYN</td>
-                            <td class="price-col">1 300 BYN</td>
-                            <td class="price-col">1 300 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Обзорно-рекламная серия сторис</td>
-                            <td class="price-col">1 000 BYN</td>
-                            <td class="price-col">900 BYN</td>
-                            <td class="price-col">900 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Интерактивные игры / опросы с людьми в городе</td>
-                            <td class="price-col">2 000 BYN</td>
-                            <td class="price-col">1 000 BYN</td>
-                            <td class="price-col">1 000 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Рекламная раздача людям вашего товара</td>
-                            <td class="price-col">1 800 BYN</td>
-                            <td class="price-col">1 200 BYN</td>
-                            <td class="price-col">1 200 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Совместный розыгрыш (подписка на ваш аккаунт)</td>
-                            <td class="price-col">2 500 BYN</td>
-                            <td class="price-col">1 500 BYN</td>
-                            <td class="price-col">1 500 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Розыгрыш вашего товара / услуги</td>
-                            <td class="price-col">1 500 BYN</td>
-                            <td class="price-col">1 100 BYN</td>
-                            <td class="price-col">1 100 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Розыгрыш в сторис</td>
-                            <td class="price-col">1 000 BYN</td>
-                            <td class="price-col">500 BYN</td>
-                            <td class="price-col">500 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Спецпроект</td>
-                            <td class="price-col">5 000 BYN</td>
-                            <td class="price-col">2 000 BYN</td>
-                            <td class="price-col">2 000 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Амбасадор бренда</td>
-                            <td class="price-col">4 000 BYN</td>
-                            <td class="price-col">2 000 BYN</td>
-                            <td class="price-col">2 000 BYN</td>
-                        </tr>
-                        <tr>
-                            <td class="service-name-col">Интеграция бренда / товара в авторские маршруты</td>
-                            <td class="price-col special">по запросу</td>
-                            <td class="price-col">1 000 BYN</td>
-                            <td class="price-col">1 000 BYN</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="price-table-wrapper">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Услуга</th>
+                                <th>chtopochem_minsk<br><span>215K подписчиков</span></th>
+                                <th>kudaminsk<br><span>143K подписчиков</span></th>
+                                <th>zatestil<br><span>188K подписчиков</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="service-name-col">Обзорно-рекламный ролик</td>
+                                <td class="price-col">1 600 BYN</td>
+                                <td class="price-col">1 300 BYN</td>
+                                <td class="price-col">1 300 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Обзорно-рекламная серия сторис</td>
+                                <td class="price-col">1 000 BYN</td>
+                                <td class="price-col">900 BYN</td>
+                                <td class="price-col">900 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Интерактивные игры / опросы с людьми в городе</td>
+                                <td class="price-col">2 000 BYN</td>
+                                <td class="price-col">1 000 BYN</td>
+                                <td class="price-col">1 000 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Рекламная раздача людям вашего товара</td>
+                                <td class="price-col">1 800 BYN</td>
+                                <td class="price-col">1 200 BYN</td>
+                                <td class="price-col">1 200 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Совместный розыгрыш (подписка на ваш аккаунт)</td>
+                                <td class="price-col">2 500 BYN</td>
+                                <td class="price-col">1 500 BYN</td>
+                                <td class="price-col">1 500 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Розыгрыш вашего товара / услуги</td>
+                                <td class="price-col">1 500 BYN</td>
+                                <td class="price-col">1 100 BYN</td>
+                                <td class="price-col">1 100 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Розыгрыш в сторис</td>
+                                <td class="price-col">1 000 BYN</td>
+                                <td class="price-col">500 BYN</td>
+                                <td class="price-col">500 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Спецпроект</td>
+                                <td class="price-col">5 000 BYN</td>
+                                <td class="price-col">2 000 BYN</td>
+                                <td class="price-col">2 000 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Амбасадор бренда</td>
+                                <td class="price-col">4 000 BYN</td>
+                                <td class="price-col">2 000 BYN</td>
+                                <td class="price-col">2 000 BYN</td>
+                            </tr>
+                            <tr>
+                                <td class="service-name-col">Интеграция бренда / товара в авторские маршруты</td>
+                                <td class="price-col special">по запросу</td>
+                                <td class="price-col">1 000 BYN</td>
+                                <td class="price-col">1 000 BYN</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
