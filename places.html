@@ -107,26 +107,23 @@
             transform: translateY(-1px);
         }
 
-        /* Переключатель */
+        /* Переключатель - простые кнопки (как в примере) */
         .switch-container {
             display: flex;
             justify-content: center;
             margin: 40px 0 50px;
         }
 
-        .switch-toggle {
+        .switch-buttons {
             display: inline-flex;
             background: #F0F0F0;
             border-radius: 60px;
             padding: 5px;
-            position: relative;
-            cursor: pointer;
-            min-width: 320px;
+            gap: 5px;
         }
 
-        .switch-option {
-            flex: 1;
-            padding: 14px 24px;
+        .switch-btn {
+            padding: 14px 48px;
             border-radius: 60px;
             font-weight: 600;
             font-size: 16px;
@@ -136,35 +133,19 @@
             cursor: pointer;
             border: none;
             font-family: inherit;
-            position: relative;
-            z-index: 2;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             text-align: center;
         }
 
-        .switch-option.active {
-            color: #000;
-            font-weight: 700;
-        }
-
-        .switch-slider {
-            position: absolute;
-            top: 5px;
-            bottom: 5px;
-            width: calc(50% - 5px);
+        .switch-btn.active {
             background: #F5D742;
-            border-radius: 60px;
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 2px 12px rgba(245, 215, 66, 0.3);
-            z-index: 1;
+            color: #000;
+            box-shadow: 0 2px 8px rgba(245, 215, 66, 0.3);
         }
 
-        .switch-slider.left {
-            transform: translateX(0);
-        }
-
-        .switch-slider.right {
-            transform: translateX(100%);
+        .switch-btn:hover:not(.active) {
+            background: #E4E4E4;
+            color: #2C2C2C;
         }
 
         /* Тарифы */
@@ -562,10 +543,10 @@
             transform: translateY(-2px);
         }
 
+        /* Выделенная кнопка "Посмотреть все услуги" */
         .blogger-services-btn {
-            background: transparent;
-            color: #F5D742;
-            border: 1px solid #F5D742;
+            background: #F5D742;
+            color: #000;
             padding: 10px 20px;
             border-radius: 40px;
             font-weight: 600;
@@ -576,10 +557,11 @@
             margin-top: 8px;
             transition: 0.2s;
             cursor: pointer;
+            border: none;
         }
 
         .blogger-services-btn:hover {
-            background: #F5D74210;
+            background: #E6C935;
             transform: translateY(-2px);
         }
 
@@ -633,10 +615,10 @@
         }
 
         .footer-policy-links {
-            margin-top: 16px;
+            margin-top: 12px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 24px;
         }
 
         .footer-policy-links a {
@@ -911,11 +893,8 @@
             .cart-btn {
                 justify-content: center;
             }
-            .switch-toggle {
-                min-width: 280px;
-            }
-            .switch-option {
-                padding: 10px 16px;
+            .switch-btn {
+                padding: 10px 28px;
                 font-size: 14px;
             }
         }
@@ -935,12 +914,9 @@
             .nav-btn-dark {
                 display: none;
             }
-            .switch-toggle {
-                min-width: 240px;
-            }
-            .switch-option {
-                padding: 8px 12px;
-                font-size: 12px;
+            .switch-btn {
+                padding: 8px 20px;
+                font-size: 13px;
             }
             .tariff-card {
                 min-width: 100%;
@@ -983,12 +959,11 @@
                 <p style="text-align: center; color: #5A5A5A;">Выберите подходящий вариант размещения</p>
             </div>
 
-            <!-- Переключатель -->
+            <!-- Переключатель - простые кнопки -->
             <div class="switch-container">
-                <div class="switch-toggle" id="switchToggle">
-                    <div class="switch-slider left" id="switchSlider"></div>
-                    <button class="switch-option active" data-target="tariffs">🏙️ Сообщества</button>
-                    <button class="switch-option" data-target="bloggers">🎬 Блогеры</button>
+                <div class="switch-buttons">
+                    <button class="switch-btn active" id="btnCommunities">🏙️ Сообщества</button>
+                    <button class="switch-btn" id="btnBloggers">🎬 Блогеры</button>
                 </div>
             </div>
 
@@ -1148,7 +1123,7 @@
                 </div>
             </div>
 
-            <!-- Одиночные размещения -->
+            <!-- Одиночные размещения - убрана строка с @minskchpdtp -->
             <div class="single-placement">
                 <h3>🔻 Одиночные размещения</h3>
                 <div class="placement-table">
@@ -1170,12 +1145,6 @@
                         <div class="placement-price-table">400 BYN</div>
                         <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
                     </div>
-                    <div class="placement-table-row">
-                        <div><a href="https://t.me/minskchpdtp" target="_blank" class="placement-account-link">@minskchpdtp</a></div>
-                        <div class="placement-subscribers">16 000</div>
-                        <div class="placement-price-table">по запросу</div>
-                        <div><button class="cart-btn open-modal-btn">📞 Уточнить</button></div>
-                    </div>
                 </div>
             </div>
 
@@ -1194,7 +1163,7 @@
                         <div class="blogger-price">от 1 600 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (87K)</div>
                         <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
-                        <button class="blogger-services-btn open-modal-btn">Посмотреть все услуги →</button>
+                        <a href="bloggers.html" class="blogger-services-btn">Посмотреть все услуги →</a>
                     </div>
                     <div class="blogger-card">
                         <img src="km.jpg" alt="kudaminsk" class="blogger-avatar">
@@ -1204,7 +1173,7 @@
                         <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (30K)</div>
                         <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
-                        <button class="blogger-services-btn open-modal-btn">Посмотреть все услуги →</button>
+                        <a href="bloggers.html" class="blogger-services-btn">Посмотреть все услуги →</a>
                     </div>
                     <div class="blogger-card">
                         <img src="ztstl.jpg" alt="zatestil" class="blogger-avatar">
@@ -1214,7 +1183,7 @@
                         <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (67K)</div>
                         <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
-                        <button class="blogger-services-btn open-modal-btn">Посмотреть все услуги →</button>
+                        <a href="bloggers.html" class="blogger-services-btn">Посмотреть все услуги →</a>
                     </div>
                 </div>
             </div>
@@ -1294,42 +1263,22 @@
         });
 
         // Переключатель
-        const switchSlider = document.getElementById('switchSlider');
-        const options = document.querySelectorAll('.switch-option');
+        const btnCommunities = document.getElementById('btnCommunities');
+        const btnBloggers = document.getElementById('btnBloggers');
         const tariffsSection = document.getElementById('tariffs');
         const bloggersSection = document.getElementById('bloggers');
 
-        function setActiveOption(targetId) {
-            options.forEach(opt => {
-                const isActive = opt.getAttribute('data-target') === targetId;
-                if (isActive) {
-                    opt.classList.add('active');
-                    if (targetId === 'bloggers') {
-                        switchSlider.classList.remove('left');
-                        switchSlider.classList.add('right');
-                    } else {
-                        switchSlider.classList.remove('right');
-                        switchSlider.classList.add('left');
-                    }
-                } else {
-                    opt.classList.remove('active');
-                }
-            });
-        }
-
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                const target = option.getAttribute('data-target');
-                setActiveOption(target);
-                if (target === 'bloggers') {
-                    bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        btnCommunities.addEventListener('click', () => {
+            btnCommunities.classList.add('active');
+            btnBloggers.classList.remove('active');
+            tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
-        setActiveOption('tariffs');
+        btnBloggers.addEventListener('click', () => {
+            btnBloggers.classList.add('active');
+            btnCommunities.classList.remove('active');
+            bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
 
         // Модальное окно
         const modal = document.getElementById('callbackModal');
