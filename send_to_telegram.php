@@ -1,7 +1,7 @@
 <?php
 // Telegram бот настройки - ЗАМЕНИТЕ НА СВОИ!
-$botToken = "8664967194:AAHlm5Gp1f3MYUc6wKP6yzD_XedQ5R4uWpQ";        // Токен от BotFather
-$chatId = "5314321592";             // Ваш Chat ID
+$botToken = "вставитьсвой";        // Токен от BotFather
+$chatId = "вставитьсвой";             // Ваш Chat ID
 
 // Проверяем метод запроса
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
