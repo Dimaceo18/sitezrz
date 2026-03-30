@@ -128,7 +128,7 @@
             margin: 0 auto;
         }
 
-        /* Блогеры - выбираемые карточки */
+        /* Блогеры - выбираемые карточки с усиленным выделением */
         .bloggers-section {
             margin-bottom: 60px;
         }
@@ -159,20 +159,42 @@
             border-radius: 28px;
             padding: 28px 24px;
             text-align: center;
-            border: 2px solid transparent;
+            border: 2px solid #E8ECF0;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .blogger-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+            border-color: #F5D742;
         }
 
+        /* УСИЛЕННОЕ ВЫДЕЛЕНИЕ активной карточки */
         .blogger-card.active {
-            border-color: #F5D742;
-            background: linear-gradient(135deg, #F8F9FA 0%, #FFFCF0 100%);
-            box-shadow: 0 8px 20px rgba(245, 215, 66, 0.2);
+            border: 3px solid #F5D742;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF9E6 100%);
+            box-shadow: 0 12px 28px rgba(245, 215, 66, 0.35);
+            transform: scale(1.02);
+        }
+
+        .blogger-card.active::before {
+            content: "✓";
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 28px;
+            height: 28px;
+            background: #F5D742;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .blogger-avatar {
@@ -183,12 +205,23 @@
             margin: 0 auto 16px;
             display: block;
             border: 3px solid #F5D742;
+            transition: all 0.3s ease;
+        }
+
+        .blogger-card.active .blogger-avatar {
+            border-width: 4px;
+            box-shadow: 0 0 0 3px rgba(245, 215, 66, 0.3);
         }
 
         .blogger-card h3 {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .blogger-card.active h3 {
+            color: #F5D742;
         }
 
         .blogger-instagram {
@@ -202,6 +235,11 @@
             font-size: 13px;
             color: #6B6B6B;
             margin: 10px 0;
+        }
+
+        .blogger-card.active .blogger-stats {
+            color: #4A4A4A;
+            font-weight: 500;
         }
 
         /* Услуги блогера */
@@ -664,6 +702,13 @@
                 width: 100px;
                 height: 100px;
             }
+            .blogger-card.active::before {
+                width: 24px;
+                height: 24px;
+                font-size: 14px;
+                top: 12px;
+                right: 16px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -728,7 +773,7 @@
             <p>Выберите блогера для интеграции — цены изменятся автоматически</p>
         </div>
 
-        <!-- Блогеры - выбираемые карточки -->
+        <!-- Блогеры - выбираемые карточки с усиленным выделением -->
         <div class="bloggers-section">
             <div class="bloggers-header">
                 <h2>Наши блогеры</h2>
@@ -841,7 +886,7 @@
     </div>
 
     <script>
-        // Данные для блогеров
+        // Данные для блогеров (остаются без изменений)
         const bloggerPrices = {
             chtopochem: {
                 services: [
@@ -902,7 +947,6 @@
             }
         };
 
-        // Функция для рендеринга услуг
         function renderServices(bloggerId) {
             const data = bloggerPrices[bloggerId];
             if (!data) return;
@@ -927,7 +971,6 @@
             `).join('');
         }
 
-        // Выделение активного блогера
         function setActiveBlogger(bloggerId) {
             const cards = document.querySelectorAll('.blogger-card');
             cards.forEach(card => {
@@ -939,7 +982,6 @@
             });
         }
 
-        // Обработка выбора блогера
         const bloggerCards = document.querySelectorAll('.blogger-card');
         bloggerCards.forEach(card => {
             card.addEventListener('click', () => {
@@ -949,7 +991,7 @@
             });
         });
 
-        // Инициализация: выбираем первого блогера по умолчанию
+        // Инициализация
         const defaultBlogger = 'chtopochem';
         setActiveBlogger(defaultBlogger);
         renderServices(defaultBlogger);
