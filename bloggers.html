@@ -470,7 +470,7 @@
             font-size: 11px;
         }
 
-        /* МОБИЛЬНАЯ ВЕРСИЯ ТАБЛИЦЫ - КАРТОЧКИ */
+        /* МОБИЛЬНАЯ ВЕРСИЯ ТАБЛИЦЫ - КАРТОЧКИ (без слова "Услуга") */
         @media (max-width: 768px) {
             .price-table,
             .price-table thead,
@@ -506,7 +506,22 @@
                 border-bottom: none;
             }
             
-            .price-table td::before {
+            /* Убираем слово "Услуга" и центрируем название услуги */
+            .price-table td:first-child {
+                display: block;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 700;
+                color: #2C2C2C;
+                background: #FFFFFF;
+                margin: -8px -8px 12px -8px;
+                padding: 12px 8px;
+                border-radius: 12px;
+                border-bottom: 1px solid #E8ECF0;
+            }
+            
+            /* Для остальных ячеек оставляем метки */
+            .price-table td:not(:first-child)::before {
                 content: attr(data-label);
                 font-weight: 600;
                 color: #2C2C2C;
@@ -1000,61 +1015,61 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Обзорно-рекламный ролик</td>
+                                <td class="service-name-col">Обзорно-рекламный ролик</td>
                                 <td data-label="chtopochem_minsk" class="price-col">1 600 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">1 300 BYN</td>
                                 <td data-label="zatestil" class="price-col">1 300 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Обзорно-рекламная серия сторис</td>
+                                <td class="service-name-col">Обзорно-рекламная серия сторис</td>
                                 <td data-label="chtopochem_minsk" class="price-col">1 000 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">900 BYN</td>
                                 <td data-label="zatestil" class="price-col">900 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Интерактивные игры / опросы с людьми в городе</td>
+                                <td class="service-name-col">Интерактивные игры / опросы с людьми в городе</td>
                                 <td data-label="chtopochem_minsk" class="price-col">2 000 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">1 000 BYN</td>
                                 <td data-label="zatestil" class="price-col">1 000 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Рекламная раздача людям вашего товара</td>
+                                <td class="service-name-col">Рекламная раздача людям вашего товара</td>
                                 <td data-label="chtopochem_minsk" class="price-col">1 800 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">1 200 BYN</td>
                                 <td data-label="zatestil" class="price-col">1 200 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Совместный розыгрыш (подписка на ваш аккаунт)</td>
+                                <td class="service-name-col">Совместный розыгрыш (подписка на ваш аккаунт)</td>
                                 <td data-label="chtopochem_minsk" class="price-col">2 500 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">1 500 BYN</td>
                                 <td data-label="zatestil" class="price-col">1 500 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Розыгрыш вашего товара / услуги</td>
+                                <td class="service-name-col">Розыгрыш вашего товара / услуги</td>
                                 <td data-label="chtopochem_minsk" class="price-col">1 500 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">1 100 BYN</td>
                                 <td data-label="zatestil" class="price-col">1 100 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Розыгрыш в сторис</td>
+                                <td class="service-name-col">Розыгрыш в сторис</td>
                                 <td data-label="chtopochem_minsk" class="price-col">1 000 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">500 BYN</td>
                                 <td data-label="zatestil" class="price-col">500 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Спецпроект</td>
+                                <td class="service-name-col">Спецпроект</td>
                                 <td data-label="chtopochem_minsk" class="price-col">5 000 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">2 000 BYN</td>
                                 <td data-label="zatestil" class="price-col">2 000 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Амбасадор бренда</td>
+                                <td class="service-name-col">Амбасадор бренда</td>
                                 <td data-label="chtopochem_minsk" class="price-col">4 000 BYN</td>
                                 <td data-label="kudaminsk" class="price-col">2 000 BYN</td>
                                 <td data-label="zatestil" class="price-col">2 000 BYN</td>
                             </tr>
                             <tr>
-                                <td data-label="Услуга" class="service-name-col">Интеграция бренда / товара в авторские маршруты</td>
+                                <td class="service-name-col">Интеграция бренда / товара в авторские маршруты</td>
                                 <td data-label="chtopochem_minsk" class="price-col special">по запросу</td>
                                 <td data-label="kudaminsk" class="price-col">1 000 BYN</td>
                                 <td data-label="zatestil" class="price-col">1 000 BYN</td>
