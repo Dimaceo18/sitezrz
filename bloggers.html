@@ -128,7 +128,7 @@
             margin: 0 auto;
         }
 
-        /* Блогеры */
+        /* Блогеры - выбираемые карточки */
         .bloggers-section {
             margin-bottom: 60px;
         }
@@ -154,19 +154,25 @@
 
         .blogger-card {
             flex: 1;
-            min-width: 320px;
+            min-width: 280px;
             background: #F8F9FA;
             border-radius: 28px;
             padding: 28px 24px;
             text-align: center;
-            border: 1px solid #E8ECF0;
+            border: 2px solid transparent;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .blogger-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .blogger-card.active {
             border-color: #F5D742;
-            box-shadow: 0 20px 32px rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFCF0 100%);
+            box-shadow: 0 8px 20px rgba(245, 215, 66, 0.2);
         }
 
         .blogger-avatar {
@@ -719,29 +725,29 @@
 
         <div class="page-header">
             <h1>🎬 Рекламные возможности у блогеров</h1>
-            <p>Уникальные форматы интеграций с топовыми инфлюенсерами Минска</p>
+            <p>Выберите блогера для интеграции — цены изменятся автоматически</p>
         </div>
 
-        <!-- Блогеры -->
+        <!-- Блогеры - выбираемые карточки -->
         <div class="bloggers-section">
             <div class="bloggers-header">
                 <h2>Наши блогеры</h2>
-                <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
+                <p>Нажмите на блогера, чтобы увидеть цены на его услуги</p>
             </div>
             <div class="bloggers-grid">
-                <div class="blogger-card">
+                <div class="blogger-card" data-blogger="chtopochem">
                     <img src="chpch.jpg" alt="chtopochem_minsk" class="blogger-avatar">
                     <h3>chtopochem_minsk</h3>
                     <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
                     <div class="blogger-stats">215 000 подписчиков</div>
                 </div>
-                <div class="blogger-card">
+                <div class="blogger-card" data-blogger="kudaminsk">
                     <img src="km.jpg" alt="kudaminsk" class="blogger-avatar">
                     <h3>kudaminsk</h3>
                     <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
                     <div class="blogger-stats">143 000 подписчиков</div>
                 </div>
-                <div class="blogger-card">
+                <div class="blogger-card" data-blogger="zatestil">
                     <img src="ztstl.jpg" alt="zatestil" class="blogger-avatar">
                     <h3>zatestil</h3>
                     <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
@@ -750,102 +756,22 @@
             </div>
         </div>
 
-        <!-- Услуги блогеров -->
+        <!-- Услуги блогера - динамические цены -->
         <div class="services-section">
             <div class="services-header">
                 <h2>📋 Форматы интеграций</h2>
                 <p>Выберите подходящий формат для вашего бренда</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Обзорно-рекламный ролик</div>
-                        <div class="service-desc">Подробный видеообзор с демонстрацией продукта</div>
-                    </div>
-                    <div class="service-price">1 600 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Обзорно-рекламная серия сторис</div>
-                        <div class="service-desc">Серия историй с подробным рассказом</div>
-                    </div>
-                    <div class="service-price">1 000 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Интерактивные игры / опросы с людьми в городе</div>
-                        <div class="service-desc">Интеграция вашего товара в живые активности</div>
-                    </div>
-                    <div class="service-price">2 000 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Рекламная раздача людям вашего товара</div>
-                        <div class="service-desc">Прямое взаимодействие с аудиторией</div>
-                    </div>
-                    <div class="service-price">1 800 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Совместный розыгрыш (подписка на ваш аккаунт)</div>
-                        <div class="service-desc">Условие подписки для участия</div>
-                    </div>
-                    <div class="service-price">2 500 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Розыгрыш вашего товара / услуги</div>
-                        <div class="service-desc">Без ссылок, просто розыгрыш приза</div>
-                    </div>
-                    <div class="service-price">1 500 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Розыгрыш в сторис</div>
-                        <div class="service-desc">Быстрый розыгрыш в формате историй</div>
-                    </div>
-                    <div class="service-price">1 000 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Спецпроект</div>
-                        <div class="service-desc">Комплексная интеграция с уникальным контентом</div>
-                    </div>
-                    <div class="service-price">5 000 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Амбасадор бренда</div>
-                        <div class="service-desc">Долгосрочное сотрудничество с лицом бренда</div>
-                    </div>
-                    <div class="service-price">4 000 BYN</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-info">
-                        <div class="service-name">Интеграция бренда / товара в авторские маршруты</div>
-                        <div class="service-desc">Естественное встраивание в уникальный контент</div>
-                    </div>
-                    <div class="service-price special">по запросу</div>
-                </div>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Цены будут загружены динамически через JavaScript -->
             </div>
         </div>
 
-        <!-- Дополнительные услуги -->
+        <!-- Дополнительные услуги - динамические -->
         <div class="extra-services">
             <h3>➕ Дополнительные услуги</h3>
-            <div class="extra-grid">
-                <div class="extra-card">
-                    <div class="extra-name">Закрепить пост 1 день</div>
-                    <div class="extra-price">100 BYN</div>
-                </div>
-                <div class="extra-card">
-                    <div class="extra-name">Напомнить о себе: добавление рилса в сторис через 1-2 недели</div>
-                    <div class="extra-price">300 BYN</div>
-                </div>
-                <div class="extra-card">
-                    <div class="extra-name">Запуск таргетированной рекламы на ролик</div>
-                    <div class="extra-price special">любой бюджет</div>
-                </div>
+            <div class="extra-grid" id="extraGrid">
+                <!-- Цены будут загружены динамически через JavaScript -->
             </div>
         </div>
 
@@ -915,6 +841,120 @@
     </div>
 
     <script>
+        // Данные для блогеров
+        const bloggerPrices = {
+            chtopochem: {
+                services: [
+                    { name: "Обзорно-рекламный ролик", desc: "Подробный видеообзор с демонстрацией продукта", price: "1 600 BYN" },
+                    { name: "Обзорно-рекламная серия сторис", desc: "Серия историй с подробным рассказом", price: "1 000 BYN" },
+                    { name: "Интерактивные игры / опросы с людьми в городе", desc: "Интеграция вашего товара в живые активности", price: "2 000 BYN" },
+                    { name: "Рекламная раздача людям вашего товара", desc: "Прямое взаимодействие с аудиторией", price: "1 800 BYN" },
+                    { name: "Совместный розыгрыш (подписка на ваш аккаунт)", desc: "Условие подписки для участия", price: "2 500 BYN" },
+                    { name: "Розыгрыш вашего товара / услуги", desc: "Без ссылок, просто розыгрыш приза", price: "1 500 BYN" },
+                    { name: "Розыгрыш в сторис", desc: "Быстрый розыгрыш в формате историй", price: "1 000 BYN" },
+                    { name: "Спецпроект", desc: "Комплексная интеграция с уникальным контентом", price: "5 000 BYN" },
+                    { name: "Амбасадор бренда", desc: "Долгосрочное сотрудничество с лицом бренда", price: "4 000 BYN" },
+                    { name: "Интеграция бренда / товара в авторские маршруты", desc: "Естественное встраивание в уникальный контент", price: "по запросу", special: true }
+                ],
+                extras: [
+                    { name: "Закрепить пост 1 день", price: "100 BYN" },
+                    { name: "Напомнить о себе: добавление рилса в сторис через 1-2 недели", price: "300 BYN" },
+                    { name: "Запуск таргетированной рекламы на ролик", price: "любой бюджет", special: true }
+                ]
+            },
+            kudaminsk: {
+                services: [
+                    { name: "Обзорно-рекламный ролик", desc: "Подробный видеообзор с демонстрацией продукта", price: "1 300 BYN" },
+                    { name: "Обзорно-рекламная серия сторис", desc: "Серия историй с подробным рассказом", price: "900 BYN" },
+                    { name: "Интерактивные игры / опросы с людьми в городе", desc: "Интеграция вашего товара в живые активности", price: "1 000 BYN" },
+                    { name: "Рекламная раздача людям вашего товара", desc: "Прямое взаимодействие с аудиторией", price: "1 200 BYN" },
+                    { name: "Совместный розыгрыш (подписка на ваш аккаунт)", desc: "Условие подписки для участия", price: "1 500 BYN" },
+                    { name: "Розыгрыш вашего товара / услуги", desc: "Без ссылок, просто розыгрыш приза", price: "1 100 BYN" },
+                    { name: "Розыгрыш в сторис", desc: "Быстрый розыгрыш в формате историй", price: "500 BYN" },
+                    { name: "Спецпроект", desc: "Комплексная интеграция с уникальным контентом", price: "2 000 BYN" },
+                    { name: "Амбасадор бренда", desc: "Долгосрочное сотрудничество с лицом бренда", price: "2 000 BYN" },
+                    { name: "Интеграция бренда / товара в авторские маршруты", desc: "Естественное встраивание в уникальный контент", price: "1 000 BYN" }
+                ],
+                extras: [
+                    { name: "Закрепить пост 1 день", price: "200 BYN" },
+                    { name: "Напомнить о себе: добавление рилса в сторис через 1-2 недели", price: "200 BYN" },
+                    { name: "Запуск таргетированной рекламы на ролик", price: "любой бюджет", special: true }
+                ]
+            },
+            zatestil: {
+                services: [
+                    { name: "Обзорно-рекламный ролик", desc: "Подробный видеообзор с демонстрацией продукта", price: "1 300 BYN" },
+                    { name: "Обзорно-рекламная серия сторис", desc: "Серия историй с подробным рассказом", price: "900 BYN" },
+                    { name: "Интерактивные игры / опросы с людьми в городе", desc: "Интеграция вашего товара в живые активности", price: "1 000 BYN" },
+                    { name: "Рекламная раздача людям вашего товара", desc: "Прямое взаимодействие с аудиторией", price: "1 200 BYN" },
+                    { name: "Совместный розыгрыш (подписка на ваш аккаунт)", desc: "Условие подписки для участия", price: "1 500 BYN" },
+                    { name: "Розыгрыш вашего товара / услуги", desc: "Без ссылок, просто розыгрыш приза", price: "1 100 BYN" },
+                    { name: "Розыгрыш в сторис", desc: "Быстрый розыгрыш в формате историй", price: "500 BYN" },
+                    { name: "Спецпроект", desc: "Комплексная интеграция с уникальным контентом", price: "2 000 BYN" },
+                    { name: "Амбасадор бренда", desc: "Долгосрочное сотрудничество с лицом бренда", price: "2 000 BYN" },
+                    { name: "Интеграция бренда / товара в авторские маршруты", desc: "Естественное встраивание в уникальный контент", price: "1 000 BYN" }
+                ],
+                extras: [
+                    { name: "Закрепить пост 1 день", price: "200 BYN" },
+                    { name: "Напомнить о себе: добавление рилса в сторис через 1-2 недели", price: "200 BYN" },
+                    { name: "Запуск таргетированной рекламы на ролик", price: "любой бюджет", special: true }
+                ]
+            }
+        };
+
+        // Функция для рендеринга услуг
+        function renderServices(bloggerId) {
+            const data = bloggerPrices[bloggerId];
+            if (!data) return;
+            
+            const servicesGrid = document.getElementById('servicesGrid');
+            servicesGrid.innerHTML = data.services.map(service => `
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">${service.name}</div>
+                        <div class="service-desc">${service.desc}</div>
+                    </div>
+                    <div class="service-price ${service.special ? 'special' : ''}">${service.price}</div>
+                </div>
+            `).join('');
+            
+            const extraGrid = document.getElementById('extraGrid');
+            extraGrid.innerHTML = data.extras.map(extra => `
+                <div class="extra-card">
+                    <div class="extra-name">${extra.name}</div>
+                    <div class="extra-price ${extra.special ? 'special' : ''}">${extra.price}</div>
+                </div>
+            `).join('');
+        }
+
+        // Выделение активного блогера
+        function setActiveBlogger(bloggerId) {
+            const cards = document.querySelectorAll('.blogger-card');
+            cards.forEach(card => {
+                if (card.getAttribute('data-blogger') === bloggerId) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        // Обработка выбора блогера
+        const bloggerCards = document.querySelectorAll('.blogger-card');
+        bloggerCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const bloggerId = card.getAttribute('data-blogger');
+                setActiveBlogger(bloggerId);
+                renderServices(bloggerId);
+            });
+        });
+
+        // Инициализация: выбираем первого блогера по умолчанию
+        const defaultBlogger = 'chtopochem';
+        setActiveBlogger(defaultBlogger);
+        renderServices(defaultBlogger);
+
+        // Кнопка наверх
         const scrollTopBtn = document.getElementById('scrollTopBtn');
         window.addEventListener('scroll', () => {
             scrollTopBtn.classList.toggle('show', window.scrollY > 300);
