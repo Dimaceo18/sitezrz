@@ -128,48 +128,7 @@
             margin: 0 auto;
         }
 
-        /* Переключатель - простые кнопки */
-        .switch-container {
-            display: flex;
-            justify-content: center;
-            margin: 40px 0 50px;
-        }
-
-        .switch-buttons {
-            display: inline-flex;
-            background: #F0F0F0;
-            border-radius: 60px;
-            padding: 5px;
-            gap: 5px;
-        }
-
-        .switch-btn {
-            padding: 14px 48px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            background: transparent;
-            color: #5A5A5A;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .switch-btn.active {
-            background: #F5D742;
-            color: #000;
-            box-shadow: 0 2px 8px rgba(245, 215, 66, 0.3);
-        }
-
-        .switch-btn:hover:not(.active) {
-            background: #E4E4E4;
-            color: #2C2C2C;
-        }
-
-        /* Блогеры - выбираемые карточки */
+        /* Блогеры - выбираемые карточки с усиленным выделением */
         .bloggers-section {
             margin-bottom: 60px;
         }
@@ -212,6 +171,7 @@
             border-color: #F5D742;
         }
 
+        /* УСИЛЕННОЕ ВЫДЕЛЕНИЕ активной карточки */
         .blogger-card.active {
             border: 3px solid #F5D742;
             background: linear-gradient(135deg, #FFFFFF 0%, #FFF9E6 100%);
@@ -282,56 +242,6 @@
             font-weight: 500;
         }
 
-        /* Кнопки блогера */
-        .blogger-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .blogger-order-btn {
-            background: #F5D742;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
-            transition: 0.2s;
-            cursor: pointer;
-            border: none;
-            text-align: center;
-        }
-
-        .blogger-order-btn:hover {
-            background: #E6C935;
-            transform: translateY(-2px);
-        }
-
-        .blogger-services-btn {
-            background: transparent;
-            color: #F5D742;
-            border: 1px solid #F5D742;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
-            transition: 0.2s;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .blogger-services-btn:hover {
-            background: #F5D74210;
-            transform: translateY(-2px);
-        }
-
         /* Услуги блогера */
         .services-section {
             margin: 60px 0;
@@ -399,88 +309,6 @@
         .service-price.special {
             font-size: 16px;
             color: #F5D742;
-        }
-
-        /* Одиночные размещения - таблица */
-        .single-placement {
-            margin: 40px 0 60px;
-        }
-
-        .single-placement h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #000;
-            text-align: center;
-        }
-
-        .placement-table {
-            background: #F8F9FA;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #E8ECF0;
-        }
-
-        .placement-table-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            align-items: center;
-            padding: 18px 24px;
-            border-bottom: 1px solid #E8ECF0;
-            transition: background 0.2s;
-        }
-
-        .placement-table-row:last-child {
-            border-bottom: none;
-        }
-
-        .placement-table-header {
-            background: #EFEFEF;
-            font-weight: 700;
-            color: #2C2C2C;
-            border-bottom: 1px solid #E0E0E0;
-        }
-
-        .placement-account-link {
-            color: #1A1A1A;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .placement-account-link:hover {
-            color: #F5D742;
-        }
-
-        .placement-subscribers {
-            color: #6B6B6B;
-            font-size: 14px;
-        }
-
-        .placement-price-table {
-            font-weight: 700;
-            color: #F5D742;
-            font-size: 18px;
-        }
-
-        .cart-btn {
-            background: #F5D742;
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
-        }
-
-        .cart-btn:hover {
-            background: #E6C935;
-            transform: scale(1.02);
         }
 
         /* Дополнительные услуги */
@@ -881,21 +709,6 @@
                 top: 12px;
                 right: 16px;
             }
-            .switch-btn {
-                padding: 10px 28px;
-                font-size: 14px;
-            }
-            .placement-table-row {
-                grid-template-columns: 1fr;
-                gap: 8px;
-                text-align: center;
-            }
-            .placement-table-header {
-                display: none;
-            }
-            .cart-btn {
-                justify-content: center;
-            }
         }
 
         @media (max-width: 768px) {
@@ -915,10 +728,6 @@
             }
             .page-header h1 {
                 font-size: 32px;
-            }
-            .switch-btn {
-                padding: 8px 20px;
-                font-size: 13px;
             }
             .services-grid {
                 grid-template-columns: 1fr;
@@ -964,16 +773,8 @@
             <p>Выберите блогера для интеграции — цены изменятся автоматически</p>
         </div>
 
-        <!-- Переключатель - простые кнопки -->
-        <div class="switch-container">
-            <div class="switch-buttons">
-                <button class="switch-btn active" id="btnCommunities">🏙️ Сообщества</button>
-                <button class="switch-btn" id="btnBloggers">🎬 Блогеры</button>
-            </div>
-        </div>
-
-        <!-- Блогеры - выбираемые карточки -->
-        <div class="bloggers-section" id="bloggers">
+        <!-- Блогеры - выбираемые карточки с усиленным выделением -->
+        <div class="bloggers-section">
             <div class="bloggers-header">
                 <h2>Наши блогеры</h2>
                 <p>Нажмите на блогера, чтобы увидеть цены на его услуги</p>
@@ -984,30 +785,18 @@
                     <h3>chtopochem_minsk</h3>
                     <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
                     <div class="blogger-stats">215 000 подписчиков</div>
-                    <div class="blogger-buttons">
-                        <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
-                        <a href="bloggers.html" class="blogger-services-btn">Посмотреть все услуги →</a>
-                    </div>
                 </div>
                 <div class="blogger-card" data-blogger="kudaminsk">
                     <img src="km.jpg" alt="kudaminsk" class="blogger-avatar">
                     <h3>kudaminsk</h3>
                     <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
                     <div class="blogger-stats">143 000 подписчиков</div>
-                    <div class="blogger-buttons">
-                        <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
-                        <a href="bloggers.html" class="blogger-services-btn">Посмотреть все услуги →</a>
-                    </div>
                 </div>
                 <div class="blogger-card" data-blogger="zatestil">
                     <img src="ztstl.jpg" alt="zatestil" class="blogger-avatar">
                     <h3>zatestil</h3>
                     <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
                     <div class="blogger-stats">188 000 подписчиков</div>
-                    <div class="blogger-buttons">
-                        <button class="blogger-order-btn open-modal-btn">Заказать интеграцию →</button>
-                        <a href="bloggers.html" class="blogger-services-btn">Посмотреть все услуги →</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1020,31 +809,6 @@
             </div>
             <div class="services-grid" id="servicesGrid">
                 <!-- Цены будут загружены динамически через JavaScript -->
-            </div>
-        </div>
-
-        <!-- Одиночные размещения -->
-        <div class="single-placement">
-            <h3>🔻 Одиночные размещения</h3>
-            <div class="placement-table">
-                <div class="placement-table-row placement-table-header">
-                    <div>Аккаунт</div>
-                    <div>Подписчики</div>
-                    <div>Стоимость</div>
-                    <div></div>
-                </div>
-                <div class="placement-table-row">
-                    <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">@minsk_news</a></div>
-                    <div class="placement-subscribers">478 000</div>
-                    <div class="placement-price-table">550 BYN</div>
-                    <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
-                </div>
-                <div class="placement-table-row">
-                    <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">@vestiminska</a></div>
-                    <div class="placement-subscribers">47 000</div>
-                    <div class="placement-price-table">400 BYN</div>
-                    <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
-                </div>
             </div>
         </div>
 
@@ -1122,7 +886,7 @@
     </div>
 
     <script>
-        // Данные для блогеров
+        // Данные для блогеров (остаются без изменений)
         const bloggerPrices = {
             chtopochem: {
                 services: [
@@ -1220,46 +984,11 @@
 
         const bloggerCards = document.querySelectorAll('.blogger-card');
         bloggerCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Не срабатываем, если кликнули на кнопку или ссылку
-                if (e.target.closest('.blogger-order-btn') || e.target.closest('.blogger-services-btn')) {
-                    return;
-                }
+            card.addEventListener('click', () => {
                 const bloggerId = card.getAttribute('data-blogger');
                 setActiveBlogger(bloggerId);
                 renderServices(bloggerId);
             });
-        });
-
-        // Переключатель между Сообществами и Блогерами
-        const btnCommunities = document.getElementById('btnCommunities');
-        const btnBloggers = document.getElementById('btnBloggers');
-        const tariffsSection = document.getElementById('tariffs');
-        const bloggersSection = document.getElementById('bloggers');
-
-        // Функция для показа/скрытия разделов
-        function showBloggersSection() {
-            document.querySelector('.bloggers-section').style.display = 'block';
-            document.querySelector('.services-section').style.display = 'block';
-            document.querySelector('.single-placement').style.display = 'block';
-            document.querySelector('.extra-services').style.display = 'block';
-        }
-
-        function showCommunitiesSection() {
-            // Здесь можно добавить переход на страницу с сообществами
-            window.location.href = 'places.html';
-        }
-
-        btnCommunities.addEventListener('click', () => {
-            btnCommunities.classList.add('active');
-            btnBloggers.classList.remove('active');
-            showCommunitiesSection();
-        });
-
-        btnBloggers.addEventListener('click', () => {
-            btnBloggers.classList.add('active');
-            btnCommunities.classList.remove('active');
-            showBloggersSection();
         });
 
         // Инициализация
