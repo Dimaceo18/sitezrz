@@ -602,10 +602,21 @@
             color: #F5D742;
         }
 
-        /* ========= БЛОК: НАШИ ЛЮБИМЫЕ КЛИЕНТЫ — ТОЛЬКО ИЗОБРАЖЕНИЕ ========= */
+        /* ========= БЛОК: НАШИ КЛИЕНТЫ — ТОЛЬКО ИЗОБРАЖЕНИЕ, БЕЗ ОТСТУПОВ ========= */
         .clients-section {
-            margin: 60px 0 80px;
+            margin: 0;
             scroll-margin-top: 100px;
+        }
+        .clients-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .clients-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #000;
+            margin-bottom: 8px;
         }
         .clients-image-wrapper {
             text-align: center;
@@ -615,6 +626,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 0;
         }
         .clients-logo-img {
             max-width: 100%;
@@ -627,14 +639,17 @@
             .clients-image-wrapper {
                 padding: 24px 16px;
             }
+            .clients-header h2 {
+                font-size: 28px;
+            }
         }
 
-        /* Желтая CTA-секция перед подвалом */
+        /* Желтая CTA-секция перед подвалом — теперь прилегает вплотную к картинке клиентов */
         .cta-section {
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
             border-radius: 32px;
             padding: 48px 40px;
-            margin: 40px 0 60px;
+            margin: 0 0 60px 0;
             text-align: center;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
@@ -1071,11 +1086,11 @@
                 margin: 0 auto;
             }
             
-            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2 { font-size: 28px; text-align: center; }
+            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2, .clients-header h2 { font-size: 28px; text-align: center; }
             .cards-grid, .benefits-grid { flex-direction: column; gap: 20px; }
             .faq-question { font-size: 16px; padding: 16px 20px; }
             .faq-answer.show { padding: 16px 20px 20px 20px; }
-            .cta-section { padding: 32px 20px; margin: 30px 0 40px; }
+            .cta-section { padding: 32px 20px; margin: 0 0 40px 0; }
             .cta-section h2 { font-size: 24px; }
             .cta-section p { font-size: 15px; }
             .cta-button { padding: 12px 32px; font-size: 15px; }
@@ -1196,13 +1211,17 @@
             <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- БЛОК: НАШИ ЛЮБИМЫЕ КЛИЕНТЫ — только изображение logsblackwhite.jpg, весь текст удален -->
+        <!-- БЛОК: НАШИ КЛИЕНТЫ — заголовок + изображение, после него сразу желтый блок без отступа -->
         <div class="clients-section">
+            <div class="clients-header">
+                <h2>Наши клиенты</h2>
+            </div>
             <div class="clients-image-wrapper">
-                <img src="logsblackwhite.jpg" alt="Наши любимые клиенты" class="clients-logo-img">
+                <img src="logsblackwhite.jpg" alt="Наши клиенты" class="clients-logo-img">
             </div>
         </div>
 
+        <!-- Желтый CTA-блок — прилегает вплотную к картинке (margin-top:0) -->
         <div class="cta-section">
             <h2>🚀 Готовы вывести бренд в топ?</h2>
             <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
