@@ -601,7 +601,7 @@
             color: #F5D742;
         }
 
-        /* ========= КЛИЕНТЫ: заголовок отдельно, блок уменьшен на 20% от предыдущего ========= */
+        /* ========= КЛИЕНТЫ: заголовок отдельно, весь блок уменьшен на 20% ========= */
         .clients-title {
             margin: 60px 0 28px;
         }
@@ -612,16 +612,17 @@
             color: #000;
         }
 
-        /* Уменьшенный блок на дополнительные 20% (итого ~40% от исходного) */
+        /* Весь блок уменьшен на 20% от исходного размера */
         .combined-clients-cta {
             margin: 0 0 80px;
             scroll-margin-top: 100px;
-            border-radius: 32px;
+            border-radius: 28px;
             overflow: hidden;
             background: #F8F9FA;
         }
+        /* Уменьшаем внутренние отступы всего блока на 20% */
         .clients-logos-area {
-            padding: 18px 32px 0 32px; /* было 24px, уменьшено еще на 20% */
+            padding: 18px 28px 0 28px; /* было 24px 32px, уменьшили */
             background: #F8F9FA;
         }
         .clients-image-wrapper {
@@ -635,17 +636,17 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            border-radius: 20px;
+            border-radius: 18px;
         }
         .cta-attached {
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-            padding: 28px 40px; /* было 36px, уменьшено еще на 20% */
+            padding: 28px 36px; /* было 36px 40px, уменьшили на 20% */
             text-align: center;
-            margin-top: 18px; /* было 24px, уменьшено */
+            margin-top: 16px; /* было 24px, уменьшили */
             border-radius: 0;
         }
         .cta-attached h2 {
-            font-size: 30px; /* слегка уменьшили */
+            font-size: 30px;
             font-weight: 800;
             color: #1A1A1A;
             margin-bottom: 14px;
@@ -654,15 +655,15 @@
         .cta-attached p {
             font-size: 17px;
             color: #2C2C2C;
-            max-width: 600px;
-            margin: 0 auto 24px auto;
+            max-width: 550px;
+            margin: 0 auto 22px auto;
             line-height: 1.4;
             opacity: 0.9;
         }
         .cta-attached .cta-button {
             background: #1A1A1A;
             color: #F5D742;
-            padding: 12px 38px;
+            padding: 12px 36px;
             border-radius: 60px;
             font-weight: 700;
             font-size: 17px;
@@ -702,6 +703,9 @@
             .clients-title h2 {
                 font-size: 28px;
                 margin: 40px 0 24px;
+            }
+            .combined-clients-cta {
+                border-radius: 24px;
             }
         }
 
@@ -1213,7 +1217,7 @@
             <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- НАШИ КЛИЕНТЫ: заголовок отдельно, блок уменьшен -->
+        <!-- НАШИ КЛИЕНТЫ: заголовок отдельно, весь блок уменьшен на 20% -->
         <div class="clients-title">
             <h2>Наши клиенты</h2>
         </div>
