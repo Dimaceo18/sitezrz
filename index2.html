@@ -217,7 +217,7 @@
             background: #FFFDF5;
         }
 
-        /* Статистика — адаптивная, без горизонтального скролла */
+        /* Статистика */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -485,7 +485,7 @@
             text-align: center;
         }
 
-        /* ========= БЛОК FAQ (АККОРДЕОН) — заголовок слева ========= */
+        /* FAQ блок */
         .faq-section {
             margin: 60px 0 0;
             scroll-margin-top: 100px;
@@ -601,7 +601,7 @@
             color: #F5D742;
         }
 
-        /* ========= ОБЪЕДИНЕННЫЙ БЛОК: КЛИЕНТЫ + ЖЕЛТАЯ CTA ========= */
+        /* ========= ОБЪЕДИНЕННЫЙ БЛОК: КЛИЕНТЫ (картинка с кнопкой по центру) ========= */
         .clients-section-header {
             margin-top: 60px;
             margin-bottom: 32px;
@@ -619,16 +619,19 @@
             border-radius: 32px;
             overflow: hidden;
             background: #F8F9FA;
+            position: relative;
         }
         .clients-logos-area {
             padding: 20px 32px 0 32px;
             background: #F8F9FA;
+            position: relative;
         }
         .clients-image-wrapper {
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         .clients-logo-img {
             max-width: 100%;
@@ -637,67 +640,104 @@
             margin: 0 auto;
             border-radius: 20px;
         }
-        .cta-attached {
+        
+        /* ДЕСКТОП: кнопка поверх картинки по центру */
+        .cta-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-centered {
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-            padding: 36px 40px;
-            text-align: center;
-            margin-top: 20px;
-            border-radius: 0;
-        }
-        .cta-attached h2 {
-            font-size: 32px;
-            font-weight: 800;
             color: #1A1A1A;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-        .cta-attached p {
-            font-size: 18px;
-            color: #2C2C2C;
-            max-width: 600px;
-            margin: 0 auto 28px auto;
-            line-height: 1.4;
-            opacity: 0.9;
-        }
-        .cta-attached .cta-button {
-            background: #1A1A1A;
-            color: #F5D742;
-            padding: 14px 42px;
+            padding: 14px 28px;
             border-radius: 60px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 18px;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+            text-align: center;
+            font-family: inherit;
         }
-        .cta-attached .cta-button:hover {
-            background: #000000;
+        .btn-centered:hover {
+            background: linear-gradient(135deg, #E6C935 0%, #D8BC2A 100%);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Мобильная версия: кнопка под картинкой (как было) */
+        .cta-mobile {
+            display: none;
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            padding: 28px 24px;
+            text-align: center;
+            margin-top: 0;
+            border-radius: 0;
+        }
+        .cta-mobile h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 12px;
+        }
+        .cta-mobile p {
+            font-size: 15px;
+            color: #2C2C2C;
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            line-height: 1.4;
+        }
+        .cta-mobile .cta-button-mobile {
+            background: #1A1A1A;
             color: #F5D742;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .cta-mobile .cta-button-mobile:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+        
+        @media (min-width: 769px) {
+            /* Десктоп: позиционируем кнопку поверх картинки */
+            .clients-image-wrapper {
+                position: relative;
+            }
+            .overlay-btn-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+                width: auto;
+                white-space: nowrap;
+            }
+            .btn-centered {
+                padding: 16px 42px;
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: 0.5px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            }
+            /* Убираем мобильную версию на десктопе */
+            .cta-mobile {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
             .clients-logos-area {
                 padding: 24px 20px 0 20px;
-            }
-            .cta-attached {
-                padding: 32px 24px;
-                margin-top: 20px;
-            }
-            .cta-attached h2 {
-                font-size: 24px;
-            }
-            .cta-attached p {
-                font-size: 15px;
-                margin-bottom: 24px;
-            }
-            .cta-attached .cta-button {
-                padding: 12px 32px;
-                font-size: 15px;
             }
             .clients-section-header {
                 margin-top: 40px;
@@ -705,9 +745,16 @@
             .clients-section-header h2 {
                 font-size: 28px;
             }
+            /* На мобиле: убираем оверлей, показываем блок под картинкой */
+            .overlay-btn-container {
+                display: none;
+            }
+            .cta-mobile {
+                display: block;
+            }
         }
 
-        /* ПОДВАЛ — новая структура */
+        /* ПОДВАЛ */
         .footer-large {
             background: #F5F5F5;
             margin-top: 0;
@@ -724,7 +771,6 @@
             gap: 32px;
         }
 
-        /* Первая строка: Информация и О нас */
         .footer-top-links {
             display: flex;
             gap: 60px;
@@ -753,7 +799,6 @@
             color: #F5D742;
         }
 
-        /* Вторая строка: кнопка Связаться с нами */
         .footer-contact-btn {
             text-align: left;
         }
@@ -775,7 +820,6 @@
             transform: translateY(-2px);
         }
 
-        /* Третья строка: реквизиты */
         .footer-details {
             border-bottom: 1px solid #E0E0E0;
             padding-bottom: 20px;
@@ -793,7 +837,6 @@
             margin-bottom: 10px;
         }
 
-        /* Четвертая строка: политики */
         .footer-policy-links {
             display: flex;
             flex-wrap: wrap;
@@ -809,7 +852,6 @@
             color: #F5D742;
         }
 
-        /* Мобильная версия подвала */
         @media (max-width: 768px) {
             .footer-top-links {
                 flex-direction: column;
@@ -1071,7 +1113,6 @@
             display: block;
         }
 
-        /* Мобильная версия общие стили */
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
             .header { margin-bottom: 40px; padding: 16px 0; }
@@ -1220,7 +1261,7 @@
             <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- НАШИ КЛИЕНТЫ -->
+        <!-- НАШИ КЛИЕНТЫ: картинка с кнопкой по центру (десктоп) / кнопка под картинкой (мобила) -->
         <div class="clients-section-header">
             <h2>Наши клиенты</h2>
         </div>
@@ -1229,20 +1270,24 @@
             <div class="clients-logos-area">
                 <div class="clients-image-wrapper">
                     <img src="logsblackwhite.jpg" alt="Наши клиенты" class="clients-logo-img">
+                    <!-- Десктоп: кнопка поверх картинки -->
+                    <div class="overlay-btn-container">
+                        <button class="btn-centered open-modal-btn">Начать обсуждение →</button>
+                    </div>
                 </div>
             </div>
-            <div class="cta-attached">
+            <!-- Мобильная версия: кнопка под картинкой -->
+            <div class="cta-mobile">
                 <h2>🚀 Готовы вывести бренд в топ?</h2>
                 <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
-                <button class="cta-button open-modal-btn">Начать обсуждение своей рекламы →</button>
+                <button class="cta-button-mobile open-modal-btn">Начать обсуждение своей рекламы →</button>
             </div>
         </div>
     </div>
 
-    <!-- ПОДВАЛ — новая структура -->
+    <!-- ПОДВАЛ -->
     <div class="footer-large" id="contacts">
         <div class="footer-content">
-            <!-- 1. Информация / О нас -->
             <div class="footer-top-links">
                 <div class="footer-links-column">
                     <h4>Информация</h4>
@@ -1257,12 +1302,10 @@
                 </div>
             </div>
 
-            <!-- 2. Связаться с нами (кнопка) -->
             <div class="footer-contact-btn">
                 <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
             </div>
 
-            <!-- 3. Реквизиты компании -->
             <div class="footer-details">
                 <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
                 <p>ООО Храмцов Медиа</p>
@@ -1271,7 +1314,6 @@
                 <p>Телефон: +375291405067</p>
             </div>
 
-            <!-- 4. Политики -->
             <div class="footer-policy-links">
                 <a href="privacy-policy.html">Политика обработки персональных данных</a>
                 <a href="cookie-policy.html">Политика обработки файлов cookie</a>
