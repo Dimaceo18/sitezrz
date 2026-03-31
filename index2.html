@@ -65,23 +65,30 @@
 
         .nav {
             display: flex;
-            align-items: center;
-            gap: 24px;
+            gap: 32px;
             flex-wrap: wrap;
         }
 
-        .nav-text-bold {
+        .nav-link {
+            text-decoration: none;
             font-size: 16px;
-            font-weight: 800;
-            color: #F5D742;
-            letter-spacing: -0.3px;
-            margin-right: 8px;
+            font-weight: 500;
+            color: #2C2C2C;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
         }
 
-        .nav-btn {
+        .nav-link:hover {
+            color: #F5D742;
+            border-bottom-color: #F5D742;
+        }
+
+        .nav-btn-dark {
             background: #1A1A1A;
             color: white;
-            padding: 8px 20px;
+            padding: 10px 24px;
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
@@ -93,7 +100,7 @@
             border: none;
         }
 
-        .nav-btn:hover {
+        .nav-btn-dark:hover {
             background: #333;
             transform: translateY(-1px);
         }
@@ -594,26 +601,26 @@
             color: #F5D742;
         }
 
-        /* ========= ОБЪЕДИНЕННЫЙ БЛОК: КЛИЕНТЫ + ЖЕЛТАЯ CTA ========= */
-        .combined-clients-cta {
-            margin: 60px 0 80px;
-            scroll-margin-top: 100px;
-            border-radius: 32px;
-            overflow: hidden;
-            background: #F8F9FA;
-        }
-        .clients-header-left {
+        /* ========= ОБЪЕДИНЕННЫЙ БЛОК: КЛИЕНТЫ (уменьшен на 25%) + ЖЕЛТАЯ CTA ========= */
+        .clients-section-header {
             margin-bottom: 32px;
         }
-        .clients-header-left h2 {
+        .clients-section-header h2 {
             font-size: 36px;
             font-weight: 700;
             letter-spacing: -0.5px;
             color: #000;
             margin-bottom: 0;
         }
+        .combined-clients-cta {
+            margin: 0 0 80px;
+            scroll-margin-top: 100px;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #F8F9FA;
+        }
         .clients-logos-area {
-            padding: 32px 32px 0 32px;
+            padding: 24px 32px 0 32px;
             background: #F8F9FA;
         }
         .clients-image-wrapper {
@@ -631,9 +638,9 @@
         }
         .cta-attached {
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-            padding: 48px 40px;
+            padding: 36px 40px;
             text-align: center;
-            margin-top: 32px;
+            margin-top: 24px;
             border-radius: 0;
         }
         .cta-attached h2 {
@@ -647,14 +654,14 @@
             font-size: 18px;
             color: #2C2C2C;
             max-width: 600px;
-            margin: 0 auto 32px auto;
+            margin: 0 auto 28px auto;
             line-height: 1.4;
             opacity: 0.9;
         }
         .cta-attached .cta-button {
             background: #1A1A1A;
             color: #F5D742;
-            padding: 16px 48px;
+            padding: 14px 42px;
             border-radius: 60px;
             font-weight: 700;
             font-size: 18px;
@@ -677,24 +684,25 @@
             }
             .cta-attached {
                 padding: 32px 24px;
-                margin-top: 24px;
+                margin-top: 20px;
             }
             .cta-attached h2 {
                 font-size: 24px;
             }
             .cta-attached p {
                 font-size: 15px;
+                margin-bottom: 24px;
             }
             .cta-attached .cta-button {
                 padding: 12px 32px;
                 font-size: 15px;
             }
-            .clients-header-left h2 {
+            .clients-section-header h2 {
                 font-size: 28px;
             }
         }
 
-        /* ПОДВАЛ */
+        /* ПОДВАЛ — реквизиты и политики выровнены по левому краю, Информация и О нас рядом */
         .footer-large {
             background: #F5F5F5;
             margin-top: 0;
@@ -710,11 +718,12 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 30px;
+            gap: 40px;
         }
 
         .footer-info {
             flex: 2;
+            text-align: left;
         }
 
         .footer-info p {
@@ -722,6 +731,7 @@
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 6px;
+            text-align: left;
         }
 
         .footer-info .company-name {
@@ -740,6 +750,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: flex-start;
         }
 
         .footer-policy-links a {
@@ -753,19 +764,19 @@
             color: #F5D742;
         }
 
-        .footer-links {
+        .footer-links-wrapper {
             flex: 2;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 40px;
-            justify-content: flex-start;
-            margin-left: 5%;
+            flex-wrap: wrap;
         }
 
         .footer-links-column {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            min-width: 120px;
         }
 
         .footer-links-column h4 {
@@ -1059,10 +1070,9 @@
             .header { margin-bottom: 40px; padding: 16px 0; }
             .header-inner { flex-direction: column; align-items: center; text-align: center; }
             .logo-img { height: 38px; }
-            .nav-wrapper { width: 100%; justify-content: center; }
-            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 100%; margin: 0 auto; }
-            .nav-text-bold { font-size: 15px; margin-right: 4px; }
-            .nav-btn { padding: 6px 14px; font-size: 12px; }
+            .nav-btn-dark { display: none; }
+            .nav-wrapper { width: 100%; }
+            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 320px; margin: 0 auto; }
             .hero { flex-direction: column; gap: 24px; margin-bottom: 50px; }
             .hero-image { order: -1; }
             .hero-image img { max-width: 280px; }
@@ -1087,15 +1097,16 @@
                 margin: 0 auto;
             }
             
-            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2, .clients-header-left h2 { font-size: 28px; text-align: left; }
+            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2, .clients-section-header h2 { font-size: 28px; text-align: left; }
             .cards-grid, .benefits-grid { flex-direction: column; gap: 20px; }
             .faq-question { font-size: 16px; padding: 16px 20px; }
             .faq-answer.show { padding: 16px 20px 20px 20px; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-links { justify-content: center; margin-left: 0; flex-direction: column; align-items: center; gap: 24px; }
+            .footer-content { flex-direction: column; text-align: center; gap: 30px; }
+            .footer-links-wrapper { justify-content: center; gap: 40px; width: 100%; }
             .footer-links-column { align-items: center; }
             .footer-button { text-align: center; width: 100%; display: flex; justify-content: center; }
             .footer-policy-links { justify-content: center; }
+            .footer-info p { text-align: center; }
         }
 
         .platform-card .platform-icon-img[src="mepublics.png"] { width: 200px; height: 200px; }
@@ -1120,13 +1131,13 @@
                 </a>
                 <div class="nav-wrapper">
                     <div class="nav">
-                        <span class="nav-text-bold">НАШИ</span>
-                        <button class="nav-btn" data-section="services">Услуги</button>
-                        <button class="nav-btn" data-section="projects">Проекты</button>
-                        <button class="nav-btn" data-section="cases">Кейсы</button>
-                        <button class="nav-btn" data-section="clients">Клиенты</button>
-                        <button class="nav-btn" data-section="contacts">Контакты</button>
+                        <a href="#services" class="nav-link">Наши услуги</a>
+                        <a href="#projects" class="nav-link">Наши проекты</a>
+                        <a href="cases.html" class="nav-link">Кейсы</a>
+                        <a href="about.html" class="nav-link">О нас</a>
+                        <a href="#contacts" class="nav-link">Контакты</a>
                     </div>
+                    <button class="nav-btn-dark open-modal-btn">Обсудить проект</button>
                 </div>
             </div>
         </div>
@@ -1208,14 +1219,16 @@
             <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- ОБЪЕДИНЕННЫЙ БЛОК: Наши клиенты (логотипы) + Желтая CTA в одном блоке -->
+        <!-- НАШИ КЛИЕНТЫ: заголовок вынесен за пределы серого блока -->
+        <div class="clients-section-header">
+            <h2>Наши клиенты</h2>
+        </div>
+        
+        <!-- ОБЪЕДИНЕННЫЙ БЛОК: логотипы + Желтая CTA (уменьшен на 25%) -->
         <div class="combined-clients-cta" id="clients">
             <div class="clients-logos-area">
-                <div class="clients-header-left">
-                    <h2>Наши клиенты</h2>
-                </div>
                 <div class="clients-image-wrapper">
-                    <img src="logsblackwhite2.jpg" alt="Наши клиенты" class="clients-logo-img">
+                    <img src="logsblackwhite.jpg" alt="Наши клиенты" class="clients-logo-img">
                 </div>
             </div>
             <div class="cta-attached">
@@ -1228,9 +1241,33 @@
 
     <div class="footer-large" id="contacts">
         <div class="footer-content">
-            <div class="footer-info"><p class="company-name">Коммуникативное агентство "Зараз Медиа"</p><p class="details">ООО Храмцов Медиа</p><p class="details">УНП 192554055</p><p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p><p class="details">Телефон: +375291405067</p><div class="footer-policy-links"><a href="privacy-policy.html">Политика обработки персональных данных</a><a href="cookie-policy.html">Политика обработки файлов cookie</a></div></div>
-            <div class="footer-links"><div class="footer-links-column"><h4>Информация</h4><a href="faq.html">F.A.Q.</a><a href="blog.html">Блог</a><a href="mediakit.html">Медиа-кит</a></div><div class="footer-links-column"><h4>О нас</h4><a href="vacancies.html">Вакансии</a><a href="team.html">Наша команда</a></div></div>
-            <div class="footer-button"><button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button></div>
+            <div class="footer-info">
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+                <div class="footer-policy-links">
+                    <a href="privacy-policy.html">Политика обработки персональных данных</a>
+                    <a href="cookie-policy.html">Политика обработки файлов cookie</a>
+                </div>
+            </div>
+            <div class="footer-links-wrapper">
+                <div class="footer-links-column">
+                    <h4>Информация</h4>
+                    <a href="faq.html">F.A.Q.</a>
+                    <a href="blog.html">Блог</a>
+                    <a href="mediakit.html">Медиа-кит</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>О нас</h4>
+                    <a href="vacancies.html">Вакансии</a>
+                    <a href="team.html">Наша команда</a>
+                </div>
+            </div>
+            <div class="footer-button">
+                <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
+            </div>
         </div>
     </div>
 
@@ -1287,20 +1324,6 @@
                 if (!isOpen) {
                     answer.classList.add('show');
                     question.classList.add('open');
-                }
-            });
-        });
-
-        // Навигационные кнопки — плавный скролл к секциям
-        const navBtns = document.querySelectorAll('.nav-btn');
-        navBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const sectionId = btn.getAttribute('data-section');
-                if (sectionId) {
-                    const targetSection = document.getElementById(sectionId);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
                 }
             });
         });
