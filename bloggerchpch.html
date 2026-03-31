@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>ЗАРАЗ МЕДИА — реклама в городском контексте Минска</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>chtopochem_minsk — рекламные возможности | ЗАРАЗ МЕДИА</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
             background-color: #FFFFFF;
             color: #1A1A1A;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .container {
@@ -32,8 +32,11 @@
         .header {
             padding: 24px 0 20px 0;
             border-bottom: 1px solid #F0F0F0;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             background-color: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-inner {
@@ -77,7 +80,6 @@
             transition: color 0.2s;
             padding: 4px 0;
             border-bottom: 2px solid transparent;
-            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -105,616 +107,320 @@
             transform: translateY(-1px);
         }
 
-        /* Герой */
-        .hero {
+        /* Заголовок блогера */
+        .blogger-hero {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 48px;
-            margin-bottom: 80px;
             flex-wrap: wrap;
-            scroll-margin-top: 100px;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+            border-radius: 32px;
+            padding: 48px;
         }
 
-        .hero-image {
+        .blogger-avatar-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #F5D742;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+
+        .blogger-info {
             flex: 1;
-            min-width: 280px;
+        }
+
+        .blogger-info h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .blogger-instagram {
+            display: inline-block;
+            font-size: 18px;
+            color: #F5D742;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .blogger-stats-large {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin: 24px 0;
+        }
+
+        .stat-large {
             text-align: center;
         }
 
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 24px;
-            object-fit: cover;
-        }
-
-        .hero-content {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .hero-content h1 {
+        .stat-large-number {
             font-size: 28px;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 20px;
-            color: #000;
-            line-height: 1.3;
-        }
-
-        .hero-description {
-            font-size: 15px;
-            color: #4A4A4A;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .hero-mission {
-            background: #F8F9FA;
-            border-radius: 20px;
-            padding: 18px 22px;
-            margin: 20px 0;
-            border-left: 4px solid #F5D742;
-        }
-
-        .hero-mission p {
-            font-size: 14px;
-            font-weight: 500;
-            color: #2C2C2C;
-            line-height: 1.5;
-        }
-
-        .hero-mission .quote-icon {
-            font-size: 20px;
             color: #F5D742;
-            margin-right: 6px;
-            vertical-align: middle;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-top: 8px;
+        .stat-large-label {
+            font-size: 13px;
+            color: #6B6B6B;
         }
 
-        .btn-primary {
-            background: #F5D742;
-            color: #000;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
+        .blogger-description {
             font-size: 16px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .blogger-tiktok {
             display: inline-block;
-            transition: 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: #E6C935;
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid #E0E0E0;
-            padding: 12px 28px;
+            background: #000000;
+            color: white;
+            padding: 8px 20px;
             border-radius: 40px;
-            font-weight: 600;
             text-decoration: none;
-            color: #000;
-            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
             transition: 0.2s;
-            cursor: pointer;
         }
 
-        .btn-secondary:hover {
-            border-color: #F5D742;
-            background: #FFFDF5;
+        .blogger-tiktok:hover {
+            background: #2C2C2C;
+            transform: translateY(-2px);
         }
 
-        /* Статистика */
-        .stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background: #F8F9FA;
-            border-radius: 28px;
-            padding: 48px 20px;
-            margin-bottom: 80px;
-            gap: 20px 32px;
-        }
-
-        .stat-item {
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .stat-number {
-            font-size: 44px;
-            font-weight: 700;
-            color: #F5D742;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 15px;
-            color: #5A5A5A;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        /* Секции */
-        .section {
-            margin-bottom: 80px;
-            scroll-margin-top: 100px;
+        /* Услуги */
+        .services-section {
+            margin: 60px 0;
         }
 
         .section-header {
+            text-align: center;
             margin-bottom: 48px;
         }
 
         .section-header h2 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 16px;
             color: #000;
+            margin-bottom: 12px;
         }
 
         .section-header p {
-            font-size: 18px;
+            font-size: 16px;
             color: #5A5A5A;
-            max-width: 650px;
-            line-height: 1.4;
         }
 
-        /* Карточки */
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: space-between;
-        }
-
-        .card {
-            flex: 1;
-            background: #F8F9FA;
-            border-radius: 24px;
-            padding: 32px 28px;
-            transition: 0.2s;
-            min-width: 250px;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-
-        .card-icon-img {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 24px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            object-fit: contain;
-        }
-
-        .card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #000;
-            text-align: center;
-        }
-
-        .card p {
-            color: #5A5A5A;
-            line-height: 1.5;
-            font-size: 15px;
-            text-align: center;
-        }
-
-        /* Площадки */
-        .platforms-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 32px;
-        }
-
-        .platforms-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #000;
-        }
-
-        .link-all {
-            color: #000;
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 2px solid #F5D742;
-            padding-bottom: 2px;
-            font-size: 15px;
-            transition: all 0.2s;
-        }
-
-        .link-all:hover {
-            border-bottom-color: #000;
-            color: #F5D742;
-        }
-
-        .platforms-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin: 32px 0 40px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
-        .platform-card {
+        .service-card {
             background: #F8F9FA;
             border-radius: 20px;
-            padding: 28px 24px;
-            transition: 0.2s;
-            text-align: center;
-        }
-
-        .platform-card:hover {
-            transform: translateY(-3px);
-            background: #FFFDF5;
-        }
-
-        .platform-card .platform-icon-img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 16px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            object-fit: contain;
-        }
-
-        .platform-card h4 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #000;
-            text-align: center;
-        }
-
-        .platform-card p {
-            color: #5A5A5A;
-            font-size: 14px;
-            line-height: 1.45;
-            text-align: center;
-        }
-
-        /* Выделенная кнопка "Смотреть все площадки" */
-        .platforms-button-wrapper {
-            text-align: center;
-            margin: 20px 0 60px;
-        }
-
-        .btn-view-all {
-            display: inline-block;
-            background: #F5D742;
-            color: #000;
-            padding: 16px 48px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 18px;
-            text-decoration: none;
+            padding: 20px 24px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-view-all:hover {
-            background: #E6C935;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Преимущества */
-        .benefits-header {
-            margin-bottom: 48px;
-        }
-
-        .benefits-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 16px;
-            color: #000;
-        }
-
-        .benefits-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0 80px;
-            justify-content: space-between;
-        }
-
-        .benefit-card {
-            flex: 1;
-            background: #F8F9FA;
-            border-radius: 24px;
-            padding: 32px 28px;
-            min-width: 220px;
-            transition: 0.2s;
-            text-align: center;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-4px);
-            background: #FFFDF5;
-        }
-
-        .benefit-icon-img {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            object-fit: contain;
-        }
-
-        .benefit-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #000;
-            text-align: center;
-        }
-
-        .benefit-card p {
-            color: #5A5A5A;
-            line-height: 1.45;
-            font-size: 15px;
-            text-align: center;
-        }
-
-        /* FAQ блок */
-        .faq-section {
-            margin: 60px 0 0;
-            scroll-margin-top: 100px;
-        }
-        .faq-header {
-            margin-bottom: 48px;
-        }
-        .faq-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #000;
-            margin-bottom: 16px;
-        }
-        .faq-header p {
-            font-size: 18px;
-            color: #5A5A5A;
-            max-width: 650px;
-            line-height: 1.4;
-        }
-        .faq-accordion {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        .faq-item {
-            background: #F8F9FA;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            transition: all 0.2s;
-            border: 1px solid #F0F0F0;
-        }
-        .faq-question {
-            background: #FFFFFF;
-            padding: 20px 28px;
-            font-weight: 700;
-            font-size: 18px;
-            color: #1A1A1A;
-            cursor: pointer;
+            border: 1px solid #E8ECF0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.2s;
-            border-bottom: 1px solid transparent;
+            flex-wrap: wrap;
+            gap: 12px;
         }
-        .faq-question:hover {
-            background: #FFFDF5;
+
+        .service-card:hover {
+            border-color: #F5D742;
+            transform: translateX(4px);
         }
-        .faq-question .q-icon {
-            font-size: 24px;
-            font-weight: 500;
-            color: #F5D742;
-            transition: transform 0.3s ease;
+
+        .service-info {
+            flex: 1;
         }
-        .faq-question.open .q-icon {
-            transform: rotate(45deg);
-        }
-        .faq-answer {
-            max-height: 0;
-            padding: 0 28px;
-            background: #FFFFFF;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.2s;
-            line-height: 1.5;
-            color: #4A4A4A;
-            font-size: 15px;
-            border-top: 1px solid transparent;
-        }
-        .faq-answer.show {
-            max-height: 600px;
-            padding: 20px 28px 24px 28px;
-            border-top-color: #F0F0F0;
-        }
-        .faq-answer p {
-            margin-bottom: 12px;
-        }
-        .faq-answer ul, .faq-answer .payment-list {
-            padding-left: 20px;
-            margin: 8px 0 12px 0;
-            list-style: none;
-        }
-        .faq-answer li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 20px;
-        }
-        .faq-answer li::before {
-            content: "•";
-            color: #F5D742;
-            font-weight: bold;
+
+        .service-name {
             font-size: 16px;
-            position: absolute;
-            left: 4px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 4px;
         }
-        .faq-footer-note {
-            text-align: center;
-            margin-top: 48px;
+
+        .service-desc {
+            font-size: 12px;
+            color: #8A8A8A;
+        }
+
+        .service-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #F5D742;
+            white-space: nowrap;
+        }
+
+        /* Дополнительные услуги */
+        .extra-services {
             background: #F8F9FA;
-            padding: 28px 24px;
             border-radius: 28px;
-            font-size: 16px;
+            padding: 40px;
+            margin: 60px 0;
+        }
+
+        .extra-services h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .extra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .extra-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border: 1px solid #E8ECF0;
+            transition: 0.2s;
+        }
+
+        .extra-card:hover {
+            border-color: #F5D742;
+        }
+
+        .extra-name {
+            font-size: 15px;
+            font-weight: 600;
             color: #2C2C2C;
         }
-        .faq-footer-note a {
-            color: #000;
+
+        .extra-price {
+            font-size: 18px;
             font-weight: 700;
-            text-decoration: none;
-            border-bottom: 2px solid #F5D742;
-            transition: all 0.2s;
-        }
-        .faq-footer-note a:hover {
-            border-bottom-color: #000;
             color: #F5D742;
         }
 
-        /* ========= КЛИЕНТЫ: заголовок отдельно, весь блок уменьшен на 20% ========= */
-        .clients-title {
-            margin: 60px 0 28px;
-        }
-        .clients-title h2 {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #000;
+        .extra-price.special {
+            font-size: 14px;
+            color: #F5D742;
         }
 
-        /* Весь блок уменьшен на 20% от исходного размера */
-        .combined-clients-cta {
-            margin: 0 0 80px;
-            scroll-margin-top: 100px;
-            border-radius: 28px;
+        /* Портфолио */
+        .portfolio-section {
+            margin: 60px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            background: #F8F9FA;
+            border-radius: 20px;
             overflow: hidden;
-            background: #F8F9FA;
+            transition: 0.3s;
+            border: 1px solid #E8ECF0;
         }
-        /* Уменьшаем внутренние отступы всего блока на 20% */
-        .clients-logos-area {
-            padding: 18px 28px 0 28px; /* было 24px 32px, уменьшили */
-            background: #F8F9FA;
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            border-color: #F5D742;
         }
-        .clients-image-wrapper {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .clients-logo-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 18px;
-        }
-        .cta-attached {
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-            padding: 28px 36px; /* было 36px 40px, уменьшили на 20% */
-            text-align: center;
-            margin-top: 16px; /* было 24px, уменьшили */
-            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
         }
-        .cta-attached h2 {
-            font-size: 30px;
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        .portfolio-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-content p {
+            font-size: 13px;
+            color: #6B6B6B;
+        }
+
+        /* CTA секция */
+        .cta-section {
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
             font-weight: 800;
             color: #1A1A1A;
-            margin-bottom: 14px;
-            letter-spacing: -0.5px;
+            margin-bottom: 16px;
         }
-        .cta-attached p {
-            font-size: 17px;
+
+        .cta-section p {
+            font-size: 18px;
             color: #2C2C2C;
-            max-width: 550px;
-            margin: 0 auto 22px auto;
-            line-height: 1.4;
-            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
         }
-        .cta-attached .cta-button {
+
+        .cta-button {
             background: #1A1A1A;
             color: #F5D742;
-            padding: 12px 36px;
-            border-radius: 60px;
+            padding: 14px 40px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 16px;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
+            transition: 0.2s;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: none;
         }
-        .cta-attached .cta-button:hover {
-            background: #000000;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+        .cta-button:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 0;
             color: #F5D742;
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        @media (max-width: 768px) {
-            .clients-logos-area {
-                padding: 24px 20px 0 20px;
-            }
-            .cta-attached {
-                padding: 32px 24px;
-                margin-top: 20px;
-            }
-            .cta-attached h2 {
-                font-size: 24px;
-            }
-            .cta-attached p {
-                font-size: 15px;
-                margin-bottom: 24px;
-            }
-            .cta-attached .cta-button {
-                padding: 12px 32px;
-                font-size: 15px;
-            }
-            .clients-title h2 {
-                font-size: 28px;
-                margin: 40px 0 24px;
-            }
-            .combined-clients-cta {
-                border-radius: 24px;
-            }
-        }
-
-        /* ПОДВАЛ — десктоп */
+        /* ПОДВАЛ */
         .footer-large {
             background: #F5F5F5;
-            margin-top: 0;
             padding: 50px 0 40px;
-            scroll-margin-top: 100px;
         }
 
         .footer-content {
@@ -744,10 +450,6 @@
             font-size: 17px;
             color: #2C2C2C;
             margin-bottom: 12px;
-        }
-
-        .footer-info .details {
-            color: #4A4A4A;
         }
 
         .footer-policy-links {
@@ -818,7 +520,6 @@
             font-size: 14px;
             display: inline-block;
             transition: 0.2s;
-            white-space: nowrap;
             cursor: pointer;
             border: none;
         }
@@ -828,7 +529,6 @@
             transform: translateY(-2px);
         }
 
-        /* КНОПКА НАВЕРХ */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -836,20 +536,18 @@
             width: 44px;
             height: 44px;
             background-color: #F5D742;
-            color: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border: none;
+            transition: 0.3s;
             font-size: 20px;
             font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .scroll-top.show {
@@ -860,82 +558,6 @@
         .scroll-top:hover {
             background-color: #E6C935;
             transform: translateY(-3px);
-        }
-
-        /* COOKIES */
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #1A1A1A;
-            color: #FFFFFF;
-            padding: 16px 24px;
-            z-index: 1001;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .cookie-consent.show {
-            transform: translateY(0);
-        }
-
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .cookie-text {
-            flex: 3;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .cookie-text a {
-            color: #F5D742;
-            text-decoration: underline;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .cookie-btn {
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: 0.2s;
-            border: none;
-        }
-
-        .cookie-btn-accept {
-            background: #F5D742;
-            color: #000;
-        }
-
-        .cookie-btn-accept:hover {
-            background: #E6C935;
-        }
-
-        .cookie-btn-decline {
-            background: transparent;
-            border: 1px solid #5A5A5A;
-            color: #CCCCCC;
-        }
-
-        .cookie-btn-decline:hover {
-            border-color: #F5D742;
-            color: #F5D742;
         }
 
         /* Модальное окно */
@@ -978,7 +600,6 @@
             font-size: 28px;
             cursor: pointer;
             color: #999;
-            transition: 0.2s;
         }
 
         .modal-close:hover {
@@ -1009,19 +630,12 @@
             border-radius: 16px;
             font-size: 15px;
             font-family: inherit;
-            transition: 0.2s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #F5D742;
-            box-shadow: 0 0 0 3px rgba(245,215,66,0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
         }
 
         .submit-btn {
@@ -1034,17 +648,10 @@
             font-weight: 700;
             font-size: 16px;
             cursor: pointer;
-            transition: 0.2s;
         }
 
         .submit-btn:hover {
             background: #E6C935;
-            transform: translateY(-1px);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
         }
 
         .form-message {
@@ -1068,188 +675,417 @@
             display: block;
         }
 
-        /* Общие мобильные стили */
-        @media (max-width: 768px) {
-            .container { padding: 0 16px; }
-            .header { margin-bottom: 40px; padding: 16px 0; }
-            .header-inner { flex-direction: column; align-items: center; text-align: center; }
-            .logo-img { height: 38px; }
-            .nav-btn-dark { display: none; }
-            .nav-wrapper { width: 100%; }
-            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 320px; margin: 0 auto; }
-            .hero { flex-direction: column; gap: 24px; margin-bottom: 50px; }
-            .hero-image { order: -1; }
-            .hero-image img { max-width: 280px; }
-            .hero-content h1 { font-size: 24px; text-align: center; }
-            
-            .stats {
-                flex-wrap: wrap;
+        @media (max-width: 900px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
                 justify-content: center;
-                gap: 24px 20px;
-                padding: 28px 16px;
+                margin-left: 0;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: 40px;
             }
-            .stat-item {
-                flex: 0 0 auto;
-                min-width: 100px;
+            .footer-links-column {
+                align-items: center;
             }
-            .stat-number {
-                font-size: 28px;
+            .footer-button {
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
-            .stat-label {
-                font-size: 11px;
-                max-width: 110px;
-                margin: 0 auto;
+            .footer-policy-links {
+                justify-content: center;
             }
-            
-            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2, .clients-title h2 { font-size: 28px; text-align: left; }
-            .cards-grid, .benefits-grid { flex-direction: column; gap: 20px; }
-            .faq-question { font-size: 16px; padding: 16px 20px; }
-            .faq-answer.show { padding: 16px 20px 20px 20px; }
+            .blogger-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px;
+            }
+            .blogger-stats-large {
+                justify-content: center;
+            }
         }
 
-        .platform-card .platform-icon-img[src="mepublics.png"] { width: 200px; height: 200px; }
-        .platform-card .platform-icon-img[src="ourbloggers.png"] { width: 200px; height: 200px; }
-        .platform-card .platform-icon-img[src="ourtg.png"] { width: 200px; height: 200px; }
-        .platform-card .platform-icon-img[src="ourpubs.png"] { width: 200px; height: 200px; }
         @media (max-width: 768px) {
-            .platform-card .platform-icon-img[src="mepublics.png"],
-            .platform-card .platform-icon-img[src="ourbloggers.png"],
-            .platform-card .platform-icon-img[src="ourtg.png"],
-            .platform-card .platform-icon-img[src="ourpubs.png"] { width: 75px; height: 75px; }
+            .container {
+                padding: 0 16px;
+                overflow-x: hidden;
+            }
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            /* Навигация в две строки: первая строка - 3 кнопки, вторая - 2 кнопки */
+            .nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            .nav-link {
+                font-size: 14px;
+            }
+            .nav-btn-dark {
+                display: none;
+            }
+            
+            .blogger-info h1 {
+                font-size: 32px;
+            }
+            
+            /* Статистика в одну строку */
+            .blogger-stats-large {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .stat-large {
+                flex: 0 0 auto;
+                min-width: 80px;
+            }
+            .stat-large-number {
+                font-size: 20px;
+                white-space: nowrap;
+            }
+            .stat-large-label {
+                font-size: 10px;
+                white-space: normal;
+                word-break: keep-all;
+            }
+            /* Специально для последнего блока, чтобы "охват" был на новой строке */
+            .stat-large:last-child .stat-large-label {
+                white-space: normal;
+                line-height: 1.3;
+            }
+            
+            /* Центрирование блога */
+            .section-header {
+                text-align: center;
+            }
+            .section-header h2,
+            .section-header p {
+                text-align: center;
+            }
+            
+            /* Уменьшаем заголовок "Форматы интеграций", чтобы влез в одну строку */
+            .section-header h2 {
+                font-size: 24px;
+                white-space: nowrap;
+            }
+            
+            /* Форматы интеграций в одну строку (карточки вертикально) */
+            .services-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .services-grid .service-card {
+                width: 100%;
+            }
+            
+            .extra-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .extra-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* CTA текст в две строки */
+            .cta-section h2 {
+                font-size: 24px;
+                line-height: 1.3;
+            }
+            
+            /* ПОДВАЛ: новый порядок */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-links {
+                order: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 40px;
+                width: 100%;
+                margin-bottom: 24px;
+            }
+            .footer-links-column {
+                align-items: center;
+                flex: 1;
+                max-width: 140px;
+            }
+            .footer-button {
+                order: 2;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 24px;
+            }
+            .footer-info {
+                order: 3;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-policy-links {
+                order: 4;
+                justify-content: center;
+                margin-top: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blogger-stats-large {
+                gap: 12px;
+            }
+            .stat-large {
+                min-width: 70px;
+            }
+            .stat-large-number {
+                font-size: 18px;
+            }
+            .stat-large-label {
+                font-size: 9px;
+            }
+            .footer-links {
+                gap: 20px;
+            }
+            .footer-links-column {
+                max-width: 120px;
+            }
+            .cta-section h2 {
+                font-size: 20px;
+            }
+            .cta-section p {
+                font-size: 14px;
+            }
+            .cta-button {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+            .section-header h2 {
+                font-size: 20px;
+                white-space: normal;
+                word-break: keep-all;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
+    <div class="scroll-top" id="scrollTopBtn">↑</div>
+
     <div class="container">
         <div class="header">
             <div class="header-inner">
-                <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
+                <a href="index.html" class="logo-link">
                     <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
                 </a>
                 <div class="nav-wrapper">
                     <div class="nav">
-                        <a href="#services" class="nav-link">Наши услуги</a>
-                        <a href="#projects" class="nav-link">Наши проекты</a>
+                        <a href="index.html#services" class="nav-link">Наши услуги</a>
+                        <a href="index.html#projects" class="nav-link">Наши проекты</a>
                         <a href="cases.html" class="nav-link">Кейсы</a>
                         <a href="about.html" class="nav-link">О нас</a>
-                        <a href="#contacts" class="nav-link">Контакты</a>
+                        <a href="index.html#contacts" class="nav-link">Контакты</a>
                     </div>
                     <button class="nav-btn-dark open-modal-btn">Обсудить проект</button>
                 </div>
             </div>
         </div>
 
-        <div class="hero" id="home">
-            <div class="hero-image"><img src="photo1.jpg" alt="Городской контекст Минска"></div>
-            <div class="hero-content">
-                <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</h1>
-                <div class="hero-description">Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2012 года и провела более 1500 успешных кампаний.</div>
-                <div class="hero-mission"><p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p></div>
-                <div class="hero-buttons"><button class="btn-primary open-modal-btn">Обсудить проект</button><a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a></div>
-            </div>
-        </div>
-
-        <div class="stats" id="about">
-            <div class="stat-item"><div class="stat-number">12 лет</div><div class="stat-label">на рынке рекламы в соц. сетях</div></div>
-            <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">собственных медиа-проектов</div></div>
-            <div class="stat-item"><div class="stat-number">1500+</div><div class="stat-label">рекламных кампаний</div></div>
-            <div class="stat-item"><div class="stat-number">400+ тыс.</div><div class="stat-label">уникальных посетителей в месяц</div></div>
-        </div>
-
-        <div class="section" id="services">
-            <div class="section-header"><h2>Что мы делаем</h2><p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p></div>
-            <div class="cards-grid">
-                <div class="card"><img src="integration.png" alt="Нативные интеграции" class="card-icon-img"><h3>Нативные интеграции</h3><p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p></div>
-                <div class="card"><img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img"><h3>Работа с блогерами Минска</h3><p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p></div>
-                <div class="card"><img src="public.png" alt="Городские сообщества" class="card-icon-img"><h3>Городские сообщества</h3><p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p></div>
-            </div>
-        </div>
-
-        <div class="platforms-header" id="projects"><h2>Где размещаем</h2><a href="places.html" class="link-all">Смотреть все площадки →</a></div>
-        <div class="platforms-grid">
-            <div class="platform-card"><img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img"><h4>Паблики о Минске</h4><p>Крупные городские сообщества и районные паблики</p></div>
-            <div class="platform-card"><img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img"><h4>Городские блогеры</h4><p>Популярные инстаграм- и телеграм-авторы Минска</p></div>
-            <div class="platform-card"><img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img"><h4>Telegram-каналы</h4><p>Новости, афиши, лайфстайл и тематические каналы</p></div>
-            <div class="platform-card"><img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img"><h4>Нишевые сообщества</h4><p>Еда, спорт, бизнес, бытовые и другие сферы</p></div>
-        </div>
-        <div class="platforms-button-wrapper"><a href="places.html" class="btn-view-all">Смотреть все площадки →</a></div>
-
-        <div class="benefits-header" id="cases"><h2>Почему это работает</h2></div>
-        <div class="benefits-grid">
-            <div class="benefit-card"><img src="icon1.png" class="benefit-icon-img"><h3>Реклама, которую замечают</h3><p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p></div>
-            <div class="benefit-card"><img src="icon2.png" class="benefit-icon-img"><h3>Доверие аудитории</h3><p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p></div>
-            <div class="benefit-card"><img src="icon3.png" class="benefit-icon-img"><h3>Точный городской контекст</h3><p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p></div>
-            <div class="benefit-card"><img src="icon4.png" class="benefit-icon-img"><h3>Реальный результат</h3><p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p></div>
-        </div>
-
-        <!-- FAQ блок -->
-        <div class="faq-section" id="faq">
-            <div class="faq-header">
-                <h2>Часто задаваемые вопросы</h2>
-                <p>Ответы на самые популярные вопросы о размещении и сотрудничестве</p>
-            </div>
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <div class="faq-question">📌 Условия размещения постов?<span class="q-icon">+</span></div>
-                    <div class="faq-answer">
-                        <p><strong>Instagram и Вконтакте:</strong> пост находится на первом месте в ленте 1 час, затем перекрывается другими новостями. При этом пост остаётся в ленте и доступен для просмотра.</p>
-                        <p><strong>Telegram:</strong> пост на первом месте 30 минут, затем перекрывается другими публикациями.</p>
-                        <p><strong>Срок хранения:</strong> стандартные посты удаляются через 7 дней. При заказе пакета «ПРЕМИУМ» — 30 дней. Можно оставить пост навсегда (+50 BYN).</p>
-                        <p><strong>У блогеров:</strong> посты размещаются без удаления. Сторис размещается на 24 часа.</p>
+        <!-- Герой блогера -->
+        <div class="blogger-hero">
+            <img src="chpch.jpg" alt="chtopochem_minsk" class="blogger-avatar-large">
+            <div class="blogger-info">
+                <h1>ЧТОПОЧЕМ!</h1>
+                <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
+                <div class="blogger-stats-large">
+                    <div class="stat-large">
+                        <div class="stat-large-number">215K</div>
+                        <div class="stat-large-label">подписчиков в Instagram</div>
+                    </div>
+                    <div class="stat-large">
+                        <div class="stat-large-number">117K</div>
+                        <div class="stat-large-label">подписчиков в TikTok</div>
+                    </div>
+                    <div class="stat-large">
+                        <div class="stat-large-number">160K+</div>
+                        <div class="stat-large-label">среднее число просмотров<br>рекламной интеграции</div>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">🤝 Как начать сотрудничество?<span class="q-icon">+</span></div>
-                    <div class="faq-answer">
-                        <p>Начать очень просто:</p>
-                        <ul><li>1. Свяжитесь с нами любым удобным способом (телефон, email, форма на сайте)</li><li>2. Расскажите о вашем бизнесе, целях и бюджете</li><li>3. Мы предложим оптимальную стратегию и подберём площадки</li><li>4. Согласовываем тексты, визуалы и даты размещения</li><li>5. Запускаем кампанию и предоставляем отчёт</li></ul>
-                    </div>
+                <div class="blogger-description">
+                    🔥 Обзоры на самые интересные места Минска и честные мнения о покупках.<br>
+                    🎯 Аудитория: активные минчане 20-40 лет, которые ищут лучшие места и товары.<br>
+                    📍 Контент: живые обзоры, интерактивы, рейтинги, развлекательный формат.
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">💰 Как происходит оплата?<span class="q-icon">+</span></div>
-                    <div class="faq-answer">
-                        <p>Мы работаем с юридическими и физическими лицами. Доступны следующие способы оплаты:</p>
-                        <div class="payment-list"><p>💳 Безналичный расчёт (для юрлиц с выставлением счёта)<br>📱 ЕРИП (для физических лиц).</p><p>Предоплата 100% для разовых размещений.<br>Для постоянных клиентов возможны индивидуальные условия и скидки на размещения.</p></div>
-                    </div>
-                </div>
+                <a href="https://www.tiktok.com/@chtopochemminsk" target="_blank" class="blogger-tiktok">📱 TikTok: @chtopochemminsk</a>
             </div>
-            <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- НАШИ КЛИЕНТЫ: заголовок отдельно, весь блок уменьшен на 20% -->
-        <div class="clients-title">
-            <h2>Наши клиенты</h2>
-        </div>
-        
-        <div class="combined-clients-cta" id="clients">
-            <div class="clients-logos-area">
-                <div class="clients-image-wrapper">
-                    <img src="logsblackwhite.jpg" alt="Наши клиенты" class="clients-logo-img">
+        <!-- Услуги блогера -->
+        <div class="services-section">
+            <div class="section-header">
+                <h2>📋 Форматы интеграций</h2>
+                <p>Выберите подходящий формат для вашего бренда</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Обзорно-рекламный ролик</div>
+                        <div class="service-desc">Подробный видеообзор с демонстрацией продукта</div>
+                    </div>
+                    <div class="service-price">1 600 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Обзорно-рекламная серия сторис</div>
+                        <div class="service-desc">Серия историй с подробным рассказом</div>
+                    </div>
+                    <div class="service-price">1 000 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Интерактивные игры / опросы с людьми в городе</div>
+                        <div class="service-desc">Интеграция вашего товара в живые активности</div>
+                    </div>
+                    <div class="service-price">2 000 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Рекламная раздача людям вашего товара</div>
+                        <div class="service-desc">Прямое взаимодействие с аудиторией</div>
+                    </div>
+                    <div class="service-price">1 800 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Совместный розыгрыш (подписка на ваш аккаунт)</div>
+                        <div class="service-desc">Условие подписки для участия</div>
+                    </div>
+                    <div class="service-price">2 500 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Розыгрыш вашего товара / услуги</div>
+                        <div class="service-desc">Без ссылок, просто розыгрыш приза</div>
+                    </div>
+                    <div class="service-price">1 500 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Розыгрыш в сторис</div>
+                        <div class="service-desc">Быстрый розыгрыш в формате историй</div>
+                    </div>
+                    <div class="service-price">1 000 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Спецпроект</div>
+                        <div class="service-desc">Комплексная интеграция с уникальным контентом</div>
+                    </div>
+                    <div class="service-price">5 000 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Амбасадор бренда</div>
+                        <div class="service-desc">Долгосрочное сотрудничество с лицом бренда</div>
+                    </div>
+                    <div class="service-price">4 000 BYN</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-name">Интеграция бренда / товара в авторские маршруты</div>
+                        <div class="service-desc">Естественное встраивание в уникальный контент</div>
+                    </div>
+                    <div class="service-price special">по запросу</div>
                 </div>
             </div>
-            <div class="cta-attached">
-                <h2>🚀 Готовы вывести бренд в топ?</h2>
-                <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
-                <button class="cta-button open-modal-btn">Начать обсуждение своей рекламы →</button>
+        </div>
+
+        <!-- Дополнительные услуги -->
+        <div class="extra-services">
+            <h3>➕ Дополнительные услуги</h3>
+            <div class="extra-grid">
+                <div class="extra-card">
+                    <div class="extra-name">Закрепить пост 1 день</div>
+                    <div class="extra-price">100 BYN</div>
+                </div>
+                <div class="extra-card">
+                    <div class="extra-name">Напомнить о себе: добавление рилса в сторис через 1-2 недели</div>
+                    <div class="extra-price">300 BYN</div>
+                </div>
+                <div class="extra-card">
+                    <div class="extra-name">Запуск таргетированной рекламы на ролик</div>
+                    <div class="extra-price special">любой бюджет</div>
+                </div>
             </div>
         </div>
+
+        <!-- Портфолио -->
+        <div class="portfolio-section">
+            <div class="section-header">
+                <h2>📸 Примеры работ</h2>
+                <p>Успешные интеграции с брендами</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🍽️</div>
+                    <div class="portfolio-content">
+                        <h4>Ресторан «Минская кухня»</h4>
+                        <p>Обзорный ролик + серия сторис. Охват: 180K+</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🛍️</div>
+                    <div class="portfolio-content">
+                        <h4>Магазин белорусской косметики</h4>
+                        <p>Интерактивный розыгрыш + честный обзор. Продажи +210%</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">💪</div>
+                    <div class="portfolio-content">
+                        <h4>Фитнес клуб «SportLife»</h4>
+                        <p>Рекламная раздача абонементов. Заявки +420%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA секция -->
+        <div class="cta-section">
+            <h2>🚀 Готовы запустить<br>интеграцию с chtopochem_minsk?</h2>
+            <p>Свяжитесь с нами, чтобы обсудить детали и забронировать даты</p>
+            <button class="cta-button open-modal-btn">Обсудить интеграцию →</button>
+        </div>
+
+        <a href="bloggers.html" class="back-link">← Вернуться к списку блогеров</a>
     </div>
 
-    <!-- ПОДВАЛ: десктопная версия -->
-    <div class="footer-large" id="contacts">
+    <!-- ПОДВАЛ - ОБНОВЛЕННЫЙ ПОРЯДОК -->
+    <div class="footer-large">
         <div class="footer-content">
-            <div class="footer-info">
-                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
-                <p class="details">ООО Храмцов Медиа</p>
-                <p class="details">УНП 192554055</p>
-                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
-                <p class="details">Телефон: +375291405067</p>
-                <div class="footer-policy-links">
-                    <a href="privacy-policy.html">Политика обработки персональных данных</a>
-                    <a href="cookie-policy.html">Политика обработки файлов cookie</a>
-                </div>
-            </div>
             <div class="footer-links">
                 <div class="footer-links-column">
                     <h4>Информация</h4>
@@ -1266,223 +1102,105 @@
             <div class="footer-button">
                 <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
             </div>
+            <div class="footer-info">
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
+                <p class="details">ООО Храмцов Медиа</p>
+                <p class="details">УНП 192554055</p>
+                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
+                <p class="details">Телефон: +375291405067</p>
+                <div class="footer-policy-links">
+                    <a href="privacy-policy.html">Политика обработки персональных данных</a>
+                    <a href="cookie-policy.html">Политика обработки файлов cookie</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="cookie-consent" id="cookieConsent"><div class="cookie-content"><div class="cookie-text">🍪 Мы используем файлы cookie, чтобы улучшить работу сайта, анализировать трафик и показывать релевантную информацию. Продолжая использовать сайт, вы соглашаетесь с <a href="#">политикой обработки данных</a>.</div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" id="acceptCookies">Принять</button><button class="cookie-btn cookie-btn-decline" id="declineCookies">Отклонить</button></div></div></div>
-    <div class="modal" id="callbackModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3>📩 Обсудить проект</h3><p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p><form id="callbackForm"><div class="form-group"><input type="text" name="name" placeholder="Ваше имя" required></div><div class="form-group"><input type="tel" name="phone" placeholder="Ваш телефон" required></div><div class="form-group"><textarea name="message" placeholder="Расскажите о вашем проекте"></textarea></div><button type="submit" class="submit-btn">Отправить заявку</button><div class="form-message" id="formMessage"></div></form></div></div>
+    <!-- Модальное окно -->
+    <div class="modal" id="callbackModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3>📩 Обсудить интеграцию с chtopochem_minsk</h3>
+            <p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
+            <form id="callbackForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Расскажите о вашем проекте"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </div>
 
     <script>
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('show', window.scrollY > 300));
-        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('show', window.scrollY > 300);
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-        const cookieConsent = document.getElementById('cookieConsent');
-        if (!localStorage.getItem('cookieConsent')) setTimeout(() => cookieConsent.classList.add('show'), 500);
-        document.getElementById('acceptCookies')?.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'accepted'); cookieConsent.classList.remove('show'); });
-        document.getElementById('declineCookies')?.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'declined'); cookieConsent.classList.remove('show'); });
-
+        // Модальное окно
         const modal = document.getElementById('callbackModal');
         const modalClose = document.getElementById('modalClose');
         const openModalBtns = document.querySelectorAll('.open-modal-btn');
         const callbackForm = document.getElementById('callbackForm');
         const formMessage = document.getElementById('formMessage');
+
         function showModal() { modal.classList.add('show'); }
-        function hideModal() { modal.classList.remove('show'); if(callbackForm) callbackForm.reset(); if(formMessage) formMessage.style.display = 'none'; }
+        function hideModal() { 
+            modal.classList.remove('show');
+            if (callbackForm) callbackForm.reset();
+            if (formMessage) formMessage.style.display = 'none';
+        }
+
         openModalBtns.forEach(btn => btn.addEventListener('click', showModal));
         modalClose?.addEventListener('click', hideModal);
         modal?.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
 
-        if(callbackForm){
+        if (callbackForm) {
             callbackForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const submitBtn = callbackForm.querySelector('.submit-btn');
                 const formData = new FormData(callbackForm);
-                submitBtn.disabled = true; submitBtn.textContent = 'Отправляем...'; formMessage.style.display = 'none';
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправляем...';
+                formMessage.style.display = 'none';
+                
                 try {
-                    const response = await fetch('send_to_telegram.php', { method: 'POST', body: formData });
+                    const response = await fetch('send_to_telegram.php', {
+                        method: 'POST',
+                        body: formData
+                    });
                     const result = await response.json();
-                    if(result.success){
-                        formMessage.className = 'form-message success'; formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.'; formMessage.style.display = 'block';
-                        callbackForm.reset(); setTimeout(() => hideModal(), 3000);
-                    } else throw new Error(result.error || 'Ошибка');
-                } catch(error){
-                    formMessage.className = 'form-message error'; formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.'; formMessage.style.display = 'block';
-                } finally { submitBtn.disabled = false; submitBtn.textContent = 'Отправить заявку'; }
-            });
-        }
-
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isOpen = answer.classList.contains('show');
-                document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
-                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
-                if (!isOpen) {
-                    answer.classList.add('show');
-                    question.classList.add('open');
-                }
-            });
-        });
-
-        // Создаем мобильную структуру подвала
-        function initMobileFooter() {
-            if (window.innerWidth <= 768) {
-                const footerLarge = document.querySelector('.footer-large');
-                if (footerLarge && !document.querySelector('.mobile-footer-injected')) {
-                    const mobileFooter = document.createElement('div');
-                    mobileFooter.className = 'mobile-footer-injected';
-                    mobileFooter.innerHTML = `
-                        <div class="footer-mobile-top">
-                            <div class="footer-mobile-column">
-                                <h4>Информация</h4>
-                                <a href="faq.html">F.A.Q.</a>
-                                <a href="blog.html">Блог</a>
-                                <a href="mediakit.html">Медиа-кит</a>
-                            </div>
-                            <div class="footer-mobile-column">
-                                <h4>О нас</h4>
-                                <a href="vacancies.html">Вакансии</a>
-                                <a href="team.html">Наша команда</a>
-                            </div>
-                        </div>
-                        <div class="footer-mobile-btn">
-                            <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
-                        </div>
-                        <div class="footer-mobile-details">
-                            <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
-                            <p>ООО Храмцов Медиа</p>
-                            <p>УНП 192554055</p>
-                            <p>Адрес: ул. Октябрьская 19Б, офис 211</p>
-                            <p>Телефон: +375291405067</p>
-                        </div>
-                        <div class="footer-mobile-policy">
-                            <a href="privacy-policy.html">Политика обработки персональных данных</a>
-                            <a href="cookie-policy.html">Политика обработки файлов cookie</a>
-                        </div>
-                    `;
-                    const originalContent = footerLarge.querySelector('.footer-content');
-                    if (originalContent) {
-                        originalContent.style.display = 'none';
-                    }
-                    footerLarge.appendChild(mobileFooter);
                     
-                    const newBtns = mobileFooter.querySelectorAll('.open-modal-btn');
-                    newBtns.forEach(btn => btn.addEventListener('click', showModal));
+                    if (result.success) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
+                        formMessage.style.display = 'block';
+                        callbackForm.reset();
+                        setTimeout(() => hideModal(), 3000);
+                    } else {
+                        throw new Error(result.error || 'Ошибка');
+                    }
+                } catch (error) {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
+                    formMessage.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
                 }
-            } else {
-                const mobileInjected = document.querySelector('.mobile-footer-injected');
-                if (mobileInjected) {
-                    mobileInjected.remove();
-                }
-                const originalContent = document.querySelector('.footer-large .footer-content');
-                if (originalContent) {
-                    originalContent.style.display = 'flex';
-                }
-            }
+            });
         }
-        
-        window.addEventListener('resize', initMobileFooter);
-        initMobileFooter();
     </script>
-    <style>
-        @media (max-width: 768px) {
-            .footer-large .footer-content {
-                display: none !important;
-            }
-            .mobile-footer-injected {
-                display: block;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-            .footer-mobile-top {
-                display: flex;
-                justify-content: center;
-                gap: 48px;
-                flex-wrap: wrap;
-                border-bottom: 1px solid #E0E0E0;
-                padding-bottom: 24px;
-                margin-bottom: 8px;
-            }
-            .footer-mobile-column {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-            .footer-mobile-column h4 {
-                font-size: 16px;
-                font-weight: 700;
-                color: #2C2C2C;
-                margin-bottom: 4px;
-            }
-            .footer-mobile-column a {
-                color: #5A5A5A;
-                text-decoration: none;
-                font-size: 13px;
-                transition: color 0.2s;
-            }
-            .footer-mobile-column a:hover {
-                color: #F5D742;
-            }
-            .footer-mobile-btn {
-                text-align: center;
-                margin: 16px 0;
-            }
-            .footer-mobile-details {
-                text-align: center;
-                border-top: 1px solid #E0E0E0;
-                padding-top: 24px;
-                margin-top: 8px;
-            }
-            .footer-mobile-details p {
-                color: #3A3A3A;
-                font-size: 13px;
-                line-height: 1.6;
-                margin-bottom: 6px;
-            }
-            .footer-mobile-details .company-name {
-                font-weight: 700;
-                font-size: 15px;
-                color: #2C2C2C;
-                margin-bottom: 10px;
-            }
-            .footer-mobile-policy {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-                margin-top: 20px;
-                padding-top: 16px;
-                border-top: 1px solid #E0E0E0;
-            }
-            .footer-mobile-policy a {
-                color: #8A8A8A;
-                text-decoration: none;
-                font-size: 11px;
-                transition: color 0.2s;
-            }
-            .footer-mobile-policy a:hover {
-                color: #F5D742;
-            }
-            .btn-footer-yellow {
-                background: #F5D742;
-                color: #000;
-                padding: 12px 32px;
-                border-radius: 40px;
-                font-weight: 700;
-                font-size: 15px;
-                border: none;
-                cursor: pointer;
-                transition: 0.2s;
-            }
-            .btn-footer-yellow:hover {
-                background: #E6C935;
-                transform: translateY(-2px);
-            }
-        }
-    </style>
 </body>
 </html>
