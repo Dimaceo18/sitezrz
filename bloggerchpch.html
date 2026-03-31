@@ -417,7 +417,7 @@
             font-weight: 600;
         }
 
-        /* Подвал */
+        /* ПОДВАЛ - ОБНОВЛЕННЫЙ (две колонки в строку на мобильных) */
         .footer-large {
             background: #F5F5F5;
             padding: 50px 0 40px;
@@ -683,9 +683,10 @@
             .footer-links {
                 justify-content: center;
                 margin-left: 0;
-                flex-direction: column;
-                align-items: center;
-                gap: 24px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: 40px;
             }
             .footer-links-column {
                 align-items: center;
@@ -727,6 +728,30 @@
             .blogger-info h1 {
                 font-size: 32px;
             }
+            
+            /* Статистика в одну строку без переносов */
+            .blogger-stats-large {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .stat-large {
+                flex: 0 0 auto;
+                min-width: 80px;
+            }
+            .stat-large-number {
+                font-size: 20px;
+                white-space: nowrap;
+            }
+            .stat-large-label {
+                font-size: 10px;
+                white-space: nowrap;
+            }
+            
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -743,6 +768,41 @@
             }
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Подвал: Информация и О нас в две колонки на одной строке */
+            .footer-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 40px;
+                width: 100%;
+            }
+            .footer-links-column {
+                align-items: center;
+                flex: 1;
+                max-width: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blogger-stats-large {
+                gap: 12px;
+            }
+            .stat-large {
+                min-width: 70px;
+            }
+            .stat-large-number {
+                font-size: 18px;
+            }
+            .stat-large-label {
+                font-size: 9px;
+            }
+            .footer-links {
+                gap: 20px;
+            }
+            .footer-links-column {
+                max-width: 120px;
             }
         }
     </style>
@@ -938,7 +998,7 @@
         <a href="bloggers.html" class="back-link">← Вернуться к списку блогеров</a>
     </div>
 
-    <!-- Подвал -->
+    <!-- ПОДВАЛ - ОБНОВЛЕННЫЙ -->
     <div class="footer-large">
         <div class="footer-content">
             <div class="footer-info">
