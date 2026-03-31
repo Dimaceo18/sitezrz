@@ -497,6 +497,128 @@
             text-align: center;
         }
 
+        /* ========= НОВЫЙ БЛОК FAQ (АККОРДЕОН) ========= */
+        .faq-section {
+            margin: 60px 0 80px;
+            scroll-margin-top: 100px;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .faq-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #000;
+            margin-bottom: 12px;
+        }
+        .faq-header p {
+            font-size: 18px;
+            color: #5A5A5A;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .faq-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #F8F9FA;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.2s;
+            border: 1px solid #F0F0F0;
+        }
+        .faq-question {
+            background: #FFFFFF;
+            padding: 20px 28px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1A1A1A;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        .faq-question:hover {
+            background: #FFFDF5;
+        }
+        .faq-question .q-icon {
+            font-size: 24px;
+            font-weight: 500;
+            color: #F5D742;
+            transition: transform 0.3s ease;
+        }
+        .faq-question.open .q-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            padding: 0 28px;
+            background: #FFFFFF;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.2s;
+            line-height: 1.5;
+            color: #4A4A4A;
+            font-size: 15px;
+            border-top: 1px solid transparent;
+        }
+        .faq-answer.show {
+            max-height: 600px; /* достаточно для любого контента */
+            padding: 20px 28px 24px 28px;
+            border-top-color: #F0F0F0;
+        }
+        .faq-answer p {
+            margin-bottom: 12px;
+        }
+        .faq-answer ul, .faq-answer .payment-list {
+            padding-left: 20px;
+            margin: 8px 0 12px 0;
+            list-style: none;
+        }
+        .faq-answer li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .faq-answer li::before {
+            content: "•";
+            color: #F5D742;
+            font-weight: bold;
+            font-size: 16px;
+            position: absolute;
+            left: 4px;
+        }
+        .faq-answer .payment-list span {
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .faq-footer-note {
+            text-align: center;
+            margin-top: 48px;
+            background: #F8F9FA;
+            padding: 28px 24px;
+            border-radius: 28px;
+            font-size: 16px;
+            color: #2C2C2C;
+        }
+        .faq-footer-note a {
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid #F5D742;
+            transition: all 0.2s;
+        }
+        .faq-footer-note a:hover {
+            border-bottom-color: #000;
+            color: #F5D742;
+        }
+        /* ========= КОНЕЦ FAQ ========= */
+
         /* Желтая CTA-секция перед подвалом */
         .cta-section {
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
@@ -587,7 +709,6 @@
             color: #4A4A4A;
         }
 
-        /* Политики под реквизитами */
         .footer-policy-links {
             margin-top: 16px;
             display: flex;
@@ -924,8 +1045,10 @@
             .stat-item:not(:last-child)::after { display: none; }
             .stat-number { font-size: 22px; }
             .stat-label { font-size: 10px; max-width: 95px; }
-            .section-header h2, .platforms-header h2, .benefits-header h2 { font-size: 28px; text-align: center; }
+            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2 { font-size: 28px; text-align: center; }
             .cards-grid, .benefits-grid { flex-direction: column; gap: 20px; }
+            .faq-question { font-size: 16px; padding: 16px 20px; }
+            .faq-answer.show { padding: 16px 20px 20px 20px; }
             .cta-section { padding: 32px 20px; margin: 30px 0 40px; }
             .cta-section h2 { font-size: 24px; }
             .cta-section p { font-size: 15px; }
@@ -950,11 +1073,8 @@
     </style>
 </head>
 <body>
-    <!-- Кнопка наверх -->
     <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
-
     <div class="container">
-        <!-- Шапка -->
         <div class="header">
             <div class="header-inner">
                 <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
@@ -973,132 +1093,94 @@
             </div>
         </div>
 
-        <!-- Герой — фото слева, описание справа -->
         <div class="hero" id="home">
-            <div class="hero-image">
-                <img src="photo1.jpg" alt="Городской контекст Минска">
-            </div>
+            <div class="hero-image"><img src="photo1.jpg" alt="Городской контекст Минска"></div>
             <div class="hero-content">
                 <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</h1>
-                <div class="hero-description">
-                    Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2012 года и провела более 1500 успешных кампаний.
-                </div>
-                <div class="hero-mission">
-                    <p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
-                </div>
-                <div class="hero-buttons">
-                    <button class="btn-primary open-modal-btn">Обсудить проект</button>
-                    <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
-                </div>
+                <div class="hero-description">Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2012 года и провела более 1500 успешных кампаний.</div>
+                <div class="hero-mission"><p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p></div>
+                <div class="hero-buttons"><button class="btn-primary open-modal-btn">Обсудить проект</button><a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a></div>
             </div>
         </div>
 
-        <!-- Статистика — обновленные данные -->
         <div class="stats" id="about">
-            <div class="stat-item">
-                <div class="stat-number">12 лет</div>
-                <div class="stat-label">на рынке рекламы в соц. сетях</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">собственных медиа-проектов</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">1500+</div>
-                <div class="stat-label">рекламных кампаний</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">400+ тыс.</div>
-                <div class="stat-label">уникальных посетителей в месяц</div>
-            </div>
+            <div class="stat-item"><div class="stat-number">12 лет</div><div class="stat-label">на рынке рекламы в соц. сетях</div></div>
+            <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">собственных медиа-проектов</div></div>
+            <div class="stat-item"><div class="stat-number">1500+</div><div class="stat-label">рекламных кампаний</div></div>
+            <div class="stat-item"><div class="stat-number">400+ тыс.</div><div class="stat-label">уникальных посетителей в месяц</div></div>
         </div>
 
-        <!-- Что мы делаем — НАШИ УСЛУГИ -->
         <div class="section" id="services">
-            <div class="section-header">
-                <h2>Что мы делаем</h2>
-                <p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p>
-            </div>
+            <div class="section-header"><h2>Что мы делаем</h2><p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p></div>
             <div class="cards-grid">
-                <div class="card">
-                    <img src="integration.png" alt="Нативные интеграции" class="card-icon-img">
-                    <h3>Нативные интеграции</h3>
-                    <p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p>
-                </div>
-                <div class="card">
-                    <img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img">
-                    <h3>Работа с блогерами Минска</h3>
-                    <p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p>
-                </div>
-                <div class="card">
-                    <img src="public.png" alt="Городские сообщества" class="card-icon-img">
-                    <h3>Городские сообщества</h3>
-                    <p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p>
-                </div>
+                <div class="card"><img src="integration.png" alt="Нативные интеграции" class="card-icon-img"><h3>Нативные интеграции</h3><p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p></div>
+                <div class="card"><img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img"><h3>Работа с блогерами Минска</h3><p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p></div>
+                <div class="card"><img src="public.png" alt="Городские сообщества" class="card-icon-img"><h3>Городские сообщества</h3><p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p></div>
             </div>
         </div>
 
-        <!-- Где размещаем — НАШИ ПРОЕКТЫ -->
-        <div class="platforms-header" id="projects">
-            <h2>Где размещаем</h2>
-            <a href="places.html" class="link-all">Смотреть все площадки →</a>
-        </div>
+        <div class="platforms-header" id="projects"><h2>Где размещаем</h2><a href="places.html" class="link-all">Смотреть все площадки →</a></div>
         <div class="platforms-grid">
-            <div class="platform-card">
-                <img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img">
-                <h4>Паблики о Минске</h4>
-                <p>Крупные городские сообщества и районные паблики</p>
-            </div>
-            <div class="platform-card">
-                <img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img">
-                <h4>Городские блогеры</h4>
-                <p>Популярные инстаграм- и телеграм-авторы Минска</p>
-            </div>
-            <div class="platform-card">
-                <img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img">
-                <h4>Telegram-каналы</h4>
-                <p>Новости, афиши, лайфстайл и тематические каналы</p>
-            </div>
-            <div class="platform-card">
-                <img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img">
-                <h4>Нишевые сообщества</h4>
-                <p>Еда, спорт, бизнес, бытовые и другие сферы</p>
-            </div>
+            <div class="platform-card"><img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img"><h4>Паблики о Минске</h4><p>Крупные городские сообщества и районные паблики</p></div>
+            <div class="platform-card"><img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img"><h4>Городские блогеры</h4><p>Популярные инстаграм- и телеграм-авторы Минска</p></div>
+            <div class="platform-card"><img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img"><h4>Telegram-каналы</h4><p>Новости, афиши, лайфстайл и тематические каналы</p></div>
+            <div class="platform-card"><img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img"><h4>Нишевые сообщества</h4><p>Еда, спорт, бизнес, бытовые и другие сферы</p></div>
         </div>
+        <div class="platforms-button-wrapper"><a href="places.html" class="btn-view-all">Смотреть все площадки →</a></div>
 
-        <!-- Выделенная кнопка "Смотреть все площадки" -->
-        <div class="platforms-button-wrapper">
-            <a href="places.html" class="btn-view-all">Смотреть все площадки →</a>
-        </div>
-
-        <!-- Почему это работает — КЕЙСЫ -->
-        <div class="benefits-header" id="cases">
-            <h2>Почему это работает</h2>
-        </div>
+        <div class="benefits-header" id="cases"><h2>Почему это работает</h2></div>
         <div class="benefits-grid">
-            <div class="benefit-card">
-                <img src="icon1.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Реклама, которую замечают</h3>
-                <p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p>
+            <div class="benefit-card"><img src="icon1.png" class="benefit-icon-img"><h3>Реклама, которую замечают</h3><p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p></div>
+            <div class="benefit-card"><img src="icon2.png" class="benefit-icon-img"><h3>Доверие аудитории</h3><p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p></div>
+            <div class="benefit-card"><img src="icon3.png" class="benefit-icon-img"><h3>Точный городской контекст</h3><p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p></div>
+            <div class="benefit-card"><img src="icon4.png" class="benefit-icon-img"><h3>Реальный результат</h3><p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p></div>
+        </div>
+
+        <!-- НОВЫЙ БЛОК FAQ (после "Почему это работает") -->
+        <div class="faq-section" id="faq">
+            <div class="faq-header">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Ответы на самые популярные вопросы о размещении и сотрудничестве</p>
             </div>
-            <div class="benefit-card">
-                <img src="icon2.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Доверие аудитории</h3>
-                <p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">📌 Условия размещения постов?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p><strong>Instagram и Вконтакте:</strong> пост находится на первом месте в ленте 1 час, затем перекрывается другими новостями. При этом пост остаётся в ленте и доступен для просмотра.</p>
+                        <p><strong>Telegram:</strong> пост на первом месте 30 минут, затем перекрывается другими публикациями.</p>
+                        <p><strong>Срок хранения:</strong> стандартные посты удаляются через 7 дней. При заказе пакета «ПРЕМИУМ» — 30 дней. Можно оставить пост навсегда (+50 BYN).</p>
+                        <p><strong>У блогеров:</strong> посты размещаются без удаления. Сторис размещается на 24 часа.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">🤝 Как начать сотрудничество?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p>Начать очень просто:</p>
+                        <ul>
+                            <li>1. Свяжитесь с нами любым удобным способом (телефон, email, форма на сайте)</li>
+                            <li>2. Расскажите о вашем бизнесе, целях и бюджете</li>
+                            <li>3. Мы предложим оптимальную стратегию и подберём площадки</li>
+                            <li>4. Согласовываем тексты, визуалы и даты размещения</li>
+                            <li>5. Запускаем кампанию и предоставляем отчёт</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">💰 Как происходит оплата?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p>Мы работаем с юридическими и физическими лицами. Доступны следующие способы оплаты:</p>
+                        <div class="payment-list">
+                            <p>💳 Безналичный расчёт (для юрлиц с выставлением счёта)<br>📱 ЕРИП (для физических лиц).</p>
+                            <p>Предоплата 100% для разовых размещений.<br>Для постоянных клиентов возможны индивидуальные условия и скидки на размещения.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <img src="icon3.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Точный городской контекст</h3>
-                <p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p>
-            </div>
-            <div class="benefit-card">
-                <img src="icon4.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Реальный результат</h3>
-                <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
+            <div class="faq-footer-note">
+                📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.
             </div>
         </div>
 
-        <!-- Желтая CTA-секция перед подвалом -->
         <div class="cta-section">
             <h2>🚀 Готовы вывести бренд в топ?</h2>
             <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
@@ -1106,155 +1188,79 @@
         </div>
     </div>
 
-    <!-- ПОДВАЛ — ОБНОВЛЕННЫЙ (без соцсетей, с новыми страницами) -->
     <div class="footer-large" id="contacts">
         <div class="footer-content">
             <div class="footer-info">
-                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
-                <p class="details">ООО Храмцов Медиа</p>
-                <p class="details">УНП 192554055</p>
-                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
-                <p class="details">Телефон: +375291405067</p>
-                
-                <!-- Политики под реквизитами -->
-                <div class="footer-policy-links">
-                    <a href="privacy-policy.html">Политика обработки персональных данных</a>
-                    <a href="cookie-policy.html">Политика обработки файлов cookie</a>
-                </div>
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p><p class="details">ООО Храмцов Медиа</p><p class="details">УНП 192554055</p><p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p><p class="details">Телефон: +375291405067</p>
+                <div class="footer-policy-links"><a href="privacy-policy.html">Политика обработки персональных данных</a><a href="cookie-policy.html">Политика обработки файлов cookie</a></div>
             </div>
-            
-            <div class="footer-links">
-                <div class="footer-links-column">
-                    <h4>Информация</h4>
-                    <a href="faq.html">F.A.Q.</a>
-                    <a href="blog.html">Блог</a>
-                    <a href="mediakit.html">Медиа-кит</a>
-                </div>
-                <div class="footer-links-column">
-                    <h4>О нас</h4>
-                    <a href="vacancies.html">Вакансии</a>
-                    <a href="team.html">Наша команда</a>
-                </div>
-            </div>
-            
-            <div class="footer-button">
-                <button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button>
-            </div>
+            <div class="footer-links"><div class="footer-links-column"><h4>Информация</h4><a href="faq.html">F.A.Q.</a><a href="blog.html">Блог</a><a href="mediakit.html">Медиа-кит</a></div><div class="footer-links-column"><h4>О нас</h4><a href="vacancies.html">Вакансии</a><a href="team.html">Наша команда</a></div></div>
+            <div class="footer-button"><button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button></div>
         </div>
     </div>
 
-    <!-- COOKIES УВЕДОМЛЕНИЕ -->
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                🍪 Мы используем файлы cookie, чтобы улучшить работу сайта, анализировать трафик и показывать релевантную информацию. Продолжая использовать сайт, вы соглашаетесь с <a href="#">политикой обработки данных</a>.
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Принять</button>
-                <button class="cookie-btn cookie-btn-decline" id="declineCookies">Отклонить</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно с формой -->
-    <div class="modal" id="callbackModal">
-        <div class="modal-content">
-            <span class="modal-close" id="modalClose">&times;</span>
-            <h3>📩 Обсудить проект</h3>
-            <p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
-            <form id="callbackForm">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Ваше имя" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Ваш телефон" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Расскажите о вашем проекте"></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Отправить заявку</button>
-                <div class="form-message" id="formMessage"></div>
-            </form>
-        </div>
-    </div>
+    <div class="cookie-consent" id="cookieConsent"><div class="cookie-content"><div class="cookie-text">🍪 Мы используем файлы cookie, чтобы улучшить работу сайта, анализировать трафик и показывать релевантную информацию. Продолжая использовать сайт, вы соглашаетесь с <a href="#">политикой обработки данных</a>.</div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" id="acceptCookies">Принять</button><button class="cookie-btn cookie-btn-decline" id="declineCookies">Отклонить</button></div></div></div>
+    <div class="modal" id="callbackModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3>📩 Обсудить проект</h3><p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p><form id="callbackForm"><div class="form-group"><input type="text" name="name" placeholder="Ваше имя" required></div><div class="form-group"><input type="tel" name="phone" placeholder="Ваш телефон" required></div><div class="form-group"><textarea name="message" placeholder="Расскажите о вашем проекте"></textarea></div><button type="submit" class="submit-btn">Отправить заявку</button><div class="form-message" id="formMessage"></div></form></div></div>
 
     <script>
-        // Кнопка наверх
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', function() {
-            scrollTopBtn.classList.toggle('show', window.scrollY > 300);
-        });
+        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('show', window.scrollY > 300));
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // COOKIES
         const cookieConsent = document.getElementById('cookieConsent');
-        if (!localStorage.getItem('cookieConsent')) {
-            setTimeout(() => cookieConsent.classList.add('show'), 500);
-        }
-        document.getElementById('acceptCookies')?.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieConsent.classList.remove('show');
-        });
-        document.getElementById('declineCookies')?.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'declined');
-            cookieConsent.classList.remove('show');
-        });
+        if (!localStorage.getItem('cookieConsent')) setTimeout(() => cookieConsent.classList.add('show'), 500);
+        document.getElementById('acceptCookies')?.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'accepted'); cookieConsent.classList.remove('show'); });
+        document.getElementById('declineCookies')?.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'declined'); cookieConsent.classList.remove('show'); });
 
-        // Модальное окно
         const modal = document.getElementById('callbackModal');
         const modalClose = document.getElementById('modalClose');
         const openModalBtns = document.querySelectorAll('.open-modal-btn');
         const callbackForm = document.getElementById('callbackForm');
         const formMessage = document.getElementById('formMessage');
-
         function showModal() { modal.classList.add('show'); }
-        function hideModal() { 
-            modal.classList.remove('show');
-            if (callbackForm) callbackForm.reset();
-            if (formMessage) formMessage.style.display = 'none';
-        }
-
+        function hideModal() { modal.classList.remove('show'); if(callbackForm) callbackForm.reset(); if(formMessage) formMessage.style.display = 'none'; }
         openModalBtns.forEach(btn => btn.addEventListener('click', showModal));
         modalClose?.addEventListener('click', hideModal);
         modal?.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
 
-        // Отправка формы в Telegram
-        if (callbackForm) {
+        if(callbackForm){
             callbackForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const submitBtn = callbackForm.querySelector('.submit-btn');
                 const formData = new FormData(callbackForm);
-                
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Отправляем...';
-                formMessage.style.display = 'none';
-                
+                submitBtn.disabled = true; submitBtn.textContent = 'Отправляем...'; formMessage.style.display = 'none';
                 try {
-                    const response = await fetch('send_to_telegram.php', {
-                        method: 'POST',
-                        body: formData
-                    });
+                    const response = await fetch('send_to_telegram.php', { method: 'POST', body: formData });
                     const result = await response.json();
-                    
-                    if (result.success) {
-                        formMessage.className = 'form-message success';
-                        formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.';
-                        formMessage.style.display = 'block';
-                        callbackForm.reset();
-                        setTimeout(() => hideModal(), 3000);
-                    } else {
-                        throw new Error(result.error || 'Ошибка');
-                    }
-                } catch (error) {
-                    formMessage.className = 'form-message error';
-                    formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.';
-                    formMessage.style.display = 'block';
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Отправить заявку';
-                }
+                    if(result.success){
+                        formMessage.className = 'form-message success'; formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.'; formMessage.style.display = 'block';
+                        callbackForm.reset(); setTimeout(() => hideModal(), 3000);
+                    } else throw new Error(result.error || 'Ошибка');
+                } catch(error){
+                    formMessage.className = 'form-message error'; formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.'; formMessage.style.display = 'block';
+                } finally { submitBtn.disabled = false; submitBtn.textContent = 'Отправить заявку'; }
             });
         }
+
+        // Аккордеон FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+                // закрываем все остальные (опционально, но для аккуратности)
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    question.classList.add('open');
+                } else {
+                    answer.classList.remove('show');
+                    question.classList.remove('open');
+                }
+            });
+        });
+        // чтобы изначально ничего не было раскрыто
     </script>
 </body>
 </html>
