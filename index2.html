@@ -28,15 +28,12 @@
             padding: 0 20px;
         }
 
-        /* Шапка */
+        /* Шапка — убрана фиксация */
         .header {
             padding: 24px 0 20px 0;
             border-bottom: 1px solid #F0F0F0;
             margin-bottom: 60px;
             background-color: #FFFFFF;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .header-inner {
@@ -99,6 +96,8 @@
             transition: 0.2s;
             display: inline-block;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .nav-btn-dark:hover {
@@ -191,6 +190,8 @@
             font-size: 16px;
             display: inline-block;
             transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary:hover {
@@ -208,6 +209,7 @@
             color: #000;
             display: inline-block;
             transition: 0.2s;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -495,10 +497,181 @@
             text-align: center;
         }
 
-        /* ПОДВАЛ */
+        /* ========= НОВЫЙ БЛОК FAQ (АККОРДЕОН) ========= */
+        .faq-section {
+            margin: 60px 0 80px;
+            scroll-margin-top: 100px;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .faq-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #000;
+            margin-bottom: 12px;
+        }
+        .faq-header p {
+            font-size: 18px;
+            color: #5A5A5A;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .faq-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #F8F9FA;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.2s;
+            border: 1px solid #F0F0F0;
+        }
+        .faq-question {
+            background: #FFFFFF;
+            padding: 20px 28px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1A1A1A;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        .faq-question:hover {
+            background: #FFFDF5;
+        }
+        .faq-question .q-icon {
+            font-size: 24px;
+            font-weight: 500;
+            color: #F5D742;
+            transition: transform 0.3s ease;
+        }
+        .faq-question.open .q-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            padding: 0 28px;
+            background: #FFFFFF;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.2s;
+            line-height: 1.5;
+            color: #4A4A4A;
+            font-size: 15px;
+            border-top: 1px solid transparent;
+        }
+        .faq-answer.show {
+            max-height: 600px; /* достаточно для любого контента */
+            padding: 20px 28px 24px 28px;
+            border-top-color: #F0F0F0;
+        }
+        .faq-answer p {
+            margin-bottom: 12px;
+        }
+        .faq-answer ul, .faq-answer .payment-list {
+            padding-left: 20px;
+            margin: 8px 0 12px 0;
+            list-style: none;
+        }
+        .faq-answer li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .faq-answer li::before {
+            content: "•";
+            color: #F5D742;
+            font-weight: bold;
+            font-size: 16px;
+            position: absolute;
+            left: 4px;
+        }
+        .faq-answer .payment-list span {
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .faq-footer-note {
+            text-align: center;
+            margin-top: 48px;
+            background: #F8F9FA;
+            padding: 28px 24px;
+            border-radius: 28px;
+            font-size: 16px;
+            color: #2C2C2C;
+        }
+        .faq-footer-note a {
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid #F5D742;
+            transition: all 0.2s;
+        }
+        .faq-footer-note a:hover {
+            border-bottom-color: #000;
+            color: #F5D742;
+        }
+        /* ========= КОНЕЦ FAQ ========= */
+
+        /* Желтая CTA-секция перед подвалом */
+        .cta-section {
+            background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 40px 0 60px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #2C2C2C;
+            max-width: 600px;
+            margin: 0 auto 32px auto;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: #1A1A1A;
+            color: #F5D742;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            color: #F5D742;
+        }
+
+        /* ПОДВАЛ — ОБНОВЛЕННЫЙ */
         .footer-large {
             background: #F5F5F5;
-            margin-top: 40px;
+            margin-top: 0;
             padding: 50px 0 40px;
             scroll-margin-top: 100px;
         }
@@ -534,6 +707,24 @@
 
         .footer-info .details {
             color: #4A4A4A;
+        }
+
+        .footer-policy-links {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-policy-links a {
+            color: #8A8A8A;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-policy-links a:hover {
+            color: #F5D742;
         }
 
         .footer-links {
@@ -587,6 +778,8 @@
             display: inline-block;
             transition: 0.2s;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-footer-yellow:hover {
@@ -704,396 +897,184 @@
             color: #F5D742;
         }
 
-        /* Мобильная версия подвала */
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-content h1 {
-                text-align: center;
-            }
-            .hero-description {
-                text-align: center;
-            }
-            .hero-mission {
-                text-align: left;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-links {
-                justify-content: center;
-                text-align: center;
-                margin-left: 0;
-            }
-            .footer-button {
-                text-align: center;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                white-space: normal;
-            }
-            .scroll-top {
-                bottom: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-            .benefit-icon-img {
-                width: 42px;
-                height: 42px;
-            }
-            .card-icon-img {
-                width: 56px;
-                height: 56px;
-            }
-            .platform-card .platform-icon-img {
-                width: 70px;
-                height: 70px;
-            }
-            .btn-view-all {
-                padding: 14px 36px;
-                font-size: 16px;
-            }
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
         }
 
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 32px;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px 32px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #E0E0E0;
+            border-radius: 16px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F5D742;
+            box-shadow: 0 0 0 3px rgba(245,215,66,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #F5D742;
+            color: #000;
+            padding: 14px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #E6C935;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #E8F5E9;
+            color: #2E7D32;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #FFEBEE;
+            color: #C62828;
+            display: block;
+        }
+
+        /* Мобильная версия */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 16px;
-            }
-            .header {
-                margin-bottom: 40px;
-                padding: 16px 0;
-            }
-            .header-inner {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .logo-img {
-                height: 38px;
-            }
-            .nav-btn-dark {
-                display: none;
-            }
-            .nav-wrapper {
-                width: 100%;
-            }
-            .nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 18px;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-            .nav-link {
-                font-size: 15.4px;
-                padding: 4.4px 0;
-            }
-            .hero {
-                flex-direction: column;
-                gap: 24px;
-                margin-bottom: 50px;
-            }
-            .hero-image {
-                order: -1;
-                margin-bottom: 16px;
-            }
-            .hero-image img {
-                max-width: 280px;
-            }
-            .hero-content {
-                order: 2;
-            }
-            .hero-content h1 {
-                font-size: 24px;
-                text-align: center;
-            }
-            .hero-description {
-                font-size: 14px;
-                text-align: center;
-            }
-            .hero-mission {
-                padding: 16px 18px;
-                margin: 16px 0;
-                text-align: left;
-            }
-            .hero-mission p {
-                font-size: 13px;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
-            .hero-buttons .btn-primary,
-            .hero-buttons .btn-secondary {
-                text-align: center;
-                padding: 12px 20px;
-            }
-            .stats {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: space-around;
-                padding: 24px 16px;
-                gap: 8px;
-                overflow-x: auto;
-                margin-bottom: 50px;
-            }
-            .stat-item {
-                flex: 0 0 auto;
-                min-width: 95px;
-                text-align: center;
-            }
-            .stat-item:not(:last-child)::after {
-                display: none;
-            }
-            .stat-number {
-                font-size: 22px;
-                white-space: nowrap;
-            }
-            .stat-label {
-                font-size: 10px;
-                white-space: normal;
-                word-break: break-word;
-                max-width: 95px;
-                line-height: 1.2;
-            }
-            .section-header h2,
-            .platforms-header h2,
-            .benefits-header h2 {
-                font-size: 28px;
-                text-align: center;
-            }
-            .section-header p {
-                font-size: 16px;
-                text-align: center;
-            }
-            .section {
-                margin-bottom: 50px;
-            }
-            .section-header {
-                margin-bottom: 32px;
-            }
-            .cards-grid {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .card {
-                padding: 28px 20px;
-            }
-            .card-icon-img {
-                width: 52px;
-                height: 52px;
-                margin-bottom: 20px;
-            }
-            .card h3 {
-                font-size: 20px;
-            }
-            .platforms-header {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                text-align: center;
-            }
-            .platforms-grid {
-                gap: 16px;
-                margin: 24px 0 30px;
-            }
-            .platform-card {
-                padding: 24px 20px;
-            }
-            .platform-card .platform-icon-img {
-                width: 60px;
-                height: 60px;
-            }
-            .platform-card h4 {
-                font-size: 18px;
-            }
-            .platforms-button-wrapper {
-                margin: 10px 0 40px;
-            }
-            .btn-view-all {
-                padding: 12px 28px;
-                font-size: 15px;
-            }
-            .benefits-grid {
-                flex-direction: column;
-                gap: 20px;
-                margin: 30px 0 50px;
-            }
-            .benefit-card {
-                padding: 28px 20px;
-            }
-            .benefit-icon-img {
-                width: 40px;
-                height: 40px;
-                margin-bottom: 16px;
-            }
-            .benefit-card h3 {
-                font-size: 18px;
-            }
-            .footer-large {
-                padding: 35px 0 30px;
-            }
-            .footer-info p {
-                font-size: 12px;
-            }
-            .footer-info .company-name {
-                font-size: 15px;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-                margin-left: 0;
-            }
-            .footer-links-column {
-                align-items: center;
-            }
-            .footer-button {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                white-space: normal;
-            }
-            .btn-footer-yellow {
-                padding: 10px 24px;
-                font-size: 13px;
-                white-space: nowrap;
-            }
-            .scroll-top {
-                bottom: 16px;
-                right: 16px;
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-            }
+            .container { padding: 0 16px; }
+            .header { margin-bottom: 40px; padding: 16px 0; }
+            .header-inner { flex-direction: column; align-items: center; text-align: center; }
+            .logo-img { height: 38px; }
+            .nav-btn-dark { display: none; }
+            .nav-wrapper { width: 100%; }
+            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 320px; margin: 0 auto; }
+            .hero { flex-direction: column; gap: 24px; margin-bottom: 50px; }
+            .hero-image { order: -1; }
+            .hero-image img { max-width: 280px; }
+            .hero-content h1 { font-size: 24px; text-align: center; }
+            .stats { flex-direction: row; flex-wrap: nowrap; justify-content: space-around; padding: 24px 16px; gap: 8px; overflow-x: auto; }
+            .stat-item { flex: 0 0 auto; min-width: 95px; }
+            .stat-item:not(:last-child)::after { display: none; }
+            .stat-number { font-size: 22px; }
+            .stat-label { font-size: 10px; max-width: 95px; }
+            .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2 { font-size: 28px; text-align: center; }
+            .cards-grid, .benefits-grid { flex-direction: column; gap: 20px; }
+            .faq-question { font-size: 16px; padding: 16px 20px; }
+            .faq-answer.show { padding: 16px 20px 20px 20px; }
+            .cta-section { padding: 32px 20px; margin: 30px 0 40px; }
+            .cta-section h2 { font-size: 24px; }
+            .cta-section p { font-size: 15px; }
+            .cta-button { padding: 12px 32px; font-size: 15px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; margin-left: 0; flex-direction: column; align-items: center; gap: 24px; }
+            .footer-links-column { align-items: center; }
+            .footer-button { text-align: center; width: 100%; display: flex; justify-content: center; }
+            .footer-policy-links { justify-content: center; }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 12px;
-            }
-            .logo-img {
-                height: 32px;
-            }
-            .hero-content h1 {
-                font-size: 22px;
-            }
-            .hero-description {
-                font-size: 13px;
-            }
-            .hero-mission p {
-                font-size: 12px;
-            }
-            .stat-number {
-                font-size: 18px;
-            }
-            .stat-label {
-                font-size: 9px;
-                max-width: 80px;
-            }
-            .stat-item {
-                min-width: 80px;
-            }
-            .section-header h2,
-            .platforms-header h2,
-            .benefits-header h2 {
-                font-size: 24px;
-            }
-            .nav {
-                max-width: 280px;
-                gap: 16px;
-            }
-            .nav-link {
-                font-size: 14.3px;
-            }
-            .btn-view-all {
-                padding: 10px 24px;
-                font-size: 14px;
-            }
-            .footer-button {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-            .btn-footer-yellow {
-                padding: 8px 20px;
-                font-size: 12px;
-            }
-            .scroll-top {
-                bottom: 12px;
-                right: 12px;
-                width: 34px;
-                height: 34px;
-                font-size: 14px;
-            }
-            .benefit-icon-img {
-                width: 36px;
-                height: 36px;
-            }
-            .card-icon-img {
-                width: 48px;
-                height: 48px;
-            }
-            .platform-card .platform-icon-img {
-                width: 50px;
-                height: 50px;
-            }
-        }
-
-        .platform-card .platform-icon-img[src="mepublics.png"] {
-            width: 200px;
-            height: 200px;
-        }
-        .platform-card .platform-icon-img[src="ourbloggers.png"] {
-            width: 200px;
-            height: 200px;
-        }
-        .platform-card .platform-icon-img[src="ourtg.png"] {
-            width: 200px;
-            height: 200px;
-        }
-        .platform-card .platform-icon-img[src="ourpubs.png"] {
-            width: 200px;
-            height: 200px;
-        }
+        .platform-card .platform-icon-img[src="mepublics.png"] { width: 200px; height: 200px; }
+        .platform-card .platform-icon-img[src="ourbloggers.png"] { width: 200px; height: 200px; }
+        .platform-card .platform-icon-img[src="ourtg.png"] { width: 200px; height: 200px; }
+        .platform-card .platform-icon-img[src="ourpubs.png"] { width: 200px; height: 200px; }
         @media (max-width: 768px) {
             .platform-card .platform-icon-img[src="mepublics.png"],
             .platform-card .platform-icon-img[src="ourbloggers.png"],
             .platform-card .platform-icon-img[src="ourtg.png"],
-            .platform-card .platform-icon-img[src="ourpubs.png"] {
-                width: 75px;
-                height: 75px;
-            }
-        }
-        @media (max-width: 480px) {
-            .platform-card .platform-icon-img[src="mepublics.png"],
-            .platform-card .platform-icon-img[src="ourbloggers.png"],
-            .platform-card .platform-icon-img[src="ourtg.png"],
-            .platform-card .platform-icon-img[src="ourpubs.png"] {
-                width: 60px;
-                height: 60px;
-            }
+            .platform-card .platform-icon-img[src="ourpubs.png"] { width: 75px; height: 75px; }
         }
     </style>
 </head>
 <body>
-    <!-- Кнопка наверх -->
     <div class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</div>
-
     <div class="container">
-        <!-- Шапка -->
         <div class="header">
             <div class="header-inner">
                 <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
@@ -1107,707 +1088,179 @@
                         <a href="about.html" class="nav-link">О нас</a>
                         <a href="#contacts" class="nav-link">Контакты</a>
                     </div>
-                    <a href="#" class="nav-btn-dark" onclick="openModal(); return false;">Обсудить проект</a>
+                    <button class="nav-btn-dark open-modal-btn">Обсудить проект</button>
                 </div>
             </div>
         </div>
 
-        <!-- Герой — фото слева, описание справа -->
         <div class="hero" id="home">
-            <div class="hero-image">
-                <img src="photo1.jpg" alt="Городской контекст Минска">
-            </div>
+            <div class="hero-image"><img src="photo1.jpg" alt="Городской контекст Минска"></div>
             <div class="hero-content">
                 <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</h1>
-                <div class="hero-description">
-                    Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2012 года и провела более 1500 успешных кампаний.
-                </div>
-                <div class="hero-mission">
-                    <p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Обсудить проект</a>
-                    <a href="#" class="btn-secondary">Посмотреть возможности →</a>
-                </div>
+                <div class="hero-description">Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2012 года и провела более 1500 успешных кампаний.</div>
+                <div class="hero-mission"><p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p></div>
+                <div class="hero-buttons"><button class="btn-primary open-modal-btn">Обсудить проект</button><a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a></div>
             </div>
         </div>
 
-        <!-- Статистика — обновленные данные -->
         <div class="stats" id="about">
-            <div class="stat-item">
-                <div class="stat-number">12 лет</div>
-                <div class="stat-label">на рынке рекламы в соц. сетях</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">собственных медиа-проектов</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">1500+</div>
-                <div class="stat-label">рекламных кампаний</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">400+ тыс.</div>
-                <div class="stat-label">уникальных посетителей в месяц</div>
-            </div>
+            <div class="stat-item"><div class="stat-number">12 лет</div><div class="stat-label">на рынке рекламы в соц. сетях</div></div>
+            <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">собственных медиа-проектов</div></div>
+            <div class="stat-item"><div class="stat-number">1500+</div><div class="stat-label">рекламных кампаний</div></div>
+            <div class="stat-item"><div class="stat-number">400+ тыс.</div><div class="stat-label">уникальных посетителей в месяц</div></div>
         </div>
 
-        <!-- Что мы делаем — НАШИ УСЛУГИ -->
         <div class="section" id="services">
-            <div class="section-header">
-                <h2>Что мы делаем</h2>
-                <p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p>
-            </div>
+            <div class="section-header"><h2>Что мы делаем</h2><p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p></div>
             <div class="cards-grid">
-                <div class="card">
-                    <img src="integration.png" alt="Нативные интеграции" class="card-icon-img">
-                    <h3>Нативные интеграции</h3>
-                    <p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p>
-                </div>
-                <div class="card">
-                    <img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img">
-                    <h3>Работа с блогерами Минска</h3>
-                    <p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p>
-                </div>
-                <div class="card">
-                    <img src="public.png" alt="Городские сообщества" class="card-icon-img">
-                    <h3>Городские сообщества</h3>
-                    <p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p>
-                </div>
+                <div class="card"><img src="integration.png" alt="Нативные интеграции" class="card-icon-img"><h3>Нативные интеграции</h3><p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p></div>
+                <div class="card"><img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img"><h3>Работа с блогерами Минска</h3><p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p></div>
+                <div class="card"><img src="public.png" alt="Городские сообщества" class="card-icon-img"><h3>Городские сообщества</h3><p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p></div>
             </div>
         </div>
 
-        <!-- Где размещаем — НАШИ ПРОЕКТЫ -->
-        <div class="platforms-header" id="projects">
-            <h2>Где размещаем</h2>
-            <a href="places.html" class="link-all">Смотреть все площадки →</a>
-        </div>
+        <div class="platforms-header" id="projects"><h2>Где размещаем</h2><a href="places.html" class="link-all">Смотреть все площадки →</a></div>
         <div class="platforms-grid">
-            <div class="platform-card">
-                <img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img">
-                <h4>Паблики о Минске</h4>
-                <p>Крупные городские сообщества и районные паблики</p>
-            </div>
-            <div class="platform-card">
-                <img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img">
-                <h4>Городские блогеры</h4>
-                <p>Популярные инстаграм- и телеграм-авторы Минска</p>
-            </div>
-            <div class="platform-card">
-                <img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img">
-                <h4>Telegram-каналы</h4>
-                <p>Новости, афиши, лайфстайл и тематические каналы</p>
-            </div>
-            <div class="platform-card">
-                <img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img">
-                <h4>Нишевые сообщества</h4>
-                <p>Еда, спорт, бизнес, бытовые и другие сферы</p>
-            </div>
+            <div class="platform-card"><img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img"><h4>Паблики о Минске</h4><p>Крупные городские сообщества и районные паблики</p></div>
+            <div class="platform-card"><img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img"><h4>Городские блогеры</h4><p>Популярные инстаграм- и телеграм-авторы Минска</p></div>
+            <div class="platform-card"><img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img"><h4>Telegram-каналы</h4><p>Новости, афиши, лайфстайл и тематические каналы</p></div>
+            <div class="platform-card"><img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img"><h4>Нишевые сообщества</h4><p>Еда, спорт, бизнес, бытовые и другие сферы</p></div>
         </div>
+        <div class="platforms-button-wrapper"><a href="places.html" class="btn-view-all">Смотреть все площадки →</a></div>
 
-        <!-- Выделенная кнопка "Смотреть все площадки" -->
-        <div class="platforms-button-wrapper">
-            <a href="places.html" class="btn-view-all">Смотреть все площадки →</a>
-        </div>
-
-        <!-- Почему это работает — КЕЙСЫ -->
-        <div class="benefits-header" id="cases">
-            <h2>Почему это работает</h2>
-        </div>
+        <div class="benefits-header" id="cases"><h2>Почему это работает</h2></div>
         <div class="benefits-grid">
-            <div class="benefit-card">
-                <img src="icon1.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Реклама, которую замечают</h3>
-                <p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p>
+            <div class="benefit-card"><img src="icon1.png" class="benefit-icon-img"><h3>Реклама, которую замечают</h3><p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p></div>
+            <div class="benefit-card"><img src="icon2.png" class="benefit-icon-img"><h3>Доверие аудитории</h3><p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p></div>
+            <div class="benefit-card"><img src="icon3.png" class="benefit-icon-img"><h3>Точный городской контекст</h3><p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p></div>
+            <div class="benefit-card"><img src="icon4.png" class="benefit-icon-img"><h3>Реальный результат</h3><p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p></div>
+        </div>
+
+        <!-- НОВЫЙ БЛОК FAQ (после "Почему это работает") -->
+        <div class="faq-section" id="faq">
+            <div class="faq-header">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Ответы на самые популярные вопросы о размещении и сотрудничестве</p>
             </div>
-            <div class="benefit-card">
-                <img src="icon2.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Доверие аудитории</h3>
-                <p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">📌 Условия размещения постов?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p><strong>Instagram и Вконтакте:</strong> пост находится на первом месте в ленте 1 час, затем перекрывается другими новостями. При этом пост остаётся в ленте и доступен для просмотра.</p>
+                        <p><strong>Telegram:</strong> пост на первом месте 30 минут, затем перекрывается другими публикациями.</p>
+                        <p><strong>Срок хранения:</strong> стандартные посты удаляются через 7 дней. При заказе пакета «ПРЕМИУМ» — 30 дней. Можно оставить пост навсегда (+50 BYN).</p>
+                        <p><strong>У блогеров:</strong> посты размещаются без удаления. Сторис размещается на 24 часа.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">🤝 Как начать сотрудничество?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p>Начать очень просто:</p>
+                        <ul>
+                            <li>1. Свяжитесь с нами любым удобным способом (телефон, email, форма на сайте)</li>
+                            <li>2. Расскажите о вашем бизнесе, целях и бюджете</li>
+                            <li>3. Мы предложим оптимальную стратегию и подберём площадки</li>
+                            <li>4. Согласовываем тексты, визуалы и даты размещения</li>
+                            <li>5. Запускаем кампанию и предоставляем отчёт</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">💰 Как происходит оплата?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p>Мы работаем с юридическими и физическими лицами. Доступны следующие способы оплаты:</p>
+                        <div class="payment-list">
+                            <p>💳 Безналичный расчёт (для юрлиц с выставлением счёта)<br>📱 ЕРИП (для физических лиц).</p>
+                            <p>Предоплата 100% для разовых размещений.<br>Для постоянных клиентов возможны индивидуальные условия и скидки на размещения.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <img src="icon3.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Точный городской контекст</h3>
-                <p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p>
+            <div class="faq-footer-note">
+                📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.
             </div>
-            <div class="benefit-card">
-                <img src="icon4.png" alt="Иконка" class="benefit-icon-img">
-                <h3>Реальный результат</h3>
-                <p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p>
-            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>🚀 Готовы вывести бренд в топ?</h2>
+            <p>Начните обсуждение своей рекламной кампании прямо сейчас — поможем подобрать идеальные площадки и форматы</p>
+            <button class="cta-button open-modal-btn">Начать обсуждение своей рекламы →</button>
         </div>
     </div>
 
-    <!-- ПОДВАЛ — КОНТАКТЫ с дополнительными страницами -->
     <div class="footer-large" id="contacts">
         <div class="footer-content">
             <div class="footer-info">
-                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
-                <p class="details">ООО Храмцов Медиа</p>
-                <p class="details">УНП 192554055</p>
-                <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
-                <p class="details">Телефон: +375291405067</p>
+                <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p><p class="details">ООО Храмцов Медиа</p><p class="details">УНП 192554055</p><p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p><p class="details">Телефон: +375291405067</p>
+                <div class="footer-policy-links"><a href="privacy-policy.html">Политика обработки персональных данных</a><a href="cookie-policy.html">Политика обработки файлов cookie</a></div>
             </div>
-            <div class="footer-links">
-                <div class="footer-links-column">
-                    <h4>Информация</h4>
-                    <a href="faq.html">F.A.Q.</a>
-                    <a href="blog.html">Блог</a>
-                    <a href="team.html">Наша команда</a>
-                    <a href="mediakit.html">Медиа-кит</a>
-                </div>
-                <div class="footer-links-column">
-                    <h4>Соцсети</h4>
-                    <a href="#">Instagram</a>
-                    <a href="#">Telegram</a>
-                    <a href="#">VK</a>
-                </div>
-            </div>
-            <div class="footer-button">
-                <a href="#" class="btn-footer-yellow" onclick="openSlideup(); return false;">Связаться с нами →</a>
-            </div>
+            <div class="footer-links"><div class="footer-links-column"><h4>Информация</h4><a href="faq.html">F.A.Q.</a><a href="blog.html">Блог</a><a href="mediakit.html">Медиа-кит</a></div><div class="footer-links-column"><h4>О нас</h4><a href="vacancies.html">Вакансии</a><a href="team.html">Наша команда</a></div></div>
+            <div class="footer-button"><button class="btn-footer-yellow open-modal-btn">Связаться с нами →</button></div>
         </div>
     </div>
 
-    <!-- COOKIES УВЕДОМЛЕНИЕ -->
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                🍪 Мы используем файлы cookie, чтобы улучшить работу сайта, анализировать трафик и показывать релевантную информацию. Продолжая использовать сайт, вы соглашаетесь с <a href="#">политикой обработки данных</a>.
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Принять</button>
-                <button class="cookie-btn cookie-btn-decline" id="declineCookies">Отклонить</button>
-            </div>
-        </div>
-    </div>
+    <div class="cookie-consent" id="cookieConsent"><div class="cookie-content"><div class="cookie-text">🍪 Мы используем файлы cookie, чтобы улучшить работу сайта, анализировать трафик и показывать релевантную информацию. Продолжая использовать сайт, вы соглашаетесь с <a href="#">политикой обработки данных</a>.</div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" id="acceptCookies">Принять</button><button class="cookie-btn cookie-btn-decline" id="declineCookies">Отклонить</button></div></div></div>
+    <div class="modal" id="callbackModal"><div class="modal-content"><span class="modal-close" id="modalClose">&times;</span><h3>📩 Обсудить проект</h3><p>Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p><form id="callbackForm"><div class="form-group"><input type="text" name="name" placeholder="Ваше имя" required></div><div class="form-group"><input type="tel" name="phone" placeholder="Ваш телефон" required></div><div class="form-group"><textarea name="message" placeholder="Расскажите о вашем проекте"></textarea></div><button type="submit" class="submit-btn">Отправить заявку</button><div class="form-message" id="formMessage"></div></form></div></div>
 
     <script>
-        // Кнопка наверх
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
-        
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('show', window.scrollY > 300));
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const cookieConsent = document.getElementById('cookieConsent');
+        if (!localStorage.getItem('cookieConsent')) setTimeout(() => cookieConsent.classList.add('show'), 500);
+        document.getElementById('acceptCookies')?.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'accepted'); cookieConsent.classList.remove('show'); });
+        document.getElementById('declineCookies')?.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'declined'); cookieConsent.classList.remove('show'); });
+
+        const modal = document.getElementById('callbackModal');
+        const modalClose = document.getElementById('modalClose');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+        const callbackForm = document.getElementById('callbackForm');
+        const formMessage = document.getElementById('formMessage');
+        function showModal() { modal.classList.add('show'); }
+        function hideModal() { modal.classList.remove('show'); if(callbackForm) callbackForm.reset(); if(formMessage) formMessage.style.display = 'none'; }
+        openModalBtns.forEach(btn => btn.addEventListener('click', showModal));
+        modalClose?.addEventListener('click', hideModal);
+        modal?.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+
+        if(callbackForm){
+            callbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = callbackForm.querySelector('.submit-btn');
+                const formData = new FormData(callbackForm);
+                submitBtn.disabled = true; submitBtn.textContent = 'Отправляем...'; formMessage.style.display = 'none';
+                try {
+                    const response = await fetch('send_to_telegram.php', { method: 'POST', body: formData });
+                    const result = await response.json();
+                    if(result.success){
+                        formMessage.className = 'form-message success'; formMessage.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.'; formMessage.style.display = 'block';
+                        callbackForm.reset(); setTimeout(() => hideModal(), 3000);
+                    } else throw new Error(result.error || 'Ошибка');
+                } catch(error){
+                    formMessage.className = 'form-message error'; formMessage.textContent = '❌ Ошибка отправки. Попробуйте позже или позвоните нам.'; formMessage.style.display = 'block';
+                } finally { submitBtn.disabled = false; submitBtn.textContent = 'Отправить заявку'; }
+            });
+        }
+
+        // Аккордеон FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+                // закрываем все остальные (опционально, но для аккуратности)
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('show'));
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    question.classList.add('open');
+                } else {
+                    answer.classList.remove('show');
+                    question.classList.remove('open');
+                }
             });
         });
-        
-        document.querySelector('.logo-link')?.addEventListener('click', function(e) {
-            window.location.reload();
-        });
-
-        // COOKIES УВЕДОМЛЕНИЕ
-        const cookieConsent = document.getElementById('cookieConsent');
-        const acceptBtn = document.getElementById('acceptCookies');
-        const declineBtn = document.getElementById('declineCookies');
-
-        if (!localStorage.getItem('cookieConsent')) {
-            setTimeout(() => {
-                cookieConsent.classList.add('show');
-            }, 500);
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieConsent.classList.remove('show');
-        }
-
-        function declineCookies() {
-            localStorage.setItem('cookieConsent', 'declined');
-            cookieConsent.classList.remove('show');
-        }
-
-        acceptBtn.addEventListener('click', acceptCookies);
-        declineBtn.addEventListener('click', declineCookies);
+        // чтобы изначально ничего не было раскрыто
     </script>
-    <!-- Модальное окно -->
-<style>
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
-        z-index: 2000;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .modal-overlay.show {
-        display: flex;
-        opacity: 1;
-    }
-    .modal-window {
-        background: #FFFFFF;
-        border-radius: 32px;
-        max-width: 500px;
-        width: 90%;
-        padding: 32px;
-        position: relative;
-        transform: scale(0.95);
-        transition: transform 0.3s ease;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    }
-    .modal-overlay.show .modal-window {
-        transform: scale(1);
-    }
-    .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 24px;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.2s;
-        line-height: 1;
-    }
-    .modal-close:hover {
-        color: #F5D742;
-    }
-    .modal-window h3 {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-    }
-    .modal-window p {
-        color: #6B6B6B;
-        margin-bottom: 24px;
-        font-size: 14px;
-    }
-    .modal-form input,
-    .modal-form textarea {
-        width: 100%;
-        padding: 14px 16px;
-        margin-bottom: 16px;
-        border: 1px solid #E0E0E0;
-        border-radius: 40px;
-        font-size: 15px;
-        font-family: inherit;
-        transition: border-color 0.2s;
-    }
-    .modal-form input:focus,
-    .modal-form textarea:focus {
-        outline: none;
-        border-color: #F5D742;
-    }
-    .modal-form textarea {
-        border-radius: 24px;
-        resize: vertical;
-    }
-    .modal-submit {
-        background: #F5D742;
-        color: #000;
-        padding: 14px 28px;
-        border-radius: 40px;
-        font-weight: 700;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.2s;
-    }
-    .modal-submit:hover {
-        background: #E6C935;
-        transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-        .modal-window {
-            padding: 24px;
-        }
-        .modal-window h3 {
-            font-size: 24px;
-        }
-    }
-</style>
-
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-window">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <h3>📩 Связаться с нами</h3>
-        <p>Оставьте заявку, и мы ответим в течение часа</p>
-        <form class="modal-form" id="modalForm">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email">
-            <textarea rows="3" placeholder="Сообщение (необязательно)"></textarea>
-            <button type="submit" class="modal-submit">Отправить →</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Открытие модального окна
-    function openModal() {
-        document.getElementById('modalOverlay').classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        document.getElementById('modalOverlay').classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    // Закрытие по крестику
-    document.getElementById('modalClose').addEventListener('click', closeModal);
-    
-    // Закрытие по клику на фон
-    document.getElementById('modalOverlay').addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-    });
-    
-    // Закрытие по Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('modalOverlay').classList.contains('show')) {
-            closeModal();
-        }
-    });
-    
-    // Отправка формы
-    document.getElementById('modalForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-        closeModal();
-        this.reset();
-    });
-</script>
-    <!-- Стили для выезжающего окна -->
-<style>
-    .slideup-overlay {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 2000;
-        display: none;
-        justify-content: center;
-        align-items: flex-end;
-        pointer-events: none;
-    }
-    .slideup-overlay.show {
-        display: flex;
-    }
-    .slideup-window {
-        background: #FFFFFF;
-        border-radius: 32px 32px 0 0;
-        max-width: 500px;
-        width: 100%;
-        padding: 32px 28px;
-        position: relative;
-        transform: translateY(100%);
-        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
-        pointer-events: auto;
-        border-top: 3px solid #F5D742;
-    }
-    .slideup-overlay.show .slideup-window {
-        transform: translateY(0);
-    }
-    .slideup-close {
-        position: absolute;
-        top: 20px;
-        right: 24px;
-        font-size: 28px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.2s;
-        line-height: 1;
-    }
-    .slideup-close:hover {
-        color: #F5D742;
-    }
-    .slideup-window h3 {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-        padding-right: 30px;
-    }
-    .discount-badge {
-        background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-        display: inline-block;
-        padding: 6px 16px;
-        border-radius: 40px;
-        font-size: 14px;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 16px;
-    }
-    .slideup-window p {
-        color: #6B6B6B;
-        margin-bottom: 20px;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-    .offer-text {
-        background: #F8F9FA;
-        border-radius: 20px;
-        padding: 16px;
-        margin: 16px 0;
-        text-align: center;
-        border-left: 4px solid #F5D742;
-    }
-    .offer-text strong {
-        color: #F5D742;
-        font-size: 18px;
-    }
-    .slideup-form input,
-    .slideup-form textarea {
-        width: 100%;
-        padding: 14px 16px;
-        margin-bottom: 14px;
-        border: 1px solid #E0E0E0;
-        border-radius: 40px;
-        font-size: 15px;
-        font-family: inherit;
-        transition: border-color 0.2s;
-        background: #F8F9FA;
-    }
-    .slideup-form input:focus,
-    .slideup-form textarea:focus {
-        outline: none;
-        border-color: #F5D742;
-        background: #FFFFFF;
-    }
-    .slideup-form textarea {
-        border-radius: 24px;
-        resize: vertical;
-    }
-    .slideup-submit {
-        background: #F5D742;
-        color: #000;
-        padding: 14px 28px;
-        border-radius: 40px;
-        font-weight: 700;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.2s;
-    }
-    .slideup-submit:hover {
-        background: #E6C935;
-        transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-        .slideup-window {
-            padding: 24px 20px;
-        }
-        .slideup-window h3 {
-            font-size: 22px;
-        }
-        .offer-text strong {
-            font-size: 16px;
-        }
-    }
-</style>
-
-<!-- Выезжающее окно -->
-<div class="slideup-overlay" id="slideupOverlay">
-    <div class="slideup-window">
-        <span class="slideup-close" id="slideupClose">&times;</span>
-        
-        <div class="discount-badge">🎁 АКЦИЯ</div>
-        <h3>Привет! 👋</h3>
-        
-        <div class="offer-text">
-            💛 Если нажать сюда — получите <strong>скидку 10%</strong> на первые размещения!
-        </div>
-        
-        <p>Оставьте заявку, и мы ответим в течение часа</p>
-        
-        <form class="slideup-form" id="slideupForm">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="tel" placeholder="Телефон" required>
-            <input type="email" placeholder="Email">
-            <textarea rows="3" placeholder="Сообщение (необязательно)"></textarea>
-            <button type="submit" class="slideup-submit">Получить скидку 10% →</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Открытие выезжающего окна
-    function openSlideup() {
-        document.getElementById('slideupOverlay').classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeSlideup() {
-        document.getElementById('slideupOverlay').classList.remove('show');
-        document.body.style.overflow = '';
-    }
-    
-    // Закрытие по крестику
-    document.getElementById('slideupClose').addEventListener('click', closeSlideup);
-    
-    // Закрытие по клику на фон
-    document.getElementById('slideupOverlay').addEventListener('click', function(e) {
-        if (e.target === this) closeSlideup();
-    });
-    
-    // Закрытие по Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('slideupOverlay').classList.contains('show')) {
-            closeSlideup();
-        }
-    });
-    
-    // Отправка формы (пока демо)
-    document.getElementById('slideupForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('🎉 Спасибо! Скидка 10% активирована! Наш менеджер свяжется с вами в ближайшее время.');
-        closeSlideup();
-        this.reset();
-    });
-</script>
-    <!-- Стили для всплывающего уведомления -->
-<style>
-    .popup-notification {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #FFFFFF;
-        border-radius: 20px;
-        padding: 20px 24px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        z-index: 2000;
-        max-width: 360px;
-        width: calc(100% - 40px);
-        transform: translateX(120%);
-        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        border-left: 4px solid #F5D742;
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.98);
-    }
-    .popup-notification.show {
-        transform: translateX(0);
-    }
-    .popup-close {
-        position: absolute;
-        top: 12px;
-        right: 16px;
-        font-size: 20px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.2s;
-        line-height: 1;
-    }
-    .popup-close:hover {
-        color: #F5D742;
-    }
-    .popup-icon {
-        font-size: 32px;
-        margin-bottom: 12px;
-    }
-    .popup-notification h4 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #000;
-    }
-    .popup-notification p {
-        font-size: 14px;
-        color: #5A5A5A;
-        margin-bottom: 12px;
-        line-height: 1.4;
-    }
-    .promo-code {
-        background: #F5D742;
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 40px;
-        font-weight: 700;
-        font-size: 16px;
-        letter-spacing: 1px;
-        color: #000;
-        margin: 8px 0 4px;
-        font-family: monospace;
-    }
-    .popup-btn {
-        background: #F5D742;
-        color: #000;
-        padding: 8px 20px;
-        border-radius: 40px;
-        font-weight: 600;
-        font-size: 13px;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 8px;
-        transition: 0.2s;
-        border: none;
-        cursor: pointer;
-    }
-    .popup-btn:hover {
-        background: #E6C935;
-        transform: translateY(-2px);
-    }
-    @media (max-width: 600px) {
-        .popup-notification {
-            bottom: 20px;
-            right: 20px;
-            left: 20px;
-            max-width: none;
-            width: auto;
-        }
-    }
-</style>
-
-<!-- Всплывающее уведомление -->
-<div class="popup-notification" id="popupNotification">
-    <span class="popup-close" id="popupClose">&times;</span>
-    <div class="popup-icon">🎁</div>
-    <h4>Вам доступна скидка 10%!</h4>
-    <p>При первом размещении рекламы используйте промокод:</p>
-    <div class="promo-code">МИНСК</div>
-    <p style="font-size: 12px; margin-top: 8px;">*Скидка действует на любые пакеты и разовые размещения</p>
-    <button class="popup-btn" onclick="openSlideup(); closePopup();">Заказать со скидкой →</button>
-</div>
-
-<script>
-    // Показываем уведомление при загрузке страницы
-    setTimeout(function() {
-        // Проверяем, не закрывали ли уже уведомление в этой сессии
-        if (!sessionStorage.getItem('popupClosed')) {
-            document.getElementById('popupNotification').classList.add('show');
-        }
-    }, 1000); // появляется через 1 секунду после загрузки
-    
-    function closePopup() {
-        document.getElementById('popupNotification').classList.remove('show');
-        sessionStorage.setItem('popupClosed', 'true');
-    }
-    
-    // Закрытие по крестику
-    document.getElementById('popupClose').addEventListener('click', closePopup);
-    
-    // Закрытие по клику вне окна (опционально)
-    document.addEventListener('click', function(e) {
-        const popup = document.getElementById('popupNotification');
-        if (popup.classList.contains('show') && !popup.contains(e.target) && e.target !== popup) {
-            closePopup();
-        }
-    });
-    
-    // Функция для открытия выезжающего окна (если нужно)
-    function openSlideup() {
-        // Здесь код открытия формы заказа, если есть
-        alert('🎉 Скидка 10% по промокоду МИНСК активирована! Наш менеджер свяжется с вами.');
-        closePopup();
-    }
-</script>
 </body>
 </html>
