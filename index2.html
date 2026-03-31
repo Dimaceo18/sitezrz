@@ -601,8 +601,10 @@
             color: #F5D742;
         }
 
-        /* ========= ОБЪЕДИНЕННЫЙ БЛОК: КЛИЕНТЫ (уменьшен на 25%) + ЖЕЛТАЯ CTA ========= */
+        /* ========= ОБЪЕДИНЕННЫЙ БЛОК: КЛИЕНТЫ + ЖЕЛТАЯ CTA ========= */
+        /* Отступ сверху для заголовка "Наши клиенты" */
         .clients-section-header {
+            margin-top: 60px;
             margin-bottom: 32px;
         }
         .clients-section-header h2 {
@@ -619,8 +621,9 @@
             overflow: hidden;
             background: #F8F9FA;
         }
+        /* ДЕСКТОП: уменьшаем блок с логотипами на 20% (уменьшаем паддинги) */
         .clients-logos-area {
-            padding: 24px 32px 0 32px;
+            padding: 20px 32px 0 32px; /* было 24px, уменьшили на ~20% */
             background: #F8F9FA;
         }
         .clients-image-wrapper {
@@ -640,7 +643,7 @@
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
             padding: 36px 40px;
             text-align: center;
-            margin-top: 24px;
+            margin-top: 20px; /* уменьшили с 24px для компактности */
             border-radius: 0;
         }
         .cta-attached h2 {
@@ -678,9 +681,11 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             color: #F5D742;
         }
+        
+        /* Мобильная версия: блок с логотипами НЕ уменьшаем, оставляем как было */
         @media (max-width: 768px) {
             .clients-logos-area {
-                padding: 24px 20px 0 20px;
+                padding: 24px 20px 0 20px; /* мобильная версия без уменьшения */
             }
             .cta-attached {
                 padding: 32px 24px;
@@ -697,12 +702,15 @@
                 padding: 12px 32px;
                 font-size: 15px;
             }
+            .clients-section-header {
+                margin-top: 40px;
+            }
             .clients-section-header h2 {
                 font-size: 28px;
             }
         }
 
-        /* ПОДВАЛ — реквизиты и политики выровнены по левому краю, Информация и О нас рядом */
+        /* ПОДВАЛ */
         .footer-large {
             background: #F5F5F5;
             margin-top: 0;
@@ -1064,7 +1072,7 @@
             display: block;
         }
 
-        /* Мобильная версия */
+        /* Мобильная версия общие стили */
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
             .header { margin-bottom: 40px; padding: 16px 0; }
@@ -1219,12 +1227,12 @@
             <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- НАШИ КЛИЕНТЫ: заголовок вынесен за пределы серого блока -->
+        <!-- НАШИ КЛИЕНТЫ: заголовок вынесен за пределы серого блока, с отступом сверху -->
         <div class="clients-section-header">
             <h2>Наши клиенты</h2>
         </div>
         
-        <!-- ОБЪЕДИНЕННЫЙ БЛОК: логотипы + Желтая CTA (уменьшен на 25%) -->
+        <!-- ОБЪЕДИНЕННЫЙ БЛОК: логотипы + Желтая CTA (десктоп: уменьшен на 20%) -->
         <div class="combined-clients-cta" id="clients">
             <div class="clients-logos-area">
                 <div class="clients-image-wrapper">
