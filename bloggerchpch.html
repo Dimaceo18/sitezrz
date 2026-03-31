@@ -417,7 +417,7 @@
             font-weight: 600;
         }
 
-        /* ПОДВАЛ - ОБНОВЛЕННЫЙ ПО ПОРЯДКУ */
+        /* ПОДВАЛ */
         .footer-large {
             background: #F5F5F5;
             padding: 50px 0 40px;
@@ -720,7 +720,7 @@
                 text-align: center;
             }
             
-            /* Навигация в две строки: первая - 3 кнопки, вторая - 2 кнопки */
+            /* Навигация в две строки: первая строка - 3 кнопки, вторая - 2 кнопки */
             .nav {
                 display: flex;
                 flex-wrap: wrap;
@@ -728,15 +728,6 @@
                 gap: 16px;
                 max-width: 100%;
                 margin: 0 auto;
-            }
-            .nav-link:nth-child(1),
-            .nav-link:nth-child(2),
-            .nav-link:nth-child(3) {
-                order: 1;
-            }
-            .nav-link:nth-child(4),
-            .nav-link:nth-child(5) {
-                order: 2;
             }
             .nav-link {
                 font-size: 14px;
@@ -769,16 +760,31 @@
             }
             .stat-large-label {
                 font-size: 10px;
-                white-space: nowrap;
+                white-space: normal;
+                word-break: keep-all;
+            }
+            /* Специально для последнего блока, чтобы "охват" был на новой строке */
+            .stat-large:last-child .stat-large-label {
+                white-space: normal;
+                line-height: 1.3;
             }
             
             /* Центрирование блога */
+            .section-header {
+                text-align: center;
+            }
             .section-header h2,
             .section-header p {
                 text-align: center;
             }
             
-            /* Форматы интеграций в одну строку (без переноса) */
+            /* Уменьшаем заголовок "Форматы интеграций", чтобы влез в одну строку */
+            .section-header h2 {
+                font-size: 24px;
+                white-space: nowrap;
+            }
+            
+            /* Форматы интеграций в одну строку (карточки вертикально) */
             .services-grid {
                 display: flex;
                 flex-direction: column;
@@ -878,6 +884,11 @@
                 padding: 12px 28px;
                 font-size: 14px;
             }
+            .section-header h2 {
+                font-size: 20px;
+                white-space: normal;
+                word-break: keep-all;
+            }
         }
     </style>
 </head>
@@ -920,7 +931,7 @@
                     </div>
                     <div class="stat-large">
                         <div class="stat-large-number">500K+</div>
-                        <div class="stat-large-label">средний месячный охват</div>
+                        <div class="stat-large-label">средний<br>месячный охват</div>
                     </div>
                 </div>
                 <div class="blogger-description">
