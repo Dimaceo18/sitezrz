@@ -65,30 +65,23 @@
 
         .nav {
             display: flex;
-            gap: 32px;
+            align-items: center;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
-        .nav-link {
-            text-decoration: none;
+        .nav-text-bold {
             font-size: 16px;
-            font-weight: 500;
-            color: #2C2C2C;
-            transition: color 0.2s;
-            padding: 4px 0;
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
+            font-weight: 800;
             color: #F5D742;
-            border-bottom-color: #F5D742;
+            letter-spacing: -0.3px;
+            margin-right: 8px;
         }
 
-        .nav-btn-dark {
+        .nav-btn {
             background: #1A1A1A;
             color: white;
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
@@ -100,7 +93,7 @@
             border: none;
         }
 
-        .nav-btn-dark:hover {
+        .nav-btn:hover {
             background: #333;
             transform: translateY(-1px);
         }
@@ -1066,9 +1059,10 @@
             .header { margin-bottom: 40px; padding: 16px 0; }
             .header-inner { flex-direction: column; align-items: center; text-align: center; }
             .logo-img { height: 38px; }
-            .nav-btn-dark { display: none; }
-            .nav-wrapper { width: 100%; }
-            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 320px; margin: 0 auto; }
+            .nav-wrapper { width: 100%; justify-content: center; }
+            .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 100%; margin: 0 auto; }
+            .nav-text-bold { font-size: 15px; margin-right: 4px; }
+            .nav-btn { padding: 6px 14px; font-size: 12px; }
             .hero { flex-direction: column; gap: 24px; margin-bottom: 50px; }
             .hero-image { order: -1; }
             .hero-image img { max-width: 280px; }
@@ -1126,13 +1120,13 @@
                 </a>
                 <div class="nav-wrapper">
                     <div class="nav">
-                        <a href="#services" class="nav-link">Наши услуги</a>
-                        <a href="#projects" class="nav-link">Наши проекты</a>
-                        <a href="cases.html" class="nav-link">Кейсы</a>
-                        <a href="about.html" class="nav-link">О нас</a>
-                        <a href="#contacts" class="nav-link">Контакты</a>
+                        <span class="nav-text-bold">НАШИ</span>
+                        <button class="nav-btn" data-section="services">Услуги</button>
+                        <button class="nav-btn" data-section="projects">Проекты</button>
+                        <button class="nav-btn" data-section="cases">Кейсы</button>
+                        <button class="nav-btn" data-section="clients">Клиенты</button>
+                        <button class="nav-btn" data-section="contacts">Контакты</button>
                     </div>
-                    <button class="nav-btn-dark open-modal-btn">Обсудить проект</button>
                 </div>
             </div>
         </div>
@@ -1215,13 +1209,13 @@
         </div>
 
         <!-- ОБЪЕДИНЕННЫЙ БЛОК: Наши клиенты (логотипы) + Желтая CTA в одном блоке -->
-        <div class="combined-clients-cta">
+        <div class="combined-clients-cta" id="clients">
             <div class="clients-logos-area">
                 <div class="clients-header-left">
                     <h2>Наши клиенты</h2>
                 </div>
                 <div class="clients-image-wrapper">
-                    <img src="logsblackwhite.jpg" alt="Наши клиенты" class="clients-logo-img">
+                    <img src="logsblackwhite2.jpg" alt="Наши клиенты" class="clients-logo-img">
                 </div>
             </div>
             <div class="cta-attached">
@@ -1293,6 +1287,20 @@
                 if (!isOpen) {
                     answer.classList.add('show');
                     question.classList.add('open');
+                }
+            });
+        });
+
+        // Навигационные кнопки — плавный скролл к секциям
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const sectionId = btn.getAttribute('data-section');
+                if (sectionId) {
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             });
         });
