@@ -105,83 +105,87 @@
             transform: translateY(-1px);
         }
 
-        /* ГЕРОЙ — объединенный блок с общей рамкой */
-        .hero-wrapper {
-            background: #FFFFFF;
-            border-radius: 32px;
+        /* ГЕРОЙ — эллипс разделенный на 3 части */
+        .hero-ellipse {
+            background: #F8F9FA;
+            border-radius: 60% 40% 50% 50% / 45% 40% 60% 55%;
             margin-bottom: 80px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
             scroll-margin-top: 100px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
         }
 
-        .hero {
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 500px;
+        }
+
+        /* Левая половина — картинка */
+        .hero-image {
+            background: #F5F5F5;
             display: flex;
             align-items: center;
-            gap: 48px;
+            justify-content: center;
             padding: 48px;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            flex: 1;
-            min-width: 280px;
-            text-align: center;
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             height: auto;
             border-radius: 24px;
             object-fit: cover;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
-        .hero-content {
+        /* Правая половина — разделена на верх и низ */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-title {
+            background: #FFFFFF;
+            padding: 40px 48px 32px 48px;
+            border-bottom: 1px solid #F0F0F0;
             flex: 1;
-            min-width: 280px;
+            display: flex;
+            align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 28px;
+        .hero-title h1 {
+            font-size: 26px;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 24px;
             color: #000;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
-        .mission-block {
-            background: #F8F9FA;
-            border-radius: 20px;
-            padding: 20px 24px;
-            margin: 0 0 28px 0;
-            border-left: 3px solid #F5D742;
+        .hero-mission-buttons {
+            background: #FFFFFF;
+            padding: 32px 48px 40px 48px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .mission-quote {
-            font-size: 15px;
+        .hero-mission {
+            margin-bottom: 32px;
+        }
+
+        .hero-mission p {
+            font-size: 16px;
             font-weight: 500;
             line-height: 1.5;
-            color: #2C2C2C;
-        }
-
-        .mission-quote .quote-icon {
-            font-size: 20px;
-            color: #F5D742;
-            margin-right: 6px;
-            vertical-align: middle;
-            font-family: Georgia, serif;
-        }
-
-        .mission-quote p {
-            display: inline;
+            color: #4A4A4A;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-            margin-top: 8px;
         }
 
         .btn-primary {
@@ -623,22 +627,45 @@
             .nav-wrapper { width: 100%; }
             .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 320px; margin: 0 auto; }
             
-            .hero {
-                flex-direction: column;
-                gap: 28px;
-                padding: 28px;
+            .hero-ellipse {
+                border-radius: 32px;
             }
-            .hero-image { order: -1; }
-            .hero-image img { max-width: 280px; }
-            .hero-content h1 { font-size: 24px; text-align: center; }
             
-            .mission-block {
-                padding: 16px 20px;
+            .hero-grid {
+                grid-template-columns: 1fr;
             }
-            .mission-quote {
-                font-size: 14px;
+            
+            .hero-image {
+                padding: 32px;
+                order: -1;
             }
-            .hero-buttons { justify-content: center; }
+            
+            .hero-image img {
+                max-width: 260px;
+            }
+            
+            .hero-title {
+                padding: 28px 24px 20px 24px;
+            }
+            
+            .hero-title h1 {
+                font-size: 22px;
+                text-align: center;
+            }
+            
+            .hero-mission-buttons {
+                padding: 24px 24px 32px 24px;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-mission p {
+                font-size: 15px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
             
             .stats {
                 flex-wrap: wrap;
@@ -681,25 +708,30 @@
             </div>
         </div>
 
-        <!-- Объединенный блок: картинка + текст + миссия в одной карточке -->
-        <div class="hero-wrapper">
-            <div class="hero" id="home">
+        <!-- Эллипс, разделенный на 3 части -->
+        <div class="hero-ellipse" id="home">
+            <div class="hero-grid">
+                <!-- Часть 1: картинка -->
                 <div class="hero-image">
                     <img src="photo1.jpg" alt="Городской контекст Минска">
                 </div>
-                <div class="hero-content">
-                    <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной и приятной рекламе в городских сообществах и у блогеров Минска.</h1>
-                    
-                    <div class="mission-block">
-                        <div class="mission-quote">
-                            <span class="quote-icon">❝</span>
-                            <p>Наша миссия — удержать внимание аудитории. Мы превращаем рекламу в интересный контент, который смотрят и читают полностью, а не пролистывают, как рекламный баннер.</p>
-                        </div>
+                
+                <!-- Правая половина, разделенная на 2 части -->
+                <div class="hero-right">
+                    <!-- Часть 2: заголовок -->
+                    <div class="hero-title">
+                        <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной и приятной рекламе в городских сообществах и у блогеров Минска.</h1>
                     </div>
                     
-                    <div class="hero-buttons">
-                        <button class="btn-primary open-modal-btn">Обсудить проект</button>
-                        <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
+                    <!-- Часть 3: миссия + кнопки -->
+                    <div class="hero-mission-buttons">
+                        <div class="hero-mission">
+                            <p>Наша миссия — удержать внимание аудитории. Мы превращаем рекламу в интересный контент, который смотрят и читают полностью, а не пролистывают, как рекламный баннер.</p>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn-primary open-modal-btn">Обсудить проект</button>
+                            <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
+                        </div>
                     </div>
                 </div>
             </div>
