@@ -230,61 +230,6 @@
             text-align: center;
         }
 
-        /* Дополнительные услуги для сообществ */
-        .community-extras {
-            background: #F8F9FA;
-            border-radius: 28px;
-            padding: 40px;
-            margin: 40px 0;
-        }
-
-        .community-extras h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .extras-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 16px;
-        }
-
-        .extra-card {
-            background: #FFFFFF;
-            border-radius: 20px;
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            border: 1px solid #E8ECF0;
-            transition: 0.2s;
-        }
-
-        .extra-card:hover {
-            border-color: #F5D742;
-        }
-
-        .extra-name {
-            font-size: 15px;
-            color: #4A4A4A;
-        }
-
-        .extra-name strong {
-            color: #2C2C2C;
-            font-weight: 700;
-        }
-
-        .extra-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #F5D742;
-            white-space: nowrap;
-        }
-
         /* Пакетные размещения */
         .packages-section {
             margin: 60px 0;
@@ -591,6 +536,61 @@
             transform: scale(1.02);
         }
 
+        /* Дополнительные услуги для сообществ - перенесены под одиночные размещения */
+        .community-extras {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 40px;
+            margin: 40px 0 60px;
+        }
+
+        .community-extras h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .extra-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border: 1px solid #E8ECF0;
+            transition: 0.2s;
+        }
+
+        .extra-card:hover {
+            border-color: #F5D742;
+        }
+
+        .extra-name {
+            font-size: 15px;
+            color: #4A4A4A;
+        }
+
+        .extra-name strong {
+            color: #2C2C2C;
+            font-weight: 700;
+        }
+
+        .extra-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5D742;
+            white-space: nowrap;
+        }
+
         /* Условия размещения - выпадающий блок */
         .terms-section {
             margin: 40px 0 60px;
@@ -790,6 +790,31 @@
         .blogger-services-btn:hover {
             background: #E6C935;
             transform: translateY(-2px);
+        }
+
+        /* Большая кнопка "Посмотреть рекламные возможности у блогеров" */
+        .blogger-main-btn {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .btn-bloggers-main {
+            display: inline-block;
+            background: #F5D742;
+            color: #000;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-bloggers-main:hover {
+            background: #E6C935;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .back-link {
@@ -1136,6 +1161,10 @@
             .terms-inner {
                 padding: 20px;
             }
+            .btn-bloggers-main {
+                padding: 14px 32px;
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1183,6 +1212,10 @@
             .terms-inner p,
             .terms-inner li {
                 font-size: 13px;
+            }
+            .btn-bloggers-main {
+                padding: 12px 24px;
+                font-size: 14px;
             }
         }
     </style>
@@ -1272,37 +1305,6 @@
                         </div>
                         <div class="community-price">
                             <div class="community-discount">скидка 20%</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Дополнительные услуги для сообществ -->
-                <div class="community-extras">
-                    <h3>➕ Дополнительные услуги</h3>
-                    <div class="extras-grid">
-                        <div class="extra-card">
-                            <div class="extra-name"><strong>Закрепление поста</strong> на сутки в главное аккаунте Minsk News</div>
-                            <div class="extra-price">+100 BYN</div>
-                        </div>
-                        <div class="extra-card">
-                            <div class="extra-name"><strong>Замена фотографий</strong> в каждом сообществе (при заказе комплекса Стандарт или Премиум)</div>
-                            <div class="extra-price">+100 BYN</div>
-                        </div>
-                        <div class="extra-card">
-                            <div class="extra-name"><strong>Замена текста и фотографий</strong> в каждом сообществе (при заказе комплекса Стандарт или Премиум)</div>
-                            <div class="extra-price">150 BYN</div>
-                        </div>
-                        <div class="extra-card">
-                            <div class="extra-name"><strong>Сохранение публикаций на 1 год</strong> в ленте аккаунте. Пользователи, которые сохраняют или делятся постами всегда смогут вернуться к ним.</div>
-                            <div class="extra-price">от 80 BYN</div>
-                        </div>
-                        <div class="extra-card">
-                            <div class="extra-name"><strong>Запуск таргетированной рекламы</strong> на размещенный пост.</div>
-                            <div class="extra-price">по запросу</div>
-                        </div>
-                        <div class="extra-card">
-                            <div class="extra-name"><strong>Напомнить о себе в сторис Minsk News</strong> ~ через неделю после размещения.</div>
-                            <div class="extra-price">250 BYN</div>
                         </div>
                     </div>
                 </div>
@@ -1495,6 +1497,37 @@
                 </div>
             </div>
 
+            <!-- Дополнительные услуги - перенесены под одиночные размещения -->
+            <div class="community-extras">
+                <h3>➕ Дополнительные услуги</h3>
+                <div class="extras-grid">
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Закрепление поста</strong> на сутки в главное аккаунте Minsk News</div>
+                        <div class="extra-price">+100 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Замена фотографий</strong> в каждом сообществе (при заказе комплекса Стандарт или Премиум)</div>
+                        <div class="extra-price">+100 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Замена текста и фотографий</strong> в каждом сообществе (при заказе комплекса Стандарт или Премиум)</div>
+                        <div class="extra-price">150 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Сохранение публикаций на 1 год</strong> в ленте аккаунте. Пользователи, которые сохраняют или делятся постами всегда смогут вернуться к ним.</div>
+                        <div class="extra-price">от 80 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Запуск таргетированной рекламы</strong> на размещенный пост.</div>
+                        <div class="extra-price">по запросу</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Напомнить о себе в сторис Minsk News</strong> ~ через неделю после размещения.</div>
+                        <div class="extra-price">250 BYN</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Условия размещения публикаций в сообществах - выпадающий блок -->
             <div class="terms-section">
                 <div class="terms-header" id="termsHeader">
@@ -1508,7 +1541,7 @@
                         <p><strong>Сроки размещения в ленте:</strong> рекламные посты размещаются на 14 дней в ленте, затем они удаляются. При заказе комплекса <strong>ПРЕМИУМ</strong> — посты размещаются на 30 дней в ленте, затем они удаляются.</p>
                         <div class="important">
                             <strong>🔔 ВАЖНЫЙ МОМЕНТ</strong>
-                            <p>Все рекламные посты мы размещаем в <b>новостной стилистике от третьего лица</b>, как новость или пресс-релиз. Фотографии для публикаций мы используем живые и тематические, рекламные баннеры / афиши — мы не размещаем.</p>
+                            <p>Все рекламные посты мы размещаем в <strong>новостной стилистике от третьего лица</strong>, как новость или пресс-релиз. Фотографии для публикаций мы используем живые и тематические, рекламные баннеры / афиши — мы не размещаем.</p>
                         </div>
                     </div>
                 </div>
@@ -1549,6 +1582,11 @@
                         <a href="bloggerztstl.html" class="blogger-services-btn" onclick="event.stopPropagation()">Посмотреть все услуги →</a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Большая кнопка "Посмотреть рекламные возможности у блогеров" -->
+            <div class="blogger-main-btn">
+                <a href="bloggers.html" class="btn-bloggers-main">🎬 Посмотреть рекламные возможности у блогеров →</a>
             </div>
 
             <a href="index.html" class="back-link">← Вернуться на главную</a>
