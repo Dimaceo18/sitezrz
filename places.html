@@ -148,17 +148,118 @@
             color: #2C2C2C;
         }
 
-        /* Тарифы */
-        .tariffs-grid {
+        /* Варианты размещений в сообществах */
+        .community-options {
+            margin: 60px 0;
+        }
+
+        .community-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .community-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .community-header p {
+            font-size: 16px;
+            color: #5A5A5A;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .community-card {
+            background: #F8F9FA;
+            border-radius: 20px;
+            padding: 20px 24px;
+            transition: all 0.3s ease;
+            border: 1px solid #E8ECF0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .community-card:hover {
+            border-color: #F5D742;
+            transform: translateX(4px);
+        }
+
+        .community-info {
+            flex: 1;
+        }
+
+        .community-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 4px;
+        }
+
+        .community-desc {
+            font-size: 12px;
+            color: #8A8A8A;
+        }
+
+        .community-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #F5D742;
+            white-space: nowrap;
+        }
+
+        .community-discount {
+            background: #F5D74220;
+            border-radius: 12px;
+            padding: 8px 12px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #F5D742;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Пакетные размещения */
+        .packages-section {
+            margin: 60px 0;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .packages-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .packages-header p {
+            font-size: 16px;
+            color: #5A5A5A;
+        }
+
+        .packages-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
-            margin-bottom: 60px;
-            scroll-margin-top: 100px;
         }
 
-        .tariff-card {
+        .package-card {
             flex: 1;
             min-width: 300px;
             background: #F8F9FA;
@@ -169,12 +270,12 @@
             position: relative;
         }
 
-        .tariff-card.premium {
+        .package-card.premium {
             border: 2px solid #F5D742;
             background: linear-gradient(135deg, #F8F9FA 0%, #FFFCF0 100%);
         }
 
-        .tariff-card.premium .premium-badge {
+        .package-card.premium .premium-badge {
             position: absolute;
             top: -12px;
             right: 20px;
@@ -186,38 +287,38 @@
             font-weight: 700;
         }
 
-        .tariff-card:hover {
+        .package-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
-        .tariff-icon {
+        .package-icon {
             font-size: 40px;
             margin-bottom: 16px;
             display: block;
         }
 
-        .tariff-card h2 {
+        .package-card h2 {
             font-size: 26px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #000;
         }
 
-        .tariff-price {
+        .package-price {
             font-size: 36px;
             font-weight: 800;
             color: #F5D742;
             margin: 16px 0 8px;
         }
 
-        .tariff-price span {
+        .package-price span {
             font-size: 16px;
             font-weight: 500;
             color: #5A5A5A;
         }
 
-        .old-price {
+        .package-old-price {
             font-size: 18px;
             color: #999;
             text-decoration: line-through;
@@ -225,7 +326,7 @@
             font-weight: 400;
         }
 
-        .tariff-stats {
+        .package-stats {
             font-size: 13px;
             color: #6B6B6B;
             margin-bottom: 20px;
@@ -235,12 +336,11 @@
             display: inline-block;
         }
 
-        /* Аккордеон */
-        .accordion {
+        .package-accordion {
             margin: 16px 0;
         }
 
-        .accordion-header {
+        .package-accordion-header {
             background: #FFFFFF;
             padding: 12px 16px;
             border-radius: 12px;
@@ -255,20 +355,20 @@
             transition: 0.2s;
         }
 
-        .accordion-header:hover {
+        .package-accordion-header:hover {
             border-color: #F5D742;
         }
 
-        .accordion-header .arrow {
+        .package-accordion-header .arrow {
             transition: transform 0.3s;
             font-size: 12px;
         }
 
-        .accordion-header.active .arrow {
+        .package-accordion-header.active .arrow {
             transform: rotate(180deg);
         }
 
-        .accordion-content {
+        .package-accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
@@ -277,16 +377,16 @@
             margin-top: 8px;
         }
 
-        .accordion-content.show {
+        .package-accordion-content.show {
             max-height: 500px;
         }
 
-        .platforms-list {
+        .package-platforms-list {
             list-style: none;
             padding: 12px 16px;
         }
 
-        .platforms-list li {
+        .package-platforms-list li {
             font-size: 13px;
             color: #4A4A4A;
             padding: 8px 0;
@@ -296,35 +396,35 @@
             gap: 8px;
         }
 
-        .platforms-list li:last-child {
+        .package-platforms-list li:last-child {
             border-bottom: none;
         }
 
-        .platforms-list li a {
+        .package-platforms-list li a {
             color: #1A1A1A;
             text-decoration: none;
             transition: color 0.2s;
         }
 
-        .platforms-list li a:hover {
+        .package-platforms-list li a:hover {
             color: #F5D742;
         }
 
-        .stories-block {
+        .package-stories-block {
             background: #EFEFEF;
             border-radius: 12px;
             padding: 12px 16px;
             margin: 12px 0;
         }
 
-        .stories-list {
+        .package-stories-list {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
 
-        .stories-list li {
+        .package-stories-list li {
             background: #FFFFFF;
             padding: 4px 12px;
             border-radius: 20px;
@@ -332,7 +432,7 @@
             color: #4A4A4A;
         }
 
-        .order-btn {
+        .package-order-btn {
             background: #F5D742;
             color: #000;
             padding: 12px 20px;
@@ -349,14 +449,14 @@
             cursor: pointer;
         }
 
-        .order-btn:hover {
+        .package-order-btn:hover {
             background: #E6C935;
             transform: translateY(-2px);
         }
 
         /* Одиночные размещения - таблица */
         .single-placement {
-            margin: 40px 0 60px;
+            margin: 40px 0 40px;
         }
 
         .single-placement h3 {
@@ -436,7 +536,150 @@
             transform: scale(1.02);
         }
 
-        /* Блогеры - только кнопка "Посмотреть все услуги" */
+        /* Дополнительные услуги для сообществ - перенесены под одиночные размещения */
+        .community-extras {
+            background: #F8F9FA;
+            border-radius: 28px;
+            padding: 40px;
+            margin: 40px 0 60px;
+        }
+
+        .community-extras h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .extra-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border: 1px solid #E8ECF0;
+            transition: 0.2s;
+        }
+
+        .extra-card:hover {
+            border-color: #F5D742;
+        }
+
+        .extra-name {
+            font-size: 15px;
+            color: #4A4A4A;
+        }
+
+        .extra-name strong {
+            color: #2C2C2C;
+            font-weight: 700;
+        }
+
+        .extra-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F5D742;
+            white-space: nowrap;
+        }
+
+        /* Условия размещения - выпадающий блок */
+        .terms-section {
+            margin: 40px 0 60px;
+        }
+
+        .terms-header {
+            background: #F0F0F0;
+            border-radius: 60px;
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #E8ECF0;
+        }
+
+        .terms-header:hover {
+            background: #E8E8E8;
+        }
+
+        .terms-header h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin: 0;
+        }
+
+        .terms-header .arrow {
+            font-size: 16px;
+            color: #F5D742;
+            transition: transform 0.3s ease;
+        }
+
+        .terms-header.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .terms-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #FFFFFF;
+            border-radius: 24px;
+            margin-top: 16px;
+            border: 1px solid #E8ECF0;
+        }
+
+        .terms-content.open {
+            max-height: 800px;
+        }
+
+        .terms-inner {
+            padding: 28px 32px;
+        }
+
+        .terms-inner p {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .terms-inner ul {
+            margin: 12px 0 12px 24px;
+        }
+
+        .terms-inner li {
+            font-size: 14px;
+            color: #4A4A4A;
+            margin-bottom: 8px;
+        }
+
+        .terms-inner .important {
+            background: #FFF8E7;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            border-left: 4px solid #F5D742;
+        }
+
+        .terms-inner .important strong {
+            color: #F5D742;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* Блогеры */
         .bloggers-section {
             margin: 60px 0 40px;
             scroll-margin-top: 100px;
@@ -452,6 +695,11 @@
             font-weight: 700;
             color: #000;
             margin-bottom: 12px;
+        }
+
+        .bloggers-header p {
+            font-size: 16px;
+            color: #5A5A5A;
         }
 
         .bloggers-grid {
@@ -470,6 +718,7 @@
             text-align: center;
             border: 1px solid #E8ECF0;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .blogger-card:hover {
@@ -522,7 +771,6 @@
             color: #4A4A4A;
         }
 
-        /* Только кнопка "Посмотреть все услуги" */
         .blogger-services-btn {
             background: #F5D742;
             color: #000;
@@ -542,6 +790,31 @@
         .blogger-services-btn:hover {
             background: #E6C935;
             transform: translateY(-2px);
+        }
+
+        /* Большая кнопка "Посмотреть рекламные возможности у блогеров" */
+        .blogger-main-btn {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .btn-bloggers-main {
+            display: inline-block;
+            background: #F5D742;
+            color: #000;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-bloggers-main:hover {
+            background: #E6C935;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .back-link {
@@ -876,6 +1149,22 @@
                 padding: 10px 28px;
                 font-size: 14px;
             }
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+            .extras-grid {
+                grid-template-columns: 1fr;
+            }
+            .packages-grid {
+                flex-direction: column;
+            }
+            .terms-inner {
+                padding: 20px;
+            }
+            .btn-bloggers-main {
+                padding: 14px 32px;
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -897,7 +1186,7 @@
                 padding: 8px 20px;
                 font-size: 13px;
             }
-            .tariff-card {
+            .package-card {
                 min-width: 100%;
             }
             .bloggers-grid {
@@ -906,6 +1195,27 @@
             .blogger-avatar {
                 width: 100px;
                 height: 100px;
+            }
+            .community-header h2,
+            .packages-header h2,
+            .bloggers-header h2 {
+                font-size: 28px;
+            }
+            .community-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .extra-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .terms-inner p,
+            .terms-inner li {
+                font-size: 13px;
+            }
+            .btn-bloggers-main {
+                padding: 12px 24px;
+                font-size: 14px;
             }
         }
     </style>
@@ -946,159 +1256,219 @@
                 </div>
             </div>
 
-            <!-- Тарифы -->
-            <div class="tariffs-grid" id="tariffs">
-                <div class="tariff-card">
-                    <span class="tariff-icon">🔻</span>
-                    <h2>Пакет «МИНИ»</h2>
-                    <div class="tariff-price">685 BYN <span>/ пакет</span></div>
-                    <div class="tariff-stats">📊 более 860 000 подписчиков</div>
-                    
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>📱 Список площадок (7)</span>
-                            <span class="arrow">▼</span>
-                        </div>
-                        <div class="accordion-content">
-                            <ul class="platforms-list">
-                                <li><a href="https://www.instagram.com/minsk_news/" target="_blank">minsk_news</a></li>
-                                <li><a href="https://www.instagram.com/afishaminsk/" target="_blank">afishaminsk</a></li>
-                                <li><a href="https://www.instagram.com/tvoyminsk/" target="_blank">tvoyminsk</a></li>
-                                <li><a href="https://www.instagram.com/minskgood/" target="_blank">minskgood</a></li>
-                                <li><a href="https://www.instagram.com/novostiminska/" target="_blank">novostiminska</a></li>
-                                <li><a href="https://www.instagram.com/minskhot/" target="_blank">minskhot</a></li>
-                                <li><a href="https://www.instagram.com/minsksmile/" target="_blank">minsksmile</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="stories-block">
-                        <div style="font-weight: 600; margin-bottom: 8px;">📸 Дополнительно stories:</div>
-                        <ul class="stories-list">
-                            <li>minsk_news</li>
-                            <li>afishaminsk</li>
-                            <li>tvoyminsk</li>
-                        </ul>
-                    </div>
-                    <button class="order-btn open-modal-btn">Заказать размещения →</button>
+            <!-- Варианты размещений в сообществах -->
+            <div class="community-options">
+                <div class="community-header">
+                    <h2>🏛️ Варианты размещений в сообществах</h2>
+                    <p>В нашем арсенале от одиночных размещений до полноценного многосерийного спецпроекта</p>
                 </div>
-
-                <div class="tariff-card">
-                    <span class="tariff-icon">🔻</span>
-                    <h2>Пакет «СТАНДАРТ»</h2>
-                    <div class="tariff-price">745 BYN <span>/ пакет</span></div>
-                    <div class="tariff-stats">📊 более 1 300 000 подписчиков</div>
-                    
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>📱 Список площадок (11)</span>
-                            <span class="arrow">▼</span>
+                <div class="community-grid">
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Одиночные размещения</div>
+                            <div class="community-desc">Для быстрого старта когда бюджет ограничен.</div>
                         </div>
-                        <div class="accordion-content">
-                            <ul class="platforms-list">
-                                <li><a href="https://www.instagram.com/minsk_news/" target="_blank">minsk_news</a></li>
-                                <li><a href="https://www.instagram.com/minskchp/" target="_blank">minskchp</a></li>
-                                <li><a href="https://www.instagram.com/afishaminsk/" target="_blank">afishaminsk</a></li>
-                                <li><a href="https://www.instagram.com/tvoyminsk/" target="_blank">tvoyminsk</a></li>
-                                <li><a href="https://www.instagram.com/vestiminska/" target="_blank">vestiminska</a></li>
-                                <li><a href="https://www.instagram.com/minskpress/" target="_blank">minskpress</a></li>
-                                <li><a href="https://www.instagram.com/xxminsk/" target="_blank">xxminsk</a></li>
-                                <li><a href="https://www.instagram.com/minskgood/" target="_blank">minskgood</a></li>
-                                <li><a href="https://www.instagram.com/novostiminska/" target="_blank">novostiminska</a></li>
-                                <li><a href="https://www.instagram.com/minskhot/" target="_blank">minskhot</a></li>
-                                <li><a href="https://www.instagram.com/minsksmile/" target="_blank">minsksmile</a></li>
-                            </ul>
+                        <div class="community-price">от 400 BYN</div>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Комплексное размещение</div>
+                            <div class="community-desc">Рекламно-новостные посты + вместе с сторис.</div>
+                        </div>
+                        <div class="community-price">от 685 BYN</div>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Только stories</div>
+                            <div class="community-desc">Комплексное размещение только в формате stories. Быстрый и эффективный формат, особенно подойдет для переходов по ссылке.</div>
+                        </div>
+                        <div class="community-price">от 450 BYN</div>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Нативные публикации</div>
+                            <div class="community-desc">Посты без активных ссылок на повышение узнаваемости, охваты в таких публикациях обычно выше.</div>
+                        </div>
+                        <div class="community-price">от 450 BYN</div>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Спецпроект</div>
+                            <div class="community-desc">Серия связанных публикаций о вашем продукте, товаре или услуге. Отлично подойдет для новостей о запуске продукта (услуги).</div>
+                        </div>
+                        <div class="community-price">от 2 500 BYN</div>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Оптовые размещения</div>
+                            <div class="community-desc">При заказе от 5 комплексов, которые можно потратить в течение 1 года.</div>
+                        </div>
+                        <div class="community-price">
+                            <div class="community-discount">скидка 20%</div>
                         </div>
                     </div>
-
-                    <div class="stories-block">
-                        <div style="font-weight: 600; margin-bottom: 8px;">📸 Дополнительно stories:</div>
-                        <ul class="stories-list">
-                            <li>minsk_news</li>
-                            <li>afishaminsk</li>
-                            <li>minskchp</li>
-                            <li>tvoyminsk</li>
-                            <li>vestiminska</li>
-                            <li>xxminsk</li>
-                        </ul>
-                    </div>
-                    <button class="order-btn open-modal-btn">Заказать размещения →</button>
                 </div>
+            </div>
 
-                <div class="tariff-card premium">
-                    <div class="premium-badge">🔥 ХИТ</div>
-                    <span class="tariff-icon">⭐</span>
-                    <h2>Пакет «ПРЕМИУМ»</h2>
-                    <div class="tariff-price">905 BYN <span class="old-price">1 500 BYN</span> <span>/ пакет</span></div>
-                    <div class="tariff-stats">📊 более 1 700 000 подписчиков</div>
-                    
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>📷 Instagram (11)</span>
-                            <span class="arrow">▼</span>
+            <!-- Пакетные размещения -->
+            <div class="packages-section">
+                <div class="packages-header">
+                    <h2>📦 Пакетные размещения</h2>
+                    <p>Выберите оптимальный пакет для продвижения</p>
+                </div>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <span class="package-icon">🔻</span>
+                        <h2>Пакет «МИНИ»</h2>
+                        <div class="package-price">685 BYN <span>/ пакет</span></div>
+                        <div class="package-stats">📊 более 860 000 подписчиков</div>
+                        
+                        <div class="package-accordion">
+                            <div class="package-accordion-header" onclick="togglePackageAccordion(this)">
+                                <span>📱 Список площадок (7)</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="package-accordion-content">
+                                <ul class="package-platforms-list">
+                                    <li><a href="https://www.instagram.com/minsk_news/" target="_blank">minsk_news</a></li>
+                                    <li><a href="https://www.instagram.com/afishaminsk/" target="_blank">afishaminsk</a></li>
+                                    <li><a href="https://www.instagram.com/tvoyminsk/" target="_blank">tvoyminsk</a></li>
+                                    <li><a href="https://www.instagram.com/minskgood/" target="_blank">minskgood</a></li>
+                                    <li><a href="https://www.instagram.com/novostiminska/" target="_blank">novostiminska</a></li>
+                                    <li><a href="https://www.instagram.com/minskhot/" target="_blank">minskhot</a></li>
+                                    <li><a href="https://www.instagram.com/minsksmile/" target="_blank">minsksmile</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="accordion-content">
-                            <ul class="platforms-list">
-                                <li><a href="https://www.instagram.com/minsk_news/" target="_blank">minsk_news</a></li>
-                                <li><a href="https://www.instagram.com/minskchp/" target="_blank">minskchp</a></li>
-                                <li><a href="https://www.instagram.com/afishaminsk/" target="_blank">afishaminsk</a></li>
-                                <li><a href="https://www.instagram.com/tvoyminsk/" target="_blank">tvoyminsk</a></li>
-                                <li><a href="https://www.instagram.com/vestiminska/" target="_blank">vestiminska</a></li>
-                                <li><a href="https://www.instagram.com/minskpress/" target="_blank">minskpress</a></li>
-                                <li><a href="https://www.instagram.com/xxminsk/" target="_blank">xxminsk</a></li>
-                                <li><a href="https://www.instagram.com/minskgood/" target="_blank">minskgood</a></li>
-                                <li><a href="https://www.instagram.com/novostiminska/" target="_blank">novostiminska</a></li>
-                                <li><a href="https://www.instagram.com/minskhot/" target="_blank">minskhot</a></li>
-                                <li><a href="https://www.instagram.com/minsksmile/" target="_blank">minsksmile</a></li>
+
+                        <div class="package-stories-block">
+                            <div style="font-weight: 600; margin-bottom: 8px;">📸 Дополнительно stories:</div>
+                            <ul class="package-stories-list">
+                                <li>minsk_news</li>
+                                <li>afishaminsk</li>
+                                <li>tvoyminsk</li>
                             </ul>
                         </div>
+                        <button class="package-order-btn open-modal-btn">Заказать размещения →</button>
                     </div>
 
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>📘 Вконтакте (9)</span>
-                            <span class="arrow">▼</span>
+                    <div class="package-card">
+                        <span class="package-icon">🔻</span>
+                        <h2>Пакет «СТАНДАРТ»</h2>
+                        <div class="package-price">745 BYN <span>/ пакет</span></div>
+                        <div class="package-stats">📊 более 1 300 000 подписчиков</div>
+                        
+                        <div class="package-accordion">
+                            <div class="package-accordion-header" onclick="togglePackageAccordion(this)">
+                                <span>📱 Список площадок (11)</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="package-accordion-content">
+                                <ul class="package-platforms-list">
+                                    <li><a href="https://www.instagram.com/minsk_news/" target="_blank">minsk_news</a></li>
+                                    <li><a href="https://www.instagram.com/minskchp/" target="_blank">minskchp</a></li>
+                                    <li><a href="https://www.instagram.com/afishaminsk/" target="_blank">afishaminsk</a></li>
+                                    <li><a href="https://www.instagram.com/tvoyminsk/" target="_blank">tvoyminsk</a></li>
+                                    <li><a href="https://www.instagram.com/vestiminska/" target="_blank">vestiminska</a></li>
+                                    <li><a href="https://www.instagram.com/minskpress/" target="_blank">minskpress</a></li>
+                                    <li><a href="https://www.instagram.com/xxminsk/" target="_blank">xxminsk</a></li>
+                                    <li><a href="https://www.instagram.com/minskgood/" target="_blank">minskgood</a></li>
+                                    <li><a href="https://www.instagram.com/novostiminska/" target="_blank">novostiminska</a></li>
+                                    <li><a href="https://www.instagram.com/minskhot/" target="_blank">minskhot</a></li>
+                                    <li><a href="https://www.instagram.com/minsksmile/" target="_blank">minsksmile</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="accordion-content">
-                            <ul class="platforms-list">
-                                <li><a href="https://vk.com/etominsk" target="_blank">etominsk</a></li>
-                                <li><a href="https://vk.com/belaruschp" target="_blank">belaruschp</a></li>
-                                <li><a href="https://vk.com/ominske" target="_blank">ominske</a></li>
-                                <li><a href="https://vk.com/7rabota" target="_blank">7rabota</a></li>
-                                <li><a href="https://vk.com/minsktime" target="_blank">minsktime</a></li>
-                                <li><a href="https://vk.com/belaris" target="_blank">belaris</a></li>
-                                <li><a href="https://vk.com/belarusfood" target="_blank">belarusfood</a></li>
-                                <li><a href="https://vk.com/minsksmile" target="_blank">minsksmile</a></li>
-                                <li><a href="https://vk.com/minskrepost" target="_blank">minskrepost</a></li>
+
+                        <div class="package-stories-block">
+                            <div style="font-weight: 600; margin-bottom: 8px;">📸 Дополнительно stories:</div>
+                            <ul class="package-stories-list">
+                                <li>minsk_news</li>
+                                <li>afishaminsk</li>
+                                <li>minskchp</li>
+                                <li>tvoyminsk</li>
+                                <li>vestiminska</li>
+                                <li>xxminsk</li>
                             </ul>
                         </div>
+                        <button class="package-order-btn open-modal-btn">Заказать размещения →</button>
                     </div>
 
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>💬 Telegram (2)</span>
-                            <span class="arrow">▼</span>
+                    <div class="package-card premium">
+                        <div class="premium-badge">🔥 ХИТ</div>
+                        <span class="package-icon">⭐</span>
+                        <h2>Пакет «ПРЕМИУМ»</h2>
+                        <div class="package-price">905 BYN <span class="package-old-price">1 500 BYN</span> <span>/ пакет</span></div>
+                        <div class="package-stats">📊 более 1 700 000 подписчиков</div>
+                        
+                        <div class="package-accordion">
+                            <div class="package-accordion-header" onclick="togglePackageAccordion(this)">
+                                <span>📷 Instagram (11)</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="package-accordion-content">
+                                <ul class="package-platforms-list">
+                                    <li><a href="https://www.instagram.com/minsk_news/" target="_blank">minsk_news</a></li>
+                                    <li><a href="https://www.instagram.com/minskchp/" target="_blank">minskchp</a></li>
+                                    <li><a href="https://www.instagram.com/afishaminsk/" target="_blank">afishaminsk</a></li>
+                                    <li><a href="https://www.instagram.com/tvoyminsk/" target="_blank">tvoyminsk</a></li>
+                                    <li><a href="https://www.instagram.com/vestiminska/" target="_blank">vestiminska</a></li>
+                                    <li><a href="https://www.instagram.com/minskpress/" target="_blank">minskpress</a></li>
+                                    <li><a href="https://www.instagram.com/xxminsk/" target="_blank">xxminsk</a></li>
+                                    <li><a href="https://www.instagram.com/minskgood/" target="_blank">minskgood</a></li>
+                                    <li><a href="https://www.instagram.com/novostiminska/" target="_blank">novostiminska</a></li>
+                                    <li><a href="https://www.instagram.com/minskhot/" target="_blank">minskhot</a></li>
+                                    <li><a href="https://www.instagram.com/minsksmile/" target="_blank">minsksmile</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="accordion-content">
-                            <ul class="platforms-list">
-                                <li><a href="https://t.me/vestiminska" target="_blank">vestiminska</a> (47 000 чел.)</li>
-                                <li><a href="https://t.me/minskchpdtp" target="_blank">minskchpdtp</a> (16 000 чел.)</li>
+
+                        <div class="package-accordion">
+                            <div class="package-accordion-header" onclick="togglePackageAccordion(this)">
+                                <span>📘 Вконтакте (9)</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="package-accordion-content">
+                                <ul class="package-platforms-list">
+                                    <li><a href="https://vk.com/etominsk" target="_blank">etominsk</a></li>
+                                    <li><a href="https://vk.com/belaruschp" target="_blank">belaruschp</a></li>
+                                    <li><a href="https://vk.com/ominske" target="_blank">ominske</a></li>
+                                    <li><a href="https://vk.com/7rabota" target="_blank">7rabota</a></li>
+                                    <li><a href="https://vk.com/minsktime" target="_blank">minsktime</a></li>
+                                    <li><a href="https://vk.com/belaris" target="_blank">belaris</a></li>
+                                    <li><a href="https://vk.com/belarusfood" target="_blank">belarusfood</a></li>
+                                    <li><a href="https://vk.com/minsksmile" target="_blank">minsksmile</a></li>
+                                    <li><a href="https://vk.com/minskrepost" target="_blank">minskrepost</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="package-accordion">
+                            <div class="package-accordion-header" onclick="togglePackageAccordion(this)">
+                                <span>💬 Telegram (2)</span>
+                                <span class="arrow">▼</span>
+                            </div>
+                            <div class="package-accordion-content">
+                                <ul class="package-platforms-list">
+                                    <li><a href="https://t.me/vestiminska" target="_blank">vestiminska</a> (47 000 чел.)</li>
+                                    <li><a href="https://t.me/minskchpdtp" target="_blank">minskchpdtp</a> (16 000 чел.)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="package-stories-block">
+                            <div style="font-weight: 600; margin-bottom: 8px;">📸 Дополнительно stories:</div>
+                            <ul class="package-stories-list">
+                                <li>minsk_news</li>
+                                <li>afishaminsk</li>
+                                <li>minskchp</li>
+                                <li>tvoyminsk</li>
+                                <li>vestiminska</li>
+                                <li>xxminsk</li>
                             </ul>
                         </div>
+                        <button class="package-order-btn open-modal-btn">Заказать размещения →</button>
                     </div>
-
-                    <div class="stories-block">
-                        <div style="font-weight: 600; margin-bottom: 8px;">📸 Дополнительно stories:</div>
-                        <ul class="stories-list">
-                            <li>minsk_news</li>
-                            <li>afishaminsk</li>
-                            <li>minskchp</li>
-                            <li>tvoyminsk</li>
-                            <li>vestiminska</li>
-                            <li>xxminsk</li>
-                        </ul>
-                    </div>
-                    <button class="order-btn open-modal-btn">Заказать размещения →</button>
                 </div>
             </div>
 
@@ -1113,13 +1483,13 @@
                         <div></div>
                     </div>
                     <div class="placement-table-row">
-                        <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">@minsk_news</a></div>
+                        <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">Instagram @minsk_news</a></div>
                         <div class="placement-subscribers">478 000</div>
                         <div class="placement-price-table">550 BYN</div>
                         <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
                     </div>
                     <div class="placement-table-row">
-                        <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">@vestiminska</a></div>
+                        <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">Telegram @vestiminska</a></div>
                         <div class="placement-subscribers">47 000</div>
                         <div class="placement-price-table">400 BYN</div>
                         <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
@@ -1127,41 +1497,96 @@
                 </div>
             </div>
 
-            <!-- Блогеры - только кнопка "Посмотреть все услуги" -->
+            <!-- Дополнительные услуги - перенесены под одиночные размещения -->
+            <div class="community-extras">
+                <h3>➕ Дополнительные услуги</h3>
+                <div class="extras-grid">
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Закрепление поста</strong> на сутки в главном аккаунте Minsk News</div>
+                        <div class="extra-price">100 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Замена фотографий</strong> в каждом сообществе (при заказе комплекса Стандарт или Премиум)</div>
+                        <div class="extra-price">100 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Замена текста и фотографий</strong> в каждом сообществе (при заказе комплекса Стандарт или Премиум)</div>
+                        <div class="extra-price">150 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Сохранение публикаций на 1 год</strong> в ленте аккаунта. Пользователи, которые сохраняют или делятся постами всегда смогут вернуться к ним.</div>
+                        <div class="extra-price">от 80 BYN</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Запуск таргетированной рекламы</strong> на размещенный пост.</div>
+                        <div class="extra-price">по запросу</div>
+                    </div>
+                    <div class="extra-card">
+                        <div class="extra-name"><strong>Напомнить о себе в сторис Minsk News</strong> ~ через неделю после размещения.</div>
+                        <div class="extra-price">250 BYN</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Условия размещения публикаций в сообществах - выпадающий блок -->
+            <div class="terms-section">
+                <div class="terms-header" id="termsHeader">
+                    <h4>📋 Условия размещения публикаций в сообществах</h4>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="terms-content" id="termsContent">
+                    <div class="terms-inner">
+                        <p><strong>Instagram и Вконтакте</strong> — пост 1 час на первом месте в ленте (за исключением закрепленных публикаций).</p>
+                        <p><strong>Telegram</strong> — пост на 30 минут на первом месте, далее выходят другие публикации канала.</p>
+                        <p><strong>Сроки размещения в ленте:</strong> рекламные посты размещаются на 14 дней в ленте, затем они удаляются. При заказе комплекса <strong>ПРЕМИУМ</strong> — посты размещаются на 30 дней в ленте, затем они удаляются.</p>
+                        <div class="important">
+                            <strong>🔔 ВАЖНЫЙ МОМЕНТ</strong>
+                            <p>Все рекламные посты мы размещаем в <b>новостной стилистике от третьего лица</b>, как новость или пресс-релиз. Фотографии для публикаций мы используем живые и тематические, рекламные баннеры / афиши — мы не размещаем.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блогеры -->
             <div class="bloggers-section" id="bloggers">
                 <div class="bloggers-header">
                     <h2>🎬 Наши блогеры</h2>
-                    <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
+                    <p>Одни из самых популярных и узнаваемых блогеров Минска</p>
                 </div>
                 <div class="bloggers-grid">
-                    <div class="blogger-card">
+                    <div class="blogger-card" onclick="window.location.href='bloggerchpch.html'">
                         <img src="chpch.jpg" alt="chtopochem_minsk" class="blogger-avatar">
                         <h3>chtopochem_minsk</h3>
-                        <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram">@chtopochem_minsk</a>
+                        <a href="https://www.instagram.com/chtopochem_minsk" target="_blank" class="blogger-instagram" onclick="event.stopPropagation()">@chtopochem_minsk</a>
                         <div class="blogger-stats">215 000 подписчиков</div>
                         <div class="blogger-price">от 1 600 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (87K)</div>
-                        <a href="bloggerchpch.html" class="blogger-services-btn">Посмотреть все услуги →</a>
+                        <a href="bloggerchpch.html" class="blogger-services-btn" onclick="event.stopPropagation()">Посмотреть все услуги →</a>
                     </div>
-                    <div class="blogger-card">
+                    <div class="blogger-card" onclick="window.location.href='bloggerkm.html'">
                         <img src="km.jpg" alt="kudaminsk" class="blogger-avatar">
                         <h3>kudaminsk</h3>
-                        <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram">@kudaminsk</a>
+                        <a href="https://www.instagram.com/kudaminsk" target="_blank" class="blogger-instagram" onclick="event.stopPropagation()">@kudaminsk</a>
                         <div class="blogger-stats">143 000 подписчиков</div>
                         <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (30K)</div>
-                        <a href="bloggerkm.html" class="blogger-services-btn">Посмотреть все услуги →</a>
+                        <a href="bloggerkm.html" class="blogger-services-btn" onclick="event.stopPropagation()">Посмотреть все услуги →</a>
                     </div>
-                    <div class="blogger-card">
+                    <div class="blogger-card" onclick="window.location.href='bloggerztstl.html'">
                         <img src="ztstl.jpg" alt="zatestil" class="blogger-avatar">
                         <h3>zatestil</h3>
-                        <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram">@zatestil</a>
+                        <a href="https://www.instagram.com/zatestil" target="_blank" class="blogger-instagram" onclick="event.stopPropagation()">@zatestil</a>
                         <div class="blogger-stats">188 000 подписчиков</div>
                         <div class="blogger-price">от 1 400 BYN</div>
                         <div class="blogger-package">Reels + серия сторис + TikTok (67K)</div>
-                        <a href="bloggerztstl.html" class="blogger-services-btn">Посмотреть все услуги →</a>
+                        <a href="bloggerztstl.html" class="blogger-services-btn" onclick="event.stopPropagation()">Посмотреть все услуги →</a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Большая кнопка "Посмотреть рекламные возможности у блогеров" -->
+            <div class="blogger-main-btn">
+                <a href="bloggers.html" class="btn-bloggers-main">🎬 Посмотреть рекламные возможности у блогеров →</a>
             </div>
 
             <a href="index.html" class="back-link">← Вернуться на главную</a>
@@ -1224,7 +1649,7 @@
     </div>
 
     <script>
-        function toggleAccordion(element) {
+        function togglePackageAccordion(element) {
             element.classList.toggle('active');
             const content = element.nextElementSibling;
             content.classList.toggle('show');
@@ -1241,19 +1666,28 @@
         // Переключатель
         const btnCommunities = document.getElementById('btnCommunities');
         const btnBloggers = document.getElementById('btnBloggers');
-        const tariffsSection = document.getElementById('tariffs');
+        const communitySection = document.querySelector('.community-options');
         const bloggersSection = document.getElementById('bloggers');
 
         btnCommunities.addEventListener('click', () => {
             btnCommunities.classList.add('active');
             btnBloggers.classList.remove('active');
-            tariffsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            communitySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
         btnBloggers.addEventListener('click', () => {
             btnBloggers.classList.add('active');
             btnCommunities.classList.remove('active');
             bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Выпадающий блок условий
+        const termsHeader = document.getElementById('termsHeader');
+        const termsContent = document.getElementById('termsContent');
+
+        termsHeader.addEventListener('click', () => {
+            termsHeader.classList.toggle('open');
+            termsContent.classList.toggle('open');
         });
 
         // Модальное окно
