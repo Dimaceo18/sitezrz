@@ -511,7 +511,7 @@
 
         /* Одиночные размещения - таблица */
         .single-placement {
-            margin: 40px 0 60px;
+            margin: 40px 0 40px;
         }
 
         .single-placement h3 {
@@ -589,6 +589,94 @@
         .cart-btn:hover {
             background: #E6C935;
             transform: scale(1.02);
+        }
+
+        /* Условия размещения - выпадающий блок */
+        .terms-section {
+            margin: 40px 0 60px;
+        }
+
+        .terms-header {
+            background: #F0F0F0;
+            border-radius: 60px;
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #E8ECF0;
+        }
+
+        .terms-header:hover {
+            background: #E8E8E8;
+        }
+
+        .terms-header h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin: 0;
+        }
+
+        .terms-header .arrow {
+            font-size: 16px;
+            color: #F5D742;
+            transition: transform 0.3s ease;
+        }
+
+        .terms-header.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .terms-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #FFFFFF;
+            border-radius: 24px;
+            margin-top: 16px;
+            border: 1px solid #E8ECF0;
+        }
+
+        .terms-content.open {
+            max-height: 800px;
+        }
+
+        .terms-inner {
+            padding: 28px 32px;
+        }
+
+        .terms-inner p {
+            font-size: 15px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .terms-inner ul {
+            margin: 12px 0 12px 24px;
+        }
+
+        .terms-inner li {
+            font-size: 14px;
+            color: #4A4A4A;
+            margin-bottom: 8px;
+        }
+
+        .terms-inner .important {
+            background: #FFF8E7;
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            border-left: 4px solid #F5D742;
+        }
+
+        .terms-inner .important strong {
+            color: #F5D742;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 12px;
         }
 
         /* Блогеры */
@@ -1045,6 +1133,9 @@
             .packages-grid {
                 flex-direction: column;
             }
+            .terms-inner {
+                padding: 20px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1088,6 +1179,10 @@
             .extra-card {
                 flex-direction: column;
                 text-align: center;
+            }
+            .terms-inner p,
+            .terms-inner li {
+                font-size: 13px;
             }
         }
     </style>
@@ -1400,6 +1495,25 @@
                 </div>
             </div>
 
+            <!-- Условия размещения публикаций в сообществах - выпадающий блок -->
+            <div class="terms-section">
+                <div class="terms-header" id="termsHeader">
+                    <h4>📋 Условия размещения публикаций в сообществах</h4>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="terms-content" id="termsContent">
+                    <div class="terms-inner">
+                        <p><strong>Instagram и Вконтакте</strong> — пост 1 час на первом месте в ленте (за исключением закрепленных публикаций).</p>
+                        <p><strong>Telegram</strong> — пост на 30 минут на первом месте, далее выходят другие публикации канала.</p>
+                        <p><strong>Сроки размещения в ленте:</strong> рекламные посты размещаются на 14 дней в ленте, затем они удаляются. При заказе комплекса <strong>ПРЕМИУМ</strong> — посты размещаются на 30 дней в ленте, затем они удаляются.</p>
+                        <div class="important">
+                            <strong>🔔 ВАЖНЫЙ МОМЕНТ</strong>
+                            <p>Все рекламные посты мы размещаем в <strong>новостной стилистике от третьего лица</strong>, как новость или пресс-релиз. Фотографии для публикаций мы используем живые и тематические, рекламные баннеры / афиши — мы не размещаем.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Блогеры -->
             <div class="bloggers-section" id="bloggers">
                 <div class="bloggers-header">
@@ -1527,6 +1641,15 @@
             btnBloggers.classList.add('active');
             btnCommunities.classList.remove('active');
             bloggersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Выпадающий блок условий
+        const termsHeader = document.getElementById('termsHeader');
+        const termsContent = document.getElementById('termsContent');
+
+        termsHeader.addEventListener('click', () => {
+            termsHeader.classList.toggle('open');
+            termsContent.classList.toggle('open');
         });
 
         // Модальное окно
