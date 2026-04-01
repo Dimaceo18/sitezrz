@@ -105,76 +105,64 @@
             transform: translateY(-1px);
         }
 
-        /* ГЕРОЙ — эллипс разделенный на 3 части */
-        .hero-ellipse {
+        /* ГЕРОЙ — эллипс как фон, контент поверх */
+        .hero-wrapper {
+            position: relative;
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+
+        .hero-ellipse-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: #F8F9FA;
             border-radius: 60% 40% 50% 50% / 45% 40% 60% 55%;
-            margin-bottom: 80px;
-            overflow: hidden;
-            scroll-margin-top: 100px;
+            z-index: 0;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
         }
 
-        .hero-grid {
+        .hero-content-layer {
+            position: relative;
+            z-index: 1;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: auto;
+            gap: 48px;
+            padding: 60px 48px;
         }
 
-        /* Левая половина — картинка */
+        /* Левая часть — картинка */
         .hero-image {
-            background: #F5F5F5;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 48px 32px;
-            min-height: 100%;
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
             height: auto;
             border-radius: 24px;
             object-fit: cover;
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
-        /* Правая половина — разделена на верх и низ */
+        /* Правая часть */
         .hero-right {
             display: flex;
             flex-direction: column;
-            min-height: 100%;
-        }
-
-        .hero-title {
-            background: #FFFFFF;
-            padding: 40px 40px 32px 40px;
-            border-bottom: 1px solid #F0F0F0;
-            display: flex;
-            align-items: center;
+            gap: 32px;
         }
 
         .hero-title h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 800;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
             color: #000;
-            line-height: 1.4;
+            line-height: 1.35;
             margin: 0;
-        }
-
-        .hero-mission-buttons {
-            background: #FFFFFF;
-            padding: 32px 40px 40px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1;
-        }
-
-        .hero-mission {
-            margin-bottom: 32px;
         }
 
         .hero-mission p {
@@ -630,33 +618,22 @@
             .nav-wrapper { width: 100%; }
             .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 320px; margin: 0 auto; }
             
-            .hero-ellipse {
-                border-radius: 32px;
-            }
-            
-            .hero-grid {
+            .hero-content-layer {
                 grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 40px 28px;
             }
             
             .hero-image {
-                padding: 32px 24px;
+                order: -1;
             }
             
             .hero-image img {
                 max-width: 260px;
             }
             
-            .hero-title {
-                padding: 28px 24px 20px 24px;
-            }
-            
             .hero-title h1 {
                 font-size: 22px;
-                text-align: center;
-            }
-            
-            .hero-mission-buttons {
-                padding: 24px 24px 32px 24px;
                 text-align: center;
             }
             
@@ -689,14 +666,9 @@
             }
         }
 
-        /* Десктопные корректировки для больших экранов */
-        @media (min-width: 1200px) {
-            .hero-title h1 {
-                font-size: 26px;
-            }
-            
-            .hero-mission p {
-                font-size: 17px;
+        @media (max-width: 480px) {
+            .hero-content-layer {
+                padding: 32px 20px;
             }
         }
     </style>
@@ -721,30 +693,28 @@
             </div>
         </div>
 
-        <!-- Эллипс, разделенный на 3 части -->
-        <div class="hero-ellipse" id="home">
-            <div class="hero-grid">
+        <!-- Эллипс как фон, контент поверх -->
+        <div class="hero-wrapper" id="home">
+            <div class="hero-ellipse-bg"></div>
+            <div class="hero-content-layer">
                 <!-- Часть 1: картинка -->
                 <div class="hero-image">
                     <img src="photo1.jpg" alt="Городской контекст Минска">
                 </div>
                 
-                <!-- Правая половина, разделенная на 2 части -->
+                <!-- Часть 2: текст и кнопки -->
                 <div class="hero-right">
-                    <!-- Часть 2: заголовок -->
                     <div class="hero-title">
                         <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной и приятной рекламе в городских сообществах и у блогеров Минска.</h1>
                     </div>
                     
-                    <!-- Часть 3: миссия + кнопки -->
-                    <div class="hero-mission-buttons">
-                        <div class="hero-mission">
-                            <p>Наша миссия — удержать внимание аудитории. Мы превращаем рекламу в интересный контент, который смотрят и читают полностью, а не пролистывают, как рекламный баннер.</p>
-                        </div>
-                        <div class="hero-buttons">
-                            <button class="btn-primary open-modal-btn">Обсудить проект</button>
-                            <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
-                        </div>
+                    <div class="hero-mission">
+                        <p>Наша миссия — удержать внимание аудитории. Мы превращаем рекламу в интересный контент, который смотрят и читают полностью, а не пролистывают, как рекламный баннер.</p>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn-primary open-modal-btn">Обсудить проект</button>
+                        <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
                     </div>
                 </div>
             </div>
