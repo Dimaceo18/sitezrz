@@ -105,18 +105,21 @@
             transform: translateY(-1px);
         }
 
-        /* ГЕРОЙ — объединенный блок с картинкой и текстом */
+        /* ГЕРОЙ — объединенный блок с общей рамкой */
+        .hero-wrapper {
+            background: #FFFFFF;
+            border-radius: 32px;
+            margin-bottom: 80px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 100px;
+        }
+
         .hero {
             display: flex;
             align-items: center;
-            gap: 60px;
-            margin-bottom: 80px;
-            flex-wrap: wrap;
-            background: linear-gradient(135deg, #FEF9E6 0%, #FFFFFF 100%);
-            border-radius: 48px;
+            gap: 48px;
             padding: 48px;
-            scroll-margin-top: 100px;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
         }
 
         .hero-image {
@@ -127,37 +130,19 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             height: auto;
-            border-radius: 32px;
+            border-radius: 24px;
             object-fit: cover;
-            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image img:hover {
-            transform: scale(1.02);
         }
 
         .hero-content {
-            flex: 1.2;
+            flex: 1;
             min-width: 280px;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: #F5D74220;
-            color: #F5B800;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 40px;
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
-        }
-
         .hero-content h1 {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             letter-spacing: -0.5px;
             margin-bottom: 24px;
@@ -165,42 +150,31 @@
             line-height: 1.3;
         }
 
-        /* Стилизованный блок с миссией — как выделенная цитата */
         .mission-block {
-            background: #1A1A1A;
-            border-radius: 28px;
-            padding: 28px 32px;
-            margin: 28px 0 32px;
-            position: relative;
-            transition: all 0.3s ease;
-            border-left: 6px solid #F5D742;
+            background: #F8F9FA;
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin: 0 0 28px 0;
+            border-left: 3px solid #F5D742;
         }
 
         .mission-quote {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 500;
             line-height: 1.5;
-            color: #FFFFFF;
+            color: #2C2C2C;
         }
 
         .mission-quote .quote-icon {
-            font-size: 32px;
+            font-size: 20px;
             color: #F5D742;
-            margin-right: 8px;
+            margin-right: 6px;
             vertical-align: middle;
             font-family: Georgia, serif;
         }
 
         .mission-quote p {
             display: inline;
-        }
-
-        .mission-author {
-            margin-top: 16px;
-            font-size: 13px;
-            color: #F5D742;
-            opacity: 0.8;
-            letter-spacing: 0.5px;
         }
 
         .hero-buttons {
@@ -213,29 +187,27 @@
         .btn-primary {
             background: #F5D742;
             color: #000;
-            padding: 14px 32px;
-            border-radius: 44px;
-            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
             text-decoration: none;
             font-size: 16px;
             display: inline-block;
             transition: 0.2s;
             cursor: pointer;
             border: none;
-            box-shadow: 0 4px 12px rgba(245, 215, 66, 0.3);
         }
 
         .btn-primary:hover {
             background: #E6C935;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(245, 215, 66, 0.4);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            border: 1.5px solid #E0E0E0;
-            padding: 14px 32px;
-            border-radius: 44px;
+            border: 1px solid #E0E0E0;
+            padding: 12px 28px;
+            border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
             color: #000;
@@ -247,7 +219,6 @@
         .btn-secondary:hover {
             border-color: #F5D742;
             background: #FFFDF5;
-            transform: translateY(-2px);
         }
 
         /* Статистика */
@@ -654,23 +625,18 @@
             
             .hero {
                 flex-direction: column;
-                gap: 32px;
-                padding: 32px 24px;
-                margin-bottom: 50px;
+                gap: 28px;
+                padding: 28px;
             }
             .hero-image { order: -1; }
             .hero-image img { max-width: 280px; }
             .hero-content h1 { font-size: 24px; text-align: center; }
-            .hero-badge { display: inline-block; margin: 0 auto 16px; text-align: center; width: fit-content; }
             
             .mission-block {
-                padding: 24px 20px;
+                padding: 16px 20px;
             }
             .mission-quote {
-                font-size: 16px;
-            }
-            .mission-quote .quote-icon {
-                font-size: 28px;
+                font-size: 14px;
             }
             .hero-buttons { justify-content: center; }
             
@@ -715,27 +681,26 @@
             </div>
         </div>
 
-        <!-- Объединенный красивый блок: картинка + текст + миссия -->
-        <div class="hero" id="home">
-            <div class="hero-image">
-                <img src="photo1.jpg" alt="Городской контекст Минска">
-            </div>
-            <div class="hero-content">
-                <div class="hero-badge">✦ нативная реклама в Минске</div>
-                <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной и приятной рекламе в городских сообществах и у блогеров Минска.</h1>
-                
-                <!-- Стилизованный блок с миссией — слитно с общим дизайном -->
-                <div class="mission-block">
-                    <div class="mission-quote">
-                        <span class="quote-icon">❝</span>
-                        <p>Наша миссия — удержать внимание аудитории. Мы превращаем рекламу в интересный контент, который смотрят и читают полностью, а не пролистывают, как рекламный баннер.</p>
-                    </div>
-                    <div class="mission-author">— команда ЗАРАЗ МЕДИА</div>
+        <!-- Объединенный блок: картинка + текст + миссия в одной карточке -->
+        <div class="hero-wrapper">
+            <div class="hero" id="home">
+                <div class="hero-image">
+                    <img src="photo1.jpg" alt="Городской контекст Минска">
                 </div>
-                
-                <div class="hero-buttons">
-                    <button class="btn-primary open-modal-btn">Обсудить проект</button>
-                    <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
+                <div class="hero-content">
+                    <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной и приятной рекламе в городских сообществах и у блогеров Минска.</h1>
+                    
+                    <div class="mission-block">
+                        <div class="mission-quote">
+                            <span class="quote-icon">❝</span>
+                            <p>Наша миссия — удержать внимание аудитории. Мы превращаем рекламу в интересный контент, который смотрят и читают полностью, а не пролистывают, как рекламный баннер.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn-primary open-modal-btn">Обсудить проект</button>
+                        <a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -761,7 +726,7 @@
         </div>
     </div>
 
-    <!-- ПОДВАЛ: десктопная версия -->
+    <!-- ПОДВАЛ -->
     <div class="footer-large" id="contacts">
         <div class="footer-content">
             <div class="footer-info">
@@ -865,7 +830,6 @@
             });
         }
 
-        // Создаем мобильную структуру подвала
         function initMobileFooter() {
             if (window.innerWidth <= 768) {
                 const footerLarge = document.querySelector('.footer-large');
