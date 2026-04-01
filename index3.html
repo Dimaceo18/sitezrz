@@ -118,7 +118,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 500px;
+            min-height: auto;
         }
 
         /* Левая половина — картинка */
@@ -127,7 +127,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 48px;
+            padding: 48px 32px;
+            min-height: 100%;
         }
 
         .hero-image img {
@@ -143,32 +144,33 @@
         .hero-right {
             display: flex;
             flex-direction: column;
+            min-height: 100%;
         }
 
         .hero-title {
             background: #FFFFFF;
-            padding: 40px 48px 32px 48px;
+            padding: 40px 40px 32px 40px;
             border-bottom: 1px solid #F0F0F0;
-            flex: 1;
             display: flex;
             align-items: center;
         }
 
         .hero-title h1 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
             color: #000;
-            line-height: 1.35;
+            line-height: 1.4;
+            margin: 0;
         }
 
         .hero-mission-buttons {
             background: #FFFFFF;
-            padding: 32px 48px 40px 48px;
-            flex: 1;
+            padding: 32px 40px 40px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            flex: 1;
         }
 
         .hero-mission {
@@ -180,6 +182,7 @@
             font-weight: 500;
             line-height: 1.5;
             color: #4A4A4A;
+            margin: 0;
         }
 
         .hero-buttons {
@@ -636,8 +639,7 @@
             }
             
             .hero-image {
-                padding: 32px;
-                order: -1;
+                padding: 32px 24px;
             }
             
             .hero-image img {
@@ -655,12 +657,12 @@
             
             .hero-mission-buttons {
                 padding: 24px 24px 32px 24px;
-                align-items: center;
                 text-align: center;
             }
             
             .hero-mission p {
                 font-size: 15px;
+                text-align: center;
             }
             
             .hero-buttons {
@@ -684,6 +686,17 @@
                 font-size: 11px;
                 max-width: 110px;
                 margin: 0 auto;
+            }
+        }
+
+        /* Десктопные корректировки для больших экранов */
+        @media (min-width: 1200px) {
+            .hero-title h1 {
+                font-size: 26px;
+            }
+            
+            .hero-mission p {
+                font-size: 17px;
             }
         }
     </style>
