@@ -155,7 +155,7 @@
 
         .community-header {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
         }
 
         .community-header h2 {
@@ -168,6 +168,8 @@
         .community-header p {
             font-size: 16px;
             color: #5A5A5A;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
         .community-grid {
@@ -217,6 +219,17 @@
             white-space: nowrap;
         }
 
+        .community-discount {
+            background: #F5D74220;
+            border-radius: 12px;
+            padding: 8px 12px;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #F5D742;
+            font-weight: 600;
+            text-align: center;
+        }
+
         /* Дополнительные услуги для сообществ */
         .community-extras {
             background: #F8F9FA;
@@ -257,8 +270,7 @@
 
         .extra-name {
             font-size: 15px;
-            font-weight: 600;
-            color: #2C2C2C;
+            color: #4A4A4A;
         }
 
         .extra-price {
@@ -589,6 +601,11 @@
             font-weight: 700;
             color: #000;
             margin-bottom: 12px;
+        }
+
+        .bloggers-header p {
+            font-size: 16px;
+            color: #5A5A5A;
         }
 
         .bloggers-grid {
@@ -1109,9 +1126,16 @@
             <div class="community-options">
                 <div class="community-header">
                     <h2>🏛️ Варианты размещений в сообществах</h2>
-                    <p>Выберите подходящий формат для продвижения в городских пабликах</p>
+                    <p>В нашем арсенале от одиночных размещений до полноценного многосерийного спецпроекта.</p>
                 </div>
                 <div class="community-grid">
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Одиночные размещения</div>
+                            <div class="community-desc">Для быстрого старта когда бюджет ограничен.</div>
+                        </div>
+                        <div class="community-price">от 400 BYN</div>
+                    </div>
                     <div class="community-card">
                         <div class="community-info">
                             <div class="community-name">Комплексное размещение</div>
@@ -1128,8 +1152,8 @@
                     </div>
                     <div class="community-card">
                         <div class="community-info">
-                            <div class="community-name">Нативная публикация</div>
-                            <div class="community-desc">Пост без активных ссылок на повышение узнаваемости, охваты в таких публикациях обычно выше.</div>
+                            <div class="community-name">Нативные публикации</div>
+                            <div class="community-desc">Посты без активных ссылок на повышение узнаваемости, охваты в таких публикациях обычно выше.</div>
                         </div>
                         <div class="community-price">от 450 BYN</div>
                     </div>
@@ -1139,6 +1163,15 @@
                             <div class="community-desc">Серия связанных публикаций о вашем продукте, товаре или услуге. Отлично подойдет для новостей о запуске продукта (услуги).</div>
                         </div>
                         <div class="community-price">от 2 500 BYN</div>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-info">
+                            <div class="community-name">Оптовые размещения</div>
+                            <div class="community-desc">При заказе от 5 комплексов, которые можно потратить в течение 1 года.</div>
+                        </div>
+                        <div class="community-price">
+                            <div class="community-discount">скидка 20%</div>
+                        </div>
                     </div>
                 </div>
 
@@ -1166,7 +1199,7 @@
             <div class="packages-section">
                 <div class="packages-header">
                     <h2>📦 Пакетные размещения</h2>
-                    <p>Выберите оптимальный пакет для масштабного продвижения</p>
+                    <p>Выберите оптимальный пакет для продвижения</p>
                 </div>
                 <div class="packages-grid">
                     <div class="package-card">
@@ -1335,13 +1368,13 @@
                         <div></div>
                     </div>
                     <div class="placement-table-row">
-                        <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">@minsk_news</a></div>
+                        <div><a href="https://www.instagram.com/minsk_news/" target="_blank" class="placement-account-link">Instagram @minsk_news</a></div>
                         <div class="placement-subscribers">478 000</div>
                         <div class="placement-price-table">550 BYN</div>
                         <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
                     </div>
                     <div class="placement-table-row">
-                        <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">@vestiminska</a></div>
+                        <div><a href="https://t.me/vestiminska" target="_blank" class="placement-account-link">Telegram @vestiminska</a></div>
                         <div class="placement-subscribers">47 000</div>
                         <div class="placement-price-table">400 BYN</div>
                         <div><button class="cart-btn open-modal-btn">🛒 Заказать</button></div>
@@ -1353,7 +1386,7 @@
             <div class="bloggers-section" id="bloggers">
                 <div class="bloggers-header">
                     <h2>🎬 Наши блогеры</h2>
-                    <p>Популярные инфлюенсеры Минска для эффективных интеграций</p>
+                    <p>Одни из самых популярных и узнаваемых блогеров Минска</p>
                 </div>
                 <div class="bloggers-grid">
                     <div class="blogger-card" onclick="window.location.href='bloggerchpch.html'">
