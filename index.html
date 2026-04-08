@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <title>ЗАРАЗ МЕДИА — реклама в городском контексте Минска</title>
+    <title>ЗАРАЗ МЕДИА — агентство нативной рекламы в соцсетях</title>
     <style>
         * {
             margin: 0;
@@ -275,55 +275,7 @@
             line-height: 1.4;
         }
 
-        /* Карточки */
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: space-between;
-        }
-
-        .card {
-            flex: 1;
-            background: #F8F9FA;
-            border-radius: 24px;
-            padding: 32px 28px;
-            transition: 0.2s;
-            min-width: 250px;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-
-        .card-icon-img {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 24px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            object-fit: contain;
-        }
-
-        .card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #000;
-            text-align: center;
-        }
-
-        .card p {
-            color: #5A5A5A;
-            line-height: 1.5;
-            font-size: 15px;
-            text-align: center;
-        }
-
-        /* Площадки */
+        /* Площадки (основные карточки после описания) */
         .platforms-header {
             display: flex;
             justify-content: space-between;
@@ -622,7 +574,7 @@
         }
         /* Уменьшаем внутренние отступы всего блока на 20% */
         .clients-logos-area {
-            padding: 18px 28px 0 28px; /* было 24px 32px, уменьшили */
+            padding: 18px 28px 0 28px;
             background: #F8F9FA;
         }
         .clients-image-wrapper {
@@ -640,9 +592,9 @@
         }
         .cta-attached {
             background: linear-gradient(135deg, #F5D742 0%, #E6C935 100%);
-            padding: 28px 36px; /* было 36px 40px, уменьшили на 20% */
+            padding: 28px 36px;
             text-align: center;
-            margin-top: 16px; /* было 24px, уменьшили */
+            margin-top: 16px;
             border-radius: 0;
         }
         .cta-attached h2 {
@@ -1102,7 +1054,7 @@
             }
             
             .section-header h2, .platforms-header h2, .benefits-header h2, .faq-header h2, .clients-title h2 { font-size: 28px; text-align: left; }
-            .cards-grid, .benefits-grid { flex-direction: column; gap: 20px; }
+            .benefits-grid { flex-direction: column; gap: 20px; }
             .faq-question { font-size: 16px; padding: 16px 20px; }
             .faq-answer.show { padding: 16px 20px 20px 20px; }
         }
@@ -1110,12 +1062,10 @@
         .platform-card .platform-icon-img[src="mepublics.png"] { width: 200px; height: 200px; }
         .platform-card .platform-icon-img[src="ourbloggers.png"] { width: 200px; height: 200px; }
         .platform-card .platform-icon-img[src="ourtg.png"] { width: 200px; height: 200px; }
-        .platform-card .platform-icon-img[src="ourpubs.png"] { width: 200px; height: 200px; }
         @media (max-width: 768px) {
             .platform-card .platform-icon-img[src="mepublics.png"],
             .platform-card .platform-icon-img[src="ourbloggers.png"],
-            .platform-card .platform-icon-img[src="ourtg.png"],
-            .platform-card .platform-icon-img[src="ourpubs.png"] { width: 75px; height: 75px; }
+            .platform-card .platform-icon-img[src="ourtg.png"] { width: 75px; height: 75px; }
         }
     </style>
 </head>
@@ -1124,13 +1074,12 @@
     <div class="container">
         <div class="header">
             <div class="header-inner">
-                <a href="#" class="logo-link" onclick="window.location.reload(); return false;">
+                <a href="javascript:void(0);" class="logo-link" onclick="window.location.reload(); return false;">
                     <img src="logozrz.png" alt="ЗАРАЗ МЕДИА" class="logo-img">
                 </a>
                 <div class="nav-wrapper">
                     <div class="nav">
-                        <a href="#services" class="nav-link">Наши услуги</a>
-                        <a href="#projects" class="nav-link">Наши проекты</a>
+                        <a href="places.html" class="nav-link">Наши услуги</a>
                         <a href="cases.html" class="nav-link">Кейсы</a>
                         <a href="about.html" class="nav-link">О нас</a>
                         <a href="#contacts" class="nav-link">Контакты</a>
@@ -1140,12 +1089,16 @@
             </div>
         </div>
 
+        <!-- НОВЫЙ ГЕРОЙ с обновленным описанием -->
         <div class="hero" id="home">
             <div class="hero-image"><img src="photo1.jpg" alt="Городской контекст Минска"></div>
             <div class="hero-content">
-                <h1>ЗАРАЗ МЕДИА — коммуникативное агентство, специализирующееся на нативной рекламе в городских сообществах и у блогеров Минска.</h1>
-                <div class="hero-description">Мы размещаем бренды так, чтобы это выглядело как естественная часть ленты, а не как чужой рекламный блок. Наша команда работает с 2012 года и провела более 1500 успешных кампаний.</div>
-                <div class="hero-mission"><p><span class="quote-icon">❝</span> Наша миссия: помогать брендам говорить с аудиторией Минска на одном языке, используя доверенные городские медиа и инфлюенсеров.</p></div>
+                <h1>Зараз Медиа — агентство нативной рекламы в соцсетях.</h1>
+                <div class="hero-description">
+                    <p>Мы работаем с социальными сетями с момента их появления в Беларуси — во ВКонтакте с 2008 года, а Инстаграм с 2012 года. За это время построили крупнейшие городские медиа с аудиторией в сотни тысяч человек.</p>
+                    <p style="margin-top: 12px;">Мы знаем, как говорить с большой аудиторией, и умеем делать так, чтобы вашу рекламу читали, а не пролистывали.</p>
+                </div>
+                <div class="hero-mission"><p><span class="quote-icon">❝</span> Наша миссия — помогать бизнесу рассказывать о себе в приятной, новостной подаче, а не в формате рекламных баннеров, которые многие игнорируют.</p></div>
                 <div class="hero-buttons"><button class="btn-primary open-modal-btn">Обсудить проект</button><a href="opportunities.html" class="btn-secondary">Посмотреть возможности →</a></div>
             </div>
         </div>
@@ -1158,38 +1111,39 @@
         </div>
 
         <div class="section" id="services">
-            <div class="section-header"><h2>Что мы делаем</h2><p>Не просто размещаем рекламу — делимся новостями о вашем бренде в привычном для жителей города формате.</p></div>
-            <div class="cards-grid">
-                <div class="card"><img src="integration.png" alt="Нативные интеграции" class="card-icon-img"><h3>Нативные интеграции</h3><p>Встраиваем упоминания о бренде в посты, истории и публикации так, чтобы они читались естественно.</p></div>
-                <div class="card"><img src="bloggers.png" alt="Работа с блогерами Минска" class="card-icon-img"><h3>Работа с блогерами Минска</h3><p>Подбираем подходящих городских авторов, которых действительно читают и которым доверяют.</p></div>
-                <div class="card"><img src="public.png" alt="Городские сообщества" class="card-icon-img"><h3>Городские сообщества</h3><p>Размещаем в популярных пабликах о жизни Минска: новости, обзоры, афиша, районные сообщества.</p></div>
-            </div>
+            <div class="section-header"><h2>Где размещаем?</h2><p>Наша команда не просто размещает рекламные баннеры — мы берем Вашу информацию и адаптируем её в нативный (скрытый) формат.</p></div>
         </div>
 
-        <div class="platforms-header" id="projects"><h2>Где размещаем</h2><a href="places.html" class="link-all">Смотреть все площадки →</a></div>
+        <!-- ТОЛЬКО 3 КАРТОЧКИ с обновленными описаниями -->
         <div class="platforms-grid">
-            <div class="platform-card"><img src="mepublics.png" alt="Паблики о Минске" class="platform-icon-img"><h4>Паблики о Минске</h4><p>Крупные городские сообщества и районные паблики</p></div>
-            <div class="platform-card"><img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img"><h4>Городские блогеры</h4><p>Популярные инстаграм- и телеграм-авторы Минска</p></div>
-            <div class="platform-card"><img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img"><h4>Telegram-каналы</h4><p>Новости, афиши, лайфстайл и тематические каналы</p></div>
-            <div class="platform-card"><img src="ourpubs.png" alt="Нишевые сообщества" class="platform-icon-img"><h4>Нишевые сообщества</h4><p>Еда, спорт, бизнес, бытовые и другие сферы</p></div>
+            <div class="platform-card"><img src="mepublics.png" alt="Социальные медиа" class="platform-icon-img"><h4>Социальные медиа</h4><p>Крупные городские сообщества о городе</p></div>
+            <div class="platform-card"><img src="ourbloggers.png" alt="Городские блогеры" class="platform-icon-img"><h4>Городские блогеры</h4><p>Популярные Минские блогеры</p></div>
+            <div class="platform-card"><img src="ourtg.png" alt="Telegram-каналы" class="platform-icon-img"><h4>Telegram-каналы</h4><p>Крупнейшие новостные каналы страны</p></div>
         </div>
         <div class="platforms-button-wrapper"><a href="places.html" class="btn-view-all">Смотреть все площадки →</a></div>
 
         <div class="benefits-header" id="cases"><h2>Почему это работает</h2></div>
         <div class="benefits-grid">
-            <div class="benefit-card"><img src="icon1.png" class="benefit-icon-img"><h3>Реклама, которую замечают</h3><p>Ваше сообщение подаётся в формате обычного поста, поэтому его дочитывают.</p></div>
-            <div class="benefit-card"><img src="icon2.png" class="benefit-icon-img"><h3>Доверие аудитории</h3><p>Люди видят рекомендацию от любимых городских пабликов и блогеров, а не навязчивый баннер.</p></div>
-            <div class="benefit-card"><img src="icon3.png" class="benefit-icon-img"><h3>Точный городской контекст</h3><p>Говорим на одном языке с аудиторией Минска: районы, заведения, повестка, городской ритм.</p></div>
-            <div class="benefit-card"><img src="icon4.png" class="benefit-icon-img"><h3>Реальный результат</h3><p>Работаем на узнаваемость, переходы, продажи и посещаемость — под ваши цели.</p></div>
+            <div class="benefit-card"><img src="icon1.png" class="benefit-icon-img"><h3>Реклама, которую замечают</h3><p>Ваша рекламная информация подаётся в формате обычной и привычной новости, поэтому её дочитывают до конца.</p></div>
+            <div class="benefit-card"><img src="icon2.png" class="benefit-icon-img"><h3>Доверие аудитории</h3><p>Люди видят Вашу новость от городских сообществ и блогеров на которых подписаны, а не навязчивый рекламный баннер в ленте.</p></div>
+            <div class="benefit-card"><img src="icon3.png" class="benefit-icon-img"><h3>Никаких рекламных слоганов</h3><p>Пишем новости о вашем бизнесе в привычном для подписчиков формате.</p></div>
+            <div class="benefit-card"><img src="icon4.png" class="benefit-icon-img"><h3>Реальный результат</h3><p>Такая реклама дает большие охваты, просмотры и переходы.</p></div>
         </div>
 
-        <!-- FAQ блок -->
+        <!-- FAQ блок с добавленным первым вопросом -->
         <div class="faq-section" id="faq">
             <div class="faq-header">
                 <h2>Часто задаваемые вопросы</h2>
                 <p>Ответы на самые популярные вопросы о размещении и сотрудничестве</p>
             </div>
             <div class="faq-accordion">
+                <!-- НОВЫЙ ВОПРОС: Где мы размещаем рекламу? -->
+                <div class="faq-item">
+                    <div class="faq-question">📍 Где мы размещаем рекламу?<span class="q-icon">+</span></div>
+                    <div class="faq-answer">
+                        <p>Мы размещаем рекламные размещения в своих сообществах Инстаграм, Вконтакте, Телеграм, а также у наших блогеров. Полный список площадок и цены можно посмотреть <a href="places.html" style="color:#F5D742; text-decoration:underline;">здесь</a>.</p>
+                    </div>
+                </div>
                 <div class="faq-item">
                     <div class="faq-question">📌 Условия размещения постов?<span class="q-icon">+</span></div>
                     <div class="faq-answer">
@@ -1217,7 +1171,7 @@
             <div class="faq-footer-note">📘 У вас остались вопросы? Вы можете найти ответы на них в нашей <a href="faq.html">базе ответов</a>.</div>
         </div>
 
-        <!-- НАШИ КЛИЕНТЫ: заголовок отдельно, весь блок уменьшен на 20% -->
+        <!-- НАШИ КЛИЕНТЫ: заголовок отдельно -->
         <div class="clients-title">
             <h2>Наши клиенты</h2>
         </div>
@@ -1242,9 +1196,9 @@
             <div class="footer-info">
                 <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
                 <p class="details">ООО Храмцов Медиа</p>
-                <p class="details">УНП 192554055</p>
+                <p class="details">УНП 193646337</p>
                 <p class="details" style="margin-top: 8px;">Адрес: ул. Октябрьская 19Б, офис 211</p>
-                <p class="details">Телефон: +375291405067</p>
+                <p class="details">Телефон: +375447790574</p>
                 <div class="footer-policy-links">
                     <a href="privacy-policy.html">Политика обработки персональных данных</a>
                     <a href="cookie-policy.html">Политика обработки файлов cookie</a>
@@ -1254,7 +1208,7 @@
                 <div class="footer-links-column">
                     <h4>Информация</h4>
                     <a href="faq.html">F.A.Q.</a>
-                    <a href="blog.html">Блог</a>
+                    <a href="news.html">Новости</a>
                     <a href="mediakit.html">Медиа-кит</a>
                 </div>
                 <div class="footer-links-column">
@@ -1338,7 +1292,7 @@
                             <div class="footer-mobile-column">
                                 <h4>Информация</h4>
                                 <a href="faq.html">F.A.Q.</a>
-                                <a href="blog.html">Блог</a>
+                                <a href="news.html">Новости</a>
                                 <a href="mediakit.html">Медиа-кит</a>
                             </div>
                             <div class="footer-mobile-column">
@@ -1353,9 +1307,9 @@
                         <div class="footer-mobile-details">
                             <p class="company-name">Коммуникативное агентство "Зараз Медиа"</p>
                             <p>ООО Храмцов Медиа</p>
-                            <p>УНП 192554055</p>
+                            <p>УНП 193646337</p>
                             <p>Адрес: ул. Октябрьская 19Б, офис 211</p>
-                            <p>Телефон: +375291405067</p>
+                            <p>Телефон: +375447790574</p>
                         </div>
                         <div class="footer-mobile-policy">
                             <a href="privacy-policy.html">Политика обработки персональных данных</a>
