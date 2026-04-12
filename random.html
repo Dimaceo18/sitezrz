@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Минский рандомайзер дел | Что сегодня делать?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* легкий эффект, чтобы кнопка не выделялась при клике */
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #1a4d8c 0%, #0e2a4a 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* карточка-контейнер */
+        .card {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 48px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+            transition: transform 0.2s ease;
+        }
+
+        /* шапка с минской атмосферой */
+        .header {
+            background: #ffcd3c;
+            padding: 28px 24px 20px 24px;
+            text-align: center;
+            border-bottom: 4px solid #f0b27a;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e2f47;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.05);
+        }
+
+        .header p {
+            font-size: 1rem;
+            margin-top: 8px;
+            color: #2c3e4e;
+            font-weight: 500;
+            background: #fff3cf;
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 40px;
+        }
+
+        /* основная зона с идеей */
+        .idea-panel {
+            padding: 40px 24px 30px;
+            background: #fef9ef;
+            text-align: center;
+        }
+
+        .idea-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            color: #ff8c42;
+            margin-bottom: 12px;
+        }
+
+        .idea-box {
+            background: white;
+            border-radius: 60px;
+            padding: 24px 16px;
+            margin: 10px 0 20px 0;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02), 0 12px 24px -12px rgba(0,0,0,0.2);
+            border: 1px solid #ffe3b5;
+            transition: all 0.2s;
+        }
+
+        #randomIdea {
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #1f3b4c;
+            word-break: break-word;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* кнопка генерации */
+        .generate-btn {
+            background: #2e7d64;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 18px 28px;
+            border-radius: 60px;
+            width: 85%;
+            max-width: 320px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 0 #1b4e3f;
+            margin: 15px 0 10px;
+            letter-spacing: 1px;
+            font-family: inherit;
+        }
+
+        .generate-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #1b4e3f;
+        }
+
+        /* кнопка сброса / показа статистики (необязательно, но приятно) */
+        .info-area {
+            background: #f4ede1;
+            padding: 20px 24px 28px;
+            border-top: 1px dashed #e2cfaa;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+
+        .counter {
+            background: #e9dfce;
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .reset-list-btn {
+            background: none;
+            border: 1px solid #c0aa7a;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #5f4c2b;
+            cursor: pointer;
+            transition: 0.1s;
+            font-weight: 500;
+            margin-left: 12px;
+        }
+
+        .reset-list-btn:hover {
+            background: #fff1e0;
+        }
+
+        .footnote {
+            font-size: 0.75rem;
+            margin-top: 15px;
+            color: #9b8a6e;
+        }
+
+        /* адаптивность */
+        @media (max-width: 500px) {
+            .card {
+                border-radius: 32px;
+            }
+            #randomIdea {
+                font-size: 1.3rem;
+            }
+            .generate-btn {
+                font-size: 1.2rem;
+                padding: 14px 20px;
+            }
+            .idea-box {
+                padding: 18px 12px;
+            }
+        }
+
+        /* кнопка обновления (небольшой фокус) */
+        .generate-btn:focus-visible {
+            outline: 3px solid #ffb347;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h1>🗓️ Минский рандомайзер</h1>
+        <p>🇧🇾 культурная программа · активность · отдых</p>
+    </div>
+
+    <div class="idea-panel">
+        <div class="idea-label">✨ ТВОЯ ИДЕЯ НА СЕГОДНЯ ✨</div>
+        <div class="idea-box">
+            <div id="randomIdea">🍃 Нажми на кнопку</div>
+        </div>
+        <button class="generate-btn" id="generateBtn">🎲 ЧТО СЕГОДНЯ ДЕЛАТЬ?</button>
+        <div style="font-size: 0.75rem; margin-top: 5px; opacity: 0.7;">⚡ случайный выбор из твоего списка дел в Минске</div>
+    </div>
+
+    <div class="info-area">
+        <div class="counter">
+            📋 Всего идей: <span id="totalCount">10</span>  
+            <button id="resetListBtn" class="reset-list-btn" title="Восстановить первоначальный список (если меняли кодом)">⟳ Сброс</button>
+        </div>
+        <div class="footnote">
+            ⭐️ Загрузи свои 10 минских дел — просто замени массив в коде (строка const tasks)
+        </div>
+    </div>
+</div>
+
+<script>
+    // ============================================================
+    // ★★★★★  ЗАМЕНИТЕ ЭТОТ МАССИВ НА ВАШИ 10 ДЕЛ В МИНСКЕ ★★★★★
+    // ============================================================
+    let tasks = [
+        "Прогуляться по Верхнему городу и посмотреть Ратушу",
+        "Сходить в Национальный художественный музей",
+        "Покататься на лодке в Комсомольском озере",
+        "Посетить Троицкое предместье и зайти в сувенирные лавки",
+        "Съесть драники в трактире «Беларусь»",
+        "Увидеть библиотеку Беларуси (алмаз знаний) — смотровая площадка",
+        "Прогулка по парку Победы и Челюскинцев",
+        "Сходить на спектакль в Купаловский театр",
+        "Посетить Музей истории Великой Отечественной войны",
+        "Устроить вечерний променад по проспекту Независимости"
+    ];
+
+    // Функция для обновления отображаемого количества дел в футере
+    function updateTotalDisplay() {
+        document.getElementById('totalCount').innerText = tasks.length;
+    }
+
+    // Ключ для localStorage – чтобы запомнить, если пользователь захочет сменить дела через консоль (необязательно)
+    // Но главное: при загрузке страницы можно попробовать восстановить список, если он был сохранен ранее.
+    // Однако для простоты мы позволим пользователю через кнопку "Сброс" вернуть ИЗНАЧАЛЬНЫЙ массив.
+    // Сохраним оригинальный эталонный список отдельно.
+    const DEFAULT_TASKS = [
+        "Прогуляться по Верхнему городу и посмотреть Ратушу",
+        "Сходить в Национальный художественный музей",
+        "Покататься на лодке в Комсомольском озере",
+        "Посетить Троицкое предместье и зайти в сувенирные лавки",
+        "Съесть драники в трактире «Беларусь»",
+        "Увидеть библиотеку Беларуси (алмаз знаний) — смотровая площадка",
+        "Прогулка по парку Победы и Челюскинцев",
+        "Сходить на спектакль в Купаловский театр",
+        "Посетить Музей истории Великой Отечественной войны",
+        "Устроить вечерний променад по проспекту Независимости"
+    ];
+
+    // Загрузка возможного сохраненного списка (если ранее через консоль или в будущем добавим функцию, но для удобства)
+    // Можно также при желании загрузить из localStorage, но проще оставить так, чтобы вы могли изменить массив tasks прямо в коде.
+    // Тем не менее, кнопка сброса вернет tasks к DEFAULT_TASKS.
+    function resetToDefaultTasks() {
+        tasks = [...DEFAULT_TASKS];
+        updateTotalDisplay();
+        // После сброса желательно отобразить какой-то нейтральный текст, но не сбрасывать текущий результат,
+        // а просто обновить счетчик. Можно вывести сообщение, что список восстановлен.
+        const ideaDiv = document.getElementById('randomIdea');
+        if (ideaDiv.innerText !== "🍃 Нажми на кнопку" && ideaDiv.innerText !== "⚠️ Список дел пуст! Добавьте занятия.") {
+            // не трогаем идею, просто показываем временный тост-уведомление (alert не делаем, он раздражает)
+            showTemporaryMessage("✅ Список дел восстановлен до 10 минских активностей");
+        } else {
+            if(tasks.length === 0) ideaDiv.innerText = "🍃 Нажми на кнопку";
+            else ideaDiv.innerText = "🍃 Нажми на кнопку";
+        }
+    }
+
+    // Простое всплывающее сообщение (ненавязчивое)
+    function showTemporaryMessage(msg) {
+        let msgDiv = document.getElementById('tempMsg');
+        if(!msgDiv) {
+            msgDiv = document.createElement('div');
+            msgDiv.id = 'tempMsg';
+            msgDiv.style.position = 'fixed';
+            msgDiv.style.bottom = '20px';
+            msgDiv.style.left = '50%';
+            msgDiv.style.transform = 'translateX(-50%)';
+            msgDiv.style.backgroundColor = '#1e2f47';
+            msgDiv.style.color = '#ffcd3c';
+            msgDiv.style.padding = '10px 20px';
+            msgDiv.style.borderRadius = '40px';
+            msgDiv.style.fontSize = '0.85rem';
+            msgDiv.style.fontWeight = 'bold';
+            msgDiv.style.zIndex = '999';
+            msgDiv.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+            msgDiv.style.pointerEvents = 'none';
+            msgDiv.style.opacity = '0';
+            msgDiv.style.transition = 'opacity 0.2s';
+            document.body.appendChild(msgDiv);
+        }
+        msgDiv.innerText = msg;
+        msgDiv.style.opacity = '1';
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+        }, 1800);
+    }
+
+    // Генератор случайного дела
+    function getRandomIdea() {
+        if (!tasks || tasks.length === 0) {
+            return "⚠️ Список дел пуст! Добавьте занятия в массив tasks.";
+        }
+        const randomIndex = Math.floor(Math.random() * tasks.length);
+        return tasks[randomIndex];
+    }
+
+    // Отображение случайного дела в блоке
+    function displayRandomTask() {
+        const ideaElement = document.getElementById('randomIdea');
+        if(tasks.length === 0) {
+            ideaElement.innerHTML = "❌ Список дел пуст. Обновите через кнопку сброса или добавьте активности.";
+            return;
+        }
+        const randomTask = getRandomIdea();
+        // Добавим маленькую анимацию: легкое мерцание
+        ideaElement.style.transform = "scale(0.98)";
+        setTimeout(() => {
+            ideaElement.innerHTML = randomTask;
+            ideaElement.style.transform = "scale(1)";
+        }, 50);
+        // Дополнительно: эффект на кнопке? не обязательно, но приятно.
+    }
+
+    // Инициализация счетчика дел
+    function initCounter() {
+        updateTotalDisplay();
+        // Проверка: если массив tasks был изменен в коде вручную до загрузки - оставляем как есть,
+        // но если tasks имеет длину не 10 или пустой — можно предупредить в консоли. Но мы доверяем.
+        if(tasks.length === 0) {
+            console.warn("Рандомайзер: список задач пуст! Используйте сброс.");
+            document.getElementById('randomIdea').innerHTML = "📭 Добавьте свои 10 дел в Минске (массив tasks)";
+        } else {
+            // По умолчанию покажем приветственную фразу
+            document.getElementById('randomIdea').innerHTML = "✨ Минск ждёт! Нажми на кнопку ✨";
+        }
+    }
+
+    // Сохраняем слушатели
+    document.addEventListener('DOMContentLoaded', () => {
+        initCounter();
+
+        const generateBtn = document.getElementById('generateBtn');
+        generateBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            displayRandomTask();
+        });
+
+        const resetBtn = document.getElementById('resetListBtn');
+        resetBtn.addEventListener('click', () => {
+            resetToDefaultTasks();
+            // После сброса, если текущий отображаемый текст — "Список дел пуст" или подобное, обновим
+            const ideaDiv = document.getElementById('randomIdea');
+            const currentText = ideaDiv.innerText;
+            if (currentText.includes("пуст") || currentText.includes("Добавьте") || tasks.length > 0 && currentText === "⚠️ Список дел пуст! Добавьте занятия.") {
+                ideaDiv.innerHTML = "✨ Список обновлён! Жми кнопку ✨";
+            }
+        });
+
+        // Для удобства: обработка пробела / энтера на кнопке (accessibility)
+        generateBtn.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                displayRandomTask();
+            }
+        });
+    });
+
+    // дополнительная опция: если вы хотите сразу показать рандомную идею при загрузке (можно раскомментировать)
+    // но лучше оставить нейтрально, чтобы человек сам нажал.
+    // И еще: для демонстрации что список легко менять — вы можете прямо в консоли браузера написать:
+    // tasks = ["Пойти на каток в парк Горького", "Посетить Ботанический сад", ...] и счетчик обновится?
+    // сделаем так, чтобы при изменении массива tasks через консоль можно было обновить счетчик вручную, но для этого
+    // добавим функцию refreshCounter, которую можно вызвать вручную. Но для обычного юзера не нужно.
+    // Для разработчика — просто показать, что массив tasks гибкий.
+    window.updateTasksList = function(newTasksArray) {
+        if(Array.isArray(newTasksArray) && newTasksArray.length > 0) {
+            tasks = [...newTasksArray];
+            updateTotalDisplay();
+            showTemporaryMessage(`📌 Список обновлён! Теперь ${tasks.length} дел в Минске.`);
+            document.getElementById('randomIdea').innerHTML = "🔄 Новый список готов! Нажми на кнопку.";
+        } else {
+            showTemporaryMessage("Ошибка: передайте массив с делами (минимум 1)");
+        }
+    };
+    // Теперь вы (как администратор) можете в консоли браузера ввести:
+    // updateTasksList(["Сходить в ТРЦ Galleria Minsk", "Погулять по Октябрьской улице", ...])
+    // это удобно для тестов.
+
+    // также если кто-то захочет добавить защиту от дурака — выведем подсказку
+    console.log("✅ Рандомайзер готов! Список дел в Минске:", tasks);
+    console.log("💡 Чтобы загрузить свои 10 дел, отредактируйте массив 'tasks' в коде или вызовите updateTasksList(новыйМассив)");
+</script>
+</body>
+</html>
