@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>ЧТОПОЧЕМ | Minsk Tinder-стиль</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0e0719 0%, #1a0c2c 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Inter', 'SF Pro Text', Helvetica, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            touch-action: pan-y; /* разрешаем вертикальный скролл только при необходимости, но карточки свайпаются */
+            position: fixed;
+        }
+
+        /* главный контейнер-обертка */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* шапка в стиле тиндер-профиль */
+        .header {
+            padding: 18px 20px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            background: transparent;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #FF66D5, #B847FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo span {
+            font-size: 1rem;
+            background: none;
+            color: #ff9ae6;
+        }
+
+        .badge-min {
+            background: rgba(255, 70, 190, 0.2);
+            backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ffbef0;
+            border: 1px solid rgba(255, 100, 200, 0.5);
+        }
+
+        /* контейнер для стека карточек (как в Tinder) */
+        .cards-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 20px;
+            touch-action: none;
+        }
+
+        .card-stack {
+            position: relative;
+            width: 100%;
+            max-width: 360px;
+            height: 520px;
+            margin: 0 auto;
+        }
+
+        /* стиль карточки */
+        .swipe-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(20, 12, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 42px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 100, 220, 0.3);
+            overflow: hidden;
+            transition: transform 0.2s ease, opacity 0.2s;
+            cursor: grab;
+            will-change: transform;
+            touch-action: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .swipe-card:active {
+            cursor: grabbing;
+        }
+
+        /* контент внутри карточки */
+        .card-content {
+            padding: 30px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .place-icon {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+        }
+
+        .place-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            text-shadow: 0 1px 2px black;
+        }
+
+        .place-desc {
+            font-size: 1rem;
+            color: #e0c4ff;
+            line-height: 1.4;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .place-tag {
+            background: rgba(255, 70, 200, 0.25);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ffbbea;
+            margin-top: 20px;
+            width: fit-content;
+            backdrop-filter: blur(4px);
+        }
+
+        /* кнопки действий как в тиндере */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 24px 30px;
+            background: transparent;
+            z-index: 10;
+        }
+
+        .action-btn {
+            background: rgba(20, 10, 35, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 100, 200, 0.6);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.1s linear;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .action-btn:active {
+            transform: scale(0.92);
+        }
+
+        .btn-skip {
+            background: rgba(0, 0, 0, 0.6);
+            border-color: #ff7eb6;
+            color: #ff9ace;
+        }
+
+        .btn-like {
+            background: linear-gradient(145deg, #c72df5, #ff4080);
+            border: none;
+            color: white;
+            box-shadow: 0 0 12px #ff44aa;
+        }
+
+        .info-footer {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 10px;
+            color: #b484c9;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+        }
+
+        .reset-area {
+            position: absolute;
+            bottom: 100px;
+            right: 16px;
+            z-index: 20;
+        }
+
+        .reset-chip {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            color: #ffb3df;
+            border: 1px solid #ff77bb;
+            cursor: pointer;
+        }
+
+        /* анимация сброса */
+        @keyframes fadeOutUp {
+            0% { opacity: 1; transform: translateY(0) rotate(0deg);}
+            100% { opacity: 0; transform: translateY(-80px) rotate(-10deg);}
+        }
+
+        .card-remove {
+            animation: fadeOutUp 0.25s forwards !important;
+            pointer-events: none;
+        }
+
+        /* empty state */
+        .empty-state {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(0,0,0,0.6);
+            border-radius: 48px;
+            backdrop-filter: blur(12px);
+            padding: 20px;
+            color: white;
+        }
+
+        .empty-state h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .restore-btn {
+            margin-top: 24px;
+            background: #ff3b7c;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* скрыть стандартный */
+        .hidden {
+            display: none;
+        }
+
+        /* адаптив */
+        @media (max-width: 480px) {
+            .card-stack {
+                max-width: 320px;
+                height: 480px;
+            }
+            .place-name {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <div class="header">
+        <div class="logo">ЧТОПОЧЕМ<span> | MINSK</span></div>
+        <div class="badge-min">свайпай места ✦ тиндер-стайл</div>
+    </div>
+
+    <div class="cards-container" id="cardsContainer">
+        <div class="card-stack" id="cardStack"></div>
+    </div>
+
+    <div class="action-buttons">
+        <div class="action-btn btn-skip" id="skipBtn">✖</div>
+        <div class="action-btn btn-like" id="likeBtn">❤️</div>
+    </div>
+    <div class="info-footer">
+        👆 листай влево/вправо или нажимай кнопки — открывай новые места от блогера ЧТОПОЧЕМ
+    </div>
+    <div class="reset-area">
+        <div class="reset-chip" id="resetStackBtn">⟳ сбросить все места</div>
+    </div>
+</div>
+
+<script>
+    // ==============================================================
+    // ФИРМЕННЫЙ СПИСОК: 10 МЕСТ В МИНСКЕ ОТ БЛОГЕРА "ЧТОПОЧЕМ"
+    // ==============================================================
+    const PLACES_DB = [
+        { name: "Бар «Палiтра»", desc: "Немига, винные вечера и арт-перформансы. Огни, уют, фиолетовое настроение.", emoji: "🍷", tag: "arty party" },
+        { name: "Музей «Ў»", desc: "Современное искусство, инсталляции и кафе с авторским кофе.", emoji: "🎨", tag: "contemporary" },
+        { name: "Кофейня Druzi", desc: "Верхний город, двор с граффити и лучший раф в Минске.", emoji: "☕", tag: "cozy coffee" },
+        { name: "Заброшенная водонапорка", desc: "Граффити-стены, атмосферный индустриальный вайб для фото.", emoji: "📸", tag: "urban explore" },
+        { name: "Клуб «Барахолка»", desc: "Виниловые сеты, рейвы и неформальная тусовка.", emoji: "🎧", tag: "night vibe" },
+        { name: "Гранд кафе", desc: "Троицкое предместье, старинный интерьер и десерты, как у бабушки.", emoji: "🥨", tag: "retro charm" },
+        { name: "Парк Янки Купалы", desc: "Качели-артобъект, романтичные аллеи и пикник на газоне.", emoji: "🌿", tag: "nature chill" },
+        { name: "Лошицкий парк", desc: "Усадьба, стикер-ралли от ЧТОПОЧЕМ и таинственные руины.", emoji: "🛹", tag: "mysterious" },
+        { name: "Кинотеатр «Пионер»", desc: "Авторское кино, попкорн с трюфелем и ночные показы.", emoji: "🎬", tag: "cinema" },
+        { name: "Галерея «ДК»", desc: "Маркет локальных дизайнеров, зины и винтаж.", emoji: "🧶", tag: "design spot" }
+    ];
+
+    // текущий массив доступных мест (будем мутировать)
+    let currentPlacesStack = [];
+
+    // DOM элементы
+    const stackContainer = document.getElementById('cardStack');
+    const skipBtn = document.getElementById('skipBtn');
+    const likeBtn = document.getElementById('likeBtn');
+    const resetBtn = document.getElementById('resetStackBtn');
+
+    // переменные для отслеживания свайпов
+    let startX = 0;
+    let startY = 0;
+    let currentCard = null;
+    let isDragging = false;
+    let dragCard = null;
+    let dragOffsetX = 0, dragOffsetY = 0;
+    let rotateValue = 0;
+
+    // инициализация или сброс стека (полная перезагрузка)
+    function initStack() {
+        // клонируем исходные 10 мест в новый массив (каждый раз свежий порядок, перемешиваем для рандома)
+        currentPlacesStack = [...PLACES_DB];
+        // фишка тиндера: показываем в порядке исходном, но можно перемешать для эффекта "новой колоды"
+        shuffleArray(currentPlacesStack);
+        renderStack();
+    }
+
+    // перемешать массив (фишер-йетс)
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    // отрисовка карточек (создаем DOM элементы)
+    function renderStack() {
+        stackContainer.innerHTML = '';
+        if (currentPlacesStack.length === 0) {
+            // показать пустое состояние
+            const emptyDiv = document.createElement('div');
+            emptyDiv.className = 'swipe-card';
+            emptyDiv.style.position = 'relative';
+            emptyDiv.style.background = 'rgba(30,12,55,0.98)';
+            emptyDiv.innerHTML = `
+                <div class="empty-state">
+                    <h3>✨ Ты всё исвайпал ✨</h3>
+                    <p>Больше мест от ЧТОПОЧЕМ пока нет, но мы добавим новые точки в Минске!</p>
+                    <button class="restore-btn" id="restoreEmptyBtn">↻ перезапустить подборку</button>
+                </div>
+            `;
+            stackContainer.appendChild(emptyDiv);
+            const restoreEmpty = document.getElementById('restoreEmptyBtn');
+            if (restoreEmpty) restoreEmpty.onclick = () => initStack();
+            return;
+        }
+
+        // создаем карточки, самая первая (последняя в массиве) будет сверху? в тиндере верхняя карточка - последний элемент массива.
+        // чтобы удобнее удалять: показываем массив с конца (верхний слой - последний элемент)
+        for (let i = currentPlacesStack.length - 1; i >= 0; i--) {
+            const place = currentPlacesStack[i];
+            const card = document.createElement('div');
+            card.className = 'swipe-card';
+            card.setAttribute('data-idx', i);
+            // z-index чтобы верхняя карточка была выше
+            const zIndexVal = 100 + (currentPlacesStack.length - i);
+            card.style.zIndex = zIndexVal;
+            card.style.transform = 'translate(0px, 0px) rotate(0deg)';
+            card.style.transition = 'transform 0.2s ease-out, opacity 0.2s';
+            // внутренности
+            card.innerHTML = `
+                <div class="card-content">
+                    <div>
+                        <div class="place-icon">${place.emoji}</div>
+                        <div class="place-name">${escapeHtml(place.name)}</div>
+                        <div class="place-desc">${escapeHtml(place.desc)}</div>
+                        <div class="place-tag">#${place.tag}</div>
+                    </div>
+                    <div style="margin-top: auto; font-size:0.75rem; color:#c792ea;">⬅️ свайп влево = пропуск | ➡️ вправо = like</div>
+                </div>
+            `;
+            stackContainer.appendChild(card);
+        }
+        attachDragListeners();
+    }
+
+    // простой защитник от XSS
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    // прикрепляем драг-свайп события к верхней карточке (последний добавленный в DOM - визуально верхний)
+    function attachDragListeners() {
+        const cards = document.querySelectorAll('.swipe-card');
+        if (cards.length === 0) return;
+        // верхняя карточка - последний элемент в контейнере (т.к. мы добавляли в цикле от конца массива, последняя в DOM - верхняя)
+        const topCard = cards[cards.length - 1];
+        if (!topCard) return;
+        topCard.style.cursor = 'grab';
+        // удаляем старые слушатели, если есть, но проще новые привязать
+        topCard.removeEventListener('mousedown', onMouseDown);
+        topCard.removeEventListener('touchstart', onTouchStart);
+        topCard.addEventListener('mousedown', onMouseDown);
+        topCard.addEventListener('touchstart', onTouchStart, { passive: false });
+    }
+
+    function onMouseDown(e) {
+        e.preventDefault();
+        startDrag(e.clientX, e.clientY, e.target.closest('.swipe-card'));
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+    }
+
+    function onTouchStart(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        startDrag(touch.clientX, touch.clientY, e.target.closest('.swipe-card'));
+        window.addEventListener('touchmove', onTouchMove, { passive: false });
+        window.addEventListener('touchend', onTouchEnd);
+    }
+
+    function startDrag(clientX, clientY, cardElement) {
+        if (!cardElement) return;
+        dragCard = cardElement;
+        const rect = dragCard.getBoundingClientRect();
+        dragOffsetX = clientX - rect.left;
+        dragOffsetY = clientY - rect.top;
+        isDragging = true;
+        dragCard.style.transition = 'none';
+        startX = clientX;
+        startY = clientY;
+        rotateValue = 0;
+    }
+
+    function onMouseMove(e) {
+        if (!isDragging || !dragCard) return;
+        e.preventDefault();
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        rotateValue = dx * 0.02;
+        dragCard.style.transform = `translate(${dx}px, ${dy}px) rotate(${rotateValue}deg)`;
+    }
+
+    function onTouchMove(e) {
+        if (!isDragging || !dragCard) return;
+        e.preventDefault();
+        const touch = e.touches[0];
+        const dx = touch.clientX - startX;
+        const dy = touch.clientY - startY;
+        rotateValue = dx * 0.02;
+        dragCard.style.transform = `translate(${dx}px, ${dy}px) rotate(${rotateValue}deg)`;
+    }
+
+    function onMouseUp(e) {
+        if (!isDragging || !dragCard) {
+            cleanDragEvents();
+            return;
+        }
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        const threshold = 80; // свайп-порог
+        if (Math.abs(dx) > threshold) {
+            if (dx > 0) {
+                likeCard(dragCard);
+            } else {
+                skipCard(dragCard);
+            }
+        } else {
+            // возврат на место
+            resetCardPosition(dragCard);
+        }
+        cleanDragEvents();
+    }
+
+    function onTouchEnd(e) {
+        if (!isDragging || !dragCard) {
+            cleanDragEvents();
+            return;
+        }
+        let dx = 0, dy = 0;
+        if (e.changedTouches[0]) {
+            dx = e.changedTouches[0].clientX - startX;
+            dy = e.changedTouches[0].clientY - startY;
+        }
+        const threshold = 80;
+        if (Math.abs(dx) > threshold) {
+            if (dx > 0) {
+                likeCard(dragCard);
+            } else {
+                skipCard(dragCard);
+            }
+        } else {
+            resetCardPosition(dragCard);
+        }
+        cleanDragEvents();
+    }
+
+    function resetCardPosition(card) {
+        if (!card) return;
+        card.style.transition = 'transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+        card.style.transform = 'translate(0px, 0px) rotate(0deg)';
+        setTimeout(() => {
+            if (card) card.style.transition = '';
+        }, 250);
+    }
+
+    function cleanDragEvents() {
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+        window.removeEventListener('touchmove', onTouchMove);
+        window.removeEventListener('touchend', onTouchEnd);
+        isDragging = false;
+        dragCard = null;
+    }
+
+    // логика удаления карточки (свайп влево - пропуск, вправо - "лайк")
+    function skipCard(card) {
+        if (!card) return;
+        animateAndRemove(card, 'left');
+    }
+
+    function likeCard(card) {
+        if (!card) return;
+        animateAndRemove(card, 'right');
+    }
+
+    function animateAndRemove(card, direction) {
+        if (!card) return;
+        const endX = direction === 'right' ? 600 : -600;
+        const endRot = direction === 'right' ? 25 : -25;
+        card.style.transition = 'transform 0.3s ease-out';
+        card.style.transform = `translate(${endX}px, 100px) rotate(${endRot}deg)`;
+        card.style.opacity = '0';
+        setTimeout(() => {
+            if (card && card.parentNode) {
+                // удаляем карточку из DOM
+                card.remove();
+                // удаляем соответствующий объект из currentPlacesStack (верхний элемент)
+                if (currentPlacesStack.length > 0) {
+                    // верхняя карточка соответсвует последнему элементу массива (мы рендерили в обратном порядке)
+                    currentPlacesStack.pop();
+                }
+                // перерисовываем оставшиеся карточки? проще заново отрендерить стек на основе обновленного массива
+                // но чтобы не ломать анимацию, лучше перестроить всё заново
+                fullRebuildStack();
+            }
+        }, 300);
+    }
+
+    function fullRebuildStack() {
+        renderStack();
+    }
+
+    // кнопки управления
+    function skipTopByButton() {
+        const topCardElem = getTopCardElement();
+        if (topCardElem) {
+            skipCard(topCardElem);
+        } else if (currentPlacesStack.length === 0) {
+            initStack();
+        }
+    }
+
+    function likeTopByButton() {
+        const topCardElem = getTopCardElement();
+        if (topCardElem) {
+            likeCard(topCardElem);
+        } else if (currentPlacesStack.length === 0) {
+            initStack();
+        }
+    }
+
+    function getTopCardElement() {
+        const cards = document.querySelectorAll('.swipe-card');
+        if (cards.length === 0) return null;
+        return cards[cards.length - 1];
+    }
+
+    // сброс полной колоды (перезапуск)
+    function resetFullDeck() {
+        // инициализируем заново со свежим перемешанным списком
+        currentPlacesStack = [...PLACES_DB];
+        shuffleArray(currentPlacesStack);
+        renderStack();
+    }
+
+    // привязка кнопок
+    skipBtn.addEventListener('click', () => skipTopByButton());
+    likeBtn.addEventListener('click', () => likeTopByButton());
+    resetBtn.addEventListener('click', () => resetFullDeck());
+
+    // начальная загрузка
+    initStack();
+
+    // обработка свайпов на мобильных (чтобы не скроллилась страница при свайпе карточек)
+    document.body.addEventListener('touchmove', function(e) {
+        if (isDragging) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+</script>
+</body>
+</html>
