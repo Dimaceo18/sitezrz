@@ -3,400 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Минский рандомайзер дел | Что сегодня делать?</title>
+    <title>ЧТОПОЧЕМ Минск | Рандомайзер мест</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none; /* легкий эффект, чтобы кнопка не выделялась при клике */
         }
 
         body {
             min-height: 100vh;
-            background: linear-gradient(145deg, #1a4d8c 0%, #0e2a4a 100%);
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: radial-gradient(circle at 10% 30%, #1a0b2e 0%, #0f0719 100%);
+            font-family: 'Inter', sans-serif;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             padding: 20px;
+            position: relative;
         }
 
-        /* карточка-контейнер */
-        .card {
-            max-width: 600px;
+        /* динамический градиентный шум (модный эффект) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 48px;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            height: 100%;
+            background: repeating-radial-gradient(circle at 20% 30%, rgba(255, 45, 145, 0.08) 0px, rgba(160, 32, 240, 0.05) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* главный контейнер — глянцевый кард */
+        .glass-card {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            width: 100%;
+            background: rgba(18, 8, 32, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 56px;
+            border: 1px solid rgba(255, 80, 180, 0.4);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 70, 200, 0.2), 0 0 20px rgba(191, 0, 255, 0.3);
+            transition: all 0.3s ease;
             overflow: hidden;
-            backdrop-filter: blur(2px);
-            transition: transform 0.2s ease;
         }
 
-        /* шапка с минской атмосферой */
-        .header {
-            background: #ffcd3c;
-            padding: 28px 24px 20px 24px;
+        /* хип-хоп / градиентная шапка */
+        .hero {
+            background: linear-gradient(135deg, #a020f0 0%, #d43f9a 50%, #ff3b7c 100%);
+            padding: 32px 24px 28px;
             text-align: center;
-            border-bottom: 4px solid #f0b27a;
+            border-bottom: 2px solid rgba(255, 220, 255, 0.5);
         }
 
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #1e2f47;
-            letter-spacing: -0.5px;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.05);
-        }
-
-        .header p {
-            font-size: 1rem;
-            margin-top: 8px;
-            color: #2c3e4e;
-            font-weight: 500;
-            background: #fff3cf;
+        .badge {
             display: inline-block;
-            padding: 4px 16px;
-            border-radius: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffdf9c;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 200, 200, 0.4);
         }
 
-        /* основная зона с идеей */
-        .idea-panel {
-            padding: 40px 24px 30px;
-            background: #fef9ef;
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #ffe6f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: none;
+            color: #ffec80;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+            text-shadow: 0 0 8px #ff49b0;
+        }
+
+        .hero p {
+            color: #ffe6f5;
+            font-weight: 500;
+            margin-top: 12px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* основная секция с рандомайзером */
+        .randomizer-core {
+            padding: 40px 28px 36px;
             text-align: center;
         }
 
-        .idea-label {
-            font-size: 0.9rem;
+        .question-tag {
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            color: #ff8c42;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #ff87c0;
             margin-bottom: 12px;
         }
 
-        .idea-box {
-            background: white;
-            border-radius: 60px;
-            padding: 24px 16px;
-            margin: 10px 0 20px 0;
-            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02), 0 12px 24px -12px rgba(0,0,0,0.2);
-            border: 1px solid #ffe3b5;
-            transition: all 0.2s;
+        .idea-card {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 48px;
+            padding: 32px 20px;
+            margin: 12px 0 28px 0;
+            border: 1px solid rgba(255, 75, 170, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         #randomIdea {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            line-height: 1.3;
-            color: #1f3b4c;
+            line-height: 1.35;
+            color: #fff2f9;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
             word-break: break-word;
-            min-height: 100px;
+            min-height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        /* кнопка генерации */
-        .generate-btn {
-            background: #2e7d64;
+        /* главная кнопка — сочная неоновая */
+        .glow-btn {
+            background: linear-gradient(95deg, #c72df5, #f53699);
             border: none;
-            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
             font-size: 1.5rem;
-            font-weight: bold;
-            padding: 18px 28px;
-            border-radius: 60px;
-            width: 85%;
-            max-width: 320px;
+            padding: 18px 32px;
+            border-radius: 100px;
+            color: white;
+            width: 100%;
+            max-width: 380px;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 8px 0 #1b4e3f;
-            margin: 15px 0 10px;
-            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(198, 45, 245, 0.4), 0 0 0 1px rgba(255, 200, 255, 0.3);
+            letter-spacing: -0.3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .glow-btn:active {
+            transform: scale(0.96);
+            box-shadow: 0 4px 12px rgba(198, 45, 245, 0.6);
+        }
+
+        /* нижний блок с брендингом и счётчиком */
+        .footer-stats {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 20px 24px 24px;
+            border-top: 1px solid rgba(255, 100, 180, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .counter-chip {
+            background: #2a1042;
+            border-radius: 60px;
+            padding: 6px 18px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #ffb3e0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #ff5fa0;
+        }
+
+        .reset-btn {
+            background: rgba(255, 80, 150, 0.2);
+            border: 1px solid #ff80b5;
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #ffb7dc;
+            cursor: pointer;
+            transition: 0.15s;
             font-family: inherit;
         }
 
-        .generate-btn:active {
-            transform: translateY(4px);
-            box-shadow: 0 4px 0 #1b4e3f;
+        .reset-btn:hover {
+            background: rgba(255, 80, 150, 0.5);
+            color: white;
         }
 
-        /* кнопка сброса / показа статистики (необязательно, но приятно) */
-        .info-area {
-            background: #f4ede1;
-            padding: 20px 24px 28px;
-            border-top: 1px dashed #e2cfaa;
-            text-align: center;
+        .brand {
+            font-weight: 700;
+            background: linear-gradient(125deg, #ff9cef, #ff67ae);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             font-size: 0.9rem;
-            color: #4a627a;
-        }
-
-        .counter {
-            background: #e9dfce;
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .reset-list-btn {
-            background: none;
-            border: 1px solid #c0aa7a;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            color: #5f4c2b;
-            cursor: pointer;
-            transition: 0.1s;
-            font-weight: 500;
-            margin-left: 12px;
-        }
-
-        .reset-list-btn:hover {
-            background: #fff1e0;
         }
 
         .footnote {
-            font-size: 0.75rem;
-            margin-top: 15px;
-            color: #9b8a6e;
+            font-size: 0.7rem;
+            color: #b87cae;
+            text-align: center;
+            width: 100%;
+            margin-top: 8px;
         }
 
-        /* адаптивность */
-        @media (max-width: 500px) {
-            .card {
-                border-radius: 32px;
+        @media (max-width: 550px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .randomizer-core {
+                padding: 28px 18px;
             }
             #randomIdea {
                 font-size: 1.3rem;
             }
-            .generate-btn {
+            .glow-btn {
                 font-size: 1.2rem;
                 padding: 14px 20px;
             }
-            .idea-box {
-                padding: 18px 12px;
+            .footer-stats {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
             }
         }
 
-        /* кнопка обновления (небольшой фокус) */
-        .generate-btn:focus-visible {
-            outline: 3px solid #ffb347;
+        /* анимация для появления */
+        @keyframes gentlePop {
+            0% { opacity: 0; transform: translateY(8px) scale(0.98);}
+            100% { opacity: 1; transform: translateY(0) scale(1);}
+        }
+        .idea-card {
+            animation: gentlePop 0.25s ease-out;
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="header">
-        <h1>🗓️ Минский рандомайзер</h1>
-        <p>🇧🇾 культурная программа · активность · отдых</p>
+<div class="glass-card">
+    <div class="hero">
+        <div class="badge">ЧТОПОЧЕМ recommends</div>
+        <h1>ЧТОПОЧЕМ <span>МИНСК</span></h1>
+        <p>✧ локальный гид по самым вайбовым местам ✧</p>
     </div>
 
-    <div class="idea-panel">
-        <div class="idea-label">✨ ТВОЯ ИДЕЯ НА СЕГОДНЯ ✨</div>
-        <div class="idea-box">
-            <div id="randomIdea">🍃 Нажми на кнопку</div>
+    <div class="randomizer-core">
+        <div class="question-tag">⚡ ЧЕМ ЗАНЯТЬСЯ СЕГОДНЯ? ⚡</div>
+        <div class="idea-card">
+            <div id="randomIdea">
+                🎧 нажми на кнопку
+            </div>
         </div>
-        <button class="generate-btn" id="generateBtn">🎲 ЧТО СЕГОДНЯ ДЕЛАТЬ?</button>
-        <div style="font-size: 0.75rem; margin-top: 5px; opacity: 0.7;">⚡ случайный выбор из твоего списка дел в Минске</div>
+        <button class="glow-btn" id="generateBtn">
+            <span>🎲</span> Рандом ✦ ЧТОПОЧЕМ <span>✨</span>
+        </button>
+        <div style="font-size: 0.7rem; margin-top: 14px; color:#c97eb3;">#минск_что_где_есть</div>
     </div>
 
-    <div class="info-area">
-        <div class="counter">
-            📋 Всего идей: <span id="totalCount">10</span>  
-            <button id="resetListBtn" class="reset-list-btn" title="Восстановить первоначальный список (если меняли кодом)">⟳ Сброс</button>
+    <div class="footer-stats">
+        <div class="counter-chip">
+            📍 Мест в подборке: <strong id="totalCount">10</strong>
         </div>
-        <div class="footnote">
-            ⭐️ Загрузи свои 10 минских дел — просто замени массив в коде (строка const tasks)
-        </div>
+        <button id="resetListBtn" class="reset-btn">⟳ сбросить список</button>
+        <div class="brand">блогер ЧТОПОЧЕМ • фирменный стиль</div>
+        <div class="footnote">фиолетово-малиновый вайб • минские локации, которые советует команда</div>
     </div>
 </div>
 
 <script>
-    // ============================================================
-    // ★★★★★  ЗАМЕНИТЕ ЭТОТ МАССИВ НА ВАШИ 10 ДЕЛ В МИНСКЕ ★★★★★
-    // ============================================================
-    let tasks = [
-        "Прогуляться по Верхнему городу и посмотреть Ратушу",
-        "Сходить в Национальный художественный музей",
-        "Покататься на лодке в Комсомольском озере",
-        "Посетить Троицкое предместье и зайти в сувенирные лавки",
-        "Съесть драники в трактире «Беларусь»",
-        "Увидеть библиотеку Беларуси (алмаз знаний) — смотровая площадка",
-        "Прогулка по парку Победы и Челюскинцев",
-        "Сходить на спектакль в Купаловский театр",
-        "Посетить Музей истории Великой Отечественной войны",
-        "Устроить вечерний променад по проспекту Независимости"
+    // ================================================================
+    // ★ ФИРМЕННЫЙ СПИСОК ИНТЕРЕСНЫХ МЕСТ МИНСКА (ЧТОПОЧЕМ vibe) ★
+    // ================================================================
+    let places = [
+        "🍷 Бар «Палiтра» на Немиге — вино и арт-вечеринки",
+        "🎨 Музей современного искусства «Ў» — крутые инсталляции",
+        "☕ Кофейня «Druzi» в Верхнем городе и уютный дворик",
+        "📸 Заброшенный водонапорная башня — атмосферное граффити",
+        "🎧 Клуб «Барахолка» — винил и рейвы по выходным",
+        "🥨 Ресторан «Гранд кафе» в Троицком — дореволюционный шарм",
+        "🌿 Парк Янки Купалы и арт-объект «Минские качели»",
+        "🛹 Лошицкий парк — усадьба и стикер-ралли от ЧТОПОЧЕМ",
+        "🎬 Кинотеатр «Пионер» — авторское кино и попкорн с трюфелем",
+        "🧶 Галерея «ДК» — маркет локальных дизайнеров и зины"
     ];
 
-    // Функция для обновления отображаемого количества дел в футере
-    function updateTotalDisplay() {
-        document.getElementById('totalCount').innerText = tasks.length;
-    }
-
-    // Ключ для localStorage – чтобы запомнить, если пользователь захочет сменить дела через консоль (необязательно)
-    // Но главное: при загрузке страницы можно попробовать восстановить список, если он был сохранен ранее.
-    // Однако для простоты мы позволим пользователю через кнопку "Сброс" вернуть ИЗНАЧАЛЬНЫЙ массив.
-    // Сохраним оригинальный эталонный список отдельно.
-    const DEFAULT_TASKS = [
-        "Прогуляться по Верхнему городу и посмотреть Ратушу",
-        "Сходить в Национальный художественный музей",
-        "Покататься на лодке в Комсомольском озере",
-        "Посетить Троицкое предместье и зайти в сувенирные лавки",
-        "Съесть драники в трактире «Беларусь»",
-        "Увидеть библиотеку Беларуси (алмаз знаний) — смотровая площадка",
-        "Прогулка по парку Победы и Челюскинцев",
-        "Сходить на спектакль в Купаловский театр",
-        "Посетить Музей истории Великой Отечественной войны",
-        "Устроить вечерний променад по проспекту Независимости"
+    // оригинальный эталон (для сброса)
+    const DEFAULT_PLACES = [
+        "🍷 Бар «Палiтра» на Немиге — вино и арт-вечеринки",
+        "🎨 Музей современного искусства «Ў» — крутые инсталляции",
+        "☕ Кофейня «Druzi» в Верхнем городе и уютный дворик",
+        "📸 Заброшенный водонапорная башня — атмосферное граффити",
+        "🎧 Клуб «Барахолка» — винил и рейвы по выходным",
+        "🥨 Ресторан «Гранд кафе» в Троицком — дореволюционный шарм",
+        "🌿 Парк Янки Купалы и арт-объект «Минские качели»",
+        "🛹 Лошицкий парк — усадьба и стикер-ралли от ЧТОПОЧЕМ",
+        "🎬 Кинотеатр «Пионер» — авторское кино и попкорн с трюфелем",
+        "🧶 Галерея «ДК» — маркет локальных дизайнеров и зины"
     ];
 
-    // Загрузка возможного сохраненного списка (если ранее через консоль или в будущем добавим функцию, но для удобства)
-    // Можно также при желании загрузить из localStorage, но проще оставить так, чтобы вы могли изменить массив tasks прямо в коде.
-    // Тем не менее, кнопка сброса вернет tasks к DEFAULT_TASKS.
-    function resetToDefaultTasks() {
-        tasks = [...DEFAULT_TASKS];
-        updateTotalDisplay();
-        // После сброса желательно отобразить какой-то нейтральный текст, но не сбрасывать текущий результат,
-        // а просто обновить счетчик. Можно вывести сообщение, что список восстановлен.
-        const ideaDiv = document.getElementById('randomIdea');
-        if (ideaDiv.innerText !== "🍃 Нажми на кнопку" && ideaDiv.innerText !== "⚠️ Список дел пуст! Добавьте занятия.") {
-            // не трогаем идею, просто показываем временный тост-уведомление (alert не делаем, он раздражает)
-            showTemporaryMessage("✅ Список дел восстановлен до 10 минских активностей");
-        } else {
-            if(tasks.length === 0) ideaDiv.innerText = "🍃 Нажми на кнопку";
-            else ideaDiv.innerText = "🍃 Нажми на кнопку";
-        }
+    // вспомогательная функция обновления счётчика
+    function updateCounterUI() {
+        document.getElementById('totalCount').innerText = places.length;
     }
 
-    // Простое всплывающее сообщение (ненавязчивое)
-    function showTemporaryMessage(msg) {
-        let msgDiv = document.getElementById('tempMsg');
-        if(!msgDiv) {
-            msgDiv = document.createElement('div');
-            msgDiv.id = 'tempMsg';
-            msgDiv.style.position = 'fixed';
-            msgDiv.style.bottom = '20px';
-            msgDiv.style.left = '50%';
-            msgDiv.style.transform = 'translateX(-50%)';
-            msgDiv.style.backgroundColor = '#1e2f47';
-            msgDiv.style.color = '#ffcd3c';
-            msgDiv.style.padding = '10px 20px';
-            msgDiv.style.borderRadius = '40px';
-            msgDiv.style.fontSize = '0.85rem';
-            msgDiv.style.fontWeight = 'bold';
-            msgDiv.style.zIndex = '999';
-            msgDiv.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-            msgDiv.style.pointerEvents = 'none';
-            msgDiv.style.opacity = '0';
-            msgDiv.style.transition = 'opacity 0.2s';
-            document.body.appendChild(msgDiv);
+    // функция для отображения случайного места
+    function getRandomPlace() {
+        if (!places || places.length === 0) {
+            return "⚠️ Ой! Места закончились? Добавь новые в список через консоль или сбрось ⚠️";
         }
-        msgDiv.innerText = msg;
-        msgDiv.style.opacity = '1';
-        setTimeout(() => {
-            msgDiv.style.opacity = '0';
-        }, 1800);
+        const randomIndex = Math.floor(Math.random() * places.length);
+        return places[randomIndex];
     }
 
-    // Генератор случайного дела
-    function getRandomIdea() {
-        if (!tasks || tasks.length === 0) {
-            return "⚠️ Список дел пуст! Добавьте занятия в массив tasks.";
-        }
-        const randomIndex = Math.floor(Math.random() * tasks.length);
-        return tasks[randomIndex];
-    }
-
-    // Отображение случайного дела в блоке
-    function displayRandomTask() {
+    // анимация + рендер
+    function displayRandomIdea() {
         const ideaElement = document.getElementById('randomIdea');
-        if(tasks.length === 0) {
-            ideaElement.innerHTML = "❌ Список дел пуст. Обновите через кнопку сброса или добавьте активности.";
+        if (places.length === 0) {
+            ideaElement.innerHTML = "❌ Ни одного места в подборке. Нажми «сбросить список» ❌";
             return;
         }
-        const randomTask = getRandomIdea();
-        // Добавим маленькую анимацию: легкое мерцание
-        ideaElement.style.transform = "scale(0.98)";
+        const selected = getRandomPlace();
+        // микро-эффект "пульсации"
+        ideaElement.style.opacity = "0.7";
         setTimeout(() => {
-            ideaElement.innerHTML = randomTask;
-            ideaElement.style.transform = "scale(1)";
-        }, 50);
-        // Дополнительно: эффект на кнопке? не обязательно, но приятно.
+            ideaElement.innerHTML = selected;
+            ideaElement.style.opacity = "1";
+        }, 60);
+        // дополнительный фан: легкая вибрация на кнопке не нужна, но можно добавить флирт
     }
 
-    // Инициализация счетчика дел
-    function initCounter() {
-        updateTotalDisplay();
-        // Проверка: если массив tasks был изменен в коде вручную до загрузки - оставляем как есть,
-        // но если tasks имеет длину не 10 или пустой — можно предупредить в консоли. Но мы доверяем.
-        if(tasks.length === 0) {
-            console.warn("Рандомайзер: список задач пуст! Используйте сброс.");
-            document.getElementById('randomIdea').innerHTML = "📭 Добавьте свои 10 дел в Минске (массив tasks)";
+    // сброс до дефолтного списка от ЧТОПОЧЕМ
+    function resetToOriginal() {
+        places = [...DEFAULT_PLACES];
+        updateCounterUI();
+        const ideaDiv = document.getElementById('randomIdea');
+        // если было пустое сообщение или предупреждение, ставим приятный текст
+        if (ideaDiv.innerText.includes("закончились") || ideaDiv.innerText.includes("Ни одного места") || places.length > 0) {
+            ideaDiv.innerHTML = "✨ Список обновлён! Снова 10 крутых мест ✨";
         } else {
-            // По умолчанию покажем приветственную фразу
-            document.getElementById('randomIdea').innerHTML = "✨ Минск ждёт! Нажми на кнопку ✨";
+            ideaDiv.innerHTML = "✨ Нажми на кнопку и узнай, куда двинуть ✨";
         }
+        showFloatingMessage("Сброс до фирменной подборки ЧТОПОЧЕМ", "#c242ff");
     }
 
-    // Сохраняем слушатели
+    // небольшое кастомное уведомление в стиле блогера
+    function showFloatingMessage(msg, bgColor = "#b62be0") {
+        let toast = document.getElementById('customToast');
+        if(!toast) {
+            toast = document.createElement('div');
+            toast.id = 'customToast';
+            toast.style.position = 'fixed';
+            toast.style.bottom = '30px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.backgroundColor = bgColor;
+            toast.style.backdropFilter = 'blur(12px)';
+            toast.style.color = 'white';
+            toast.style.padding = '12px 24px';
+            toast.style.borderRadius = '60px';
+            toast.style.fontWeight = '600';
+            toast.style.fontSize = '0.85rem';
+            toast.style.zIndex = '1000';
+            toast.style.fontFamily = "'Inter', sans-serif";
+            toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+            toast.style.border = '1px solid rgba(255,155,230,0.7)';
+            toast.style.pointerEvents = 'none';
+            toast.style.transition = 'opacity 0.2s';
+            toast.style.opacity = '0';
+            document.body.appendChild(toast);
+        }
+        toast.innerText = msg;
+        toast.style.backgroundColor = bgColor;
+        toast.style.opacity = '1';
+        setTimeout(() => {
+            toast.style.opacity = '0';
+        }, 2000);
+    }
+
+    // инициализация и слушатели
     document.addEventListener('DOMContentLoaded', () => {
-        initCounter();
+        updateCounterUI();
+        // установим первоначальный текст
+        const ideaElement = document.getElementById('randomIdea');
+        if(places.length > 0) {
+            ideaElement.innerHTML = "💜 Нажми на кнопку — получи локацию от ЧТОПОЧЕМ 💜";
+        } else {
+            ideaElement.innerHTML = "💔 Список пуст, нажми сброс";
+        }
 
         const generateBtn = document.getElementById('generateBtn');
         generateBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            displayRandomTask();
+            displayRandomIdea();
+            // фиолетово-малиновая вибрация вдохновения (без overuse)
+            generateBtn.style.transform = "scale(0.98)";
+            setTimeout(() => { generateBtn.style.transform = ""; }, 120);
         });
 
         const resetBtn = document.getElementById('resetListBtn');
         resetBtn.addEventListener('click', () => {
-            resetToDefaultTasks();
-            // После сброса, если текущий отображаемый текст — "Список дел пуст" или подобное, обновим
-            const ideaDiv = document.getElementById('randomIdea');
-            const currentText = ideaDiv.innerText;
-            if (currentText.includes("пуст") || currentText.includes("Добавьте") || tasks.length > 0 && currentText === "⚠️ Список дел пуст! Добавьте занятия.") {
-                ideaDiv.innerHTML = "✨ Список обновлён! Жми кнопку ✨";
-            }
-        });
-
-        // Для удобства: обработка пробела / энтера на кнопке (accessibility)
-        generateBtn.addEventListener('keydown', (e) => {
-            if(e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                displayRandomTask();
-            }
+            resetToOriginal();
         });
     });
 
-    // дополнительная опция: если вы хотите сразу показать рандомную идею при загрузке (можно раскомментировать)
-    // но лучше оставить нейтрально, чтобы человек сам нажал.
-    // И еще: для демонстрации что список легко менять — вы можете прямо в консоли браузера написать:
-    // tasks = ["Пойти на каток в парк Горького", "Посетить Ботанический сад", ...] и счетчик обновится?
-    // сделаем так, чтобы при изменении массива tasks через консоль можно было обновить счетчик вручную, но для этого
-    // добавим функцию refreshCounter, которую можно вызвать вручную. Но для обычного юзера не нужно.
-    // Для разработчика — просто показать, что массив tasks гибкий.
-    window.updateTasksList = function(newTasksArray) {
-        if(Array.isArray(newTasksArray) && newTasksArray.length > 0) {
-            tasks = [...newTasksArray];
-            updateTotalDisplay();
-            showTemporaryMessage(`📌 Список обновлён! Теперь ${tasks.length} дел в Минске.`);
-            document.getElementById('randomIdea').innerHTML = "🔄 Новый список готов! Нажми на кнопку.";
+    // экстра-фича: если разработчик захочет кастомизировать список прямо на сайте,
+    // можно использовать глобальную функцию для обновления подборки (стиль ЧТОПОЧЕМ)
+    window.updateMinskPlaces = function(newPlacesArray) {
+        if(Array.isArray(newPlacesArray) && newPlacesArray.length > 0) {
+            places = [...newPlacesArray];
+            updateCounterUI();
+            showFloatingMessage(`✅ Теперь в подборке ${places.length} мест!`, "#c15bdd");
+            document.getElementById('randomIdea').innerHTML = "✨ Новый сет локаций готов! Жми кнопку ✨";
         } else {
-            showTemporaryMessage("Ошибка: передайте массив с делами (минимум 1)");
+            showFloatingMessage("❌ Ошибка: передайте массив с местами Минска", "#ff4d6d");
         }
     };
-    // Теперь вы (как администратор) можете в консоли браузера ввести:
-    // updateTasksList(["Сходить в ТРЦ Galleria Minsk", "Погулять по Октябрьской улице", ...])
-    // это удобно для тестов.
 
-    // также если кто-то захочет добавить защиту от дурака — выведем подсказку
-    console.log("✅ Рандомайзер готов! Список дел в Минске:", tasks);
-    console.log("💡 Чтобы загрузить свои 10 дел, отредактируйте массив 'tasks' в коде или вызовите updateTasksList(новыйМассив)");
+    // автоматическое логирование для блогера
+    console.log("%c🔥 ЧТОПОЧЕМ Минск рандомайзер загружен! 🔥", "color: #ff66cc; font-size: 16px; font-weight: bold;");
+    console.log("Твои места:", places);
+    console.log("💡 Используй updateMinskPlaces(новыйМассив) чтобы заменить подборку на свои 10+ дел");
+
+    // добавим микро-динамики: по нажатию на карточку иногда можно скопировать идею, но не обязательно
+    // но для стиля сделаем лёгкий hover на idea-card
+    const ideaCardDiv = document.querySelector('.idea-card');
+    if(ideaCardDiv) {
+        ideaCardDiv.addEventListener('mouseenter', () => {
+            ideaCardDiv.style.borderColor = "#ff7bcb";
+            ideaCardDiv.style.boxShadow = "0 0 12px rgba(200, 80, 220, 0.6)";
+        });
+        ideaCardDiv.addEventListener('mouseleave', () => {
+            ideaCardDiv.style.borderColor = "rgba(255, 75, 170, 0.6)";
+            ideaCardDiv.style.boxShadow = "0 15px 35px rgba(0, 0, 0, 0.4)";
+        });
+    }
 </script>
 </body>
 </html>
